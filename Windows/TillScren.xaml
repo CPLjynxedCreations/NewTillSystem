@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewTillSystem"
         mc:Ignorable="d"
-        Title="TillScren" Height="450" Width="800">
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        Title="TillScren" Height="1080" Width="1920">
     <Grid>
 
     </Grid>
