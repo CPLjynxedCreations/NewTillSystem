@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:NewTillSystem"
              StartupUri="Windows/TillScren.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/btnEmptyDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/btnAdminDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>
