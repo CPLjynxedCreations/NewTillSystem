@@ -11,58 +11,73 @@
         Height="1080"
         Width="1920"
         Background="Black">
-    <Grid x:Name="grScreen" HorizontalAlignment="Left" VerticalAlignment="Top">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="grSaleScreen"
-                                Width="620"/>
-            <ColumnDefinition x:Name="grBtnScreen"
-                                Width="1300"/>
-        </Grid.ColumnDefinitions>
+    <Grid x:Name="grScreen"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top"
+          Width="1920">
         <Border x:Name="brdScreen1"
-                    Grid.Column="0"
                     BorderBrush="Black"
                     Background="DarkOliveGreen"
-                    BorderThickness="5,5,0,5"
-                    CornerRadius="10,0,0,10"/>
-        <Border x:Name="brdScreen2"
-                    Grid.Column="1"
-                    BorderBrush="Black"
-                    Background="DarkOliveGreen"
-                    BorderThickness="0,5,5,5"
-                    CornerRadius="0,10,10,0"/>
+                    BorderThickness="5,5,5,5"
+                    CornerRadius="10,10,10,10"/>
+        
         <!-- DEFINE SALE GRID-->
-        <Grid x:Name="grSaleItemScreen"
-              Grid.Column="0"
+        <Grid x:Name="grSaleScreen"
               VerticalAlignment="Top"
               HorizontalAlignment="Left"
-              Width="620"
-              Height="742">
-        <Border x:Name="brdSaleItemScreen"
-                Grid.Column="0"
-                BorderBrush="Black"
-                Background="Gray"
-                BorderThickness="5,5,5,5"
-                CornerRadius="10,0,10,10"/>
+              Width="618"
+              Height="740">
+            <Grid x:Name="grSaleScreenItems"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left"
+                  Width="618"
+                  Height="740">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="60"/>
+                    <ColumnDefinition
+                        Width="438"/>
+                    <ColumnDefinition
+                        Width="120"/>
+                </Grid.ColumnDefinitions>
+            <Border x:Name="brdSaleScreen"
+                    BorderBrush="Black"
+                    Background="Gray"
+                    Grid.ColumnSpan="3"
+                    BorderThickness="5,5,5,5"
+                    CornerRadius="10,0,10,10"/>
+            <Border x:Name="brdSaleScreenItems"
+                        Grid.Column="1"
+                        BorderBrush="Black"
+                        BorderThickness="3,0,3,0"/>
+            </Grid>
         </Grid>
+        
         <!-- DEFINE BUTTON GRID-->
         <Grid x:Name="grBtnScreenColumns"
               HorizontalAlignment="Left"
               VerticalAlignment="Top"
               Grid.Column="1"
-              Width="1300"
+              Width="1920"
               Height="1060">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="grBtnScreenCol1"
-                                  Width="216"/>
+                                  Width="206"/>
                 <ColumnDefinition x:Name="grBtnScreenCol2"
-                                  Width="216"/>
+                                  Width="206"/>
                 <ColumnDefinition x:Name="grBtnScreenCol3"
-                                  Width="216"/>
+                                  Width="206"/>
                 <ColumnDefinition x:Name="grBtnScreenCol4"
                                   Width="216"/>
                 <ColumnDefinition x:Name="grBtnScreenCol5"
                                   Width="216"/>
                 <ColumnDefinition x:Name="grBtnScreenCol6"
+                                  Width="216"/>
+                <ColumnDefinition x:Name="grBtnScreenCol7"
+                                  Width="216"/>
+                <ColumnDefinition x:Name="grBtnScreenCol8"
+                                  Width="216"/>
+                <ColumnDefinition x:Name="grBtnScreenCol9"
                                   Width="216"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
