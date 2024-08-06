@@ -10,11 +10,11 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-    <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-    <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-    <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+    <SolidColorBrush x:Key="Button.Static.Background" Color="Firebrick"/>
+    <SolidColorBrush x:Key="Button.Static.Border" Color="DarkRed"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Firebrick"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Border" Color="DarkRed"/>
+    <SolidColorBrush x:Key="Button.Pressed.Background" Color="Firebrick"/>
     <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
     <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
     <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
@@ -47,6 +47,7 @@
                         <Trigger Property="IsPressed" Value="true">
                             <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="White"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
