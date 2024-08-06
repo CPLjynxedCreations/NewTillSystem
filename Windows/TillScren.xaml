@@ -20,7 +20,7 @@
                     Background="DarkOliveGreen"
                     BorderThickness="5,5,5,5"
                     CornerRadius="10,10,10,10"/>
-        
+
         <!-- DEFINE SALE GRID-->
         <Grid x:Name="grSaleScreen"
               VerticalAlignment="Top"
@@ -33,33 +33,93 @@
                   Width="618"
                   Height="740">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition
-                        Width="60"/>
-                    <ColumnDefinition
-                        Width="438"/>
-                    <ColumnDefinition
-                        Width="120"/>
+                    <ColumnDefinition x:Name="grSaleScreenItemCol1"
+                                      Width="60"/>
+                    <ColumnDefinition x:Name="grSaleScreenItemCol2"
+                                      Width="438"/>
+                    <ColumnDefinition x:Name="grSaleScreenItemCol3"
+                                      Width="120"/>
                 </Grid.ColumnDefinitions>
-            <Border x:Name="brdSaleScreen"
-                    BorderBrush="Black"
-                    Background="Gray"
-                    Grid.ColumnSpan="3"
-                    BorderThickness="5,5,5,5"
-                    CornerRadius="10,0,10,10"/>
-            <Border x:Name="brdSaleScreenItems"
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="grSaleScreenItemRow1"
+                                   Height="40"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow2"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow3"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow4"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow5"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow6"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow7"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow8"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow9"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow10"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow11"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow12"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow13"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow14"
+                                   Height="50"/>
+                    <RowDefinition x:Name="grSaleScreenItemRow15"
+                                   Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Border x:Name="bgSaleScreen"
+                        Background="Gray"
+                        Grid.ColumnSpan="3"
+                        Grid.RowSpan="15"
+                        BorderThickness="5,5,5,5"
+                        CornerRadius="10,0,10,10"/>
+                <Rectangle x:Name="bgSaleScreenItemHead"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="3"
+                           Height="40"
+                           Width="618"
+                           Stroke="Black"
+                           StrokeThickness="3"
+                           Fill="Firebrick"/>
+                <Rectangle x:Name="bgSaleScreenItemFoot"
+                           Grid.Column="0"
+                           Grid.Row="15"
+                           Grid.ColumnSpan="3"
+                           Height="50"
+                           Width="618"
+                           RadiusX="4"
+                           RadiusY="4"
+                           Stroke="Black"
+                           StrokeThickness="3"
+                           Fill="Firebrick"/>
+                <Border x:Name="brdSaleScreenItems"
                         Grid.Column="1"
+                        Grid.RowSpan="15"
                         BorderBrush="Black"
                         BorderThickness="3,0,3,0"/>
+                <Border x:Name="brdSaleScreen"
+                        BorderBrush="Black"
+                        Grid.ColumnSpan="3"
+                        Grid.RowSpan="15"
+                        BorderThickness="5,5,5,5"
+                        CornerRadius="10,0,10,10"/>
             </Grid>
         </Grid>
-        
+
         <!-- DEFINE BUTTON GRID-->
         <Grid x:Name="grBtnScreenColumns"
               HorizontalAlignment="Left"
               VerticalAlignment="Top"
               Grid.Column="1"
-              Width="1920"
-              Height="1060">
+              Width="1915"
+              Height="1055">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="grBtnScreenCol1"
                                   Width="206"/>
