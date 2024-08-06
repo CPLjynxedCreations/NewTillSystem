@@ -207,7 +207,6 @@
                 <RowDefinition x:Name="grBtnScreenRow10"
                                Height="106"/>
             </Grid.RowDefinitions>
-            <!---->
         </Grid>
     </Grid>
 </Window>
