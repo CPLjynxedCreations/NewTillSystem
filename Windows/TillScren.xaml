@@ -10,15 +10,40 @@
         ResizeMode="NoResize"
         Height="1080"
         Width="1920"
-        Background="DarkOliveGreen">
-    <Grid x:Name="grScreen">
+        Background="Black">
+    <Grid x:Name="grScreen" HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="grSaleScreen"
                                 Width="620"/>
             <ColumnDefinition x:Name="grBtnScreen"
                                 Width="1300"/>
         </Grid.ColumnDefinitions>
-
+        <Border x:Name="brdScreen1"
+                    Grid.Column="0"
+                    BorderBrush="Black"
+                    Background="DarkOliveGreen"
+                    BorderThickness="5,5,0,5"
+                    CornerRadius="10,0,0,10"/>
+        <Border x:Name="brdScreen2"
+                    Grid.Column="1"
+                    BorderBrush="Black"
+                    Background="DarkOliveGreen"
+                    BorderThickness="0,5,5,5"
+                    CornerRadius="0,10,10,0"/>
+        <!-- DEFINE SALE GRID-->
+        <Grid x:Name="grSaleItemScreen"
+              Grid.Column="0"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Left"
+              Width="620"
+              Height="742">
+        <Border x:Name="brdSaleItemScreen"
+                Grid.Column="0"
+                BorderBrush="Black"
+                Background="Gray"
+                BorderThickness="5,5,5,5"
+                CornerRadius="10,0,10,10"/>
+        </Grid>
         <!-- DEFINE BUTTON GRID-->
         <Grid x:Name="grBtnScreenColumns"
               HorizontalAlignment="Left"
@@ -63,92 +88,6 @@
                                Height="106"/>
             </Grid.RowDefinitions>
             <!---->
-
-            <!--DEFINE BUTTON GRID BORDERS-->
-            <Border x:Name="brdBtnScreenCol1"
-                    Grid.Column="0"
-                    Grid.RowSpan="10"
-                    BorderBrush="Black"
-                    BorderThickness="2,2,2,2"
-                    CornerRadius="5,0,0,5"/>
-            <Border x:Name="brdBtnScreenCol2"
-                    Grid.Column="1"
-                    Grid.RowSpan="10"
-                    BorderBrush="Black"
-                    BorderThickness="1,2,2,2"/>
-            <Border x:Name="brdBtnScreenCol3"
-                    Grid.Column="2"
-                    Grid.RowSpan="10"
-                    BorderBrush="Black"
-                    BorderThickness="1,2,2,2"/>
-            <Border x:Name="brdBtnScreenCol4"
-                    Grid.Column="3"
-                    Grid.RowSpan="10"
-                    BorderBrush="Black"
-                    BorderThickness="1,2,2,2"/>
-            <Border x:Name="brdBtnScreenCol5"
-                    Grid.Column="4"
-                    Grid.RowSpan="10"
-                    BorderBrush="Black"
-                    BorderThickness="1,2,2,2"/>
-            <Border x:Name="brdBtnScreenCol6"
-                    Grid.Column="5"
-                    Grid.RowSpan="10"
-                    BorderBrush="Black"
-                    BorderThickness="1,2,2,2"
-                    CornerRadius="0,5,5,0"/>
-            <Border x:Name="brdBtnScreenRow1"
-                    Grid.Row="0"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,2,2,1"
-                    CornerRadius="5,5,0,0"/>
-            <Border x:Name="brdBtnScreenRow2"
-                    Grid.Row="1"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow3"
-                    Grid.Row="2"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow4"
-                    Grid.Row="3"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow5"
-                    Grid.Row="4"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow6"
-                    Grid.Row="5"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow7"
-                    Grid.Row="6"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow8"
-                    Grid.Row="7"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow9"
-                    Grid.Row="8"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,1"/>
-            <Border x:Name="brdBtnScreenRow10"
-                    Grid.Row="9"
-                    Grid.ColumnSpan="6"
-                    BorderBrush="Black"
-                    BorderThickness="2,1,2,2"
-                    CornerRadius="0,0,5,5"/>
         </Grid>
     </Grid>
 </Window>
