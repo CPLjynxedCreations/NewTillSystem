@@ -9,6 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/btnEmptyDictionary.xaml"/>
                 <ResourceDictionary Source="/Resources/btnAdminDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/btnAdminQuickDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
