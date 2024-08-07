@@ -174,7 +174,7 @@
         <Grid x:Name="grSaleScreen"
               VerticalAlignment="Top"
               HorizontalAlignment="Left"
-              Width="618"
+              Width="615"
               Height="740">
             <Grid x:Name="grSaleScreenItems"
                   VerticalAlignment="Top"
@@ -248,6 +248,30 @@
                            Stroke="Black"
                            StrokeThickness="3"
                            Fill="Firebrick"/>
+                
+                <!--rename and change style dict-->
+                <ToggleButton x:Name="btnrow"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="3"/>
+                <TextBlock x:Name="lblrow1"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Text="LBL"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <TextBlock x:Name="lblrow2"
+                           Grid.Row="1"
+                           Grid.Column="2"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Text="LBL"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <!---->
+                
                 <Border x:Name="brdSaleScreenItems"
                         Grid.Column="1"
                         Grid.RowSpan="15"
@@ -289,12 +313,12 @@
                 <TextBlock x:Name="lblSaleScreenTotalName"
                            Grid.Column="1"
                            Grid.Row="14"
-                           Text="TOTAL:"
+                           Text="TOTAL $"
                            FontSize="24"
                            FontWeight="UltraBlack"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0,0,40,5"/>
+                           Margin="0,0,20,5"/>
                 <TextBlock x:Name="lblSaleScreenTotalAmount"
                            Grid.Column="2"
                            Grid.Row="14"
