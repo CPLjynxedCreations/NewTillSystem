@@ -261,7 +261,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow1"
+                    <ToggleButton x:Name="btnRow1"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -286,7 +286,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow2"
+                    <ToggleButton x:Name="btnRow2"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -311,7 +311,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow3"
+                    <ToggleButton x:Name="btnRow3"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -336,7 +336,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow4"
+                    <ToggleButton x:Name="btnRow4"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -361,7 +361,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow5"
+                    <ToggleButton x:Name="btnRow5"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -386,7 +386,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow6"
+                    <ToggleButton x:Name="btnRow6"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -411,7 +411,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow7"
+                    <ToggleButton x:Name="btnRow7"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -436,7 +436,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow8"
+                    <ToggleButton x:Name="btnRow8"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -461,7 +461,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow9"
+                    <ToggleButton x:Name="btnRow9"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -486,7 +486,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow10"
+                    <ToggleButton x:Name="btnRow10"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -511,7 +511,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow11"
+                    <ToggleButton x:Name="btnRow11"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -536,7 +536,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow12"
+                    <ToggleButton x:Name="btnRow12"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
@@ -561,7 +561,7 @@
                         <ColumnDefinition
                             Width="120"/>
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnrow13"
+                    <ToggleButton x:Name="btnRow13"
                                   Style="{DynamicResource btnSaleToggleStyle}" 
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3"
