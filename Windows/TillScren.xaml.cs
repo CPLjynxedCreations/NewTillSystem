@@ -26,6 +26,15 @@ namespace NewTillSystem
 
         private void ClearStartStrings()
         {
+            var builder = new StringBuilder();
+            for (int i = 1; i <= 13; i++)
+            {
+                string btnChange = "btnRow";
+                
+                builder.Append(btnChange + i);
+                Debug.WriteLine(btnChange + i);
+            }
+            
             btnRow1.Content = strEmpty;
             btnRow2.Content = strEmpty;
             btnRow3.Content = strEmpty;
