@@ -176,61 +176,56 @@
         <Grid x:Name="grSaleScreen"
               VerticalAlignment="Top"
               HorizontalAlignment="Left"
-              Width="615"
+              Width="618"
               Height="740">
-            <Grid x:Name="grSaleScreenItems"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Left"
-                  Width="618"
-                  Height="740">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="grSaleScreenItemCol1"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="grSaleScreenItemCol1"
                                       Width="60"/>
-                    <ColumnDefinition x:Name="grSaleScreenItemCol2"
+                <ColumnDefinition x:Name="grSaleScreenItemCol2"
                                       Width="438"/>
-                    <ColumnDefinition x:Name="grSaleScreenItemCol3"
+                <ColumnDefinition x:Name="grSaleScreenItemCol3"
                                       Width="120"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition x:Name="grSaleScreenItemRow1"
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="grSaleScreenItemRow1"
                                    Height="40"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow2"
+                <RowDefinition x:Name="grSaleScreenItemRow2"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow3"
+                <RowDefinition x:Name="grSaleScreenItemRow3"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow4"
+                <RowDefinition x:Name="grSaleScreenItemRow4"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow5"
+                <RowDefinition x:Name="grSaleScreenItemRow5"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow6"
+                <RowDefinition x:Name="grSaleScreenItemRow6"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow7"
+                <RowDefinition x:Name="grSaleScreenItemRow7"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow8"
+                <RowDefinition x:Name="grSaleScreenItemRow8"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow9"
+                <RowDefinition x:Name="grSaleScreenItemRow9"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow10"
+                <RowDefinition x:Name="grSaleScreenItemRow10"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow11"
+                <RowDefinition x:Name="grSaleScreenItemRow11"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow12"
+                <RowDefinition x:Name="grSaleScreenItemRow12"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow13"
+                <RowDefinition x:Name="grSaleScreenItemRow13"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow14"
+                <RowDefinition x:Name="grSaleScreenItemRow14"
                                    Height="50"/>
-                    <RowDefinition x:Name="grSaleScreenItemRow15"
+                <RowDefinition x:Name="grSaleScreenItemRow15"
                                    Height="50"/>
-                </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
 
-                <Border x:Name="bgSaleScreen"
+            <Border x:Name="bgSaleScreen"
                         Background="Gray"
                         Grid.ColumnSpan="3"
                         Grid.RowSpan="15"
                         BorderThickness="5,5,5,5"
                         CornerRadius="10,0,10,10"/>
-                <Rectangle x:Name="bgSaleScreenItemHead"
+            <Rectangle x:Name="bgSaleScreenItemHead"
                            Grid.Column="0"
                            Grid.Row="0"
                            Grid.ColumnSpan="3"
@@ -239,7 +234,7 @@
                            Stroke="Black"
                            StrokeThickness="3"
                            Fill="Firebrick"/>
-                <Rectangle x:Name="bgSaleScreenItemFoot"
+            <Rectangle x:Name="bgSaleScreenItemFoot"
                            Grid.Column="0"
                            Grid.Row="15"
                            Grid.ColumnSpan="3"
@@ -250,344 +245,241 @@
                            Stroke="Black"
                            StrokeThickness="3"
                            Fill="Firebrick"/>
-                <Grid x:Name="grSaleLine1"
-                      Grid.Row="1"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow1"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row1"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row1"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine2"
-                      Grid.Row="2"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow2"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row2"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row2"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine3"
-                      Grid.Row="3"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow3"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row3"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row3"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine4"
-                      Grid.Row="4"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow4"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row4"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row4"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine5"
-                    Grid.Row="5"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow5"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row5"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row5"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine6"
-                      Grid.Row="6"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow6"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row6"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row6"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine7"
-                      Grid.Row="7"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow7"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row7"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row7"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine8"
-                      Grid.Row="8"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow8"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row8"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row8"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine9"
-                      Grid.Row="9"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow9"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row9"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row9"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine10"
-                      Grid.Row="10"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow10"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row10"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row10"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine11"
-                      Grid.Row="11"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow11"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row11"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row11"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine12"
-                      Grid.Row="12"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow12"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row12"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row12"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
-                <Grid x:Name="grSaleLine13"
-                      Grid.Row="13"
-                      Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="60"/>
-                        <ColumnDefinition
-                            Width="438"/>
-                        <ColumnDefinition
-                            Width="120"/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnRow13"
-                                  Style="{DynamicResource btnSaleToggleStyle}" 
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="3"
-                                  Content="ITEM"/>
-                    <TextBlock x:Name="lbl1Row13"
-                               Grid.Column="0"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                    <TextBlock x:Name="lbl2Row13"
-                               Grid.Column="2"
-                               Style="{DynamicResource lblSaleScreen}"
-                               Text="#"/>
-                </Grid>
 
-                <Border x:Name="brdSaleScreenItems"
+            <ToggleButton x:Name="btnRow1"
+                          Tag="test"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Grid.Column="0"
+                          Grid.Row="1"
+                          Grid.ColumnSpan="3"
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row1"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row1"
+                       Grid.Row="1"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow2"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Grid.Row="2"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row2"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row2"
+                       Grid.Row="2"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow3"
+                          Grid.Row="3"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row3"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row3"
+                       Grid.Row="3"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow4"
+                          Grid.Row="4"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row4"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row4"
+                       Grid.Row="4"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow5"
+                          Grid.Row="5"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row5"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row5"
+                       Grid.Row="5"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow6"
+                          Grid.Row="6"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row6"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row6"
+                       Grid.Row="6"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow7"
+                          Grid.Row="7"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row7"
+                       Grid.Row="7"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row7"
+                       Grid.Row="7"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow8"
+                          Grid.Row="8"        
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row8"
+                       Grid.Row="8"        
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row8"
+                       Grid.Row="8"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow9"
+                          Grid.Row="9"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row9"
+                       Grid.Row="9"        
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row9"
+                       Grid.Row="9"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow10"
+                          Grid.Row="10"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row10"
+                       Grid.Row="10"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row10"
+                       Grid.Row="10"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow11"
+                          Grid.Row="11"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row11"
+                       Grid.Row="11"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row11"
+                       Grid.Row="11"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow12"
+                          Grid.Row="12"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row12"
+                       Grid.Row="12"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row12"
+                       Grid.Row="12"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <ToggleButton x:Name="btnRow13"
+                          Grid.Row="13"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Content="ITEM"/>
+            <TextBlock x:Name="lbl1Row13"
+                       Grid.Row="13"
+                       Grid.Column="0"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+            <TextBlock x:Name="lbl2Row13"
+                       Grid.Row="13"
+                       Grid.Column="2"
+                       Style="{DynamicResource lblSaleScreen}"
+                       Text="#"/>
+
+            <Border x:Name="brdSaleScreenItems"
                         Grid.Column="1"
                         Grid.RowSpan="15"
                         BorderBrush="Black"
                         BorderThickness="3,0,3,0"/>
-                <Border x:Name="brdSaleScreen"
+            <Border x:Name="brdSaleScreen"
                         BorderBrush="Black"
                         Grid.ColumnSpan="3"
                         Grid.RowSpan="15"
                         BorderThickness="5,5,5,5"
                         CornerRadius="10,0,10,10"/>
-                <TextBlock x:Name="lblSaleScreenAmount"
+            <TextBlock x:Name="lblSaleScreenAmount"
                            Grid.Column="0"
                            Grid.Row="0"
                            Text="AMT"
@@ -596,7 +488,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Margin="5,3,0,0"/>
-                <TextBlock x:Name="lblSaleScreenStaff"
+            <TextBlock x:Name="lblSaleScreenStaff"
                            Grid.Column="1"
                            Grid.Row="0"
                            Text="STAFF NAME"
@@ -605,7 +497,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Margin="5,3,0,0"/>
-                <TextBlock x:Name="lblSaleScreenQuantity"
+            <TextBlock x:Name="lblSaleScreenQuantity"
                            Grid.Column="2"
                            Grid.Row="0"
                            Text="QTY"
@@ -614,7 +506,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Margin="5,3,0,0"/>
-                <TextBlock x:Name="lblSaleScreenTotalName"
+            <TextBlock x:Name="lblSaleScreenTotalName"
                            Grid.Column="1"
                            Grid.Row="14"
                            Text="TOTAL $"
@@ -623,7 +515,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
                            Margin="0,0,20,5"/>
-                <TextBlock x:Name="lblSaleScreenTotalAmount"
+            <TextBlock x:Name="lblSaleScreenTotalAmount"
                            Grid.Column="2"
                            Grid.Row="14"
                            Text="00.00"
@@ -632,7 +524,6 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
                            Margin="20,0,0,5"/>
-            </Grid>
         </Grid>
         <!--#endregion-->
 
