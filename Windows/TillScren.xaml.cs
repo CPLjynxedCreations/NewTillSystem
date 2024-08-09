@@ -26,7 +26,7 @@ namespace NewTillSystem
 
         private void ClearStartStrings()
         {
-            lblAdminNumAmount.Text = string.Empty;
+            lblAdminNumAmount.Text = strEmpty;
 
             for (int i = 1; i <= 15; i++)
             {
