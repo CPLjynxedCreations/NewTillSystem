@@ -247,7 +247,7 @@
                            Fill="Firebrick"/>
 
             <ToggleButton x:Name="btnRow1"
-                          Click="saleScreenRow1_Click"
+                          Tag="test"
                           Style="{DynamicResource btnSaleToggleStyle}" 
                           Grid.Column="0"
                           Grid.Row="1"
@@ -265,7 +265,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow2"
-                          Click="saleScreenRow2_Click"
                           Style="{DynamicResource btnSaleToggleStyle}" 
                           Grid.Row="2"
                           Grid.Column="0"
@@ -283,7 +282,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow3"
-                          Click="saleScreenRow3_Click"
                           Grid.Row="3"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -301,7 +299,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow4"
-                          Click="saleScreenRow4_Click"
                           Grid.Row="4"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -319,7 +316,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow5"
-                          Click="saleScreenRow5_Click"
                           Grid.Row="5"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -337,7 +333,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow6"
-                          Click="saleScreenRow6_Click"
                           Grid.Row="6"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -355,7 +350,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow7"
-                          Click="saleScreenRow7_Click"
                           Grid.Row="7"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -373,7 +367,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow8"
-                          Click="saleScreenRow8_Click"
                           Grid.Row="8"        
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -391,7 +384,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow9"
-                          Click="saleScreenRow9_Click"
                           Grid.Row="9"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -409,7 +401,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow10"
-                          Click="saleScreenRow10_Click"
                           Grid.Row="10"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -427,7 +418,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow11"
-                          Click="saleScreenRow11_Click"
                           Grid.Row="11"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -445,7 +435,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow12"
-                          Click="saleScreenRow12_Click"
                           Grid.Row="12"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
@@ -463,7 +452,6 @@
                        Text="#"/>
 
             <ToggleButton x:Name="btnRow13"
-                          Click="saleScreenRow13_Click"
                           Grid.Row="13"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
