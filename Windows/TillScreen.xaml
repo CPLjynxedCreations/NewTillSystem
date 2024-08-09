@@ -24,7 +24,7 @@
         <Grid x:Name="AdminNumbers"
               VerticalAlignment="Top"
               HorizontalAlignment="Left"
-              Height="423"
+              Height="427"
               Margin="1266,634,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="grNumRow1"
@@ -38,7 +38,7 @@
                 <RowDefinition x:Name="grNumRow5"
                                Height="75"/>
                 <RowDefinition x:Name="grNumRow6"
-                               Height="75"/>
+                               Height="79"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="grNumCol1"
@@ -542,7 +542,6 @@
         <Grid x:Name="grBtnScreen"
               HorizontalAlignment="Left"
               VerticalAlignment="Top"
-              Grid.Column="1"
               Width="1915"
               Height="1060"
               Margin="5,5,0,0">
@@ -564,7 +563,7 @@
                 <ColumnDefinition x:Name="grBtnScreenCol8"
                                   Width="216"/>
                 <ColumnDefinition x:Name="grBtnScreenCol9"
-                                  Width="206"/>
+                                  Width="216"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="grBtnScreenRow1"
