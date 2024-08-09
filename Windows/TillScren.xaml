@@ -438,7 +438,7 @@
                           Grid.Row="12"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
-                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Style="{DynamicResource btnSaleToggleStyle}"
                           Content="ITEM"/>
             <TextBlock x:Name="lbl1Row12"
                        Grid.Row="12"
@@ -455,7 +455,7 @@
                           Grid.Row="13"
                           Grid.Column="0"
                           Grid.ColumnSpan="3"
-                          Style="{DynamicResource btnSaleToggleStyle}" 
+                          Style="{DynamicResource btnSaleToggleStyle}"
                           Content="ITEM"/>
             <TextBlock x:Name="lbl1Row13"
                        Grid.Row="13"
@@ -553,7 +553,7 @@
                 <ColumnDefinition x:Name="grBtnScreenCol8"
                                   Width="216"/>
                 <ColumnDefinition x:Name="grBtnScreenCol9"
-                                  Width="216"/>
+                                  Width="206"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="grBtnScreenRow1"
@@ -788,24 +788,24 @@
             <Button x:Name="btnAdmin5"
                     Style="{DynamicResource btnAdminStyle}" 
                     Grid.Column="4"
-                    Grid.Row="89"/>
+                    Grid.Row="9"/>
             <Button x:Name="btnAdmin4"
                     Style="{DynamicResource btnAdminStyle}" 
                     Grid.Column="3"
-                    Grid.Row="89"/>
+                    Grid.Row="9"/>
             <Button x:Name="btnAdmin3"
                     Style="{DynamicResource btnAdminStyle}" 
                     Grid.Column="2"
-                    Grid.Row="89"/>
+                    Grid.Row="9"/>
             <Button x:Name="btnAdmin2"
                     Style="{DynamicResource btnAdminStyle}" 
                     Grid.Column="1"
-                    Grid.Row="89"/>
+                    Grid.Row="9"/>
             <Button x:Name="btnAdminManage"
-                    Style="{DynamicResource btnAdminStyle}" 
+                    Style="{DynamicResource btnAdminStyle}"
                     Content="Manage"
                     Grid.Column="0"
-                    Grid.Row="89"/>
+                    Grid.Row="9"/>
         </Grid>
         <!--#endregion-->
     </Grid>
