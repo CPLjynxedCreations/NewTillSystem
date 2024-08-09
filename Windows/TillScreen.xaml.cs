@@ -28,7 +28,7 @@ namespace NewTillSystem
         {
             InitializeComponent();
             ClearStartStrings();
-            TillLogOn();
+            //TillLogOn();
         }
 
         private void TillLogOn()
@@ -87,7 +87,6 @@ namespace NewTillSystem
             strUserNumberInput += "9";
             PrintUserInput();
         }
-        #endregion
         private void btnAdminNumMinus_Click(object sender, RoutedEventArgs e)
         {
             if (!boolIsMinus)
@@ -109,6 +108,7 @@ namespace NewTillSystem
                 PrintUserInput();
             }
         }
+        #endregion
 
         private void PrintUserInput()
         {
