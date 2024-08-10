@@ -24,14 +24,15 @@ namespace NewTillSystem
         private int intUserNumberInput;
         private bool boolIsMinus;
 
-        //public bool boolCanEditProduct;
+        private bool boolCanEditProduct;
 
 
         public TillScreen()
         {
             InitializeComponent();
             ClearStartStrings();
-            //TillLogOn();
+            boolCanEditProduct = true;
+            TillLogOn();
         }
 
         private void TillLogOn()
@@ -118,6 +119,20 @@ namespace NewTillSystem
             Button btnPressedProduct = (Button)sender;
             var strPressedProduct = Convert.ToString(btnPressedProduct.Name);
 
+            if (boolCanEditProduct)
+            {
+                //get button content
+                //if content text box will = content
+                EnterProductDetails openPrompt = new EnterProductDetails();
+                openPrompt.Owner = Application.Current.MainWindow;
+                openPrompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); };
+                openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); };
+                openPrompt.txtEnterProductName.Focus();
+                openPrompt.ShowDialog();
+                //set the name and price of the item from product window
+            }
+            // create bool for edit
             //if edit bool
             // ADD PRODUCT
             //var name = "btnProduct";
@@ -126,7 +141,9 @@ namespace NewTillSystem
             //var searchName = name + i;
             //if searchName = strPressedProduct
             //rowNumber = i;
-            BTNPressedProduct.Content = "fuck"; // textbox.text
+            
+            //BTNPressedProduct.Content = "fuck"; // textbox.text
+            
             //print to excel
 
             //do stuff with button clicked
