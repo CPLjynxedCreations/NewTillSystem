@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +22,17 @@ namespace NewTillSystem.Windows
         private string strEmpty = "";
         private string strNathan = "1234";
         private string strAlana = "4321";
+        public string strStaffLogin;
+
+        private int intStaffAmount = 10;
 
         public LogInScreen()
         {
             InitializeComponent();
-            strUserNumberInput = strEmpty;
             ClearLabelStrings();
         }
 
-
+        #region numbers
         private void btnAdminNum0_Click(object sender, RoutedEventArgs e)
         {
             strUserNumberInput += "0";
@@ -79,6 +83,7 @@ namespace NewTillSystem.Windows
             strUserNumberInput += "9";
             PrintUserInput();
         }
+        #endregion
 
         private void PrintUserInput()
         {
@@ -88,15 +93,25 @@ namespace NewTillSystem.Windows
             }
             if (strUserNumberInput.Length == 4)
             {
-                if (strUserNumberInput == strAlana || strUserNumberInput == strNathan)
+                for (int i = 1; i <= intStaffAmount; i++)
                 {
-                    lblAdminNumAmount.Text = "done";
-                    Close();
-                }
-                else
-                {
-                    lblAdminNumAmount.Text = "Try Again";
-                    strUserNumberInput = strEmpty;
+                    
+                    if (strUserNumberInput == strAlana)
+                    {
+                        strStaffLogin = "Alana";
+                        Close();
+                    }
+                    if (strUserNumberInput == strNathan)
+                    {
+                        strStaffLogin = "Nathan";
+                        Close();
+                    }
+                    
+                    else
+                    {
+                        lblAdminNumAmount.Text = "Try Again";
+                        strUserNumberInput = strEmpty;
+                    }
                 }
             }
         }

@@ -19,6 +19,8 @@ namespace NewTillSystem
 {
     public partial class TillScreen : Window
     {
+        private string strStaffName;
+
         private string strEmpty = "";
         private string strUserNumberInput;
         private string strUserNumberConvert;
@@ -39,13 +41,16 @@ namespace NewTillSystem
             ClearStartStrings();
             SetProductButtonDetails();
             boolCanEditProduct = true;
-            //TillLogOn();
+            TillLogOn();
         }
 
         private void TillLogOn()
         {
             LogInScreen logInScreen = new LogInScreen();
             logInScreen.ShowDialog();
+            //needs to read from excel
+            strStaffName = logInScreen.strStaffLogin;
+            lblSaleScreenStaff.Text = strStaffName;
         }
         #region NUMBER PAD
         private void btnAdminNum0_Click(object sender, RoutedEventArgs e)
