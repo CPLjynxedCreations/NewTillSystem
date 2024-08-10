@@ -111,6 +111,13 @@ namespace NewTillSystem
         }
         #endregion
 
+        private void btnProduct_Click (object sender, RoutedEventArgs e)
+        {
+            Button BTNPressedProduct = (Button)sender;
+            var btnPressedProduct = Convert.ToString(BTNPressedProduct.Name);
+            Debug.WriteLine(btnPressedProduct);
+        }
+
         private void PrintUserInput()
         {
             intUserNumberInput = Convert.ToInt32(strUserNumberInput);
