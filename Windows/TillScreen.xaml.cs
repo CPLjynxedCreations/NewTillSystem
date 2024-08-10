@@ -24,6 +24,8 @@ namespace NewTillSystem
         private int intUserNumberInput;
         private bool boolIsMinus;
 
+        //public bool boolCanEditProduct;
+
 
         public TillScreen()
         {
@@ -113,10 +115,25 @@ namespace NewTillSystem
 
         private void btnProduct_Click (object sender, RoutedEventArgs e)
         {
-            Button BTNPressedProduct = (Button)sender;
-            var btnPressedProduct = Convert.ToString(BTNPressedProduct.Name);
-            Debug.WriteLine(btnPressedProduct);
+            Button btnPressedProduct = (Button)sender;
+            var strPressedProduct = Convert.ToString(btnPressedProduct.Name);
+
+            //if edit bool
+            // ADD PRODUCT
+            //var name = "btnProduct";
+            //int rowNumber;
+            //for loop
+            //var searchName = name + i;
+            //if searchName = strPressedProduct
+            //rowNumber = i;
+            BTNPressedProduct.Content = "fuck"; // textbox.text
+            //print to excel
+
+            //do stuff with button clicked
+            //add product(); // sell product();
+            //Debug.WriteLine(btnPressedProduct);
         }
+
 
         private void PrintUserInput()
         {
