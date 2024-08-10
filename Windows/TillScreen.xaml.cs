@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClosedXML;
+using ClosedXML.Excel;
 
 namespace NewTillSystem
 {
@@ -22,6 +23,10 @@ namespace NewTillSystem
         private string strUserNumberInput;
         private string strUserNumberConvert;
         private int intUserNumberInput;
+        private int intProductButtonCount = 51;
+        private int intXlsxProductRow;
+        private int intXlsxProductColumn = 1;
+        private int intXlsxPriceColumn = 2;
         private bool boolIsMinus;
 
         private bool boolCanEditProduct;
@@ -30,9 +35,11 @@ namespace NewTillSystem
         public TillScreen()
         {
             InitializeComponent();
+            this.DataContext = this;
             ClearStartStrings();
+            SetProductButtonDetails();
             boolCanEditProduct = true;
-            TillLogOn();
+            //TillLogOn();
         }
 
         private void TillLogOn()
@@ -114,15 +121,22 @@ namespace NewTillSystem
         }
         #endregion
 
-        private void btnProduct_Click (object sender, RoutedEventArgs e)
+        private void btnProduct_Click(object sender, RoutedEventArgs e)
         {
             Button btnPressedProduct = (Button)sender;
             var strPressedProduct = Convert.ToString(btnPressedProduct.Name);
-
+            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx");
+            var workSheet = workBook.Worksheet("Product Sheet");
             if (boolCanEditProduct)
             {
-                //get button content
-                //if content text box will = content
+                for (int i = 1; i <= intProductButtonCount; i++)
+                {
+                    var strBtnName = "btnProduct" + i;
+                    if (strBtnName == strPressedProduct)
+                    {
+                        intXlsxProductRow = i;
+                    }
+                }
                 EnterProductDetails openPrompt = new EnterProductDetails();
                 openPrompt.Owner = Application.Current.MainWindow;
                 openPrompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -130,27 +144,48 @@ namespace NewTillSystem
                 openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); };
                 openPrompt.txtEnterProductName.Focus();
                 openPrompt.ShowDialog();
-                //set the name and price of the item from product window
+                if (openPrompt.strProductName != string.Empty)
+                {
+                    btnPressedProduct.Content = openPrompt.strProductName;
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnItemStyle"];
+                }
+                else
+                {
+                    btnPressedProduct.Content = string.Empty;
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnEmptyStyle"];
+                }
+                workSheet.Cell(intXlsxProductRow, intXlsxProductColumn).Value = openPrompt.strProductName;
+                workSheet.Cell(intXlsxProductRow, intXlsxPriceColumn).Value = openPrompt.strProductPrice;
+                workBook.Save();
             }
-            // create bool for edit
-            //if edit bool
-            // ADD PRODUCT
-            //var name = "btnProduct";
-            //int rowNumber;
-            //for loop
-            //var searchName = name + i;
-            //if searchName = strPressedProduct
-            //rowNumber = i;
-            
-            //BTNPressedProduct.Content = "fuck"; // textbox.text
-            
-            //print to excel
-
-            //do stuff with button clicked
-            //add product(); // sell product();
-            //Debug.WriteLine(btnPressedProduct);
         }
 
+        private void SetProductButtonDetails()
+        {
+            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx");
+            var workSheet = workBook.Worksheet("Product Sheet");
+            for (int i = 1; i <= intProductButtonCount; i++)
+            {
+                var readData = workSheet.Cell(i, intXlsxProductColumn).GetValue<string>();
+                var strBtnName = "btnProduct" + i;
+                foreach (UIElement item in grBtnScreen.Children)
+                {
+                    if (item.GetType() == typeof(Button))
+                    {
+                        Button btnName = (Button)item;
+                        if (btnName.Name == strBtnName)
+                        {
+                            btnName.Content = readData;
+                            if (btnName.Content != string.Empty)
+                            {
+                                btnName.Style = (Style)Application.Current.Resources["btnItemStyle"];
+                            }
+                        }
+                    }
+                }
+            }
+            workBook.Save();
+        }
 
         private void PrintUserInput()
         {
