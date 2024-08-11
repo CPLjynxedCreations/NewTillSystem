@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +38,7 @@ namespace NewTillSystem.Windows
             //if edit ok will override that staff member
 
         //on ok check file if doesnt exist close();
+            // see if this saves details without close in main
         //else exists try again prompt
     }
 }
