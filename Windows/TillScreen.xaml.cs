@@ -48,7 +48,10 @@ namespace NewTillSystem
         {
             LogInScreen logInScreen = new LogInScreen();
             logInScreen.ShowDialog();
-            //needs to read from excel
+            if (!logInScreen.boolStaffLogin)
+            {
+                Close();
+            }
             strStaffName = logInScreen.strStaffLogin;
             lblSaleScreenStaff.Text = strStaffName;
         }

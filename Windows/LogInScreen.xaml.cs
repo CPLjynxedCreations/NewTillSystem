@@ -22,8 +22,11 @@ namespace NewTillSystem.Windows
         private string strEmpty = "";
         private string strNathan = "1234";
         private string strAlana = "4321";
-        public string strStaffLogin;
 
+        public string strStaffLogin;
+        public bool boolStaffLogin;
+        private string strXlsxStaffName = "A";
+        private string strXlsxStaffNumber = "B";
         private int intStaffAmount = 10;
 
         public LogInScreen()
@@ -93,28 +96,33 @@ namespace NewTillSystem.Windows
             }
             if (strUserNumberInput.Length == 4)
             {
+                var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
+                var workSheet = workBook.Worksheet("Staff");
                 for (int i = 1; i <= intStaffAmount; i++)
                 {
-                    
-                    if (strUserNumberInput == strAlana)
+                    var readDataNumber = workSheet.Cell(i, strXlsxStaffNumber).GetValue<string>();
+                    var readDataName = workSheet.Cell(i, strXlsxStaffName).GetValue<string>();
+                    if (strUserNumberInput == readDataNumber)
                     {
-                        strStaffLogin = "Alana";
-                        Close();
+                        strStaffLogin = readDataName;
+                        boolStaffLogin = true;
+                        break;
                     }
-                    if (strUserNumberInput == strNathan)
-                    {
-                        strStaffLogin = "Nathan";
-                        Close();
-                    }
-                    
-                    else
-                    {
-                        lblAdminNumAmount.Text = "Try Again";
-                        strUserNumberInput = strEmpty;
-                    }
+                }
+                workBook.Save();
+                if (boolStaffLogin)
+                {
+                    Close();
+                }
+                else
+                {
+                    boolStaffLogin = false;
+                    lblAdminNumAmount.Text = "Try Again";
+                    strUserNumberInput = strEmpty;
                 }
             }
         }
+
 
         private void ClearLabelStrings()
         {
