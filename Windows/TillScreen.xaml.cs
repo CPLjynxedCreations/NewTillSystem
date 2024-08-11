@@ -195,7 +195,8 @@ namespace NewTillSystem
             EnterStaffDetails openEditStaff = new EnterStaffDetails();
             openEditStaff.Owner = Application.Current.MainWindow;
             openEditStaff.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openEditStaff.btnOk.Click += (sender, e) => { openEditStaff.Close(); }; // save entered details
+            //check details
+            //openEditStaff.btnOk.Click += (sender, e) => { openEditStaff.Close(); }; // save entered details
             openEditStaff.btnCancel.Click += (sender, e) => { openEditStaff.Close(); }; // save nothing
             openEditStaff.ShowDialog();
 

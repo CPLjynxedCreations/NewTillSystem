@@ -32,5 +32,8 @@ namespace NewTillSystem.Windows
             //save
 
         //edit
+
+        //on ok check file if doesnt exist close()
+        //else try again prompt
     }
 }
