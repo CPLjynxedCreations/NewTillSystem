@@ -18,16 +18,16 @@ namespace NewTillSystem.Windows
 {
     public partial class LogInScreen : Window
     {
+        public string strStaffLoginName;
+        public bool boolStaffLogin;
+        public string strStaffRole;
         private string strUserNumberInput;
         private string strEmpty = "";
-        private string strNathan = "1234";
-        private string strAlana = "4321";
 
-        public string strStaffLogin;
-        public bool boolStaffLogin;
         private string strXlsxStaffName = "A";
-        private string strXlsxStaffNumber = "B";
-        private int intStaffAmount = 10;
+        private string strXlsxStaffID = "B";
+        private string strXlsxStaffRole = "C";
+        private int intStaffAmount;
 
         public LogInScreen()
         {
@@ -98,13 +98,16 @@ namespace NewTillSystem.Windows
             {
                 var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
                 var workSheet = workBook.Worksheet("Staff");
+                intStaffAmount = workSheet.LastRowUsed().RowNumber();
                 for (int i = 1; i <= intStaffAmount; i++)
                 {
-                    var readDataNumber = workSheet.Cell(i, strXlsxStaffNumber).GetValue<string>();
-                    var readDataName = workSheet.Cell(i, strXlsxStaffName).GetValue<string>();
-                    if (strUserNumberInput == readDataNumber)
+                    var readDataStaffID = workSheet.Cell(i, strXlsxStaffID).GetValue<string>();
+                    var readDataStaffName = workSheet.Cell(i, strXlsxStaffName).GetValue<string>();
+                    var readDataStaffRole = workSheet.Cell(i, strXlsxStaffRole).GetValue<string>();
+                    if (strUserNumberInput == readDataStaffID)
                     {
-                        strStaffLogin = readDataName;
+                        strStaffLoginName = readDataStaffName;
+                        strStaffRole = readDataStaffRole;
                         boolStaffLogin = true;
                         break;
                     }

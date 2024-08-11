@@ -14,24 +14,30 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClosedXML;
 using ClosedXML.Excel;
+using System.IO;
 
 namespace NewTillSystem
 {
     public partial class TillScreen : Window
     {
-        private string strStaffName;
 
         private string strEmpty = "";
         private string strUserNumberInput;
         private string strUserNumberConvert;
         private int intUserNumberInput;
         private int intProductButtonCount = 51;
-        private int intXlsxProductRow;
-        private int intXlsxProductColumn = 1;
-        private int intXlsxPriceColumn = 2;
         private bool boolIsMinus;
 
         private bool boolCanEditProduct;
+
+        private int intXlsxProductRow;
+        private string strXlsxProductColumn = "A";
+        private string strXlsxPriceColumn = "B";
+        private string strXlsxStaffNameColumn = "A";
+        private string strXlsxStaffIDColumn = "B";
+        private string strXlsxStaffRoleColumn = "C";
+        private string strXlsxLoggedInStaffRole;
+        private string strXlxsLoggedInStaffName;
 
 
         public TillScreen()
@@ -39,6 +45,7 @@ namespace NewTillSystem
             InitializeComponent();
             this.DataContext = this;
             ClearStartStrings();
+            SetTillFiles();
             SetProductButtonDetails();
             boolCanEditProduct = true;
             TillLogOn();
@@ -52,8 +59,9 @@ namespace NewTillSystem
             {
                 Close();
             }
-            strStaffName = logInScreen.strStaffLogin;
-            lblSaleScreenStaff.Text = strStaffName;
+            strXlxsLoggedInStaffName = logInScreen.strStaffLoginName;
+            strXlsxLoggedInStaffRole = logInScreen.strStaffRole;
+            lblSaleScreenStaff.Text = strXlxsLoggedInStaffName;
         }
         #region NUMBER PAD
         private void btnAdminNum0_Click(object sender, RoutedEventArgs e)
@@ -162,8 +170,8 @@ namespace NewTillSystem
                     btnPressedProduct.Content = string.Empty;
                     btnPressedProduct.Style = (Style)Application.Current.Resources["btnEmptyStyle"];
                 }
-                workSheet.Cell(intXlsxProductRow, intXlsxProductColumn).Value = openPrompt.strProductName;
-                workSheet.Cell(intXlsxProductRow, intXlsxPriceColumn).Value = openPrompt.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
+                workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
                 workBook.Save();
             }
         }
@@ -174,7 +182,7 @@ namespace NewTillSystem
             var workSheet = workBook.Worksheet("Product Sheet");
             for (int i = 1; i <= intProductButtonCount; i++)
             {
-                var readData = workSheet.Cell(i, intXlsxProductColumn).GetValue<string>();
+                var readData = workSheet.Cell(i, strXlsxProductColumn).GetValue<string>();
                 var strBtnName = "btnProduct" + i;
                 foreach (UIElement item in grBtnScreen.Children)
                 {
@@ -204,6 +212,28 @@ namespace NewTillSystem
             }
             strUserNumberConvert = Convert.ToString(intUserNumberInput);
             lblAdminNumAmount.Text = strUserNumberConvert;
+        }
+
+        private void SetTillFiles()
+        {
+            if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx"))
+            {
+                var workBook = new XLWorkbook();
+                var workSheet = workBook.Worksheets.Add("Staff");
+                string setAdminName = "ADMIN";
+                string setAdminID = "1111";
+                string setAdminRole = "ADMIN";
+                workSheet.Cell(1, strXlsxStaffNameColumn).Value = setAdminName;
+                workSheet.Cell(1, strXlsxStaffIDColumn).Value = setAdminID;
+                workSheet.Cell(1, strXlsxStaffRoleColumn).Value = setAdminRole;
+                workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
+            }
+            if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx"))
+            {
+                var workBook = new XLWorkbook();
+                var workSheet = workBook.Worksheets.Add("Product Sheet");
+                workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx");
+            }
         }
 
         private void ClearStartStrings()
