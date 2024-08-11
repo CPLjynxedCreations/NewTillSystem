@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="/Resources/btnAdminQuickDictionary.xaml"/>
                 <ResourceDictionary Source="/Resources/btnSaleToggleDictionary.xaml"/>
                 <ResourceDictionary Source="/Resources/btnItemDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/comboBoxDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

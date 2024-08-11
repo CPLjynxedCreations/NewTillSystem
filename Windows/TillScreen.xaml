@@ -862,7 +862,7 @@
                     Style="{DynamicResource btnAdminStyle}"
                     Content="Manage"
                     Grid.Column="0"
-                    Grid.Row="9"/>
+                    Grid.Row="9" Click="btnAdminManage_Click"/>
         </Grid>
         <!--#endregion-->
     </Grid>

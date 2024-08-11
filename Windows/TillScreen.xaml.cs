@@ -29,6 +29,7 @@ namespace NewTillSystem
         private bool boolIsMinus;
 
         private bool boolCanEditProduct;
+        private bool boolEditStaff;
 
         private int intXlsxProductRow;
         private string strXlsxProductColumn = "A";
@@ -47,7 +48,7 @@ namespace NewTillSystem
             ClearStartStrings();
             SetTillFiles();
             SetProductButtonDetails();
-            boolCanEditProduct = true;
+            //boolCanEditProduct = true;
             TillLogOn();
         }
 
@@ -174,6 +175,30 @@ namespace NewTillSystem
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
                 workBook.Save();
             }
+        }
+
+        private void btnAdminManage_Click(object sender, RoutedEventArgs e)
+        {
+            //if manager role can do
+            //else show pop up can not
+            ManageTillWindow openManageWindow = new ManageTillWindow();
+            openManageWindow.Owner = Application.Current.MainWindow;
+            openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openManageWindow.btnManageClose.Click += (sender, e) => { openManageWindow.Close(); };
+            openManageWindow.btnManageEditProducts.Click += (sender, e) => { openManageWindow.Close(); boolCanEditProduct = true; };
+            openManageWindow.btnManageEditStaff.Click += (sender, e) => { openManageWindow.Close(); ManageEditStaff(); };
+            openManageWindow.ShowDialog();
+            
+        }
+        private void ManageEditStaff()
+        {
+            EnterStaffDetails openEditStaff = new EnterStaffDetails();
+            openEditStaff.Owner = Application.Current.MainWindow;
+            openEditStaff.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openEditStaff.btnOk.Click += (sender, e) => { openEditStaff.Close(); }; // save entered details
+            openEditStaff.btnCancel.Click += (sender, e) => { openEditStaff.Close(); }; // save nothing
+            openEditStaff.ShowDialog();
+
         }
 
         private void SetProductButtonDetails()
