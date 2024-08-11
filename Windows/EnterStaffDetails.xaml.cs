@@ -22,6 +22,15 @@ namespace NewTillSystem.Windows
         public EnterStaffDetails()
         {
             InitializeComponent();
+            //set staff list for combobox from excel
         }
+
+        //set staff()
+
+        //delete click remove from staff
+            //delete off excel file -> name -> ID -> role
+            //save
+
+        //edit
     }
 }

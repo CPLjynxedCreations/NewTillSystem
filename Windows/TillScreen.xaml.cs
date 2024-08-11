@@ -35,8 +35,9 @@ namespace NewTillSystem
         private string strXlsxProductColumn = "A";
         private string strXlsxPriceColumn = "B";
         private string strXlsxStaffNameColumn = "A";
-        private string strXlsxStaffIDColumn = "B";
-        private string strXlsxStaffRoleColumn = "C";
+        private string strXlsxStaffLastNameColumn = "B";
+        private string strXlsxStaffIDColumn = "C";
+        private string strXlsxStaffRoleColumn = "D";
         private string strXlsxLoggedInStaffRole;
         private string strXlxsLoggedInStaffName;
 
@@ -48,7 +49,6 @@ namespace NewTillSystem
             ClearStartStrings();
             SetTillFiles();
             SetProductButtonDetails();
-            //boolCanEditProduct = true;
             TillLogOn();
         }
 
@@ -246,9 +246,11 @@ namespace NewTillSystem
                 var workBook = new XLWorkbook();
                 var workSheet = workBook.Worksheets.Add("Staff");
                 string setAdminName = "ADMIN";
+                string setAdminLastName = "ADMIN";
                 string setAdminID = "1111";
                 string setAdminRole = "ADMIN";
                 workSheet.Cell(1, strXlsxStaffNameColumn).Value = setAdminName;
+                workSheet.Cell(1, strXlsxStaffLastNameColumn).Value = setAdminLastName;
                 workSheet.Cell(1, strXlsxStaffIDColumn).Value = setAdminID;
                 workSheet.Cell(1, strXlsxStaffRoleColumn).Value = setAdminRole;
                 workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");

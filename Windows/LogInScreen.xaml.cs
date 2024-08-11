@@ -19,14 +19,16 @@ namespace NewTillSystem.Windows
     public partial class LogInScreen : Window
     {
         public string strStaffLoginName;
+        public string strStaffLastName;
         public bool boolStaffLogin;
         public string strStaffRole;
         private string strUserNumberInput;
         private string strEmpty = "";
 
         private string strXlsxStaffName = "A";
-        private string strXlsxStaffID = "B";
-        private string strXlsxStaffRole = "C";
+        private string strXlsxStaffLastName = "B";
+        private string strXlsxStaffID = "C";
+        private string strXlsxStaffRole = "D";
         private int intStaffAmount;
 
         public LogInScreen()
@@ -101,12 +103,14 @@ namespace NewTillSystem.Windows
                 intStaffAmount = workSheet.LastRowUsed().RowNumber();
                 for (int i = 1; i <= intStaffAmount; i++)
                 {
-                    var readDataStaffID = workSheet.Cell(i, strXlsxStaffID).GetValue<string>();
                     var readDataStaffName = workSheet.Cell(i, strXlsxStaffName).GetValue<string>();
+                    var readDataStaffLastName = workSheet.Cell(i, strXlsxStaffLastName).GetValue<string>();
+                    var readDataStaffID = workSheet.Cell(i, strXlsxStaffID).GetValue<string>();
                     var readDataStaffRole = workSheet.Cell(i, strXlsxStaffRole).GetValue<string>();
                     if (strUserNumberInput == readDataStaffID)
                     {
                         strStaffLoginName = readDataStaffName;
+                        strStaffLastName = readDataStaffLastName;
                         strStaffRole = readDataStaffRole;
                         boolStaffLogin = true;
                         break;
