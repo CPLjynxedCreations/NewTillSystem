@@ -1,4 +1,4 @@
-﻿using NewTillSystem.Windows;
+using NewTillSystem.Windows;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -197,6 +197,8 @@ namespace NewTillSystem
             openEditStaff.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             //check details
             //openEditStaff.btnOk.Click += (sender, e) => { openEditStaff.Close(); }; // save entered details
+                //if newstaff then close and save details
+                //if edit and pressed. save new details
             openEditStaff.btnCancel.Click += (sender, e) => { openEditStaff.Close(); }; // save nothing
             openEditStaff.ShowDialog();
 
