@@ -22,18 +22,22 @@ namespace NewTillSystem.Windows
         public EnterStaffDetails()
         {
             InitializeComponent();
-            //set staff list for combobox from excel
+            //set staff list for combobox from excel ();
         }
 
         //set staff()
 
-        //delete click remove from staff
+        //delete click remove from staff();
             //delete off excel file -> name -> ID -> role
             //save
 
-        //edit
+        //edit move to left side to enter datails();
+            //bool edit staff
+            //save staff name to string edit details code names roll
+            //dispay in left in all boxes
+            //if edit ok will override that staff member
 
-        //on ok check file if doesnt exist close()
-        //else try again prompt
+        //on ok check file if doesnt exist close();
+        //else exists try again prompt
     }
 }
