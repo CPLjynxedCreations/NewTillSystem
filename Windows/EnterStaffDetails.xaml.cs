@@ -18,6 +18,7 @@ namespace NewTillSystem.Windows
 {
     public partial class EnterStaffDetails : Window
     {
+        private int intEditRowLine;
         private string strSetStaffName;
         private string strXlsxStaffNameColumn = "A";
         private string strSetStaffLastName;
@@ -32,6 +33,7 @@ namespace NewTillSystem.Windows
 
         private string strEmpty = "";
         private bool boolIsToDeleteStaff;
+        private bool boolIsToEditStaff;
 
         public EnterStaffDetails()
         {
@@ -39,7 +41,6 @@ namespace NewTillSystem.Windows
             GetCurrentStaffList();
         }
 
-        //set staff()
         private void GetCurrentStaffList()
         {
             var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
@@ -63,22 +64,23 @@ namespace NewTillSystem.Windows
                     strSetStaffLastName = strSeperateNames[1];
                     strSetStaffID = readXlsxDataStaffID;
                     strSetStaffRole = readXlsxDataStaffRole;
+                    intEditRowLine = i;
                     if (boolIsToDeleteStaff)
                     {
                         if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
                         {
-                            workSheet.Cell(i, strXlsxStaffNameColumn).Value = strEmpty;
-                            workSheet.Cell(i, strXlsxStaffLastNameColumn).Value = strEmpty;
-                            workSheet.Cell(i, strXlsxStaffIDColumn).Value = strEmpty;
-                            workSheet.Cell(i, strXlsxStaffRollColumn).Value = strEmpty;
+                            workSheet.Row(i).Delete();
                             int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
                             boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
-                            boxSelectExistingStaff.SelectedItem = null;
+                            boxSelectExistingStaff.SelectedItem = boxSelectExistingStaffText;
+                            boxSelectExistingStaff.Items.Refresh();
                             workBook.Save();
                             boolIsToDeleteStaff = false;
+                            return;
                             //now display cannot delete logged in
                         }
                     }
+                    //if is edit staff save file with new details
                 }
             }
             workSheet.ColumnsUsed().AdjustToContents();
@@ -115,7 +117,7 @@ namespace NewTillSystem.Windows
             {
                 boxSelectRole.SelectedItem = boxRoleSelectStaff;
             }
-
+            //save edit file by getfile
         }
 
         //on ok check file if doesnt exist close();
