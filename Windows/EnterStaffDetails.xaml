@@ -21,7 +21,7 @@
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Left"
                 Margin="100,0,0,40"
-                Content="OK"/>
+                Content="OK" Click="btnOk_Click"/>
         <Button x:Name="btnCancel"
                 Style="{DynamicResource btnAdminStyle}"
                 Width="200"

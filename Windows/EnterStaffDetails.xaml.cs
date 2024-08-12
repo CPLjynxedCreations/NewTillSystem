@@ -20,12 +20,16 @@ namespace NewTillSystem.Windows
     {
         private int intEditRowLine;
         private string strSetStaffName;
+        private string strSetNewStaffName;
         private string strXlsxStaffNameColumn = "A";
         private string strSetStaffLastName;
+        private string strSetNewStaffLastName;
         private string strXlsxStaffLastNameColumn = "B";
         private string strSetStaffID;
+        private string strSetNewStaffID;
         private string strXlsxStaffIDColumn = "C";
         private string strSetStaffRole;
+        private string strSetNewStaffRole;
         private string strXlsxStaffRollColumn = "D";
         private string strAdmin = "ADMIN";
         private string strManager = "MANAGER";
@@ -34,6 +38,8 @@ namespace NewTillSystem.Windows
         private string strEmpty = "";
         private bool boolIsToDeleteStaff;
         private bool boolIsToEditStaff;
+        private bool boolIsAddNewStaff;
+        private bool boolIsNewStaff;
 
         public EnterStaffDetails()
         {
@@ -69,6 +75,7 @@ namespace NewTillSystem.Windows
                     {
                         if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
                         {
+                            //now display cannot delete because logged in
                             workSheet.Row(i).Delete();
                             int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
                             boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
@@ -77,11 +84,46 @@ namespace NewTillSystem.Windows
                             workBook.Save();
                             boolIsToDeleteStaff = false;
                             return;
-                            //now display cannot delete logged in
                         }
                     }
-                    //if is edit staff save file with new details
+                    if (boolIsToEditStaff)
+                    {
+                        //if is edit staff save file with new details
+                        boolIsToEditStaff = false;
+                    }
                 }
+
+                // CHECK HERE FOR THE SAVING ERROR OF EXISTING STAFF
+                if (boolIsAddNewStaff)
+                {
+                    if (strSetStaffName == readXlsxDataStaffName && strSetStaffLastName == readXlsxDataStaffLastName)
+                    {
+                        //turn red
+                        //in first name text user exists
+                        boolIsAddNewStaff = false;
+                        return;
+                    }
+                    if (strSetStaffID == readXlsxDataStaffID)
+                    {
+                        //turn red
+                        //set text ID used
+                        boolIsAddNewStaff = false;
+                        return;
+                    }
+                    boolIsAddNewStaff = false;
+                    boolIsNewStaff = true;
+                    Debug.WriteLine(boolIsNewStaff);
+                    
+                }
+            }
+            if (boolIsNewStaff)
+            {
+                int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber()+1;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffRollColumn).Value = strSetNewStaffRole;
+                boolIsNewStaff = false;
             }
             workSheet.ColumnsUsed().AdjustToContents();
             workBook.Save();
@@ -93,14 +135,11 @@ namespace NewTillSystem.Windows
             GetCurrentStaffList();
         }
 
-        //edit move to left side to enter datails();
-        //bool edit staff
-        //save staff name to string edit details code names roll
-        //dispay in left in all boxes
         //if edit ok will override that staff member
         private void btnEditStaff_Click(object sender, RoutedEventArgs e)
         {
-            boxSelectRole.Items.Remove(boxSelectRole);
+            //boxSelectRole.Items.Remove(boxSelectRole);
+            boolIsToEditStaff = true;
             GetCurrentStaffList();
             txtEnterStaffFirstName.Text = strSetStaffName;
             txtEnterStaffLastName.Text = strSetStaffLastName;
@@ -117,15 +156,29 @@ namespace NewTillSystem.Windows
             {
                 boxSelectRole.SelectedItem = boxRoleSelectStaff;
             }
-            //save edit file by getfile
+            //save edit file by getfile current file
         }
 
-        //on ok check file if doesnt exist close();
-        // see if this saves details without close in main
         //else exists try again prompt
-        private void AddStaff()
+        private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!boolIsToEditStaff)
+            {
+                //still adds if exists
+                boolIsAddNewStaff = true;
+                strSetNewStaffName = txtEnterStaffFirstName.Text.ToUpper();
+                strSetNewStaffLastName = txtEnterStaffLastName.Text.ToUpper();
+                strSetNewStaffID = txtEnterStaffPin.Text.ToUpper();
+                strSetNewStaffRole = boxSelectRole.Text.ToUpper();
+                GetCurrentStaffList();
+                this.Close();
+            }
+            if (boolIsToEditStaff)
+            {
+                //check if it still matches and just cancel
+                //otherwise save over row with new details
+                //  or store them delete row and save to new one
+            }
         }
     }
 }
