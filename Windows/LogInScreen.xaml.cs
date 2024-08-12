@@ -21,6 +21,9 @@ namespace NewTillSystem.Windows
         public string strStaffLoginName;
         public string strStaffLastName;
         public bool boolStaffLogin;
+        public bool boolLoggedInManager;
+        public bool boolLoggedInAdmin;
+        public bool boolLoggedInStaff;
         public string strStaffRole;
         private string strUserNumberInput;
         private string strEmpty = "";
@@ -35,6 +38,7 @@ namespace NewTillSystem.Windows
         {
             InitializeComponent();
             ClearLabelStrings();
+            boolStaffLogin = false;
         }
 
         #region numbers
@@ -113,6 +117,18 @@ namespace NewTillSystem.Windows
                         strStaffLastName = readDataStaffLastName;
                         strStaffRole = readDataStaffRole;
                         boolStaffLogin = true;
+                        if (readDataStaffRole == "ADMIN")
+                        {
+                            boolLoggedInAdmin = true;
+                        }
+                        else if(readDataStaffRole == "MANAGER")
+                        {
+                            boolLoggedInManager = true;
+                        }
+                        else if (readDataStaffRole == "STAFF")
+                        {
+                            boolLoggedInStaff = true;
+                        }
                         break;
                     }
                 }
@@ -124,6 +140,9 @@ namespace NewTillSystem.Windows
                 else
                 {
                     boolStaffLogin = false;
+                    boolLoggedInAdmin = false;
+                    boolLoggedInManager = false;
+                    boolLoggedInStaff = false;
                     lblAdminNumAmount.Text = "Try Again";
                     strUserNumberInput = strEmpty;
                 }

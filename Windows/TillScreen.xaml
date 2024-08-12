@@ -838,10 +838,12 @@
                     Style="{DynamicResource btnEmptyStyle}"
                     Grid.Column="5"
                     Grid.Row="8"/>
-            <Button x:Name="btnAdmin6"
-                    Style="{DynamicResource btnAdminStyle}" 
+            <Button x:Name="btnAdminManage"
+                    Style="{DynamicResource btnAdminStyle}"
+                    Content="Manage"
                     Grid.Column="5"
-                    Grid.Row="9"/>
+                    Grid.Row="9"
+                    Click="btnAdminManage_Click"/>
             <Button x:Name="btnAdmin5"
                     Style="{DynamicResource btnAdminStyle}" 
                     Grid.Column="4"
@@ -858,11 +860,12 @@
                     Style="{DynamicResource btnAdminStyle}" 
                     Grid.Column="1"
                     Grid.Row="9"/>
-            <Button x:Name="btnAdminManage"
-                    Style="{DynamicResource btnAdminStyle}"
-                    Content="Manage"
+            <Button x:Name="btnAdminLogOut"
+                    Style="{DynamicResource btnAdminStyle}" 
                     Grid.Column="0"
-                    Grid.Row="9" Click="btnAdminManage_Click"/>
+                    Grid.Row="9"
+                    Content="Log Out"
+                    Click="btnAdminLogOut_Click"/>
         </Grid>
         <!--#endregion-->
     </Grid>

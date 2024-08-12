@@ -16,7 +16,7 @@ namespace NewTillSystem.Windows
 {
     public partial class ManageTillWindow : Window
     {
-        public bool boolSetEditProduct;
+        //public bool boolSetEditProduct;
 
         public ManageTillWindow()
         {

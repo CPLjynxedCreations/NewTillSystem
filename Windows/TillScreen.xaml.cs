@@ -41,6 +41,10 @@ namespace NewTillSystem
         private string strXlsxLoggedInStaffRole;
         private string strXlxsLoggedInStaffName;
 
+        private bool boolIsAdmin;
+        private bool boolIsManager;
+        private bool boolIsStaff;
+
 
         public TillScreen()
         {
@@ -50,6 +54,7 @@ namespace NewTillSystem
             SetTillFiles();
             SetProductButtonDetails();
             TillLogOn();
+            Debug.WriteLine(boolIsAdmin);
         }
 
         private void TillLogOn()
@@ -60,8 +65,12 @@ namespace NewTillSystem
             {
                 Close();
             }
+
             strXlxsLoggedInStaffName = logInScreen.strStaffLoginName;
             strXlsxLoggedInStaffRole = logInScreen.strStaffRole;
+            boolIsAdmin = logInScreen.boolLoggedInAdmin;
+            boolIsManager = logInScreen.boolLoggedInManager;
+            boolIsStaff = logInScreen.boolLoggedInStaff;
             lblSaleScreenStaff.Text = strXlxsLoggedInStaffName;
         }
         #region NUMBER PAD
@@ -177,18 +186,28 @@ namespace NewTillSystem
             }
         }
 
+        private void btnAdminLogOut_Click(object sender, EventArgs e)
+        {
+            boolIsAdmin = false;
+            boolIsManager = false;
+            boolIsStaff = false;
+            TillLogOn();
+        }
+
         private void btnAdminManage_Click(object sender, RoutedEventArgs e)
         {
-            //if manager role can do
+            if (boolIsManager || boolIsAdmin)
+            {
+                ManageTillWindow openManageWindow = new ManageTillWindow();
+                openManageWindow.Owner = Application.Current.MainWindow;
+                openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                openManageWindow.btnManageClose.Click += (sender, e) => { openManageWindow.Close(); };
+                openManageWindow.btnManageEditProducts.Click += (sender, e) => { openManageWindow.Close(); boolCanEditProduct = true; };
+                openManageWindow.btnManageEditStaff.Click += (sender, e) => { openManageWindow.Close(); ManageEditStaff(); };
+                openManageWindow.ShowDialog();
+            }
             //else show pop up can not
-            ManageTillWindow openManageWindow = new ManageTillWindow();
-            openManageWindow.Owner = Application.Current.MainWindow;
-            openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openManageWindow.btnManageClose.Click += (sender, e) => { openManageWindow.Close(); };
-            openManageWindow.btnManageEditProducts.Click += (sender, e) => { openManageWindow.Close(); boolCanEditProduct = true; };
-            openManageWindow.btnManageEditStaff.Click += (sender, e) => { openManageWindow.Close(); ManageEditStaff(); };
-            openManageWindow.ShowDialog();
-            
+
         }
         private void ManageEditStaff()
         {
