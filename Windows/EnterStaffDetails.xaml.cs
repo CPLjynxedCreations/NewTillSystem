@@ -30,6 +30,9 @@ namespace NewTillSystem.Windows
         private string strManager = "MANAGER";
         private string strStaff = "STAFF";
 
+        private string strEmpty = "";
+        private bool boolIsToDeleteStaff;
+
         public EnterStaffDetails()
         {
             InitializeComponent();
@@ -48,27 +51,44 @@ namespace NewTillSystem.Windows
                 var readXlsxDataStaffLastName = workSheet.Cell(i, strXlsxStaffLastNameColumn).GetValue<string>();
                 var readXlsxDataStaffID = workSheet.Cell(i, strXlsxStaffIDColumn).GetValue<string>();
                 var readXlsxDataStaffRole = workSheet.Cell(i, strXlsxStaffRollColumn).GetValue<string>();
-                boxSelectExistingStaff.Items.Add(readXlsxDataStaffName + " " + readXlsxDataStaffLastName);
                 var joinNames = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                if(boxSelectExistingStaff.Text == joinNames)
+                if (!boxSelectExistingStaff.Items.Contains(readXlsxDataStaffName + " " + readXlsxDataStaffLastName))
+                {
+                    boxSelectExistingStaff.Items.Add(readXlsxDataStaffName + " " + readXlsxDataStaffLastName);
+                }
+                if (boxSelectExistingStaff.Text == joinNames)
                 {
                     string[] strSeperateNames = joinNames.Split(' ');
                     strSetStaffName = strSeperateNames[0];
                     strSetStaffLastName = strSeperateNames[1];
                     strSetStaffID = readXlsxDataStaffID;
                     strSetStaffRole = readXlsxDataStaffRole;
+                    if (boolIsToDeleteStaff)
+                    {
+                        if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
+                        {
+                            workSheet.Cell(i, strXlsxStaffNameColumn).Value = strEmpty;
+                            workSheet.Cell(i, strXlsxStaffLastNameColumn).Value = strEmpty;
+                            workSheet.Cell(i, strXlsxStaffIDColumn).Value = strEmpty;
+                            workSheet.Cell(i, strXlsxStaffRollColumn).Value = strEmpty;
+                            int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
+                            boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
+                            boxSelectExistingStaff.SelectedItem = null;
+                            workBook.Save();
+                            boolIsToDeleteStaff = false;
+                            //now display cannot delete logged in
+                        }
+                    }
                 }
             }
             workSheet.ColumnsUsed().AdjustToContents();
             workBook.Save();
         }
 
-        //delete click remove from staff();
-        //delete off excel file -> name -> ID -> role
-        //save
-        private void DeleteCurrentStaff()
+        private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)
         {
-
+            boolIsToDeleteStaff = true;
+            GetCurrentStaffList();
         }
 
         //edit move to left side to enter datails();
@@ -83,7 +103,7 @@ namespace NewTillSystem.Windows
             txtEnterStaffFirstName.Text = strSetStaffName;
             txtEnterStaffLastName.Text = strSetStaffLastName;
             txtEnterStaffPin.Text = strSetStaffID;
-            if(strSetStaffRole == strAdmin)
+            if (strSetStaffRole == strAdmin)
             {
                 boxSelectRole.SelectedItem = boxRoleSelectAdmin;
             }

@@ -37,7 +37,8 @@
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
                 Margin="0,0,46,240"
-                Content="DELETE"/>
+                Content="DELETE"
+                Click="btnDeleteStaff_Click"/>
         <Button x:Name="btnEditStaff"
                 Style="{DynamicResource btnAdminStyle}"
                 Width="200"
