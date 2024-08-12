@@ -101,14 +101,16 @@ namespace NewTillSystem.Windows
                         //turn red
                         //in first name text user exists
                         boolIsAddNewStaff = false;
-                        return;
+                        //return;
                     }
+// put all into 1 and turn wrong red
+//else not new
                     if (strSetStaffID == readXlsxDataStaffID)
                     {
                         //turn red
                         //set text ID used
                         boolIsAddNewStaff = false;
-                        return;
+                        //return;
                     }
                     boolIsAddNewStaff = false;
                     boolIsNewStaff = true;
