@@ -45,6 +45,7 @@ namespace NewTillSystem.Windows
         {
             InitializeComponent();
             GetCurrentStaffList();
+            txtEnterStaffFirstName.Focus();
         }
 
         private void GetCurrentStaffList()
@@ -96,31 +97,32 @@ namespace NewTillSystem.Windows
                 // CHECK HERE FOR THE SAVING ERROR OF EXISTING STAFF
                 if (boolIsAddNewStaff)
                 {
-                    if (strSetStaffName == readXlsxDataStaffName && strSetStaffLastName == readXlsxDataStaffLastName)
+                    if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
                     {
-                        //turn red
-                        //in first name text user exists
-                        boolIsAddNewStaff = false;
-                        //return;
+                        if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
+                        {
+                            //turn red
+                            //in first name text user exists
+                            //return;
+                        }
+                        if (strSetStaffID == readXlsxDataStaffID)
+                        {
+                            //turn red
+                            //set text ID used
+                            //return;
+                        }
+                        boolIsNewStaff = false;
                     }
-// put all into 1 and turn wrong red
-//else not new
-                    if (strSetStaffID == readXlsxDataStaffID)
+                    else
                     {
-                        //turn red
-                        //set text ID used
-                        boolIsAddNewStaff = false;
-                        //return;
+                        boolIsNewStaff = true;
                     }
-                    boolIsAddNewStaff = false;
-                    boolIsNewStaff = true;
-                    Debug.WriteLine(boolIsNewStaff);
-                    
                 }
             }
             if (boolIsNewStaff)
             {
-                int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber()+1;
+
+                int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber() + 1;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
@@ -166,7 +168,6 @@ namespace NewTillSystem.Windows
         {
             if (!boolIsToEditStaff)
             {
-                //still adds if exists
                 boolIsAddNewStaff = true;
                 strSetNewStaffName = txtEnterStaffFirstName.Text.ToUpper();
                 strSetNewStaffLastName = txtEnterStaffLastName.Text.ToUpper();

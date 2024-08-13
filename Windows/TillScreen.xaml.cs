@@ -38,6 +38,7 @@ namespace NewTillSystem
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
         private string strXlsxStaffRoleColumn = "D";
+        private string strXlsxStaffInitColumn = "E";
         private string strXlsxLoggedInStaffRole;
         private string strXlxsLoggedInStaffName;
 
@@ -54,7 +55,6 @@ namespace NewTillSystem
             SetTillFiles();
             SetProductButtonDetails();
             TillLogOn();
-            Debug.WriteLine(boolIsAdmin);
         }
 
         private void TillLogOn()
