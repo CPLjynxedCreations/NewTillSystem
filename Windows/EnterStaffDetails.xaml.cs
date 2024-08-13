@@ -77,6 +77,7 @@ namespace NewTillSystem.Windows
                         if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
                         {
                             //now display cannot delete because logged in
+                            //didnt remove from excel
                             workSheet.Row(i).Delete();
                             int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
                             boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
@@ -95,6 +96,7 @@ namespace NewTillSystem.Windows
                 }
 
                 // CHECK HERE FOR THE SAVING ERROR OF EXISTING STAFF
+                //still having errors with detecting coppy
                 if (boolIsAddNewStaff)
                 {
                     if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
@@ -105,8 +107,9 @@ namespace NewTillSystem.Windows
                             //in first name text user exists
                             //return;
                         }
-                        if (strSetStaffID == readXlsxDataStaffID)
+                        if (strSetNewStaffID == readXlsxDataStaffID)
                         {
+                            //txtEnterStaffFirstName.Background = Brushes.Red;
                             //turn red
                             //set text ID used
                             //return;
@@ -175,6 +178,7 @@ namespace NewTillSystem.Windows
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();
                 GetCurrentStaffList();
                 this.Close();
+                //need to stop close if not new staff
             }
             if (boolIsToEditStaff)
             {
