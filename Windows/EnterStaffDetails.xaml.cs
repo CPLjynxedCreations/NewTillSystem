@@ -101,24 +101,33 @@ namespace NewTillSystem.Windows
                 {
                     if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
                     {
-                        if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
+                        if (strSetNewStaffName == readXlsxDataStaffName)
                         {
+                            Debug.WriteLine("name match");
+                            txtEnterStaffFirstName.Background = Brushes.Red;
                             //turn red
                             //in first name text user exists
                             //return;
                         }
+                        if (strSetNewStaffLastName == readXlsxDataStaffLastName)
+                        {
+                            txtEnterStaffLastName.Background = Brushes.Red;
+                        }
                         if (strSetNewStaffID == readXlsxDataStaffID)
                         {
-                            //txtEnterStaffFirstName.Background = Brushes.Red;
+                            Debug.WriteLine("id match");
+                            txtEnterStaffPin.Background = Brushes.Red;
                             //turn red
                             //set text ID used
                             //return;
                         }
+                        boolIsAddNewStaff = false;
                         boolIsNewStaff = false;
                     }
                     else
                     {
                         boolIsNewStaff = true;
+                        Debug.WriteLine("no match");
                     }
                 }
             }
@@ -177,7 +186,10 @@ namespace NewTillSystem.Windows
                 strSetNewStaffID = txtEnterStaffPin.Text.ToUpper();
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();
                 GetCurrentStaffList();
-                this.Close();
+                if (boolIsNewStaff)
+                {
+                    this.Close();
+                }
                 //need to stop close if not new staff
             }
             if (boolIsToEditStaff)
