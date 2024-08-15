@@ -90,46 +90,31 @@ namespace NewTillSystem.Windows
                     }
                     if (boolIsToEditStaff)
                     {
-                        //if is edit staff save file with new details
                         boolIsToEditStaff = false;
                     }
                 }
-
-                // CHECK HERE FOR THE SAVING ERROR OF EXISTING STAFF
-                //still having errors with detecting coppy
                 if (boolIsAddNewStaff)
                 {
                     if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
                     {
                         if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
                         {
-                            Debug.WriteLine("name match");
                             txtEnterStaffFirstName.Background = Brushes.Red;
                             txtEnterStaffLastName.Background = Brushes.Red;
-                            //turn red
-                            //in first name text user exists
-                            //return;
                         }
                         else
                         {
                             txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
                             txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
                         }
-                        /*if (strSetNewStaffLastName == readXlsxDataStaffLastName)
-                        {
-                            txtEnterStaffLastName.Background = Brushes.Red;
-                        }
-                        else if (strSetNewStaffLastName != readXlsxDataStaffLastName)
-                        {
-                            txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
-                        }*/
                         if (strSetNewStaffID == readXlsxDataStaffID)
                         {
-                            Debug.WriteLine("id match");
                             txtEnterStaffPin.Background = Brushes.Red;
-                            //turn red
-                            //set text ID used
-                            //return;
+                        }
+                        else
+                        {
+                        txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
+
                         }
                         else if (strSetNewStaffID != readXlsxDataStaffID)
                         {
@@ -144,7 +129,6 @@ namespace NewTillSystem.Windows
                         txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
                         txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
                         boolIsNewStaff = true;
-                        Debug.WriteLine("no match");
                     }
                 }
             }
@@ -199,7 +183,7 @@ namespace NewTillSystem.Windows
                 boolIsAddNewStaff = true;
                 strSetNewStaffName = txtEnterStaffFirstName.Text.ToUpper();
                 strSetNewStaffLastName = txtEnterStaffLastName.Text.ToUpper();
-                strSetNewStaffID = txtEnterStaffPin.Text.ToUpper();
+                strSetNewStaffID = txtEnterStaffPin.Text;
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();
                 GetCurrentStaffList();
                 if (boolIsNewStaff)
