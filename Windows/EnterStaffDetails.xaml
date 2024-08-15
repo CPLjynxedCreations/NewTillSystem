@@ -153,6 +153,7 @@
                   Padding="15,10,0,0"
                   Margin="500,150,0,0"
                   BorderThickness="5">
+            <!-- make a template for list item-->
             <ComboBoxItem x:Name="boxSelectExistingStaffText"
                           Content="Select Staff"
                           IsSelected="True"
