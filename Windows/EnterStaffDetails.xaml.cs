@@ -139,7 +139,6 @@ namespace NewTillSystem.Windows
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffRollColumn).Value = strSetNewStaffRole;
-                boolIsNewStaff = false;
             }
             workSheet.ColumnsUsed().AdjustToContents();
             workBook.Save();
@@ -188,6 +187,7 @@ namespace NewTillSystem.Windows
                 GetCurrentStaffList();
                 if (boolIsNewStaff)
                 {
+                    boolIsNewStaff = false;
                     this.Close();
                 }
                 //need to stop close if not new staff
