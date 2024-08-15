@@ -116,10 +116,6 @@ namespace NewTillSystem.Windows
                         txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
 
                         }
-                        else if (strSetNewStaffID != readXlsxDataStaffID)
-                        {
-                            txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
-                        }
                         boolIsAddNewStaff = false;
                         boolIsNewStaff = false;
                     }
