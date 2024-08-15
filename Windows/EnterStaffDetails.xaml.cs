@@ -101,18 +101,28 @@ namespace NewTillSystem.Windows
                 {
                     if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
                     {
-                        if (strSetNewStaffName == readXlsxDataStaffName)
+                        if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
                         {
                             Debug.WriteLine("name match");
                             txtEnterStaffFirstName.Background = Brushes.Red;
+                            txtEnterStaffLastName.Background = Brushes.Red;
                             //turn red
                             //in first name text user exists
                             //return;
                         }
-                        if (strSetNewStaffLastName == readXlsxDataStaffLastName)
+                        else
+                        {
+                            txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
+                            txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
+                        }
+                        /*if (strSetNewStaffLastName == readXlsxDataStaffLastName)
                         {
                             txtEnterStaffLastName.Background = Brushes.Red;
                         }
+                        else if (strSetNewStaffLastName != readXlsxDataStaffLastName)
+                        {
+                            txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
+                        }*/
                         if (strSetNewStaffID == readXlsxDataStaffID)
                         {
                             Debug.WriteLine("id match");
@@ -121,11 +131,18 @@ namespace NewTillSystem.Windows
                             //set text ID used
                             //return;
                         }
+                        else if (strSetNewStaffID != readXlsxDataStaffID)
+                        {
+                            txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
+                        }
                         boolIsAddNewStaff = false;
                         boolIsNewStaff = false;
                     }
                     else
                     {
+                        txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
+                        txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
+                        txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
                         boolIsNewStaff = true;
                         Debug.WriteLine("no match");
                     }
