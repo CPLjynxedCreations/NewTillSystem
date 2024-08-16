@@ -39,7 +39,9 @@ namespace NewTillSystem.Windows
         private bool boolIsToDeleteStaff;
         private bool boolIsToEditStaff;
         private bool boolIsAddNewStaff;
+        private bool boolStaffAdded;
         private bool boolIsNewStaff;
+        private bool boolEditDelete;
 
         public EnterStaffDetails()
         {
@@ -60,7 +62,8 @@ namespace NewTillSystem.Windows
                 var readXlsxDataStaffID = workSheet.Cell(i, strXlsxStaffIDColumn).GetValue<string>();
                 var readXlsxDataStaffRole = workSheet.Cell(i, strXlsxStaffRollColumn).GetValue<string>();
                 var joinNames = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                
+
+                Debug.WriteLine(joinNames);
                 if (!boxSelectExistingStaff.Items.Contains(readXlsxDataStaffName + " " + readXlsxDataStaffLastName))
                 {
                     boxSelectExistingStaff.Items.Add(readXlsxDataStaffName + " " + readXlsxDataStaffLastName);
@@ -75,25 +78,28 @@ namespace NewTillSystem.Windows
                     intEditRowLine = i;
                     if (boolIsToDeleteStaff)
                     {
+                        Debug.WriteLine("join " + joinNames);
                         if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
                         {
+                            Debug.WriteLine("Were in line " + joinNames);
                             //now display cannot delete because logged in
                             //didnt remove from excel
+                            Debug.WriteLine("delete row = " + i);
                             workSheet.Row(i).Delete();
+                            workBook.Save();
                             int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
                             boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
+                            Debug.WriteLine("delete staff  " + intDeleteStaffNumber);
                             boxSelectExistingStaff.SelectedItem = boxSelectExistingStaffText;
                             boxSelectExistingStaff.Items.Refresh();
-                            workBook.Save();
                             boolIsToDeleteStaff = false;
-                            return;
+                            workBook.Save();
+                            GetCurrentStaffList();
+                            //return;
                         }
                     }
-                    if (boolIsToEditStaff)
-                    {
-                        boolIsToEditStaff = false;
-                    }
                 }
+
                 if (boolIsAddNewStaff)
                 {
                     if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
@@ -114,11 +120,13 @@ namespace NewTillSystem.Windows
                         }
                         else
                         {
-                        txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
+                            txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
 
                         }
                         boolIsAddNewStaff = false;
                         boolIsNewStaff = false;
+                        boolIsToEditStaff = false;
+                        boolIsToDeleteStaff = false;
                     }
                     else
                     {
@@ -128,18 +136,23 @@ namespace NewTillSystem.Windows
                         boolIsNewStaff = true;
                     }
                 }
-            }
-            if (boolIsNewStaff)
-            {
 
-                int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber() + 1;
-                workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
-                workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
-                workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
-                workSheet.Cell(intGetNewStaffRow, strXlsxStaffRollColumn).Value = strSetNewStaffRole;
+
+                if (boolIsNewStaff)
+                {
+                    if (!boolStaffAdded)
+                    {
+                        int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber() + 1;
+                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
+                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
+                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
+                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffRollColumn).Value = strSetNewStaffRole;
+                        boolStaffAdded = true;
+                    }
+                }
+                workSheet.ColumnsUsed().AdjustToContents();
+                workBook.Save();
             }
-            workSheet.ColumnsUsed().AdjustToContents();
-            workBook.Save();
         }
 
         private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)
@@ -151,8 +164,7 @@ namespace NewTillSystem.Windows
         //if edit ok will override that staff member
         private void btnEditStaff_Click(object sender, RoutedEventArgs e)
         {
-            //boxSelectRole.Items.Remove(boxSelectRole);
-            boolIsToEditStaff = true;
+            boolIsToDeleteStaff = true;
             GetCurrentStaffList();
             txtEnterStaffFirstName.Text = strSetStaffName;
             txtEnterStaffLastName.Text = strSetStaffLastName;
@@ -165,7 +177,7 @@ namespace NewTillSystem.Windows
             {
                 boxSelectRole.SelectedItem = boxRoleSelectManager;
             }
-            else if (strSetStaffRole == strAdmin)
+            else if (strSetStaffRole == strStaff)
             {
                 boxSelectRole.SelectedItem = boxRoleSelectStaff;
             }
@@ -182,19 +194,18 @@ namespace NewTillSystem.Windows
                 strSetNewStaffLastName = txtEnterStaffLastName.Text.ToUpper();
                 strSetNewStaffID = txtEnterStaffPin.Text;
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();
+                if (boxRoleSelectNameText.IsSelected)
+                {
+                    strSetNewStaffRole = strEmpty;
+                }
                 GetCurrentStaffList();
                 if (boolIsNewStaff)
                 {
                     boolIsNewStaff = false;
                     this.Close();
                 }
+
                 //need to stop close if not new staff
-            }
-            if (boolIsToEditStaff)
-            {
-                //check if it still matches and just cancel
-                //otherwise save over row with new details
-                //  or store them delete row and save to new one
             }
         }
     }
