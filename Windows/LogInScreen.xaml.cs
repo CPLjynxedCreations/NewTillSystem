@@ -41,58 +41,22 @@ namespace NewTillSystem.Windows
             boolStaffLogin = false;
         }
 
-        #region numbers
-        private void btnAdminNum0_Click(object sender, RoutedEventArgs e)
+        private void btnAdminNumPad_Click(object sender, RoutedEventArgs e)
         {
-            strUserNumberInput += "0";
-            PrintUserInput();
+            Button getButtonClicked = (Button)sender;
+            var strButtonClicked = getButtonClicked.Name;
+            int numPadBtnAmount = 9;
+            
+            for (int i = 0; i <= numPadBtnAmount; i++)
+            {
+                var strButtonName = "btnAdminNum" + i;
+                if (strButtonClicked == strButtonName)
+                {
+                    strUserNumberInput += i;
+                    PrintUserInput();
+                }
+            }
         }
-        private void btnAdminNum1_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "1";
-            PrintUserInput();
-        }
-        private void btnAdminNum2_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "2";
-            PrintUserInput();
-        }
-        private void btnAdminNum3_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "3";
-            PrintUserInput();
-        }
-        private void btnAdminNum4_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "4";
-            PrintUserInput();
-        }
-        private void btnAdminNum5_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "5";
-            PrintUserInput();
-        }
-        private void btnAdminNum6_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "6";
-            PrintUserInput();
-        }
-        private void btnAdminNum7_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "7";
-            PrintUserInput();
-        }
-        private void btnAdminNum8_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "8";
-            PrintUserInput();
-        }
-        private void btnAdminNum9_Click(object sender, RoutedEventArgs e)
-        {
-            strUserNumberInput += "9";
-            PrintUserInput();
-        }
-        #endregion
 
         private void PrintUserInput()
         {
@@ -121,7 +85,7 @@ namespace NewTillSystem.Windows
                         {
                             boolLoggedInAdmin = true;
                         }
-                        else if(readDataStaffRole == "MANAGER")
+                        else if (readDataStaffRole == "MANAGER")
                         {
                             boolLoggedInManager = true;
                         }
