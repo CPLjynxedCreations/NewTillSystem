@@ -191,6 +191,14 @@ namespace NewTillSystem
 
         }
 
+        private void btnAdminNumClear_Click(object sender, RoutedEventArgs e)
+        {
+            lblAdminNumAmount.Text = strEmpty;
+            strUserNumberInput = strEmpty;
+            intUserNumberInput = 0;
+            Debug.WriteLine(intUserNumberInput);
+        }
+
         private void SetProductButtonDetails()
         {
             var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx");
