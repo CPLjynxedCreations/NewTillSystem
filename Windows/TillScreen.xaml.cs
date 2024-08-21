@@ -266,10 +266,27 @@ namespace NewTillSystem
                 string setAdminLastName = "ADMIN";
                 string setAdminID = "1111";
                 string setAdminRole = "ADMIN";
-                workSheet.Cell(1, strXlsxStaffNameColumn).Value = setAdminName;
-                workSheet.Cell(1, strXlsxStaffLastNameColumn).Value = setAdminLastName;
-                workSheet.Cell(1, strXlsxStaffIDColumn).Value = setAdminID;
-                workSheet.Cell(1, strXlsxStaffRoleColumn).Value = setAdminRole;
+                string setFirstNameHeader = "FIRST NAME";
+                string setLastNameHeader = "LAST NAME";
+                string setCodeHeader = "CODE";
+                string setRoleHeader = "ROLE";
+                workSheet.Row(1).Style.Font.Bold = true;
+                workSheet.Cell(1, strXlsxStaffNameColumn).Value = setFirstNameHeader;
+                workSheet.Cell(1, strXlsxStaffLastNameColumn).Value = setLastNameHeader;
+                workSheet.Cell(1, strXlsxStaffIDColumn).Value = setCodeHeader;
+                workSheet.Cell(1, strXlsxStaffRoleColumn).Value = setRoleHeader;
+                workSheet.Cell(2, strXlsxStaffNameColumn).Value = setAdminName;
+                workSheet.Cell(2, strXlsxStaffLastNameColumn).Value = setAdminLastName;
+                workSheet.Cell(2, strXlsxStaffIDColumn).Value = setAdminID;
+                workSheet.Cell(2, strXlsxStaffRoleColumn).Value = setAdminRole;
+                workSheet.Cell(3, strXlsxStaffLastNameColumn).Value = "roll";
+                workSheet.Cell(4, strXlsxStaffLastNameColumn).Value = "dead";
+                workSheet.ColumnsUsed().AdjustToContents();
+
+                // WILL NEED WHEN WE ADD NEW STAFF MEMBERS OR JUST CALL AUTOFILTER.REAPPLY();
+                var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
+                range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
+
                 workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
             }
             if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx"))
