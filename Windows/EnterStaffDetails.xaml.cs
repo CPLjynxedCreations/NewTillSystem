@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -30,7 +31,7 @@ namespace NewTillSystem.Windows
         private string strXlsxStaffIDColumn = "C";
         private string strSetStaffRole;
         private string strSetNewStaffRole;
-        private string strXlsxStaffRollColumn = "D";
+        private string strXlsxStaffRoleColumn = "D";
         private string strAdmin = "ADMIN";
         private string strManager = "MANAGER";
         private string strStaff = "STAFF";
@@ -55,18 +56,24 @@ namespace NewTillSystem.Windows
             var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
             var workSheet = workBook.Worksheet("Staff");
             int intStaffAmount = workSheet.LastRowUsed().RowNumber();
+            var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
             for (int i = 1; i <= intStaffAmount; i++)
             {
                 var readXlsxDataStaffName = workSheet.Cell(i, strXlsxStaffNameColumn).GetValue<string>();
                 var readXlsxDataStaffLastName = workSheet.Cell(i, strXlsxStaffLastNameColumn).GetValue<string>();
                 var readXlsxDataStaffID = workSheet.Cell(i, strXlsxStaffIDColumn).GetValue<string>();
-                var readXlsxDataStaffRole = workSheet.Cell(i, strXlsxStaffRollColumn).GetValue<string>();
+                var readXlsxDataStaffRole = workSheet.Cell(i, strXlsxStaffRoleColumn).GetValue<string>();
                 var joinNames = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
 
                 Debug.WriteLine(joinNames);
                 if (!boxSelectExistingStaff.Items.Contains(readXlsxDataStaffName + " " + readXlsxDataStaffLastName))
                 {
                     boxSelectExistingStaff.Items.Add(readXlsxDataStaffName + " " + readXlsxDataStaffLastName);
+                    ToggleButton test = new ToggleButton();
+                    test.Name = "test1";
+                    test.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
+                    panelExistingStaff.Children.Add(test);
+                    range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
                 }
                 if (boxSelectExistingStaff.Text == joinNames)
                 {
@@ -146,10 +153,11 @@ namespace NewTillSystem.Windows
                         workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
                         workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
                         workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
-                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffRollColumn).Value = strSetNewStaffRole;
+                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffRoleColumn).Value = strSetNewStaffRole;
                         boolStaffAdded = true;
                     }
                 }
+                range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
                 workSheet.ColumnsUsed().AdjustToContents();
                 workBook.Save();
             }
@@ -194,6 +202,13 @@ namespace NewTillSystem.Windows
                 strSetNewStaffLastName = txtEnterStaffLastName.Text.ToUpper();
                 strSetNewStaffID = txtEnterStaffPin.Text;
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();
+
+                ToggleButton test = new ToggleButton();
+                test.Name = "test1";
+                test.Content = "name 1";
+                panelExistingStaff.Children.Add(test);
+
+
                 if (boxRoleSelectNameText.IsSelected)
                 {
                     strSetNewStaffRole = strEmpty;
