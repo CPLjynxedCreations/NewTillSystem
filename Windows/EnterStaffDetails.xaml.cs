@@ -61,7 +61,7 @@ namespace NewTillSystem.Windows
             var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
 
 
-            for (int i = 1; i <= intStaffAmount; i++)
+            for (int i = 2; i <= intStaffAmount; i++)
             {
                 var readXlsxDataStaffName = workSheet.Cell(i, strXlsxStaffNameColumn).GetValue<string>();
                 var readXlsxDataStaffLastName = workSheet.Cell(i, strXlsxStaffLastNameColumn).GetValue<string>();
@@ -75,10 +75,11 @@ namespace NewTillSystem.Windows
                     boxSelectExistingStaff.Items.Add(readXlsxDataStaffName + " " + readXlsxDataStaffLastName);
 
 
-                    ToggleButton test = new ToggleButton();
-                    test.Name = "test1";
-                    test.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                    panelExistingStaff.Children.Add(test);
+                    ToggleButton tglStaff = new ToggleButton();
+                    //test.Name = "test1";
+                    //ADD COMBO LIST TO ONLY SHOW BY STAFF TYPE
+                    tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
+                    panelExistingStaff.Children.Add(tglStaff);
                     range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
 
 
@@ -216,10 +217,9 @@ namespace NewTillSystem.Windows
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();
 
 
-                ToggleButton test = new ToggleButton();
-                test.Name = "test1";
-                test.Content = "name 1";
-                panelExistingStaff.Children.Add(test);
+                ToggleButton tglStaffName = new ToggleButton();
+                //MAKE BUTTON STYLE
+                panelExistingStaff.Children.Add(tglStaffName);
 
 
                 if (boxRoleSelectNameText.IsSelected)

@@ -171,10 +171,10 @@
                       Margin="0,80,40,0"
                       Background="DarkSeaGreen">
         <Border BorderBrush="DarkRed" BorderThickness="3">
-            <StackPanel x:Name="panelExistingStaff">
-                <!-- MAKE BUTTON THHEME FOR STACK-->
-            </StackPanel>
-        </Border>
+                <StackPanel x:Name="panelExistingStaff">
+                    <!-- MAKE BUTTON THHEME FOR STACK-->
+                </StackPanel>
+            </Border>
         </ScrollViewer>
     </Grid>
 </Window>
