@@ -279,8 +279,6 @@ namespace NewTillSystem
                 workSheet.Cell(2, strXlsxStaffLastNameColumn).Value = setAdminLastName;
                 workSheet.Cell(2, strXlsxStaffIDColumn).Value = setAdminID;
                 workSheet.Cell(2, strXlsxStaffRoleColumn).Value = setAdminRole;
-                workSheet.Cell(3, strXlsxStaffLastNameColumn).Value = "roll";
-                workSheet.Cell(4, strXlsxStaffLastNameColumn).Value = "dead";
                 workSheet.ColumnsUsed().AdjustToContents();
 
                 // WILL NEED WHEN WE ADD NEW STAFF MEMBERS OR JUST CALL AUTOFILTER.REAPPLY();
