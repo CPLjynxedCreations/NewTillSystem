@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Threading;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -46,6 +47,8 @@ namespace NewTillSystem
         private bool boolIsManager;
         private bool boolIsStaff;
 
+        public string currentDate;
+        public string currentTime;
 
         public TillScreen()
         {
@@ -54,7 +57,23 @@ namespace NewTillSystem
             ClearStartStrings();
             SetTillFiles();
             SetProductButtonDetails();
+
+            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
+            
+
+
             TillLogOn();
+
+        }
+
+        private void GetDateTime()
+        {
+            currentDate = DateTime.Now.ToString("dd/mm/yy");
+            currentTime = DateTime.Now.ToString("h:mm tt");
+
+            lblSaleScreenDate.Text = currentDate;
+            lblSaleScreenTime.Text = currentTime;
+            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
         }
 
         private void TillLogOn()
@@ -184,8 +203,8 @@ namespace NewTillSystem
             openEditStaff.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             //check details
             //openEditStaff.btnOk.Click += (sender, e) => { openEditStaff.Close(); }; // save entered details
-                //if newstaff then close and save details
-                //if edit and pressed. save new details
+            //if newstaff then close and save details
+            //if edit and pressed. save new details
             openEditStaff.btnCancel.Click += (sender, e) => { openEditStaff.Close(); }; // save nothing
             openEditStaff.ShowDialog();
 

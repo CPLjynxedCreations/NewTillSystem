@@ -13,11 +13,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace NewTillSystem.Windows
 {
     public partial class LogInScreen : Window
     {
+        private string currentDate;
+        private string currentTime;
         public string strStaffLoginName;
         public string strStaffLastName;
         public bool boolStaffLogin;
@@ -39,6 +42,18 @@ namespace NewTillSystem.Windows
             InitializeComponent();
             ClearLabelStrings();
             boolStaffLogin = false;
+
+            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
+        }
+
+        private void GetDateTime()
+        {
+            currentDate = DateTime.Now.ToString("dd/mm/yy");
+            currentTime = DateTime.Now.ToString("h:mm tt");
+
+            lblLoginDate.Text = currentDate;
+            lblLoginTime.Text = currentTime;
+            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
         }
 
         private void btnAdminNumPad_Click(object sender, RoutedEventArgs e)
@@ -46,7 +61,7 @@ namespace NewTillSystem.Windows
             Button getButtonClicked = (Button)sender;
             var strButtonClicked = getButtonClicked.Name;
             int numPadBtnAmount = 9;
-            
+
             for (int i = 0; i <= numPadBtnAmount; i++)
             {
                 var strButtonName = "btnAdminNum" + i;
