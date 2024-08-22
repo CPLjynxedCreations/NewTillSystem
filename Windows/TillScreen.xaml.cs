@@ -281,7 +281,6 @@ namespace NewTillSystem
                 workSheet.Cell(2, strXlsxStaffRoleColumn).Value = setAdminRole;
                 workSheet.ColumnsUsed().AdjustToContents();
 
-                // WILL NEED WHEN WE ADD NEW STAFF MEMBERS OR JUST CALL AUTOFILTER.REAPPLY();
                 var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
                 range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
 

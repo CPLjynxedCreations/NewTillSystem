@@ -38,15 +38,28 @@ namespace NewTillSystem.Windows
 
         private string strEmpty = "";
         private bool boolIsToDeleteStaff;
+
+
         private bool boolIsToEditStaff;
         private bool boolIsAddNewStaff;
+
+        private bool boolStaffNameMatch;
+        private bool boolStaffIdMatch;
+        private bool boolSaveStaff;
+        private bool boolAddStaff;
         private bool boolStaffAdded;
+
+        private bool boolGenerateStaff;
+
         private bool boolIsNewStaff;
         private bool boolEditDelete;
+
+        private string strExistingStaff;
 
         public EnterStaffDetails()
         {
             InitializeComponent();
+            boolGenerateStaff = true;
             GetCurrentStaffList();
             txtEnterStaffFirstName.Focus();
         }
@@ -57,9 +70,8 @@ namespace NewTillSystem.Windows
             var workSheet = workBook.Worksheet("Staff");
             int intStaffAmount = workSheet.LastRowUsed().RowNumber();
 
-            
-            var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
 
+            var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
 
             for (int i = 2; i <= intStaffAmount; i++)
             {
@@ -69,54 +81,28 @@ namespace NewTillSystem.Windows
                 var readXlsxDataStaffRole = workSheet.Cell(i, strXlsxStaffRoleColumn).GetValue<string>();
                 var joinNames = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
 
-                Debug.WriteLine(joinNames);
-                if (!boxSelectExistingStaff.Items.Contains(readXlsxDataStaffName + " " + readXlsxDataStaffLastName))
+                //Debug.WriteLine(joinNames);
+
+                //generate staff
+                if (boolGenerateStaff)
                 {
-                    boxSelectExistingStaff.Items.Add(readXlsxDataStaffName + " " + readXlsxDataStaffLastName);
-
-
                     ToggleButton tglStaff = new ToggleButton();
-                    //test.Name = "test1";
-                    //ADD COMBO LIST TO ONLY SHOW BY STAFF TYPE
+                    tglStaff.Name = readXlsxDataStaffName + readXlsxDataStaffLastName;
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                    panelExistingStaff.Children.Add(tglStaff);
-                    range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
-
-
-                }
-                if (boxSelectExistingStaff.Text == joinNames)
-                {
-                    string[] strSeperateNames = joinNames.Split(' ');
-                    strSetStaffName = strSeperateNames[0];
-                    strSetStaffLastName = strSeperateNames[1];
-                    strSetStaffID = readXlsxDataStaffID;
-                    strSetStaffRole = readXlsxDataStaffRole;
-                    intEditRowLine = i;
-                    if (boolIsToDeleteStaff)
+                    tglStaff.Checked += tglStaff_Checked;
+                    if (tglStaff.Content != strEmpty)
                     {
-                        Debug.WriteLine("join " + joinNames);
-                        if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
-                        {
-                            Debug.WriteLine("Were in line " + joinNames);
-                            //now display cannot delete because logged in
-                            //didnt remove from excel
-                            Debug.WriteLine("delete row = " + i);
-                            workSheet.Row(i).Delete();
-                            workBook.Save();
-                            int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
-                            boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
-                            Debug.WriteLine("delete staff  " + intDeleteStaffNumber);
-                            boxSelectExistingStaff.SelectedItem = boxSelectExistingStaffText;
-                            boxSelectExistingStaff.Items.Refresh();
-                            boolIsToDeleteStaff = false;
-                            workBook.Save();
-                            GetCurrentStaffList();
-                            //return;
-                        }
+                        panelExistingStaff.Children.Add(tglStaff);
+                    }
+                    if (i == intStaffAmount)
+                    {
+                        boolGenerateStaff = false;
                     }
                 }
-
-                if (boolIsAddNewStaff)
+                //==========
+                //after clicking okay for new staff add
+                //check for existing
+                if (boolAddStaff)
                 {
                     if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
                     {
@@ -124,56 +110,92 @@ namespace NewTillSystem.Windows
                         {
                             txtEnterStaffFirstName.Background = Brushes.Red;
                             txtEnterStaffLastName.Background = Brushes.Red;
+                            boolStaffNameMatch = true;
                         }
                         else
                         {
                             txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
                             txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
+                            boolStaffNameMatch = false;
                         }
                         if (strSetNewStaffID == readXlsxDataStaffID)
                         {
                             txtEnterStaffPin.Background = Brushes.Red;
+                            boolStaffIdMatch = true;
                         }
                         else
                         {
                             txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
-
+                            boolStaffIdMatch = false;
                         }
-                        boolIsAddNewStaff = false;
-                        boolIsNewStaff = false;
-                        boolIsToEditStaff = false;
-                        boolIsToDeleteStaff = false;
+                        break;
                     }
-                    else
+                    if (i == intStaffAmount)
                     {
                         txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
                         txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
                         txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
-                        boolIsNewStaff = true;
+                        boolStaffIdMatch = false;
+                        boolStaffNameMatch = false;
+                        boolSaveStaff = true;
                     }
                 }
-
-
-                if (boolIsNewStaff)
-                {
-                    if (!boolStaffAdded)
-                    {
-                        int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber() + 1;
-                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
-                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
-                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
-                        workSheet.Cell(intGetNewStaffRow, strXlsxStaffRoleColumn).Value = strSetNewStaffRole;
-                        boolStaffAdded = true;
-                    }
-                }
-
-                
-                range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
-                
-
-                workSheet.ColumnsUsed().AdjustToContents();
-                workBook.Save();
             }
+
+            if (boolSaveStaff)
+            {
+                int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber() + 1;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffRoleColumn).Value = strSetNewStaffRole;
+                boolStaffAdded = true;
+                boolSaveStaff = false;
+            }
+            range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
+            range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
+
+            workSheet.ColumnsUsed().AdjustToContents();
+            workBook.Save();
+        }
+
+        /*
+        if (boxSelectExistingStaff.Text == joinNames)
+        {
+            string[] strSeperateNames = joinNames.Split(' ');
+            strSetStaffName = strSeperateNames[0];
+            strSetStaffLastName = strSeperateNames[1];
+            strSetStaffID = readXlsxDataStaffID;
+            strSetStaffRole = readXlsxDataStaffRole;
+            intEditRowLine = i;
+            if (boolIsToDeleteStaff)
+            {
+                Debug.WriteLine("join " + joinNames);
+                if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
+                {
+                    Debug.WriteLine("Were in line " + joinNames);
+                    //now display cannot delete because logged in
+                    //didnt remove from excel
+                    Debug.WriteLine("delete row = " + i);
+                    workSheet.Row(i).Delete();
+                    workBook.Save();
+                    int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
+                    boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
+                    Debug.WriteLine("delete staff  " + intDeleteStaffNumber);
+                    boxSelectExistingStaff.SelectedItem = boxSelectExistingStaffText;
+                    boxSelectExistingStaff.Items.Refresh();
+                    boolIsToDeleteStaff = false;
+                    workBook.Save();
+                    GetCurrentStaffList();
+                    //return;
+                }
+            }
+        }*/
+
+        private void tglStaff_Checked(object sender, EventArgs e)
+        {
+            ToggleButton tglStaff = (ToggleButton)sender;
+            string strStaffName = Convert.ToString(tglStaff.Content);
         }
 
         private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)
@@ -210,30 +232,22 @@ namespace NewTillSystem.Windows
         {
             if (!boolIsToEditStaff)
             {
-                boolIsAddNewStaff = true;
+                boolAddStaff = true;
                 strSetNewStaffName = txtEnterStaffFirstName.Text.ToUpper();
                 strSetNewStaffLastName = txtEnterStaffLastName.Text.ToUpper();
                 strSetNewStaffID = txtEnterStaffPin.Text;
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();
-
-
-                ToggleButton tglStaffName = new ToggleButton();
-                //MAKE BUTTON STYLE
-                panelExistingStaff.Children.Add(tglStaffName);
-
 
                 if (boxRoleSelectNameText.IsSelected)
                 {
                     strSetNewStaffRole = strEmpty;
                 }
                 GetCurrentStaffList();
-                if (boolIsNewStaff)
+                if (boolStaffAdded)
                 {
-                    boolIsNewStaff = false;
+                    boolStaffAdded = false;
                     this.Close();
                 }
-
-                //need to stop close if not new staff
             }
         }
     }
