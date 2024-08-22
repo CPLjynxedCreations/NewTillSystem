@@ -62,6 +62,7 @@
                    HorizontalAlignment="Left"
                    Margin="40,42,0,0"/>
         <TextBox x:Name="txtEnterStaffFirstName"
+                 Style="{DynamicResource txtStyleStaffEnter}"
                  Width="400"
                  Height="50"
                  FontSize="22"
@@ -83,6 +84,7 @@
                    HorizontalAlignment="Left"
                    Margin="40,132,0,0"/>
         <TextBox x:Name="txtEnterStaffLastName"
+                 Style="{DynamicResource txtStyleStaffEnter}"
                    Width="400"
                    Height="50"
                    FontSize="22"
@@ -104,6 +106,7 @@
                    HorizontalAlignment="Left"
                    Margin="40,222,0,0"/>
         <TextBox x:Name="txtEnterStaffPin"
+                 Style="{DynamicResource txtStyleStaffEnter}"
                  Width="400"
                  Height="50"
                  FontSize="22"
@@ -153,7 +156,7 @@
                       VerticalAlignment="Top"
                       HorizontalAlignment="Right"
                       Margin="0,80,40,0"
-                      Background="DarkSeaGreen">
+                      Background="Gray">
         <Border BorderBrush="DarkRed" BorderThickness="3">
                 <StackPanel x:Name="panelExistingStaff">
                     <!-- MAKE BUTTON THHEME FOR STACK-->

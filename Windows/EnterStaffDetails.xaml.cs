@@ -75,9 +75,11 @@ namespace NewTillSystem.Windows
                     ToggleButton tglStaff = new ToggleButton();
                     tglStaff.Name = readXlsxDataStaffName + readXlsxDataStaffLastName;
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
+                    tglStaff.Style = (Style)Application.Current.Resources["tglStyleStaff"];
                     tglStaff.Checked += tglStaff_Checked;
                     if (tglStaff.Content != strEmpty)
                     {
+                        Debug.WriteLine(tglStaff.Content);
                         panelExistingStaff.Children.Add(tglStaff);
                     }
                     if (i == intStaffAmount)
@@ -183,6 +185,26 @@ namespace NewTillSystem.Windows
             ToggleButton tglStaff = (ToggleButton)sender;
             strTglStaffName = Convert.ToString(tglStaff.Content);
             Debug.WriteLine(strTglStaffName);
+            string strSelectedStaff = tglStaff.Name;
+            foreach (UIElement tglStaffName in panelExistingStaff.Children)
+            {
+                if (tglStaffName.GetType() == typeof(ToggleButton))
+                {
+                    ToggleButton tglSelectedStaff = (ToggleButton)tglStaffName;
+                    if (tglSelectedStaff.Name == strSelectedStaff)
+                    {
+                        tglStaff.Background = Brushes.DarkOliveGreen;
+                        //huh we can say checked true?
+                        //tglSelectedStaff.IsChecked = false;
+                    }
+                    else
+                    {
+                        tglSelectedStaff.IsChecked = false;
+                    }
+                }
+            }
+            //uncheck anything else selected
+
         }
 
         private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)
