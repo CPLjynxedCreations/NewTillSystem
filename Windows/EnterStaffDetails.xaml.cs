@@ -19,40 +19,31 @@ namespace NewTillSystem.Windows
 {
     public partial class EnterStaffDetails : Window
     {
-        private int intEditRowLine;
-        private string strSetStaffName;
-        private string strSetNewStaffName;
         private string strXlsxStaffNameColumn = "A";
-        private string strSetStaffLastName;
-        private string strSetNewStaffLastName;
         private string strXlsxStaffLastNameColumn = "B";
-        private string strSetStaffID;
-        private string strSetNewStaffID;
         private string strXlsxStaffIDColumn = "C";
-        private string strSetStaffRole;
-        private string strSetNewStaffRole;
         private string strXlsxStaffRoleColumn = "D";
         private string strAdmin = "ADMIN";
         private string strManager = "MANAGER";
         private string strStaff = "STAFF";
-
         private string strEmpty = "";
-        private bool boolIsToDeleteStaff;
-
-
-        private bool boolIsToEditStaff;
-
+        private string strSetStaffFirstName;
+        private string strSetStaffLastName;
+        private string strSetStaffID;
+        private string strSetStaffRole;
+        private string strSetNewStaffFirstName;
+        private string strSetNewStaffLastName;
+        private string strSetNewStaffID;
+        private string strSetNewStaffRole;
         private string strTglStaffName;
+        private bool boolIsToDeleteStaff;
+        private bool boolIsToEditStaff;
         private bool boolStaffNameMatch;
         private bool boolStaffIdMatch;
         private bool boolSaveStaff;
         private bool boolAddStaff;
         private bool boolStaffAdded;
         private bool boolGenerateStaff;
-
-        private bool boolEditDelete;
-
-        private string strExistingStaff;
 
         public EnterStaffDetails()
         {
@@ -79,8 +70,6 @@ namespace NewTillSystem.Windows
                 var readXlsxDataStaffRole = workSheet.Cell(i, strXlsxStaffRoleColumn).GetValue<string>();
                 var joinNames = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
 
-                //Debug.WriteLine(joinNames);
-
                 if (boolGenerateStaff)
                 {
                     ToggleButton tglStaff = new ToggleButton();
@@ -98,9 +87,9 @@ namespace NewTillSystem.Windows
                 }
                 if (boolAddStaff)
                 {
-                    if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
+                    if (strSetNewStaffFirstName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
                     {
-                        if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
+                        if (strSetNewStaffFirstName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
                         {
                             txtEnterStaffFirstName.Background = Brushes.Red;
                             txtEnterStaffLastName.Background = Brushes.Red;
@@ -139,7 +128,7 @@ namespace NewTillSystem.Windows
                     if (strTglStaffName == joinNames)
                     {
                         string[] strSeperateNames = joinNames.Split(' ');
-                        strSetStaffName = strSeperateNames[0];
+                        strSetStaffFirstName = strSeperateNames[0];
                         strSetStaffLastName = strSeperateNames[1];
                         strSetStaffID = readXlsxDataStaffID;
                         strSetStaffRole = readXlsxDataStaffRole;
@@ -154,7 +143,7 @@ namespace NewTillSystem.Windows
                                     if (tglDelete.GetType() == typeof(ToggleButton))
                                     {
                                         ToggleButton strTglStaffName = (ToggleButton)tglDelete;
-                                        string strNameCheck = strSetStaffName + strSetStaffLastName;
+                                        string strNameCheck = strSetStaffFirstName + strSetStaffLastName;
                                         if (strTglStaffName.Name == strNameCheck)
                                         {
                                             panelExistingStaff.Children.Remove(strTglStaffName);
@@ -174,7 +163,7 @@ namespace NewTillSystem.Windows
             if (boolSaveStaff)
             {
                 int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber() + 1;
-                workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffName;
+                workSheet.Cell(intGetNewStaffRow, strXlsxStaffNameColumn).Value = strSetNewStaffFirstName;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffLastNameColumn).Value = strSetNewStaffLastName;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffIDColumn).Value = strSetNewStaffID;
                 workSheet.Cell(intGetNewStaffRow, strXlsxStaffRoleColumn).Value = strSetNewStaffRole;
@@ -189,60 +178,11 @@ namespace NewTillSystem.Windows
             workBook.Save();
         }
 
-        /*
-        if (boxSelectExistingStaff.Text == joinNames)
-        {
-
-            if (boolIsToDeleteStaff)
-            {
-                Debug.WriteLine("join " + joinNames);
-                if (boxSelectExistingStaff.Text != joinNames || boxSelectExistingStaff.Text != "ADMIN ADMIN")
-                {
-                    Debug.WriteLine("Were in line " + joinNames);
-                    //now display cannot delete because logged in
-                    //didnt remove from excel
-                    Debug.WriteLine("delete row = " + i);
-                    workSheet.Row(i).Delete();
-                    workBook.Save();
-                    int intDeleteStaffNumber = boxSelectExistingStaff.SelectedIndex;
-                    boxSelectExistingStaff.Items.RemoveAt(intDeleteStaffNumber);
-                    Debug.WriteLine("delete staff  " + intDeleteStaffNumber);
-                    boxSelectExistingStaff.SelectedItem = boxSelectExistingStaffText;
-                    boxSelectExistingStaff.Items.Refresh();
-                    boolIsToDeleteStaff = false;
-                    workBook.Save();
-                    GetCurrentStaffList();
-                    //return;
-                }
-            }
-        }*/
-
         private void tglStaff_Checked(object sender, EventArgs e)
         {
             ToggleButton tglStaff = (ToggleButton)sender;
             strTglStaffName = Convert.ToString(tglStaff.Content);
             Debug.WriteLine(strTglStaffName);
-
-            /*
-            boolIsToDeleteStaff = true;
-            boolIsToEditStaff = true;
-            GetCurrentStaffList();
-            txtEnterStaffFirstName.Text = strSetStaffName;
-            txtEnterStaffLastName.Text = strSetStaffLastName;
-            txtEnterStaffPin.Text = strSetStaffID;
-            if (strSetStaffRole == strAdmin)
-            {
-                boxSelectRole.SelectedItem = boxRoleSelectAdmin;
-            }
-            else if (strSetStaffRole == strManager)
-            {
-                boxSelectRole.SelectedItem = boxRoleSelectManager;
-            }
-            else if (strSetStaffRole == strStaff)
-            {
-                boxSelectRole.SelectedItem = boxRoleSelectStaff;
-            }
-            */
         }
 
         private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)
@@ -257,7 +197,7 @@ namespace NewTillSystem.Windows
             boolIsToEditStaff = true;
             boolIsToDeleteStaff = true;
             GetCurrentStaffList();
-            txtEnterStaffFirstName.Text = strSetStaffName;
+            txtEnterStaffFirstName.Text = strSetStaffFirstName;
             txtEnterStaffLastName.Text = strSetStaffLastName;
             txtEnterStaffPin.Text = strSetStaffID;
             if (strSetStaffRole == strAdmin)
@@ -279,7 +219,7 @@ namespace NewTillSystem.Windows
             if (!boolIsToEditStaff)
             {
                 boolAddStaff = true;
-                strSetNewStaffName = txtEnterStaffFirstName.Text.ToUpper();
+                strSetNewStaffFirstName = txtEnterStaffFirstName.Text.ToUpper();
                 strSetNewStaffLastName = txtEnterStaffLastName.Text.ToUpper();
                 strSetNewStaffID = txtEnterStaffPin.Text;
                 strSetNewStaffRole = boxSelectRole.Text.ToUpper();

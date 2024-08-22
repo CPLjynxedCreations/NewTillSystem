@@ -146,23 +146,7 @@
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"
                    Margin="0,42,180,0"/>
-        <ComboBox x:Name="boxSelectExistingStaff"
-                  Style="{DynamicResource comboBoxStyle}"
-                  Width="400"
-                  Height="50"
-                  FontSize="22"
-                  FontWeight="Bold"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Right"
-                  Padding="15,10,0,0"
-                  Margin="0,80,40,0"
-                  BorderThickness="5">
-            <ComboBoxItem x:Name="boxSelectExistingStaffText"
-                          Content="Select Staff"
-                          IsSelected="True"
-                          IsEnabled="False"/>
-        </ComboBox>
-            
+
         <ScrollViewer x:Name="scrlSelectExistingStaff"
                       Width="400"
                       Height="300"
