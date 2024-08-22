@@ -41,17 +41,15 @@ namespace NewTillSystem.Windows
 
 
         private bool boolIsToEditStaff;
-        private bool boolIsAddNewStaff;
 
+        private string strTglStaffName;
         private bool boolStaffNameMatch;
         private bool boolStaffIdMatch;
         private bool boolSaveStaff;
         private bool boolAddStaff;
         private bool boolStaffAdded;
-
         private bool boolGenerateStaff;
 
-        private bool boolIsNewStaff;
         private bool boolEditDelete;
 
         private string strExistingStaff;
@@ -83,7 +81,6 @@ namespace NewTillSystem.Windows
 
                 //Debug.WriteLine(joinNames);
 
-                //generate staff
                 if (boolGenerateStaff)
                 {
                     ToggleButton tglStaff = new ToggleButton();
@@ -99,9 +96,6 @@ namespace NewTillSystem.Windows
                         boolGenerateStaff = false;
                     }
                 }
-                //==========
-                //after clicking okay for new staff add
-                //check for existing
                 if (boolAddStaff)
                 {
                     if (strSetNewStaffName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
@@ -140,6 +134,41 @@ namespace NewTillSystem.Windows
                         boolSaveStaff = true;
                     }
                 }
+                if (boolIsToEditStaff)
+                {
+                    if (strTglStaffName == joinNames)
+                    {
+                        string[] strSeperateNames = joinNames.Split(' ');
+                        strSetStaffName = strSeperateNames[0];
+                        strSetStaffLastName = strSeperateNames[1];
+                        strSetStaffID = readXlsxDataStaffID;
+                        strSetStaffRole = readXlsxDataStaffRole;
+                        if (boolIsToDeleteStaff)
+                        {
+                            workSheet.Row(i).Delete();
+                            workBook.Save();
+                            for (int j = 0; j <= intStaffAmount; j++)
+                            {
+                                foreach (UIElement tglDelete in panelExistingStaff.Children)
+                                {
+                                    if (tglDelete.GetType() == typeof(ToggleButton))
+                                    {
+                                        ToggleButton strTglStaffName = (ToggleButton)tglDelete;
+                                        string strNameCheck = strSetStaffName + strSetStaffLastName;
+                                        if (strTglStaffName.Name == strNameCheck)
+                                        {
+                                            panelExistingStaff.Children.Remove(strTglStaffName);
+                                            intStaffAmount = intStaffAmount - 1;
+                                            boolIsToEditStaff = false;
+                                            boolIsToDeleteStaff = false;
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             if (boolSaveStaff)
@@ -152,6 +181,7 @@ namespace NewTillSystem.Windows
                 boolStaffAdded = true;
                 boolSaveStaff = false;
             }
+
             range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
             range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
 
@@ -162,12 +192,7 @@ namespace NewTillSystem.Windows
         /*
         if (boxSelectExistingStaff.Text == joinNames)
         {
-            string[] strSeperateNames = joinNames.Split(' ');
-            strSetStaffName = strSeperateNames[0];
-            strSetStaffLastName = strSeperateNames[1];
-            strSetStaffID = readXlsxDataStaffID;
-            strSetStaffRole = readXlsxDataStaffRole;
-            intEditRowLine = i;
+
             if (boolIsToDeleteStaff)
             {
                 Debug.WriteLine("join " + joinNames);
@@ -195,18 +220,41 @@ namespace NewTillSystem.Windows
         private void tglStaff_Checked(object sender, EventArgs e)
         {
             ToggleButton tglStaff = (ToggleButton)sender;
-            string strStaffName = Convert.ToString(tglStaff.Content);
+            strTglStaffName = Convert.ToString(tglStaff.Content);
+            Debug.WriteLine(strTglStaffName);
+
+            /*
+            boolIsToDeleteStaff = true;
+            boolIsToEditStaff = true;
+            GetCurrentStaffList();
+            txtEnterStaffFirstName.Text = strSetStaffName;
+            txtEnterStaffLastName.Text = strSetStaffLastName;
+            txtEnterStaffPin.Text = strSetStaffID;
+            if (strSetStaffRole == strAdmin)
+            {
+                boxSelectRole.SelectedItem = boxRoleSelectAdmin;
+            }
+            else if (strSetStaffRole == strManager)
+            {
+                boxSelectRole.SelectedItem = boxRoleSelectManager;
+            }
+            else if (strSetStaffRole == strStaff)
+            {
+                boxSelectRole.SelectedItem = boxRoleSelectStaff;
+            }
+            */
         }
 
         private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)
         {
             boolIsToDeleteStaff = true;
+            boolIsToEditStaff = true;
             GetCurrentStaffList();
         }
 
-        //if edit ok will override that staff member
         private void btnEditStaff_Click(object sender, RoutedEventArgs e)
         {
+            boolIsToEditStaff = true;
             boolIsToDeleteStaff = true;
             GetCurrentStaffList();
             txtEnterStaffFirstName.Text = strSetStaffName;
@@ -224,10 +272,8 @@ namespace NewTillSystem.Windows
             {
                 boxSelectRole.SelectedItem = boxRoleSelectStaff;
             }
-            //save edit file by getfile current file
         }
 
-        //else exists try again prompt
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             if (!boolIsToEditStaff)
