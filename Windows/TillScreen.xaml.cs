@@ -170,6 +170,8 @@ namespace NewTillSystem
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
                 workBook.Save();
+                boolCanEditProduct = false;
+                //MAKE IT SO EDIT PRODUCT MANAGE CHANGES TO TURN EDIT OFF
             }
         }
 

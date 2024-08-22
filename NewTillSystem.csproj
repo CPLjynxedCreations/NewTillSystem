@@ -12,4 +12,8 @@
     <PackageReference Include="ClosedXML" Version="0.102.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ProjectImages\" />
+  </ItemGroup>
+
 </Project>
