@@ -184,18 +184,18 @@ namespace NewTillSystem.Windows
         {
             ToggleButton tglStaff = (ToggleButton)sender;
             strTglStaffName = Convert.ToString(tglStaff.Content);
-            Debug.WriteLine(strTglStaffName);
             string strSelectedStaff = tglStaff.Name;
+            int intStaffCount = panelExistingStaff.Children.Count;
             foreach (UIElement tglStaffName in panelExistingStaff.Children)
             {
                 if (tglStaffName.GetType() == typeof(ToggleButton))
                 {
                     ToggleButton tglSelectedStaff = (ToggleButton)tglStaffName;
+                    Debug.WriteLine("button name " + tglSelectedStaff.Name);
+                    Debug.WriteLine("staff name " + strSelectedStaff);
                     if (tglSelectedStaff.Name == strSelectedStaff)
                     {
-                        tglStaff.Background = Brushes.DarkOliveGreen;
-                        //huh we can say checked true?
-                        //tglSelectedStaff.IsChecked = false;
+                        tglSelectedStaff.IsChecked = true;
                     }
                     else
                     {
@@ -203,7 +203,6 @@ namespace NewTillSystem.Windows
                     }
                 }
             }
-            //uncheck anything else selected
 
         }
 
