@@ -82,15 +82,12 @@ namespace NewTillSystem.Windows
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
                     tglStaff.Style = (Style)Application.Current.Resources["tglStyleStaff"];
                     tglStaff.Checked += tglStaff_Checked;
-                    Debug.WriteLine("role " + readXlsxDataStaffRole);
-                    Debug.WriteLine("active " + strFilterActive);
                     if (tglStaff.Content != strEmpty)
                     {
                         if (boolFilterActive)
                         {
                             for (int j = 0; j <= intStaffAmount; j++)
                             {
-                                Debug.WriteLine("active j " + j);
                                 foreach (UIElement tglRemove in panelExistingStaff.Children)
                                 {
                                     if (tglRemove.GetType() == typeof(ToggleButton))
@@ -114,7 +111,6 @@ namespace NewTillSystem.Windows
                         {
                             for (int j = 0; j <= intStaffAmount; j++)
                             {
-                                Debug.WriteLine("active j " + j);
                                 foreach (UIElement tglRemove in panelExistingStaff.Children)
                                 {
                                     if (tglRemove.GetType() == typeof(ToggleButton))
@@ -164,6 +160,39 @@ namespace NewTillSystem.Windows
                         }
                         break;
                     }
+                    if (strSetNewStaffFirstName == strEmpty)
+                    {
+                        txtEnterStaffFirstName.Background = Brushes.Red;
+                        boolStaffNameMatch = true;
+                    }
+                    else
+                    {
+                        txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
+                        //boolStaffNameMatch = false;
+                    }
+                    if (strSetNewStaffLastName == strEmpty)
+                    {
+                        txtEnterStaffLastName.Background = Brushes.Red;
+                        boolStaffNameMatch = true;
+                    }
+                    else
+                    {
+                        txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
+                    }
+                    if(strSetNewStaffID == strEmpty)
+                    {
+                        txtEnterStaffPin.Background = Brushes.Red;
+                        boolStaffIdMatch = true;
+                    }
+                    else
+                    {
+                        txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
+                    }
+                    if (strSetNewStaffFirstName == strEmpty || strSetNewStaffLastName == strEmpty || strSetNewStaffID == strEmpty)
+                    {
+                        break;
+                    }
+                        
                     if (i == intStaffAmount)
                     {
                         txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
@@ -240,8 +269,6 @@ namespace NewTillSystem.Windows
                 if (tglStaffName.GetType() == typeof(ToggleButton))
                 {
                     ToggleButton tglSelectedStaff = (ToggleButton)tglStaffName;
-                    Debug.WriteLine("button name " + tglSelectedStaff.Name);
-                    Debug.WriteLine("staff name " + strSelectedStaff);
                     if (tglSelectedStaff.Name == strSelectedStaff)
                     {
                         tglSelectedStaff.IsChecked = true;
@@ -258,7 +285,6 @@ namespace NewTillSystem.Windows
         {
             Button btnFilter = (Button)sender;
             strFilterActive = Convert.ToString(btnFilter.Content);
-
             if (strFilterActive == btnFilterStaff1.Content)
             {
                 boolGenerateStaff = true;
@@ -295,7 +321,6 @@ namespace NewTillSystem.Windows
             if (strFilterActive == btnFilterStaff4.Content)
             {
                 boolFilterActive = true;
-                //change filter to staff
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
                 btnFilterStaff4.Foreground = Brushes.White;
@@ -347,7 +372,7 @@ namespace NewTillSystem.Windows
 
                 if (boxRoleSelectNameText.IsSelected)
                 {
-                    strSetNewStaffRole = strEmpty;
+                    strSetNewStaffRole = strStaff;
                 }
                 GetCurrentStaffList();
                 if (boolStaffAdded)
