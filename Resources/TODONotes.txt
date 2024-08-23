@@ -1,0 +1,7 @@
+﻿
+
+
+//do not allow staff txts to be empty or not selected.
+	maybe do if not selected then defualt is staff
+	error if box is empty
+

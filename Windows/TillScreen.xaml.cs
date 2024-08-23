@@ -29,8 +29,6 @@ namespace NewTillSystem
         private int intProductButtonCount = 51;
         private bool boolIsMinus;
 
-        private bool boolCanEditProduct;
-        private bool boolEditStaff;
 
         private int intXlsxProductRow;
         private string strXlsxProductColumn = "A";
@@ -46,6 +44,8 @@ namespace NewTillSystem
         private bool boolIsAdmin;
         private bool boolIsManager;
         private bool boolIsStaff;
+        private bool boolCanEditProduct;
+        private bool boolEditStaff;
 
         public string currentDate;
         public string currentTime;
@@ -59,7 +59,7 @@ namespace NewTillSystem
             SetProductButtonDetails();
 
             lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
-            
+
 
 
             TillLogOn();
@@ -170,7 +170,9 @@ namespace NewTillSystem
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
                 workBook.Save();
+                //MAKE IT SO EDIT PRODUCT MANAGE CHANGES TO TURN EDIT OFF
             }
+            //ADD TO SALE SCREEN WHEN MADE
         }
 
         private void btnAdminLogOut_Click(object sender, EventArgs e)
@@ -188,8 +190,24 @@ namespace NewTillSystem
                 ManageTillWindow openManageWindow = new ManageTillWindow();
                 openManageWindow.Owner = Application.Current.MainWindow;
                 openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                if (boolCanEditProduct)
+                {
+                    openManageWindow.btnManageEditProducts.Content = "Stop Product Edit";
+                }
                 openManageWindow.btnManageClose.Click += (sender, e) => { openManageWindow.Close(); };
-                openManageWindow.btnManageEditProducts.Click += (sender, e) => { openManageWindow.Close(); boolCanEditProduct = true; };
+                openManageWindow.btnManageEditProducts.Click += (sender, e) =>
+                {
+                    if (!boolCanEditProduct)
+                    {
+                        boolCanEditProduct = true;
+                    }
+                    else
+                    {
+                        boolCanEditProduct = false;
+                    }
+                    openManageWindow.Close();
+                };
+                //MAKE BUTTON TO STOP EDIT POP UP
                 openManageWindow.btnManageEditStaff.Click += (sender, e) => { openManageWindow.Close(); ManageEditStaff(); };
                 openManageWindow.ShowDialog();
             }
@@ -201,11 +219,7 @@ namespace NewTillSystem
             EnterStaffDetails openEditStaff = new EnterStaffDetails();
             openEditStaff.Owner = Application.Current.MainWindow;
             openEditStaff.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            //check details
-            //openEditStaff.btnOk.Click += (sender, e) => { openEditStaff.Close(); }; // save entered details
-            //if newstaff then close and save details
-            //if edit and pressed. save new details
-            openEditStaff.btnCancel.Click += (sender, e) => { openEditStaff.Close(); }; // save nothing
+            openEditStaff.btnCancel.Click += (sender, e) => { openEditStaff.Close(); };
             openEditStaff.ShowDialog();
 
         }
@@ -266,10 +280,24 @@ namespace NewTillSystem
                 string setAdminLastName = "ADMIN";
                 string setAdminID = "1111";
                 string setAdminRole = "ADMIN";
-                workSheet.Cell(1, strXlsxStaffNameColumn).Value = setAdminName;
-                workSheet.Cell(1, strXlsxStaffLastNameColumn).Value = setAdminLastName;
-                workSheet.Cell(1, strXlsxStaffIDColumn).Value = setAdminID;
-                workSheet.Cell(1, strXlsxStaffRoleColumn).Value = setAdminRole;
+                string setFirstNameHeader = "FIRST NAME";
+                string setLastNameHeader = "LAST NAME";
+                string setCodeHeader = "CODE";
+                string setRoleHeader = "ROLE";
+                workSheet.Row(1).Style.Font.Bold = true;
+                workSheet.Cell(1, strXlsxStaffNameColumn).Value = setFirstNameHeader;
+                workSheet.Cell(1, strXlsxStaffLastNameColumn).Value = setLastNameHeader;
+                workSheet.Cell(1, strXlsxStaffIDColumn).Value = setCodeHeader;
+                workSheet.Cell(1, strXlsxStaffRoleColumn).Value = setRoleHeader;
+                workSheet.Cell(2, strXlsxStaffNameColumn).Value = setAdminName;
+                workSheet.Cell(2, strXlsxStaffLastNameColumn).Value = setAdminLastName;
+                workSheet.Cell(2, strXlsxStaffIDColumn).Value = setAdminID;
+                workSheet.Cell(2, strXlsxStaffRoleColumn).Value = setAdminRole;
+                workSheet.ColumnsUsed().AdjustToContents();
+
+                var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
+                range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
+
                 workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
             }
             if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx"))

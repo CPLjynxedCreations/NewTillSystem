@@ -11,41 +11,45 @@
         Height="540"
         Width="960"
         Background="Gray"
-        BorderBrush="Firebrick"
+        BorderBrush="DarkRed"
         BorderThickness="5">
     <Grid>
+        <Border x:Name="brdPageBreak"
+                Width="5"
+                BorderBrush="DarkRed"
+                BorderThickness="5"/>
         <Button x:Name="btnOk"
                 Style="{DynamicResource btnAdminStyle}"
-                Width="200"
+                Width="180"
                 Height="80"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Left"
-                Margin="100,0,0,40"
+                Margin="40,0,0,30"
                 Content="OK" Click="btnOk_Click"/>
         <Button x:Name="btnCancel"
                 Style="{DynamicResource btnAdminStyle}"
-                Width="200"
+                Width="180"
                 Height="80"
                 VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                Margin="0,0,100,40"
+                HorizontalAlignment="Left"
+                Margin="260,0,0,30"
                 Content="CANCEL"/>
         <Button x:Name="btnDeleteStaff"
                 Style="{DynamicResource btnAdminStyle}"
-                Width="200"
+                Width="180"
                 Height="80"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
-                Margin="0,0,46,240"
+                Margin="0,0,40,30"
                 Content="DELETE"
                 Click="btnDeleteStaff_Click"/>
         <Button x:Name="btnEditStaff"
                 Style="{DynamicResource btnAdminStyle}"
-                Width="200"
+                Width="180"
                 Height="80"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
-                Margin="0,0,251,240"
+                Margin="0,0,260,30"
                 Content="EDIT"
                 Click="btnEditStaff_Click"/>
         <TextBlock x:Name="lblEnterStaffFirst"
@@ -56,8 +60,9 @@
                    Text="Enter Staff First Name"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
-                   Margin="50,42,0,0"/>
+                   Margin="40,42,0,0"/>
         <TextBox x:Name="txtEnterStaffFirstName"
+                 Style="{DynamicResource txtStyleStaffEnter}"
                  Width="400"
                  Height="50"
                  FontSize="22"
@@ -65,7 +70,7 @@
                  Padding="4,4,0,0"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Left"
-                 Margin="50,80,0,0"
+                 Margin="40,80,0,0"
                  Background="DarkSeaGreen"
                  BorderBrush="DarkOliveGreen"
                  BorderThickness="5"/>
@@ -77,8 +82,9 @@
                    Text="Enter Staff Last Name"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
-                   Margin="50,132,0,0"/>
+                   Margin="40,132,0,0"/>
         <TextBox x:Name="txtEnterStaffLastName"
+                 Style="{DynamicResource txtStyleStaffEnter}"
                    Width="400"
                    Height="50"
                    FontSize="22"
@@ -86,7 +92,7 @@
                    Padding="4,4,0,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
-                   Margin="50,168,0,0"
+                   Margin="40,168,0,0"
                    Background="DarkSeaGreen"
                    BorderBrush="DarkOliveGreen"
                    BorderThickness="5"/>
@@ -98,8 +104,9 @@
                    Text="Enter Staff Pin"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
-                   Margin="50,222,0,0"/>
+                   Margin="40,222,0,0"/>
         <TextBox x:Name="txtEnterStaffPin"
+                 Style="{DynamicResource txtStyleStaffEnter}"
                  Width="400"
                  Height="50"
                  FontSize="22"
@@ -107,7 +114,7 @@
                  Padding="4,4,0,0"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Left"
-                 Margin="50,258,0,0"
+                 Margin="40,258,0,0"
                  Background="DarkSeaGreen"
                  BorderBrush="DarkOliveGreen"
                  BorderThickness="5"/>
@@ -120,7 +127,7 @@
                   VerticalAlignment="Top"
                   HorizontalAlignment="Left"
                   Padding="15,10,0,0"
-                  Margin="50,330,0,0"
+                  Margin="40,330,0,0"
                   BorderThickness="5">
             <ComboBoxItem x:Name="boxRoleSelectNameText"
                           Content="Select Role"
@@ -133,6 +140,7 @@
             <ComboBoxItem x:Name="boxRoleSelectStaff"
                           Content="Staff"/>
         </ComboBox>
+        
         <TextBlock x:Name="lblEditStaff"
                    FontSize="24"
                    FontWeight="UltraBlack"
@@ -140,24 +148,71 @@
                    Height="40"
                    Text="Select Staff Name"
                    VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Margin="500,100,0,0"/>
-        <ComboBox x:Name="boxSelectExistingStaff"
-                  Style="{DynamicResource comboBoxStyle}"
-                  Width="400"
-                  Height="50"
-                  FontSize="22"
-                  FontWeight="Bold"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Left"
-                  Padding="15,10,0,0"
-                  Margin="500,150,0,0"
-                  BorderThickness="5">
-            <!-- make a template for list item-->
-            <ComboBoxItem x:Name="boxSelectExistingStaffText"
-                          Content="Select Staff"
-                          IsSelected="True"
-                          IsEnabled="False"/>
-        </ComboBox>
+                   HorizontalAlignment="Right"
+                   Margin="0,42,180,0"/>
+        
+        <TextBlock x:Name="lblFilter"
+                   FontSize="24"
+                   FontWeight="UltraBlack"
+                   Width="70"
+                   Height="40"
+                   Text="Filter"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right"
+                   Margin="0,80,40,0"/>
+        <Button x:Name="btnFilterStaff1"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="OFF"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,120,40,0"
+                Click="btnFilterStaff_Click"/>
+        <Button x:Name="btnFilterStaff2"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="ADMIN"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,190,40,0"
+                Click="btnFilterStaff_Click"/>
+        <Button x:Name="btnFilterStaff3"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="MANAGER"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,260,40,0"
+                Click="btnFilterStaff_Click"/>
+        <Button x:Name="btnFilterStaff4"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="STAFF"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,330,40,0"
+                Click="btnFilterStaff_Click"/>
+
+        <ScrollViewer x:Name="scrlSelectExistingStaff"
+                      Width="300"
+                      Height="300"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Right"
+                      Margin="0,80,140,0"
+                      Background="Gray">
+            <Border BorderBrush="DarkRed" BorderThickness="3">
+                <StackPanel x:Name="panelExistingStaff">
+                    <!-- MAKE BUTTON THHEME FOR STACK-->
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
     </Grid>
 </Window>
