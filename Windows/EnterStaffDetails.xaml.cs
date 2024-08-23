@@ -36,6 +36,10 @@ namespace NewTillSystem.Windows
         private string strSetNewStaffID;
         private string strSetNewStaffRole;
         private string strTglStaffName;
+
+        private string strFilterActive = "OFF";
+        private bool boolFilterActive = false;
+
         private bool boolIsToDeleteStaff;
         private bool boolIsToEditStaff;
         private bool boolStaffNameMatch;
@@ -49,6 +53,7 @@ namespace NewTillSystem.Windows
         {
             InitializeComponent();
             boolGenerateStaff = true;
+            btnFilterStaff1.Foreground = Brushes.White;
             GetCurrentStaffList();
             txtEnterStaffFirstName.Focus();
         }
@@ -77,10 +82,54 @@ namespace NewTillSystem.Windows
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
                     tglStaff.Style = (Style)Application.Current.Resources["tglStyleStaff"];
                     tglStaff.Checked += tglStaff_Checked;
+                    Debug.WriteLine("role " + readXlsxDataStaffRole);
+                    Debug.WriteLine("active " + strFilterActive);
                     if (tglStaff.Content != strEmpty)
                     {
-                        Debug.WriteLine(tglStaff.Content);
-                        panelExistingStaff.Children.Add(tglStaff);
+                        if (boolFilterActive)
+                        {
+                            for (int j = 0; j <= intStaffAmount; j++)
+                            {
+                                Debug.WriteLine("active j " + j);
+                                foreach (UIElement tglRemove in panelExistingStaff.Children)
+                                {
+                                    if (tglRemove.GetType() == typeof(ToggleButton))
+                                    {
+                                        ToggleButton strTglStaffName = (ToggleButton)tglRemove;
+                                        if (strTglStaffName.Name == readXlsxDataStaffName + readXlsxDataStaffLastName)
+                                        {
+                                            panelExistingStaff.Children.Remove(strTglStaffName);
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            if (strFilterActive == readXlsxDataStaffRole)
+                            {
+                                panelExistingStaff.Children.Add(tglStaff);
+
+                            }
+                        }
+                        if (strFilterActive == "OFF")
+                        {
+                            for (int j = 0; j <= intStaffAmount; j++)
+                            {
+                                Debug.WriteLine("active j " + j);
+                                foreach (UIElement tglRemove in panelExistingStaff.Children)
+                                {
+                                    if (tglRemove.GetType() == typeof(ToggleButton))
+                                    {
+                                        ToggleButton strTglStaffName = (ToggleButton)tglRemove;
+                                        if (strTglStaffName.Name == readXlsxDataStaffName + readXlsxDataStaffLastName)
+                                        {
+                                            panelExistingStaff.Children.Remove(strTglStaffName);
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            panelExistingStaff.Children.Add(tglStaff);
+                        }
                     }
                     if (i == intStaffAmount)
                     {
@@ -203,7 +252,58 @@ namespace NewTillSystem.Windows
                     }
                 }
             }
+        }
 
+        private void btnFilterStaff_Click(object sender, EventArgs e)
+        {
+            Button btnFilter = (Button)sender;
+            strFilterActive = Convert.ToString(btnFilter.Content);
+
+            if (strFilterActive == btnFilterStaff1.Content)
+            {
+                boolGenerateStaff = true;
+                boolFilterActive = false;
+                GetCurrentStaffList();
+                btnFilterStaff1.Foreground = Brushes.White;
+            }
+            else
+            {
+                btnFilterStaff1.Foreground = Brushes.Black;
+            }
+            if (strFilterActive == btnFilterStaff2.Content)
+            {
+                boolFilterActive = true;
+                boolGenerateStaff = true;
+                GetCurrentStaffList();
+                btnFilterStaff2.Foreground = Brushes.White;
+            }
+            else
+            {
+                btnFilterStaff2.Foreground = Brushes.Black;
+            }
+            if (strFilterActive == btnFilterStaff3.Content)
+            {
+                boolFilterActive = true;
+                boolGenerateStaff = true;
+                GetCurrentStaffList();
+                btnFilterStaff3.Foreground = Brushes.White;
+            }
+            else
+            {
+                btnFilterStaff3.Foreground = Brushes.Black;
+            }
+            if (strFilterActive == btnFilterStaff4.Content)
+            {
+                boolFilterActive = true;
+                //change filter to staff
+                boolGenerateStaff = true;
+                GetCurrentStaffList();
+                btnFilterStaff4.Foreground = Brushes.White;
+            }
+            else
+            {
+                btnFilterStaff4.Foreground = Brushes.Black;
+            }
         }
 
         private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)

@@ -7,14 +7,14 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/btnEmptyDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/btnAdminDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/btnAdminQuickDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/btnSaleToggleDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/btnItemDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/comboBoxDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/tglStaffDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/txtStaffEnter.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/btnEmptyDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/btnAdminDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/btnAdminQuickDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/btnSaleToggleDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/btnItemDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/comboBoxDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/tglStaffDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/txtStaffEnter.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

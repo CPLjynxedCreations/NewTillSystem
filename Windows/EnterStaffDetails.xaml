@@ -140,6 +140,7 @@
             <ComboBoxItem x:Name="boxRoleSelectStaff"
                           Content="Staff"/>
         </ComboBox>
+        
         <TextBlock x:Name="lblEditStaff"
                    FontSize="24"
                    FontWeight="UltraBlack"
@@ -149,15 +150,65 @@
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"
                    Margin="0,42,180,0"/>
+        
+        <TextBlock x:Name="lblFilter"
+                   FontSize="24"
+                   FontWeight="UltraBlack"
+                   Width="70"
+                   Height="40"
+                   Text="Filter"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right"
+                   Margin="0,80,40,0"/>
+        <Button x:Name="btnFilterStaff1"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="OFF"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,120,40,0"
+                Click="btnFilterStaff_Click"/>
+        <Button x:Name="btnFilterStaff2"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="ADMIN"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,190,40,0"
+                Click="btnFilterStaff_Click"/>
+        <Button x:Name="btnFilterStaff3"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="MANAGER"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,260,40,0"
+                Click="btnFilterStaff_Click"/>
+        <Button x:Name="btnFilterStaff4"
+                Style="{DynamicResource btnAdminStyle}"
+                Content="STAFF"
+                FontSize="13"
+                Width="80"
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,330,40,0"
+                Click="btnFilterStaff_Click"/>
 
         <ScrollViewer x:Name="scrlSelectExistingStaff"
-                      Width="400"
+                      Width="300"
                       Height="300"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Right"
-                      Margin="0,80,40,0"
+                      Margin="0,80,140,0"
                       Background="Gray">
-        <Border BorderBrush="DarkRed" BorderThickness="3">
+            <Border BorderBrush="DarkRed" BorderThickness="3">
                 <StackPanel x:Name="panelExistingStaff">
                     <!-- MAKE BUTTON THHEME FOR STACK-->
                 </StackPanel>
