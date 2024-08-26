@@ -1,4 +1,5 @@
 using ClosedXML.Excel;
+using NewTillSystem.Resources.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +20,7 @@ namespace NewTillSystem.Windows
 {
     public partial class EnterStaffDetails : Window
     {
+        private onScreenKeyboardController kbController;
         private string strXlsxStaffNameColumn = "A";
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
@@ -52,6 +54,7 @@ namespace NewTillSystem.Windows
         public EnterStaffDetails()
         {
             InitializeComponent();
+            kbController = new onScreenKeyboardController();
             boolGenerateStaff = true;
             btnFilterStaff1.Foreground = Brushes.White;
             GetCurrentStaffList();
@@ -389,7 +392,7 @@ namespace NewTillSystem.Windows
 
         private void btnClick_Click(object sender, RoutedEventArgs e)
         {
-
+            kbController.GetKeyPressed(sender);
         }
     }
 }

@@ -14,17 +14,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
     public partial class EnterProductDetails : Window
     {
+        private onScreenKeyboardController kbController;
         public string strProductName;
         public string strProductPrice;
 
         public EnterProductDetails()
         {
+            kbController = new onScreenKeyboardController();
             InitializeComponent();
+
             //OpenOnScreenKeyboard();
         }
         /* DISPLAYS WINDOWS ONSCREEN KEYBOARD
@@ -52,7 +56,7 @@ namespace NewTillSystem.Windows
 
         private void btnClick_Click(object sender, RoutedEventArgs e)
         {
-
+            kbController.GetKeyPressed(sender);
         }
     }
 }
