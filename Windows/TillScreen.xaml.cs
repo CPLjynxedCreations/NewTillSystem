@@ -138,7 +138,7 @@ namespace NewTillSystem
         {
             Button btnPressedProduct = (Button)sender;
             var strPressedProduct = Convert.ToString(btnPressedProduct.Name);
-            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx");
+            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");
             var workSheet = workBook.Worksheet("Product Sheet");
             if (boolCanEditProduct)
             {
@@ -152,7 +152,10 @@ namespace NewTillSystem
                 }
                 EnterProductDetails openPrompt = new EnterProductDetails();
                 openPrompt.Owner = Application.Current.MainWindow;
-                openPrompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                //openPrompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                openPrompt.WindowStartupLocation = WindowStartupLocation.Manual;
+                openPrompt.Left = 0;
+                openPrompt.Top = 80;
                 openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); };
                 openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); };
                 openPrompt.txtEnterProductName.Focus();
@@ -218,7 +221,9 @@ namespace NewTillSystem
         {
             EnterStaffDetails openEditStaff = new EnterStaffDetails();
             openEditStaff.Owner = Application.Current.MainWindow;
-            openEditStaff.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openEditStaff.WindowStartupLocation = WindowStartupLocation.Manual;
+            openEditStaff.Left = 0;
+            openEditStaff.Top = 80;
             openEditStaff.btnCancel.Click += (sender, e) => { openEditStaff.Close(); };
             openEditStaff.ShowDialog();
 
@@ -234,7 +239,7 @@ namespace NewTillSystem
 
         private void SetProductButtonDetails()
         {
-            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx");
+            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");
             var workSheet = workBook.Worksheet("Product Sheet");
             for (int i = 1; i <= intProductButtonCount; i++)
             {
@@ -272,7 +277,7 @@ namespace NewTillSystem
 
         private void SetTillFiles()
         {
-            if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx"))
+            if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\StaffID.xlsx"))
             {
                 var workBook = new XLWorkbook();
                 var workSheet = workBook.Worksheets.Add("Staff");
@@ -298,13 +303,13 @@ namespace NewTillSystem
                 var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
                 range.SetAutoFilter().Sort(2, XLSortOrder.Ascending);
 
-                workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
+                workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\StaffID.xlsx");
             }
-            if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx"))
+            if (!File.Exists("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx"))
             {
                 var workBook = new XLWorkbook();
                 var workSheet = workBook.Worksheets.Add("Product Sheet");
-                workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\ProductDataBase.xlsx");
+                workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");
             }
         }
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,16 +25,19 @@ namespace NewTillSystem.Windows
         public EnterProductDetails()
         {
             InitializeComponent();
-            OpenOnScreenKeyboard();
+            //OpenOnScreenKeyboard();
         }
+        /* DISPLAYS WINDOWS ONSCREEN KEYBOARD
         private void OpenOnScreenKeyboard()
-        {
+        {   
             var onScreenKeyboardProcess = new ProcessStartInfo("osk.exe")
             {
                 UseShellExecute = true
             };
             Process.Start(onScreenKeyboardProcess);
         }
+        */
+
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             strProductName = txtEnterProductName.Text;
@@ -43,6 +48,11 @@ namespace NewTillSystem.Windows
         {
             strProductName = string.Empty;
             strProductPrice = string.Empty;
+        }
+
+        private void btnClick_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

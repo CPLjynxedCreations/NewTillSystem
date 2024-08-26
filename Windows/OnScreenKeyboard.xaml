@@ -10,8 +10,7 @@
         WindowStartupLocation="Manual" Left="0" Top="680"
         Height="400"
         Width="1920"
-        Background="DarkSeaGreen"
-        BorderBrush="Firebrick"
+        BorderBrush="DarkRed"
         BorderThickness="5"
         Title="OnScreenKeyboard">
     <Grid x:Name="Test">
@@ -41,8 +40,8 @@
             <Button x:Name="btnKeyboard_1" Content="1" Margin="5,0,0,0" Grid.Column="0" Grid.Row="2" Style="{DynamicResource btnItemStyle}"/>
             <Button x:Name="btnKeyboard_2" Content="2" Grid.Column="1" Grid.Row="2" Style="{DynamicResource btnItemStyle}"/>
             <Button x:Name="btnKeyboard_3" Content="3" Margin="0,0,10,0" Grid.Column="2" Grid.Row="2" Style="{DynamicResource btnItemStyle}"/>
-            <Button x:Name="btnKeyboard_0" Content="0" Margin="5,0,0,10" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Style="{DynamicResource btnItemStyle}"/>
-            <Button x:Name="btnKeyboard_backspace" Content="Delete" Margin="0,0,10,10" Grid.Column="2" Grid.Row="3" Style="{DynamicResource btnItemStyle}"/>
+            <Button x:Name="btnKeyboard_0" Content="0" Margin="5,0,0,5" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Style="{DynamicResource btnItemStyle}"/>
+            <Button x:Name="btnKeyboard_backspace" Content="Delete" Margin="0,0,10,5" Grid.Column="2" Grid.Row="3" Style="{DynamicResource btnItemStyle}"/>
             <!--10 x 3 -->
             <!--SAPCE TAKES LOWER RIGHT 3. BACK TAKES MID RIGHT 2-->
         </Grid>
@@ -68,33 +67,33 @@
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="130"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnKeyboard_Q" Content="Q" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_W" Content="W" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_E" Content="E" Margin="0,5,0,0" Grid.Column="2" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_R" Content="R" Margin="0,5,0,0" Grid.Column="3" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_T" Content="T" Margin="0,5,0,0" Grid.Column="4" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_Y" Content="Y" Margin="0,5,0,0" Grid.Column="5" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_U" Content="U" Margin="0,5,0,0" Grid.Column="6" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_I" Content="I" Margin="0,5,0,0" Grid.Column="7" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_O" Content="O" Margin="0,5,0,0" Grid.Column="8" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_P" Content="P" Margin="0,5,5,0" Grid.Column="9" Grid.Row="0" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_A" Content="A" Margin="5,0,0,0" Grid.Column="0" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_S" Content="S" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_D" Content="D" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_F" Content="F" Margin="0,0,0,0" Grid.Column="3" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_G" Content="G" Margin="0,0,0,0" Grid.Column="4" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_H" Content="H" Margin="0,0,0,0" Grid.Column="5" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_J" Content="J" Margin="0,0,0,0" Grid.Column="6" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_K" Content="K" Margin="0,0,0,0" Grid.Column="7" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_L" Content="L" Margin="0,0,0,0" Grid.Column="8" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
+            <Button x:Name="btnKeyboard_Q" Content="Q" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_W" Content="W" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_E" Content="E" Margin="0,5,0,0" Grid.Column="2" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_R" Content="R" Margin="0,5,0,0" Grid.Column="3" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_T" Content="T" Margin="0,5,0,0" Grid.Column="4" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_Y" Content="Y" Margin="0,5,0,0" Grid.Column="5" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_U" Content="U" Margin="0,5,0,0" Grid.Column="6" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_I" Content="I" Margin="0,5,0,0" Grid.Column="7" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_O" Content="O" Margin="0,5,0,0" Grid.Column="8" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_P" Content="P" Margin="0,5,5,0" Grid.Column="9" Grid.Row="0" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_A" Content="A" Margin="5,0,0,0" Grid.Column="0" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_S" Content="S" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_D" Content="D" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_F" Content="F" Margin="0,0,0,0" Grid.Column="3" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_G" Content="G" Margin="0,0,0,0" Grid.Column="4" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_H" Content="H" Margin="0,0,0,0" Grid.Column="5" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_J" Content="J" Margin="0,0,0,0" Grid.Column="6" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_K" Content="K" Margin="0,0,0,0" Grid.Column="7" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_L" Content="L" Margin="0,0,0,0" Grid.Column="8" Grid.Row="1" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
             <Button x:Name="btnKeyboard_DELETE" Content="DELETE" Margin="0,0,5,0" Grid.Column="9" Grid.Row="1" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_Z" Content="Z" Margin="5,0,0,5" Grid.Column="0" Grid.Row="2" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_X" Content="X" Margin="0,0,0,5" Grid.Column="1" Grid.Row="2" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_C" Content="C" Margin="0,0,0,5" Grid.Column="2" Grid.Row="2" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_V" Content="V" Margin="0,0,0,5" Grid.Column="3" Grid.Row="2" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_B" Content="B" Margin="0,0,0,5" Grid.Column="4" Grid.Row="2" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_N" Content="N" Margin="0,0,0,5" Grid.Column="5" Grid.Row="2" Style="{DynamicResource btnAdminStyle}"/>
-            <Button x:Name="btnKeyboard_M" Content="M" Margin="0,0,0,5" Grid.Column="6" Grid.Row="2" Style="{DynamicResource btnAdminStyle}"/>
+            <Button x:Name="btnKeyboard_Z" Content="Z" Margin="5,0,0,5" Grid.Column="0" Grid.Row="2" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_X" Content="X" Margin="0,0,0,5" Grid.Column="1" Grid.Row="2" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_C" Content="C" Margin="0,0,0,5" Grid.Column="2" Grid.Row="2" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_V" Content="V" Margin="0,0,0,5" Grid.Column="3" Grid.Row="2" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_B" Content="B" Margin="0,0,0,5" Grid.Column="4" Grid.Row="2" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_N" Content="N" Margin="0,0,0,5" Grid.Column="5" Grid.Row="2" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
+            <Button x:Name="btnKeyboard_M" Content="M" Margin="0,0,0,5" Grid.Column="6" Grid.Row="2" Style="{DynamicResource btnAdminStyle}" Click="btnClick_Click"/>
             <Button x:Name="btnKeyboard_SPACE" Content="SPACE" Margin="0,0,5,5" Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="3" Style="{DynamicResource btnAdminStyle}"/>
         </Grid>
 

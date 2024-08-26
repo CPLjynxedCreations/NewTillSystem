@@ -60,7 +60,7 @@ namespace NewTillSystem.Windows
 
         private void GetCurrentStaffList()
         {
-            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
+            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\StaffID.xlsx");
             var workSheet = workBook.Worksheet("Staff");
             int intStaffAmount = workSheet.LastRowUsed().RowNumber();
 
@@ -381,6 +381,15 @@ namespace NewTillSystem.Windows
                     this.Close();
                 }
             }
+            if (txtEnterStaffFirstName.Text == strEmpty && txtEnterStaffLastName.Text == strEmpty && txtEnterStaffPin.Text == strEmpty)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnClick_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

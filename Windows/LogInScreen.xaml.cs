@@ -81,7 +81,7 @@ namespace NewTillSystem.Windows
             }
             if (strUserNumberInput.Length == 4)
             {
-                var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\StaffID.xlsx");
+                var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\StaffID.xlsx");
                 var workSheet = workBook.Worksheet("Staff");
                 intStaffAmount = workSheet.LastRowUsed().RowNumber();
                 for (int i = 1; i <= intStaffAmount; i++)
