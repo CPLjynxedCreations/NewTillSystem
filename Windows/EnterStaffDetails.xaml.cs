@@ -56,6 +56,8 @@ namespace NewTillSystem.Windows
             btnFilterStaff1.Foreground = Brushes.White;
             GetCurrentStaffList();
             btnKeyboard_SPACE.IsEnabled = false;
+            panelKeybooardButtons.IsEnabled = false;
+            panelNumpad.IsEnabled = false;
             //txtEnterStaffLastName.Focus();
         }
 
@@ -431,20 +433,41 @@ namespace NewTillSystem.Windows
                     if (item.GetType() == typeof(TextBox))
                     {
                         TextBox txtBox = (TextBox)item;
+                        Debug.WriteLine(txtBox.Name);
                         if (txtBox.IsFocused)
                         {
-                            txtBox.BorderBrush = Brushes.Firebrick;
-                            if (txtEnterStaffPin.IsFocused)
+                            Debug.WriteLine("FOCUSED " + txtBox.Name);
+                            //txtBox.BorderBrush = Brushes.Firebrick;
+                            if (txtBox.Name == txtEnterStaffPin.Name)
                             {
+                                txtBox.BorderBrush = Brushes.Firebrick;
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
+                                Keyboard.ClearFocus();
+                                return;
+                                
                             }
-                            else
+                            else if (txtBox.Name == txtEnterStaffFirstName.Name)
                             {
+                                txtBox.BorderBrush = Brushes.Firebrick;
+                                txtEnterStaffPin.BorderBrush = Brushes.DarkSeaGreen;
+                                txtEnterStaffLastName.BorderBrush = Brushes.DarkSeaGreen;
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
+                                Keyboard.ClearFocus();
+                                return;
                             }
-                            Keyboard.ClearFocus();
+                            else if (txtBox.Name == txtEnterStaffLastName.Name)
+                            {
+                                txtBox.BorderBrush = Brushes.Firebrick;
+                                txtEnterStaffPin.BorderBrush = Brushes.DarkSeaGreen;
+                                txtEnterStaffFirstName.BorderBrush = Brushes.DarkSeaGreen;
+                                panelKeybooardButtons.IsEnabled = true;
+                                panelNumpad.IsEnabled = false;
+                                Keyboard.ClearFocus();
+                                return;
+                            }
+
 
                             for (int j = 0; j <= panelExistingStaff.Children.Count; j++)
                             {
@@ -458,18 +481,20 @@ namespace NewTillSystem.Windows
                                     }
                                 }
                             }
-                            return;
+                            //return;
                         }
                         else
                         {
                             txtBox.BorderBrush = Brushes.DarkOliveGreen;
+                            panelNumpad.IsEnabled = false;
+                            panelKeybooardButtons.IsEnabled = false;
                         }
                     }
-                    else
+                    /*else
                     {
                         panelNumpad.IsEnabled = false;
                         panelKeybooardButtons.IsEnabled = false;
-                    }
+                    }*/
                 }
             }
 

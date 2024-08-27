@@ -26,6 +26,8 @@ namespace NewTillSystem.Windows
         public EnterProductDetails()
         {
             InitializeComponent();
+            panelKeybooardButtons.IsEnabled = false;
+            panelNumpad.IsEnabled = false;
             //txtEnterProductName.Focus();
             //OpenOnScreenKeyboard();
         }
@@ -99,6 +101,7 @@ namespace NewTillSystem.Windows
                     if (item.GetType() == typeof(TextBox))
                     {
                         TextBox txtBox = (TextBox)item;
+                        Debug.WriteLine(txtBox.Name);
                         if (txtBox.IsFocused)
                         {
                             txtBox.BorderBrush = Brushes.Firebrick;
@@ -106,11 +109,14 @@ namespace NewTillSystem.Windows
                             {
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
+                                return;
                             }
                             else
                             {
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
+                                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
+                                return;
                             }
                             Keyboard.ClearFocus();
                         }
