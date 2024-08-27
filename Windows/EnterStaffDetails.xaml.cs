@@ -441,6 +441,8 @@ namespace NewTillSystem.Windows
                             if (txtBox.Name == txtEnterStaffPin.Name)
                             {
                                 txtBox.BorderBrush = Brushes.Firebrick;
+                                txtEnterStaffPin.BorderBrush = Brushes.DarkSeaGreen;
+                                txtEnterStaffLastName.BorderBrush = Brushes.DarkSeaGreen;
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();

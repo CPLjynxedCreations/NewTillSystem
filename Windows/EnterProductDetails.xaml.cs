@@ -104,21 +104,26 @@ namespace NewTillSystem.Windows
                         Debug.WriteLine(txtBox.Name);
                         if (txtBox.IsFocused)
                         {
-                            txtBox.BorderBrush = Brushes.Firebrick;
+                            //txtBox.BorderBrush = Brushes.Firebrick;
                             if (txtEnterProductPrice.IsFocused)
                             {
+                                txtBox.BorderBrush = Brushes.Firebrick;
+                                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
+                                Keyboard.ClearFocus();
                                 return;
                             }
-                            else
+                            else if (txtBox.Name == txtEnterProductName.Name)
                             {
+                                txtBox.BorderBrush = Brushes.Firebrick;
+                                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
-                                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
+                                Keyboard.ClearFocus();
                                 return;
                             }
-                            Keyboard.ClearFocus();
+                            //Keyboard.ClearFocus();
                         }
                         else
                         {
