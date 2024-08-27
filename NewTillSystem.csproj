@@ -9,11 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\BarBackground.jpg" />
+    <None Remove="Resources\Images\CoffeeBackground.jpg" />
+    <None Remove="Resources\Images\NoUnder18.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ProjectImages\" />
+    <Folder Include="Resources\Scripts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\BarBackground.jpg" />
+    <Resource Include="Resources\Images\CoffeeBackground.jpg" />
+    <Resource Include="Resources\Images\NoUnder18.png" />
   </ItemGroup>
 
 </Project>

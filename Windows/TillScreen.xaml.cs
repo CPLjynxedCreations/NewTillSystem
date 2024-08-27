@@ -47,9 +47,6 @@ namespace NewTillSystem
         private bool boolCanEditProduct;
         private bool boolEditStaff;
 
-        public string currentDate;
-        public string currentTime;
-
         public TillScreen()
         {
             InitializeComponent();
@@ -68,8 +65,8 @@ namespace NewTillSystem
 
         private void GetDateTime()
         {
-            currentDate = DateTime.Now.ToString("dd/mm/yy");
-            currentTime = DateTime.Now.ToString("h:mm tt");
+            string currentDate = DateTime.Now.ToString("dd/MM/yy");
+            string currentTime = DateTime.Now.ToString("h:mm tt");
 
             lblSaleScreenDate.Text = currentDate;
             lblSaleScreenTime.Text = currentTime;
@@ -158,7 +155,6 @@ namespace NewTillSystem
                 openPrompt.Top = 80;
                 openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); };
                 openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); };
-                openPrompt.txtEnterProductName.Focus();
                 openPrompt.ShowDialog();
                 if (openPrompt.strProductName != string.Empty)
                 {

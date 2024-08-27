@@ -1,5 +1,4 @@
 using ClosedXML.Excel;
-using NewTillSystem.Resources.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,7 +19,6 @@ namespace NewTillSystem.Windows
 {
     public partial class EnterStaffDetails : Window
     {
-        private onScreenKeyboardController kbController;
         private string strXlsxStaffNameColumn = "A";
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
@@ -54,11 +52,11 @@ namespace NewTillSystem.Windows
         public EnterStaffDetails()
         {
             InitializeComponent();
-            kbController = new onScreenKeyboardController();
             boolGenerateStaff = true;
             btnFilterStaff1.Foreground = Brushes.White;
             GetCurrentStaffList();
-            txtEnterStaffFirstName.Focus();
+            btnKeyboard_SPACE.IsEnabled = false;
+            //txtEnterStaffLastName.Focus();
         }
 
         private void GetCurrentStaffList()
@@ -182,7 +180,7 @@ namespace NewTillSystem.Windows
                     {
                         txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
                     }
-                    if(strSetNewStaffID == strEmpty)
+                    if (strSetNewStaffID == strEmpty)
                     {
                         txtEnterStaffPin.Background = Brushes.Red;
                         boolStaffIdMatch = true;
@@ -195,7 +193,7 @@ namespace NewTillSystem.Windows
                     {
                         break;
                     }
-                        
+
                     if (i == intStaffAmount)
                     {
                         txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
@@ -346,6 +344,7 @@ namespace NewTillSystem.Windows
             boolIsToEditStaff = true;
             boolIsToDeleteStaff = true;
             GetCurrentStaffList();
+
             txtEnterStaffFirstName.Text = strSetStaffFirstName;
             txtEnterStaffLastName.Text = strSetStaffLastName;
             txtEnterStaffPin.Text = strSetStaffID;
@@ -390,9 +389,90 @@ namespace NewTillSystem.Windows
             }
         }
 
-        private void btnClick_Click(object sender, RoutedEventArgs e)
+        private void btnKeyboardClick_Click(object sender, RoutedEventArgs e)
         {
-            kbController.GetKeyPressed(sender);
+            Button btnClicked = (Button)sender;
+            string strLetterPressed = Convert.ToString(btnClicked.Content);
+            for (int i = 0; i <= grStaffWindow.Children.Count; i++)
+            {
+                foreach (UIElement item in grStaffWindow.Children)
+                {
+                    if (item.GetType() == typeof(TextBox))
+                    {
+                        TextBox txtBox = (TextBox)item;
+                        if (txtBox.IsFocused)
+                        {
+                            if (strLetterPressed != btnKeyboard_DELETE.Content)
+                            {
+                                txtBox.Text = txtBox.Text + strLetterPressed;
+                                txtBox.CaretIndex = txtBox.Text.Length;
+                                return;
+                            }
+                            else
+                            {
+                                strLetterPressed = txtBox.Text;
+                                strLetterPressed = strLetterPressed.Remove(strLetterPressed.Length - 1);
+                                txtBox.Text = strLetterPressed;
+                                txtBox.CaretIndex = txtBox.Text.Length;
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CheckTxtBoxFocus(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i <= grStaffWindow.Children.Count; i++)
+            {
+                foreach (UIElement item in grStaffWindow.Children)
+                {
+                    if (item.GetType() == typeof(TextBox))
+                    {
+                        TextBox txtBox = (TextBox)item;
+                        if (txtBox.IsFocused)
+                        {
+                            txtBox.BorderBrush = Brushes.Firebrick;
+                            if (txtEnterStaffPin.IsFocused)
+                            {
+                                panelNumpad.IsEnabled = true;
+                                panelKeybooardButtons.IsEnabled = false;
+                            }
+                            else
+                            {
+                                panelKeybooardButtons.IsEnabled = true;
+                                panelNumpad.IsEnabled = false;
+                            }
+                            Keyboard.ClearFocus();
+
+                            for (int j = 0; j <= panelExistingStaff.Children.Count; j++)
+                            {
+                                foreach (UIElement btnStack in panelExistingStaff.Children)
+                                {
+                                    if (btnStack.GetType() == typeof(ToggleButton))
+                                    {
+                                        ToggleButton tglButton = (ToggleButton)btnStack;
+                                        tglButton.IsChecked = false;
+                                        strTglStaffName = strEmpty;
+                                    }
+                                }
+                            }
+                            return;
+                        }
+                        else
+                        {
+                            txtBox.BorderBrush = Brushes.DarkOliveGreen;
+                        }
+                    }
+                    else
+                    {
+                        panelNumpad.IsEnabled = false;
+                        panelKeybooardButtons.IsEnabled = false;
+                    }
+                }
+            }
+
         }
     }
 }

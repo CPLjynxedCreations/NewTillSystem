@@ -14,21 +14,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using NewTillSystem.Resources.Scripts;
+using DocumentFormat.OpenXml.VariantTypes;
 
 namespace NewTillSystem.Windows
 {
     public partial class EnterProductDetails : Window
     {
-        private onScreenKeyboardController kbController;
         public string strProductName;
         public string strProductPrice;
 
         public EnterProductDetails()
         {
-            kbController = new onScreenKeyboardController();
             InitializeComponent();
-
+            //txtEnterProductName.Focus();
             //OpenOnScreenKeyboard();
         }
         /* DISPLAYS WINDOWS ONSCREEN KEYBOARD
@@ -54,9 +52,81 @@ namespace NewTillSystem.Windows
             strProductPrice = string.Empty;
         }
 
-        private void btnClick_Click(object sender, RoutedEventArgs e)
+        private void btnKeyboardClick_Click(object sender, RoutedEventArgs e)
         {
-            kbController.GetKeyPressed(sender);
+            Button btnClicked = (Button)sender;
+            string strLetterPressed = Convert.ToString(btnClicked.Content);
+            if (strLetterPressed == btnKeyboard_SPACE.Content)
+            {
+                strLetterPressed = " ";
+            }
+
+            for (int i = 0; i <= grProductPanel.Children.Count; i++)
+            {
+                foreach (UIElement item in grProductPanel.Children)
+                {
+                    if (item.GetType() == typeof(TextBox))
+                    {
+                        TextBox txtBox = (TextBox)item;
+                        if (txtBox.IsFocused)
+                        {
+                            if (strLetterPressed != btnKeyboard_DELETE.Content)
+                            {
+                                txtBox.Text = txtBox.Text + strLetterPressed;
+                                txtBox.CaretIndex = txtBox.Text.Length;
+                                return;
+                            }
+                            else
+                            {
+                                strLetterPressed = txtBox.Text;
+                                strLetterPressed = strLetterPressed.Remove(strLetterPressed.Length - 1);
+                                txtBox.Text = strLetterPressed;
+                                txtBox.CaretIndex = txtBox.Text.Length;
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CheckTxtBoxFocus(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i <= grProductPanel.Children.Count; i++)
+            {
+                foreach (UIElement item in grProductPanel.Children)
+                {
+                    if (item.GetType() == typeof(TextBox))
+                    {
+                        TextBox txtBox = (TextBox)item;
+                        if (txtBox.IsFocused)
+                        {
+                            txtBox.BorderBrush = Brushes.Firebrick;
+                            if (txtEnterProductPrice.IsFocused)
+                            {
+                                panelNumpad.IsEnabled = true;
+                                panelKeybooardButtons.IsEnabled = false;
+                            }
+                            else
+                            {
+                                panelKeybooardButtons.IsEnabled = true;
+                                panelNumpad.IsEnabled = false;
+                            }
+                            Keyboard.ClearFocus();
+                        }
+                        else
+                        {
+                            txtBox.BorderBrush = Brushes.DarkOliveGreen;
+                        }
+                    }
+                    else
+                    {
+                        panelNumpad.IsEnabled = false;
+                        panelKeybooardButtons.IsEnabled = false;
+                    }
+                }
+            }
+
         }
     }
 }

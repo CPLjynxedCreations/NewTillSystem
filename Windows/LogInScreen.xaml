@@ -12,6 +12,26 @@
         Width="1920"
         Background="Black">
     <Grid x:Name="grWindow">
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="1920" Height="1080">
+            <Image.Source>
+                <BitmapImage x:Name="imgTillBackground" DecodePixelWidth="1920" DecodePixelHeight="1080" UriSource="/Resources/Images/CoffeeBackground.jpg" />
+            </Image.Source>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="200" Margin="50,30,0,0" VerticalAlignment="Top" Width="200">
+                <Image.Source>
+                    <BitmapImage x:Name="imgToBe18" DecodePixelWidth="200" DecodePixelHeight="200" UriSource="/Resources/Images/NoUnder18.png" />
+                </Image.Source>
+            </Image>
+
+        <TextBlock x:Name="lblToBe18Date"
+                   Text="DATE"
+                   Foreground="White"
+                   FontSize="60"
+                   FontFamily="Comic Sans MS"
+                   FontWeight="UltraBlack"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="33,240,0,0"/>
         <TextBlock x:Name="lblLoginTime"
                    Text="TIME"
                    Foreground="White"
@@ -163,6 +183,4 @@
                        Margin="5,3,0,0"/>
         </Grid>
     </Grid>
-
-
 </Window>

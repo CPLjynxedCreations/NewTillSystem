@@ -19,8 +19,6 @@ namespace NewTillSystem.Windows
 {
     public partial class LogInScreen : Window
     {
-        private string currentDate;
-        private string currentTime;
         public string strStaffLoginName;
         public string strStaffLastName;
         public bool boolStaffLogin;
@@ -42,18 +40,22 @@ namespace NewTillSystem.Windows
             InitializeComponent();
             ClearLabelStrings();
             boolStaffLogin = false;
-
             lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
+            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
         }
 
         private void GetDateTime()
         {
-            currentDate = DateTime.Now.ToString("dd/mm/yy");
-            currentTime = DateTime.Now.ToString("h:mm tt");
-
+            string currentDate = DateTime.Now.ToString("dd/MM/yy");
+            string currentTime = DateTime.Now.ToString("h:mm tt");
+            DateTime getCurrentDate = DateTime.Now;
+            DateTime calcToBe18 = getCurrentDate.AddYears(-18);
+            string setToBe18 = calcToBe18.ToString("dd/MM/yy");
             lblLoginDate.Text = currentDate;
             lblLoginTime.Text = currentTime;
+            lblToBe18Date.Text = setToBe18;
             lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
+            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
         }
 
         private void btnAdminNumPad_Click(object sender, RoutedEventArgs e)
