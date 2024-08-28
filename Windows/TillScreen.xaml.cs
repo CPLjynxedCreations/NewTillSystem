@@ -263,7 +263,7 @@ namespace NewTillSystem
                             btnName.Content = readData;
                             if (btnName.Content != string.Empty)
                             {
-                                btnName.Style = (Style)Application.Current.Resources["btnItemStyle"];
+                                btnName.Style = (Style)Application.Current.Resources["btnDefaultItem"];
                             }
                         }
                     }
