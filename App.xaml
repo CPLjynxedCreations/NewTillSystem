@@ -14,7 +14,9 @@
                 <ResourceDictionary Source="/Resources/Dictionaries/btnItemDictionary.xaml"/>
                 <ResourceDictionary Source="/Resources/Dictionaries/comboBoxDictionary.xaml"/>
                 <ResourceDictionary Source="/Resources/Dictionaries/tglStaffDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/Dictionaries/txtStaffEnter.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionaries/txtBoxEnter.xaml"/>
+
+                <ResourceDictionary Source="/Resources/Dictionary/btnProductTillScreenDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

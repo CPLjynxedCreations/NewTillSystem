@@ -16,11 +16,9 @@
               VerticalAlignment="Top" HorizontalAlignment="Center">
             <Rectangle x:Name="rctNumPad"
                        Fill="Gray"
+                       Stroke="DarkRed" StrokeThickness="5"
                        RadiusX="15" RadiusY="15"/>
             <Border x:Name="brdPageBreak1"
-                    BorderBrush="DarkRed" BorderThickness="5"
-                    CornerRadius="10,10,10,10"/>
-            <Border x:Name="brdPageBreak2"
                     Width="5"
                     BorderBrush="DarkRed" BorderThickness="5"/>
             <Button x:Name="btnOk" Style="{DynamicResource btnAdminStyle}" Click="btnOk_Click"
@@ -49,7 +47,7 @@
                        FontSize="24" FontWeight="UltraBlack"
                        Text="Enter Staff First Name"
                        Margin="40,42,0,0"/>
-            <TextBox x:Name="txtEnterStaffFirstName" Style="{DynamicResource txtStyleStaffEnter}" GotFocus="CheckTxtBoxFocus"
+            <TextBox x:Name="txtEnterStaffFirstName" Style="{DynamicResource txtBoxEnter}" GotFocus="CheckTxtBoxFocus"
                      Width="400" Height="50"
                      VerticalAlignment="Top" HorizontalAlignment="Left"
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
@@ -61,7 +59,7 @@
                        FontSize="24" FontWeight="UltraBlack"
                        Text="Enter Staff Last Name"
                        Margin="40,132,0,0"/>
-            <TextBox x:Name="txtEnterStaffLastName" Style="{DynamicResource txtStyleStaffEnter}" GotFocus="CheckTxtBoxFocus"
+            <TextBox x:Name="txtEnterStaffLastName" Style="{DynamicResource txtBoxEnter}" GotFocus="CheckTxtBoxFocus"
                      Width="400" Height="50"
                      VerticalAlignment="Top" HorizontalAlignment="Left"
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
@@ -73,7 +71,7 @@
                        FontSize="24" FontWeight="UltraBlack"
                        Text="Enter Staff Pin"
                        Margin="40,222,0,0"/>
-            <TextBox x:Name="txtEnterStaffPin" Style="{DynamicResource txtStyleStaffEnter}" GotFocus="CheckTxtBoxFocus"
+            <TextBox x:Name="txtEnterStaffPin" Style="{DynamicResource txtBoxEnter}" GotFocus="CheckTxtBoxFocus"
                      Width="400" Height="50"
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
                      VerticalAlignment="Top" HorizontalAlignment="Left"

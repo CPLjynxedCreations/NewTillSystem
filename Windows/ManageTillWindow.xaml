@@ -119,10 +119,10 @@
                 Grid.Row="6" Grid.Column="0"
                 Width="240" Height="90"
                 Content="ADMIN"/>
-            <Button x:Name="btnManage22" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManageEditButtonColor" Style="{DynamicResource btnAdminQuickStyle}"
                 Grid.Row="5" Grid.Column="1"
                 Width="240" Height="90"
-                Content=""/>
+                Content="EDIT BUTTON &#xa;      COLOR"/>
             <Button x:Name="btnManageEditStaff" Style="{DynamicResource btnAdminQuickStyle}"
                 Grid.Row="5" Grid.Column="2"
                 Width="240" Height="90"

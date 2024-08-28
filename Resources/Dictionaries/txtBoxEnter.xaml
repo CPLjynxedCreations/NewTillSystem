@@ -3,9 +3,9 @@
     
     <SolidColorBrush x:Key="TextBox.Static.Border" Color="DarkOliveGreen"/>
     <SolidColorBrush x:Key="TextBox.Static.Background" Color="DarkSeaGreen"/>
-    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="Firebrick"/>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="DarkRed"/>
     <SolidColorBrush x:Key="TextBox.Focus.Border" Color="Firebrick"/>
-    <Style x:Key="txtStyleStaffEnter" TargetType="{x:Type TextBox}">
+    <Style x:Key="txtBoxEnter" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource TextBox.Static.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
