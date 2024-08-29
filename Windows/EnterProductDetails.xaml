@@ -55,41 +55,70 @@
                      BorderThickness="5"/>
             
             <TextBlock x:Name="lblButtonColor"
-                       Width="260" Height="40"
+                       Width="180" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Right"
                        FontSize="24" FontWeight="UltraBlack"
-                       Text="Select Button Colour"
-                       Margin="40,75,100,0"/>
-            <Button x:Name="btnColorView" Style="{DynamicResource btnDefaultEmpty}"
+                       Text="Button Colour"
+                       Margin="40,75,265,0"/>
+            <Button x:Name="btnColorView" Style="{DynamicResource btnDefaultEmptyThemeTheme}"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Width="180" Height="80"
                     Margin="0,0,150,35"
                     FontSize="22" FontWeight="UltraBlack"
                     Content="SAMPLE"/>
             <ScrollViewer x:Name="scrlButtonColorSelect"
-                          Width="400" Height="280"
+                          Width="200" Height="280"
                           HorizontalAlignment="Right" VerticalAlignment="Top"
-                          Margin="0,115,40,0">
+                          Margin="0,115,250,0">
                 <Border BorderBrush="Firebrick" BorderThickness="3,3,3,0">
-                    <UniformGrid x:Name="uniGrButtonColorSelect"
-                                 Columns="2" Rows="10"
+                    <StackPanel x:Name="uniGrButtonColorSelect"
                                  Background="DarkSeaGreen">
-                        <Button x:Name="btnThemeDefualt" Style="{DynamicResource btnDefaultItem}" Click="CheckTxtBoxFocus"
-                                Height="80"/>
-                        <Button x:Name="btnThemeOrchid" Style="{DynamicResource btnOrchidItem}" Click="CheckTxtBoxFocus"
-                                Height="80"/>
-                        <Button x:Name="btnThemeBrightBlue" Style="{DynamicResource btnBrightBlueItem}" Click="CheckTxtBoxFocus"
-                                Height="80"/>
-                            <Button x:Name="btnThemeDarkPurple" Style="{DynamicResource btnDarkPurpleItem}" Click="CheckTxtBoxFocus"
-                                Height="80"/>
-                    </UniformGrid>
+                        <Button x:Name="btnDefaultItemTheme" Style="{DynamicResource btnDefaultItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnOrchidItemTheme" Style="{DynamicResource btnOrchidItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnBrightBlueItemTheme" Style="{DynamicResource btnBrightBlueItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnDarkPurpleItemTheme" Style="{DynamicResource btnDarkPurpleItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                    </StackPanel>
                 </Border>
             </ScrollViewer>
             <Rectangle x:Name="brdButtonColorSelectBase"
                     HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                    Height="3" Width="380"
+                    Height="3" Width="180"
                     Fill="Firebrick"
-                    Margin="0,0,60,135"/>
+                    Margin="0,0,270,135"/>
+
+            <TextBlock x:Name="lblButtonForegroundColor"
+                       Width="230" Height="40"
+                       VerticalAlignment="Top" HorizontalAlignment="Right"
+                       FontSize="24" FontWeight="UltraBlack"
+                       Text="Foreground Colour"
+                       Margin="40,75,10,0"/>
+            <ScrollViewer x:Name="scrlButtonForegroundColorSelect"
+                          Width="200" Height="280"
+                          HorizontalAlignment="Right" VerticalAlignment="Top"
+                          Margin="0,115,30,0">
+                <Border BorderBrush="Firebrick" BorderThickness="3,3,3,0">
+                    <StackPanel x:Name="uniGrButtonForegroundColorSelect"
+                                 Background="DarkSeaGreen">
+                        <Button x:Name="btnForegroundBlack" Click="CheckTxtBoxFocus"
+                                Background="Black"
+                                Height="50"
+                                Tag="Black"/>
+                        <Button x:Name="btnForegroundWhite" Click="CheckTxtBoxFocus"
+                                Background="White"
+                                Height="50"
+                                Tag="White"/>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+            <Rectangle x:Name="brdButtonForegroundColorSelectBase"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Height="3" Width="180"
+                    Fill="Firebrick"
+                    Margin="0,0,50,135"/>
         </Grid>
         <Grid x:Name="grKeyboard" VerticalAlignment="Bottom">
             <Grid x:Name="panelNumpad" Width="395" Height="390" HorizontalAlignment="Right">

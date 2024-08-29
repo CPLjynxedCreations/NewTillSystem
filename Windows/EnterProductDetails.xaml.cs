@@ -46,7 +46,8 @@ namespace NewTillSystem.Windows
         {
             strProductName = txtEnterProductName.Text;
             strProductPrice = txtEnterProductPrice.Text;
-            // IF COLOR PICKED SAVE STR THEME ELSE DEFUALT COLOR
+            // IF COLOR PICKED SAVE STR THEME ELSE default COLOR
+            // if foregound picked save string else default foreground
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -54,6 +55,7 @@ namespace NewTillSystem.Windows
             strProductName = string.Empty;
             strProductPrice = string.Empty;
             //THEME EMPTY
+            //foreground empty
         }
 
         private void btnKeyboardClick_Click(object sender, RoutedEventArgs e)
@@ -103,7 +105,6 @@ namespace NewTillSystem.Windows
                     if (item.GetType() == typeof(TextBox))
                     {
                         TextBox txtBox = (TextBox)item;
-                        Debug.WriteLine(txtBox.Name);
                         if (txtBox.IsFocused)
                         {
                             //txtBox.BorderBrush = Brushes.Firebrick;
@@ -137,11 +138,27 @@ namespace NewTillSystem.Windows
                         panelNumpad.IsEnabled = false;
                         panelKeybooardButtons.IsEnabled = false;
                     }
+                    if (item.GetType() == typeof(Button))
+                    {
+                        Button button = (Button)item;
+                    }
                 }
             }
             // check each ui for theme button. then name accordingly
-            Button test = (Button)sender;
-            Debug.WriteLine(test.Name);
+            Button btnTest = (Button)sender;
+            if (btnTest.Name.Contains("Theme"))
+            {
+                btnColorView.Style = (Style)Application.Current.Resources[btnTest.Name];
+                //save string theme
+            }
+            if (btnTest.Name.Contains("Foreground"))
+            {
+                Debug.WriteLine(btnTest.Tag);
+                string colorTag = Convert.ToString(btnTest.Tag);
+                SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(colorTag);
+                btnColorView.Foreground = colorBrush;
+                //save string foreground color
+            }
             //SET TEST BUTTON COLOR
             //SET STR FOR THEME FROM CLICK SENDER.NAME
         }

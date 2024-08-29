@@ -34,7 +34,8 @@ namespace NewTillSystem
         private string strXlsxProductColumn = "A";
         private string strXlsxPriceColumn = "B";
         private string strXlsxButtonThemeColumn = "C";
-        private string strXlsxButtonTypeColumn = "D";
+        private string strXlsxButtonForegroundColumn = "D";
+        private string strXlsxButtonTypeColumn = "E";
 
         private string strXlsxStaffNameColumn = "A";
         private string strXlsxStaffLastNameColumn = "B";
@@ -161,16 +162,17 @@ namespace NewTillSystem
                 if (openPrompt.strProductName != string.Empty)
                 {
                     btnPressedProduct.Content = openPrompt.strProductName;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultItem"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
                 }
                 else
                 {
                     btnPressedProduct.Content = string.Empty;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmpty"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmptyThemeTheme"];
                 }
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
                 workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = "theme"; //openPrompt.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = "foreground";
                 workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //openPrompt.strProductPrice;
                 workBook.Save();
             }
@@ -267,7 +269,7 @@ namespace NewTillSystem
                             btnName.Content = readData;
                             if (btnName.Content != string.Empty)
                             {
-                                btnName.Style = (Style)Application.Current.Resources["btnDefaultItem"];
+                                btnName.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
                             }
                         }
                     }
@@ -324,11 +326,13 @@ namespace NewTillSystem
                 string setProductHeader = "PRODUCT";
                 string setPriceHeader = "PRICE";
                 string setThemeHeader = "THEME";
+                string setThemeForeground = "FOREGROUND";
                 string setButtonType = "BUTTON TYPE";
                 workSheet.Row(1).Style.Font.Bold = true;
                 workSheet.Cell(1, strXlsxProductColumn).Value = setProductHeader;
                 workSheet.Cell(1, strXlsxPriceColumn).Value = setPriceHeader;
                 workSheet.Cell(1, strXlsxButtonThemeColumn).Value = setThemeHeader;
+                workSheet.Cell(1, strXlsxButtonForegroundColumn).Value = setThemeForeground;
                 workSheet.Cell(1, strXlsxButtonTypeColumn).Value = setButtonType;
                 workSheet.ColumnsUsed().AdjustToContents();
                 workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");

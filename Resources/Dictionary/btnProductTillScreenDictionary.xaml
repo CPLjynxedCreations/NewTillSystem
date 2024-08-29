@@ -3,14 +3,13 @@
 <!-- DEFAULT COLOURS-->
     <SolidColorBrush x:Key="Button.Default.Border" Color="Black"/>
     <SolidColorBrush x:Key="Button.Default.Pressed.Border" Color="Black"/>
-    <SolidColorBrush x:Key="Button.Default.Foreground" Color="Black"/>
+    <SolidColorBrush x:Key="Button.Default.Foreground" Color="White"/>
     <!-- END DEFAULT COLOURS-->
     <!-- NEW COLORS-->
     <SolidColorBrush x:Key="Button.Default.Empty.Background" Color="#36454F"/>
     <SolidColorBrush x:Key="Button.Default.Empty.Pressed.Background" Color="LightSteelBlue"/>
 
     <SolidColorBrush x:Key="Button.Default.Item.Background" Color="#8B4000"/>
-    <SolidColorBrush x:Key="Button.Default.Item.Foreground" Color="White"/>
     <SolidColorBrush x:Key="Button.Default.Item.Pressed.Background" Color="#7B3F00"/>
     <!-- END NEW COLORS-->
     
@@ -21,19 +20,17 @@
     
     <!-- BRIGHT BLUE COLOR -->
     <SolidColorBrush x:Key="Button.BrightBlue.Item.Background" Color="#0096FF"/>
-    <SolidColorBrush x:Key="Button.BrightBlue.Item.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="Button.BrightBlue.Item.Pressed.Background" Color="#0047AB"/>
     <!-- END BRIGHT BLUE COLOR -->
     
     <!-- DARK PURPLE COLOR-->
     <SolidColorBrush x:Key="Button.DarkPurple.Item.Background" Color="#673147"/>
-    <SolidColorBrush x:Key="Button.DarkPurple.Item.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="Button.DarkPurple.Item.Pressed.Background" Color="#301934"/>
-    <SolidColorBrush x:Key="Button.DarkPurple.Item.Pressed.Foreground" Color="White"/>
+
     <!-- END PURPLE COLOR -->
     
     <!-- DEFAULT COLOUR SETTER -->
-    <Style x:Key="btnDefaultEmpty" TargetType="{x:Type Button}">
+    <Style x:Key="btnDefaultEmptyTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Default.Empty.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
@@ -58,11 +55,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="btnDefaultItem" TargetType="{x:Type Button}">
+    <Style x:Key="btnDefaultItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Default.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Item.Foreground}"/>
+        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="Cooper Black"/>
@@ -89,11 +86,10 @@
     <!-- END DEFAULT COLOUR SETTER -->
     
     <!-- ORCHID COLOR SETTER -->
-    <Style x:Key="btnOrchidItem" TargetType="{x:Type Button}">
+    <Style x:Key="btnOrchidItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Orchid.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="Cooper Black"/>
@@ -120,11 +116,10 @@
     <!-- END ORCHID COLOR SETTER -->
     
     <!-- BRIGHT BLUE SETTER -->
-    <Style x:Key="btnBrightBlueItem" TargetType="{x:Type Button}">
+    <Style x:Key="btnBrightBlueItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.BrightBlue.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="Cooper Black"/>
@@ -149,11 +144,10 @@
         </Setter>
     </Style>
     <!-- END BRIGHT BLUE SETTER -->
-    <Style x:Key="btnDarkPurpleItem" TargetType="{x:Type Button}">
+    <Style x:Key="btnDarkPurpleItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.DarkPurple.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="Cooper Black"/>
@@ -171,7 +165,6 @@
                             <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.DarkPurple.Item.Pressed.Background}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
                             <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                            <Setter Property="Foreground" Value="{DynamicResource Button.DarkPurple.Item.Pressed.Foreground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
