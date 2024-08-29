@@ -43,7 +43,7 @@ namespace NewTillSystem
         private string strXlsxStaffRoleColumn = "D";
         private string strXlsxStaffInitColumn = "E";
         private string strXlsxLoggedInStaffRole;
-        private string strXlxsLoggedInStaffName;
+        private string strXlsxLoggedInStaffName;
 
         private bool boolIsAdmin;
         private bool boolIsManager;
@@ -86,12 +86,12 @@ namespace NewTillSystem
                 Close();
             }
 
-            strXlxsLoggedInStaffName = logInScreen.strStaffLoginName;
+            strXlsxLoggedInStaffName = logInScreen.strStaffLoginName;
             strXlsxLoggedInStaffRole = logInScreen.strStaffRole;
             boolIsAdmin = logInScreen.boolLoggedInAdmin;
             boolIsManager = logInScreen.boolLoggedInManager;
             boolIsStaff = logInScreen.boolLoggedInStaff;
-            lblSaleScreenStaff.Text = strXlxsLoggedInStaffName;
+            lblSaleScreenStaff.Text = strXlsxLoggedInStaffName;
         }
         #region NUMBER PAD
 
@@ -162,18 +162,21 @@ namespace NewTillSystem
                 if (openPrompt.strProductName != string.Empty)
                 {
                     btnPressedProduct.Content = openPrompt.strProductName;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources[openPrompt.strButtonTheme];
+                    SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(openPrompt.strButtonForeground);
+                    btnPressedProduct.Foreground = colorBrush;
                 }
                 else
                 {
                     btnPressedProduct.Content = string.Empty;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmptyThemeTheme"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmptyTheme"];
                 }
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
-                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = "theme"; //openPrompt.strProductPrice;
-                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = "foreground";
-                workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //openPrompt.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = openPrompt.strButtonTheme;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = openPrompt.strButtonForeground;
+                //workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //openPrompt.strButtonType;
+                workSheet.ColumnsUsed().AdjustToContents();
                 workBook.Save();
             }
             //ADD TO SALE SCREEN WHEN MADE
@@ -256,7 +259,9 @@ namespace NewTillSystem
             var workSheet = workBook.Worksheet("Product Sheet");
             for (int i = 2; i <= intProductButtonCount; i++)
             {
-                var readData = workSheet.Cell(i, strXlsxProductColumn).GetValue<string>();
+                var readDataName = workSheet.Cell(i, strXlsxProductColumn).GetValue<string>();
+                var readDataTheme = workSheet.Cell(i, strXlsxButtonThemeColumn).GetValue<string>();
+                var readDataFoeground = workSheet.Cell(i, strXlsxButtonForegroundColumn).GetValue<string>();
                 int intButtonNumber = i - 1;
                 var strBtnName = "btnProduct" + intButtonNumber;
                 foreach (UIElement item in grBtnScreen.Children)
@@ -266,10 +271,13 @@ namespace NewTillSystem
                         Button btnName = (Button)item;
                         if (btnName.Name == strBtnName)
                         {
-                            btnName.Content = readData;
+                            btnName.Content = readDataName;
                             if (btnName.Content != string.Empty)
                             {
                                 btnName.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
+                                btnName.Style = (Style)Application.Current.Resources[readDataTheme];
+                                SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(readDataFoeground);
+                                btnName.Foreground = colorBrush;
                             }
                         }
                     }

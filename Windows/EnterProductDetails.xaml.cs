@@ -22,6 +22,8 @@ namespace NewTillSystem.Windows
     {
         public string strProductName;
         public string strProductPrice;
+        public string strButtonTheme;
+        public string strButtonForeground;
 
         public EnterProductDetails()
         {
@@ -46,6 +48,7 @@ namespace NewTillSystem.Windows
         {
             strProductName = txtEnterProductName.Text;
             strProductPrice = txtEnterProductPrice.Text;
+
             // IF COLOR PICKED SAVE STR THEME ELSE default COLOR
             // if foregound picked save string else default foreground
         }
@@ -149,14 +152,15 @@ namespace NewTillSystem.Windows
             if (btnTest.Name.Contains("Theme"))
             {
                 btnColorView.Style = (Style)Application.Current.Resources[btnTest.Name];
+                strButtonTheme = btnTest.Name;
                 //save string theme
             }
             if (btnTest.Name.Contains("Foreground"))
             {
-                Debug.WriteLine(btnTest.Tag);
                 string colorTag = Convert.ToString(btnTest.Tag);
                 SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(colorTag);
                 btnColorView.Foreground = colorBrush;
+                strButtonForeground = Convert.ToString(btnTest.Tag);
                 //save string foreground color
             }
             //SET TEST BUTTON COLOR
