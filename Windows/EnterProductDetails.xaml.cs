@@ -46,12 +46,14 @@ namespace NewTillSystem.Windows
         {
             strProductName = txtEnterProductName.Text;
             strProductPrice = txtEnterProductPrice.Text;
+            // IF COLOR PICKED SAVE STR THEME ELSE DEFUALT COLOR
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             strProductName = string.Empty;
             strProductPrice = string.Empty;
+            //THEME EMPTY
         }
 
         private void btnKeyboardClick_Click(object sender, RoutedEventArgs e)
@@ -137,7 +139,11 @@ namespace NewTillSystem.Windows
                     }
                 }
             }
-
+            // check each ui for theme button. then name accordingly
+            Button test = (Button)sender;
+            Debug.WriteLine(test.Name);
+            //SET TEST BUTTON COLOR
+            //SET STR FOR THEME FROM CLICK SENDER.NAME
         }
     }
 }

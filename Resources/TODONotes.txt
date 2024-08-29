@@ -5,3 +5,4 @@
 	maybe do if not selected then defualt is staff
 	error if box is empty
 
+// change main screen grid to uniform grid

@@ -33,6 +33,9 @@ namespace NewTillSystem
         private int intXlsxProductRow;
         private string strXlsxProductColumn = "A";
         private string strXlsxPriceColumn = "B";
+        private string strXlsxButtonThemeColumn = "C";
+        private string strXlsxButtonTypeColumn = "D";
+
         private string strXlsxStaffNameColumn = "A";
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
@@ -144,12 +147,11 @@ namespace NewTillSystem
                     var strBtnName = "btnProduct" + i;
                     if (strBtnName == strPressedProduct)
                     {
-                        intXlsxProductRow = i;
+                        intXlsxProductRow = i + 1;
                     }
                 }
                 EnterProductDetails openPrompt = new EnterProductDetails();
                 openPrompt.Owner = Application.Current.MainWindow;
-                //openPrompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 openPrompt.WindowStartupLocation = WindowStartupLocation.Manual;
                 openPrompt.Left = 0;
                 openPrompt.Top = 80;
@@ -159,17 +161,18 @@ namespace NewTillSystem
                 if (openPrompt.strProductName != string.Empty)
                 {
                     btnPressedProduct.Content = openPrompt.strProductName;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnItemStyle"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultItem"];
                 }
                 else
                 {
                     btnPressedProduct.Content = string.Empty;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnEmptyStyle"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmpty"];
                 }
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = "theme"; //openPrompt.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //openPrompt.strProductPrice;
                 workBook.Save();
-                //MAKE IT SO EDIT PRODUCT MANAGE CHANGES TO TURN EDIT OFF
             }
             //ADD TO SALE SCREEN WHEN MADE
         }
@@ -249,10 +252,11 @@ namespace NewTillSystem
         {
             var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");
             var workSheet = workBook.Worksheet("Product Sheet");
-            for (int i = 1; i <= intProductButtonCount; i++)
+            for (int i = 2; i <= intProductButtonCount; i++)
             {
                 var readData = workSheet.Cell(i, strXlsxProductColumn).GetValue<string>();
-                var strBtnName = "btnProduct" + i;
+                int intButtonNumber = i - 1;
+                var strBtnName = "btnProduct" + intButtonNumber;
                 foreach (UIElement item in grBtnScreen.Children)
                 {
                     if (item.GetType() == typeof(Button))
@@ -317,6 +321,16 @@ namespace NewTillSystem
             {
                 var workBook = new XLWorkbook();
                 var workSheet = workBook.Worksheets.Add("Product Sheet");
+                string setProductHeader = "PRODUCT";
+                string setPriceHeader = "PRICE";
+                string setThemeHeader = "THEME";
+                string setButtonType = "BUTTON TYPE";
+                workSheet.Row(1).Style.Font.Bold = true;
+                workSheet.Cell(1, strXlsxProductColumn).Value = setProductHeader;
+                workSheet.Cell(1, strXlsxPriceColumn).Value = setPriceHeader;
+                workSheet.Cell(1, strXlsxButtonThemeColumn).Value = setThemeHeader;
+                workSheet.Cell(1, strXlsxButtonTypeColumn).Value = setButtonType;
+                workSheet.ColumnsUsed().AdjustToContents();
                 workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");
             }
         }
