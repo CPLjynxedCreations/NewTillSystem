@@ -30,35 +30,18 @@ namespace NewTillSystem.Windows
             InitializeComponent();
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
-            //txtEnterProductName.Focus();
-            //OpenOnScreenKeyboard();
         }
-        /* DISPLAYS WINDOWS ONSCREEN KEYBOARD
-        private void OpenOnScreenKeyboard()
-        {   
-            var onScreenKeyboardProcess = new ProcessStartInfo("osk.exe")
-            {
-                UseShellExecute = true
-            };
-            Process.Start(onScreenKeyboardProcess);
-        }
-        */
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             strProductName = txtEnterProductName.Text;
             strProductPrice = txtEnterProductPrice.Text;
-
-            // IF COLOR PICKED SAVE STR THEME ELSE default COLOR
-            // if foregound picked save string else default foreground
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             strProductName = string.Empty;
             strProductPrice = string.Empty;
-            //THEME EMPTY
-            //foreground empty
         }
 
         private void btnKeyboardClick_Click(object sender, RoutedEventArgs e)
@@ -110,7 +93,6 @@ namespace NewTillSystem.Windows
                         TextBox txtBox = (TextBox)item;
                         if (txtBox.IsFocused)
                         {
-                            //txtBox.BorderBrush = Brushes.Firebrick;
                             if (txtEnterProductPrice.IsFocused)
                             {
                                 txtBox.BorderBrush = Brushes.Firebrick;
@@ -129,7 +111,6 @@ namespace NewTillSystem.Windows
                                 Keyboard.ClearFocus();
                                 return;
                             }
-                            //Keyboard.ClearFocus();
                         }
                         else
                         {
@@ -147,7 +128,7 @@ namespace NewTillSystem.Windows
                     }
                 }
             }
-            // check each ui for theme button. then name accordingly
+            // ERROR CLICKING MAIN WINDOW
             Button btnTest = (Button)sender;
             if (btnTest.Name.Contains("Theme"))
             {
@@ -161,10 +142,8 @@ namespace NewTillSystem.Windows
                 SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(colorTag);
                 btnColorView.Foreground = colorBrush;
                 strButtonForeground = Convert.ToString(btnTest.Tag);
-                //save string foreground color
+
             }
-            //SET TEST BUTTON COLOR
-            //SET STR FOR THEME FROM CLICK SENDER.NAME
         }
     }
 }

@@ -77,9 +77,21 @@
                                 Height="50"/>
                         <Button x:Name="btnOrchidItemTheme" Style="{DynamicResource btnOrchidItemTheme}" Click="CheckTxtBoxFocus"
                                 Height="50"/>
-                        <Button x:Name="btnBrightBlueItemTheme" Style="{DynamicResource btnBrightBlueItemTheme}" Click="CheckTxtBoxFocus"
+                        <Button x:Name="btnBurntOrangeItemTheme" Style="{DynamicResource btnBurntOrangeItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnLimeGreenItemTheme" Style="{DynamicResource btnLimeGreenItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnSeaGreenItemTheme" Style="{DynamicResource btnSeaGreenItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnRedItemTheme" Style="{DynamicResource btnRedItemTheme}" Click="CheckTxtBoxFocus"
                                 Height="50"/>
                         <Button x:Name="btnDarkPurpleItemTheme" Style="{DynamicResource btnDarkPurpleItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnEggplantItemTheme" Style="{DynamicResource btnEggplantItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnBlueItemTheme" Style="{DynamicResource btnBlueItemTheme}" Click="CheckTxtBoxFocus"
+                                Height="50"/>
+                        <Button x:Name="btnBrightBlueItemTheme" Style="{DynamicResource btnBrightBlueItemTheme}" Click="CheckTxtBoxFocus"
                                 Height="50"/>
                     </StackPanel>
                 </Border>
@@ -111,6 +123,38 @@
                                 Background="White"
                                 Height="50"
                                 Tag="White"/>
+                        <Button x:Name="btnForegroundGreen" Click="CheckTxtBoxFocus"
+                                Background="Green"
+                                Height="50"
+                                Tag="Green"/>
+                        <Button x:Name="btnForegroundDarkGreen" Click="CheckTxtBoxFocus"
+                                Background="DarkGreen"
+                                Height="50"
+                                Tag="DarkGreen"/>
+                        <Button x:Name="btnForegroundOrange" Click="CheckTxtBoxFocus"
+                                Background="Orange"
+                                Height="50"
+                                Tag="Orange"/>
+                        <Button x:Name="btnForegroundYellow" Click="CheckTxtBoxFocus"
+                                Background="Yellow"
+                                Height="50"
+                                Tag="Yellow"/>
+                        <Button x:Name="btnForegroundRed" Click="CheckTxtBoxFocus"
+                                Background="Red"
+                                Height="50"
+                                Tag="Red"/>
+                        <Button x:Name="btnForegroundDarkRed" Click="CheckTxtBoxFocus"
+                                Background="DarkRed"
+                                Height="50"
+                                Tag="DarkRed"/>
+                        <Button x:Name="btnForegroundBlue" Click="CheckTxtBoxFocus"
+                                Background="Blue"
+                                Height="50"
+                                Tag="Blue"/>
+                        <Button x:Name="btnForegroundDarkBlue" Click="CheckTxtBoxFocus"
+                                Background="DarkBlue"
+                                Height="50"
+                                Tag="DarkBlue"/>
                     </StackPanel>
                 </Border>
             </ScrollViewer>

@@ -163,7 +163,7 @@ namespace NewTillSystem
                 {
                     btnPressedProduct.Content = openPrompt.strProductName;
                     btnPressedProduct.Style = (Style)Application.Current.Resources[openPrompt.strButtonTheme];
-                    SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(openPrompt.strButtonForeground);
+                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(openPrompt.strButtonForeground);
                     btnPressedProduct.Foreground = colorBrush;
                 }
                 else
