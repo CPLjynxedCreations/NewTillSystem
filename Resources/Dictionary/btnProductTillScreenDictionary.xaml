@@ -3,7 +3,7 @@
 <!-- DEFAULT COLOURS -->
     <SolidColorBrush x:Key="Button.Default.Border" Color="Black"/>
     <SolidColorBrush x:Key="Button.Default.Pressed.Border" Color="Black"/>
-    <SolidColorBrush x:Key="Button.Default.Foreground" Color="White"/>
+    <SolidColorBrush x:Key="Button.Default.Foreground" Color="Black"/>
     <!-- END DEFAULT COLOURS -->
     <!-- NEW COLORS -->
     <SolidColorBrush x:Key="Button.Default.Empty.Background" Color="#36454F"/>
@@ -61,6 +61,7 @@
     <!-- DEFAULT COLOUR SETTER -->
     <Style x:Key="btnDefaultEmptyTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Default.Empty.Background}"/>
+        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>

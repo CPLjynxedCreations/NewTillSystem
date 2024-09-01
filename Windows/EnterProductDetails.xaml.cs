@@ -93,6 +93,8 @@ namespace NewTillSystem.Windows
                         TextBox txtBox = (TextBox)item;
                         if (txtBox.IsFocused)
                         {
+
+                            // STILL DOESNT CHANGE COLOR OF BORDER AFTER CLICKING AWAY FROM TEXT BOX
                             if (txtEnterProductPrice.IsFocused)
                             {
                                 txtBox.BorderBrush = Brushes.Firebrick;
@@ -128,22 +130,31 @@ namespace NewTillSystem.Windows
                     }
                 }
             }
-            // ERROR CLICKING MAIN WINDOW
+        }
+
+        private void btnItemTheme_Click(object sender, RoutedEventArgs e)
+        {
             Button btnTest = (Button)sender;
             if (btnTest.Name.Contains("Theme"))
             {
                 btnColorView.Style = (Style)Application.Current.Resources[btnTest.Name];
                 strButtonTheme = btnTest.Name;
+                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
+                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
                 //save string theme
             }
             if (btnTest.Name.Contains("Foreground"))
             {
                 string colorTag = Convert.ToString(btnTest.Tag);
-                SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(colorTag);
+                SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(colorTag);
                 btnColorView.Foreground = colorBrush;
                 strButtonForeground = Convert.ToString(btnTest.Tag);
+                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
+                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
 
             }
+            panelKeybooardButtons.IsEnabled = false;
+            panelNumpad.IsEnabled = false;
         }
     }
 }
