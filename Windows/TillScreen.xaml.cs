@@ -156,8 +156,26 @@ namespace NewTillSystem
                 openPrompt.WindowStartupLocation = WindowStartupLocation.Manual;
                 openPrompt.Left = 0;
                 openPrompt.Top = 80;
-                openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); };
-                openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); };
+                if (btnPressedProduct.Content != string.Empty)
+                {
+                    Debug.WriteLine("pressed " + strPressedProduct);
+                    openPrompt.boolIsEditing = true;
+                    var readDataName = workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).GetValue<string>();
+                    var readDataPrice = workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).GetValue<string>();
+                    var readDataTheme = workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).GetValue<string>();
+                    var readDataFoeground = workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).GetValue<string>();
+                    openPrompt.strEditProductName = readDataName;
+                    openPrompt.strEditProductPrice = readDataName;
+                    openPrompt.strEditButtonTheme = readDataTheme;
+                    openPrompt.strEditButtonForeground = readDataFoeground;
+                    openPrompt.txtEnterProductName.Text = Convert.ToString(btnPressedProduct.Content);
+                    openPrompt.txtEnterProductPrice.Text = readDataPrice;
+                    openPrompt.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
+                    SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(readDataFoeground);
+                    openPrompt.btnColorView.Foreground = colorBrush;
+                }
+                openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
+                openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
                 openPrompt.ShowDialog();
                 if (openPrompt.strProductName != string.Empty)
                 {

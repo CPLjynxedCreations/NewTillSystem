@@ -441,8 +441,8 @@ namespace NewTillSystem.Windows
                             if (txtBox.Name == txtEnterStaffPin.Name)
                             {
                                 txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterStaffFirstName.BorderBrush = Brushes.DarkSeaGreen;
-                                txtEnterStaffLastName.BorderBrush = Brushes.DarkSeaGreen;
+                                txtEnterStaffFirstName.BorderBrush = Brushes.DarkOliveGreen;
+                                txtEnterStaffLastName.BorderBrush = Brushes.DarkOliveGreen;
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -452,8 +452,8 @@ namespace NewTillSystem.Windows
                             else if (txtBox.Name == txtEnterStaffFirstName.Name)
                             {
                                 txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterStaffPin.BorderBrush = Brushes.DarkSeaGreen;
-                                txtEnterStaffLastName.BorderBrush = Brushes.DarkSeaGreen;
+                                txtEnterStaffPin.BorderBrush = Brushes.DarkOliveGreen;
+                                txtEnterStaffLastName.BorderBrush = Brushes.DarkOliveGreen;
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -462,8 +462,8 @@ namespace NewTillSystem.Windows
                             else if (txtBox.Name == txtEnterStaffLastName.Name)
                             {
                                 txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterStaffPin.BorderBrush = Brushes.DarkSeaGreen;
-                                txtEnterStaffFirstName.BorderBrush = Brushes.DarkSeaGreen;
+                                txtEnterStaffPin.BorderBrush = Brushes.DarkOliveGreen;
+                                txtEnterStaffFirstName.BorderBrush = Brushes.DarkOliveGreen;
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();

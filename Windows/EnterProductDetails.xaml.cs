@@ -24,24 +24,69 @@ namespace NewTillSystem.Windows
         public string strProductPrice;
         public string strButtonTheme;
         public string strButtonForeground;
+        public string strEditProductName;
+        public string strEditProductPrice;
+        public string strEditButtonTheme;
+        public string strEditButtonForeground;
+        public bool boolIsEditing;
 
         public EnterProductDetails()
         {
             InitializeComponent();
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
+            if (boolIsEditing)
+            {
+                strButtonTheme = strEditButtonTheme;
+                strButtonForeground = strEditButtonForeground;
+            }
+            //strProductName = txtEnterProductName.Text;
+            //strProductPrice = txtEnterProductPrice.Text;
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            strProductName = txtEnterProductName.Text;
+            if (boolIsEditing)
+            {
+                if (strButtonTheme == null)
+                {
+                    strButtonTheme = strEditButtonTheme;
+                }
+                if (strButtonForeground == null)
+                {
+                    strButtonForeground = strEditButtonForeground;
+                }
+            }
+            else
+            {
+                if (strButtonTheme == null)
+                {
+                    strButtonTheme = "btnDefaultItemTheme";
+                }
+                if (strButtonForeground == null)
+                {
+                    strButtonForeground = "Black";
+                }
+            }
+            strProductName = txtEnterProductName.Text.ToUpper();
             strProductPrice = txtEnterProductPrice.Text;
+
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            strProductName = string.Empty;
-            strProductPrice = string.Empty;
+            if (!boolIsEditing)
+            {
+                strProductName = string.Empty;
+                strProductPrice = string.Empty;
+            }
+            else
+            {
+                strProductName = strEditProductName.ToUpper();
+                strProductPrice = strEditProductPrice;
+                strButtonTheme = strEditButtonTheme;
+                strButtonForeground = strEditButtonForeground;
+            }
         }
 
         private void btnKeyboardClick_Click(object sender, RoutedEventArgs e)
@@ -64,7 +109,7 @@ namespace NewTillSystem.Windows
                         {
                             if (strLetterPressed != btnKeyboard_DELETE.Content)
                             {
-                                txtBox.Text = txtBox.Text + strLetterPressed;
+                                txtBox.Text = txtBox.Text.ToUpper() + strLetterPressed.ToUpper();
                                 txtBox.CaretIndex = txtBox.Text.Length;
                                 return;
                             }
