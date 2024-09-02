@@ -239,22 +239,22 @@ namespace NewTillSystem
                 };
                 //MAKE BUTTON TO STOP EDIT POP UP
                 openManageWindow.btnManageEditStaff.Click += (sender, e) => { openManageWindow.Close(); ManageEditStaff(); };
-                openManageWindow.btnManageEditButtonColor.Click += (sender, e) => { openManageWindow.Close(); EditTillButtonColors(); };
+                openManageWindow.btnManageAdmin.Click += (sender, e) => { openManageWindow.Close(); EditTillProperties(); };
                 openManageWindow.ShowDialog();
             }
             //else show pop up can not
 
         }
-        private void EditTillButtonColors()
+        private void EditTillProperties()
         {
-            WindowCustomizeTillButton customButtonColor = new WindowCustomizeTillButton();
+            WindowTillProperties customButtonColor = new WindowTillProperties();
             customButtonColor.Owner = Application.Current.MainWindow;
             customButtonColor.WindowStartupLocation = WindowStartupLocation.Manual;
-            customButtonColor.Left = 0;
-            customButtonColor.Top = 25;
-            customButtonColor.Topmost = true;
-            customButtonColor.btnWindowCustomColorClose.Click += (sender, e) => { customButtonColor.Close(); };
-            customButtonColor.Show();
+            customButtonColor.Left = 212;
+            customButtonColor.Top = 127;
+            //customButtonColor.Topmost = true;
+            customButtonColor.btnWindowTillPropertiesClose.Click += (sender, e) => { customButtonColor.Close(); };
+            customButtonColor.ShowDialog();
         }
         private void ManageEditStaff()
         {

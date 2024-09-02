@@ -6,3 +6,5 @@
 	error if box is empty
 
 // change main screen grid to uniform grid
+
+// &#xa added to content of button does new line

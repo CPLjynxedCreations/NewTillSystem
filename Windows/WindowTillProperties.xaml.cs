@@ -17,9 +17,9 @@ namespace NewTillSystem.Windows
     /// <summary>
     /// Interaction logic for WindowCustomizeTillButton.xaml
     /// </summary>
-    public partial class WindowCustomizeTillButton : Window
+    public partial class WindowTillProperties : Window
     {
-        public WindowCustomizeTillButton()
+        public WindowTillProperties()
         {
             InitializeComponent();
         }
