@@ -158,22 +158,27 @@ namespace NewTillSystem
                 openPrompt.Top = 80;
                 if (btnPressedProduct.Content != string.Empty)
                 {
-                    Debug.WriteLine("pressed " + strPressedProduct);
                     openPrompt.boolIsEditing = true;
                     var readDataName = workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).GetValue<string>();
                     var readDataPrice = workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).GetValue<string>();
                     var readDataTheme = workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).GetValue<string>();
                     var readDataFoeground = workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).GetValue<string>();
                     openPrompt.strEditProductName = readDataName;
-                    openPrompt.strEditProductPrice = readDataName;
+                    openPrompt.strEditProductPrice = readDataPrice;
                     openPrompt.strEditButtonTheme = readDataTheme;
                     openPrompt.strEditButtonForeground = readDataFoeground;
                     openPrompt.txtEnterProductName.Text = Convert.ToString(btnPressedProduct.Content);
                     openPrompt.txtEnterProductPrice.Text = readDataPrice;
                     openPrompt.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
+                    openPrompt.btnDelete.IsEnabled = true;
                     SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(readDataFoeground);
                     openPrompt.btnColorView.Foreground = colorBrush;
                 }
+                else
+                {
+                    openPrompt.btnDelete.IsEnabled = false;
+                }
+                openPrompt.btnDelete.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
                 openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
                 openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
                 openPrompt.ShowDialog();

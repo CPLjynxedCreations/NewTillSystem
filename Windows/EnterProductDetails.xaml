@@ -21,6 +21,10 @@
             <Border x:Name="brdPageBreak1"
                     Width="5"
                     BorderBrush="DarkRed" BorderThickness="5"/>
+            <Button x:Name="btnDelete" Style="{DynamicResource btnAdminStyle}" Content="DELETE" Click="btnDelete_Click"
+                    Width="220" Height="80"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Margin="130,0,100,135"/>
             <Button x:Name="btnOk" Style="{DynamicResource btnAdminStyle}" Content="OK" Click="btnOk_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"

@@ -39,9 +39,19 @@ namespace NewTillSystem.Windows
             {
                 strButtonTheme = strEditButtonTheme;
                 strButtonForeground = strEditButtonForeground;
+                //btnDelete.IsEnabled = false;
+                //btnDelete.BorderBrush = Brushes.Orange;
             }
             //strProductName = txtEnterProductName.Text;
             //strProductPrice = txtEnterProductPrice.Text;
+        }
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            strProductName = string.Empty;
+            strProductPrice = string.Empty;
+            //strButtonTheme = ;
+            //strButtonForeground = "btnDefaultEmptyTheme";
+            //btnCancel.Foreground = "Transparent";
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
