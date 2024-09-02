@@ -33,13 +33,17 @@ namespace NewTillSystem
         private int intXlsxProductRow;
         private string strXlsxProductColumn = "A";
         private string strXlsxPriceColumn = "B";
+        private string strXlsxButtonThemeColumn = "C";
+        private string strXlsxButtonForegroundColumn = "D";
+        private string strXlsxButtonTypeColumn = "E";
+
         private string strXlsxStaffNameColumn = "A";
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
         private string strXlsxStaffRoleColumn = "D";
         private string strXlsxStaffInitColumn = "E";
         private string strXlsxLoggedInStaffRole;
-        private string strXlxsLoggedInStaffName;
+        private string strXlsxLoggedInStaffName;
 
         private bool boolIsAdmin;
         private bool boolIsManager;
@@ -82,12 +86,12 @@ namespace NewTillSystem
                 Close();
             }
 
-            strXlxsLoggedInStaffName = logInScreen.strStaffLoginName;
+            strXlsxLoggedInStaffName = logInScreen.strStaffLoginName;
             strXlsxLoggedInStaffRole = logInScreen.strStaffRole;
             boolIsAdmin = logInScreen.boolLoggedInAdmin;
             boolIsManager = logInScreen.boolLoggedInManager;
             boolIsStaff = logInScreen.boolLoggedInStaff;
-            lblSaleScreenStaff.Text = strXlxsLoggedInStaffName;
+            lblSaleScreenStaff.Text = strXlsxLoggedInStaffName;
         }
         #region NUMBER PAD
 
@@ -144,32 +148,59 @@ namespace NewTillSystem
                     var strBtnName = "btnProduct" + i;
                     if (strBtnName == strPressedProduct)
                     {
-                        intXlsxProductRow = i;
+                        intXlsxProductRow = i + 1;
                     }
                 }
                 EnterProductDetails openPrompt = new EnterProductDetails();
                 openPrompt.Owner = Application.Current.MainWindow;
-                //openPrompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 openPrompt.WindowStartupLocation = WindowStartupLocation.Manual;
                 openPrompt.Left = 0;
                 openPrompt.Top = 80;
-                openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); };
-                openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); };
+                if (btnPressedProduct.Content != string.Empty)
+                {
+                    openPrompt.boolIsEditing = true;
+                    var readDataName = workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).GetValue<string>();
+                    var readDataPrice = workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).GetValue<string>();
+                    var readDataTheme = workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).GetValue<string>();
+                    var readDataFoeground = workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).GetValue<string>();
+                    openPrompt.strEditProductName = readDataName;
+                    openPrompt.strEditProductPrice = readDataPrice;
+                    openPrompt.strEditButtonTheme = readDataTheme;
+                    openPrompt.strEditButtonForeground = readDataFoeground;
+                    openPrompt.txtEnterProductName.Text = Convert.ToString(btnPressedProduct.Content);
+                    openPrompt.txtEnterProductPrice.Text = readDataPrice;
+                    openPrompt.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
+                    openPrompt.btnDelete.IsEnabled = true;
+                    SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(readDataFoeground);
+                    openPrompt.btnColorView.Foreground = colorBrush;
+                }
+                else
+                {
+                    openPrompt.btnDelete.IsEnabled = false;
+                }
+                openPrompt.btnDelete.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
+                openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
+                openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
                 openPrompt.ShowDialog();
                 if (openPrompt.strProductName != string.Empty)
                 {
                     btnPressedProduct.Content = openPrompt.strProductName;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnItemStyle"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources[openPrompt.strButtonTheme];
+                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(openPrompt.strButtonForeground);
+                    btnPressedProduct.Foreground = colorBrush;
                 }
                 else
                 {
                     btnPressedProduct.Content = string.Empty;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnEmptyStyle"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmptyTheme"];
                 }
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = openPrompt.strButtonTheme;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = openPrompt.strButtonForeground;
+                //workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //openPrompt.strButtonType;
+                workSheet.ColumnsUsed().AdjustToContents();
                 workBook.Save();
-                //MAKE IT SO EDIT PRODUCT MANAGE CHANGES TO TURN EDIT OFF
             }
             //ADD TO SALE SCREEN WHEN MADE
         }
@@ -208,22 +239,22 @@ namespace NewTillSystem
                 };
                 //MAKE BUTTON TO STOP EDIT POP UP
                 openManageWindow.btnManageEditStaff.Click += (sender, e) => { openManageWindow.Close(); ManageEditStaff(); };
-                openManageWindow.btnManageEditButtonColor.Click += (sender, e) => { openManageWindow.Close(); EditTillButtonColors(); };
+                openManageWindow.btnManageAdmin.Click += (sender, e) => { openManageWindow.Close(); EditTillProperties(); };
                 openManageWindow.ShowDialog();
             }
             //else show pop up can not
 
         }
-        private void EditTillButtonColors()
+        private void EditTillProperties()
         {
-            WindowCustomizeTillButton customButtonColor = new WindowCustomizeTillButton();
+            WindowTillProperties customButtonColor = new WindowTillProperties();
             customButtonColor.Owner = Application.Current.MainWindow;
             customButtonColor.WindowStartupLocation = WindowStartupLocation.Manual;
-            customButtonColor.Left = 0;
-            customButtonColor.Top = 25;
-            customButtonColor.Topmost = true;
-            customButtonColor.btnWindowCustomColorClose.Click += (sender, e) => { customButtonColor.Close(); };
-            customButtonColor.Show();
+            customButtonColor.Left = 212;
+            customButtonColor.Top = 127;
+            //customButtonColor.Topmost = true;
+            customButtonColor.btnWindowTillPropertiesClose.Click += (sender, e) => { customButtonColor.Close(); };
+            customButtonColor.ShowDialog();
         }
         private void ManageEditStaff()
         {
@@ -249,10 +280,13 @@ namespace NewTillSystem
         {
             var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");
             var workSheet = workBook.Worksheet("Product Sheet");
-            for (int i = 1; i <= intProductButtonCount; i++)
+            for (int i = 2; i <= intProductButtonCount; i++)
             {
-                var readData = workSheet.Cell(i, strXlsxProductColumn).GetValue<string>();
-                var strBtnName = "btnProduct" + i;
+                var readDataName = workSheet.Cell(i, strXlsxProductColumn).GetValue<string>();
+                var readDataTheme = workSheet.Cell(i, strXlsxButtonThemeColumn).GetValue<string>();
+                var readDataFoeground = workSheet.Cell(i, strXlsxButtonForegroundColumn).GetValue<string>();
+                int intButtonNumber = i - 1;
+                var strBtnName = "btnProduct" + intButtonNumber;
                 foreach (UIElement item in grBtnScreen.Children)
                 {
                     if (item.GetType() == typeof(Button))
@@ -260,10 +294,13 @@ namespace NewTillSystem
                         Button btnName = (Button)item;
                         if (btnName.Name == strBtnName)
                         {
-                            btnName.Content = readData;
+                            btnName.Content = readDataName;
                             if (btnName.Content != string.Empty)
                             {
-                                btnName.Style = (Style)Application.Current.Resources["btnItemStyle"];
+                                btnName.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
+                                btnName.Style = (Style)Application.Current.Resources[readDataTheme];
+                                SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(readDataFoeground);
+                                btnName.Foreground = colorBrush;
                             }
                         }
                     }
@@ -317,6 +354,18 @@ namespace NewTillSystem
             {
                 var workBook = new XLWorkbook();
                 var workSheet = workBook.Worksheets.Add("Product Sheet");
+                string setProductHeader = "PRODUCT";
+                string setPriceHeader = "PRICE";
+                string setThemeHeader = "THEME";
+                string setThemeForeground = "FOREGROUND";
+                string setButtonType = "BUTTON TYPE";
+                workSheet.Row(1).Style.Font.Bold = true;
+                workSheet.Cell(1, strXlsxProductColumn).Value = setProductHeader;
+                workSheet.Cell(1, strXlsxPriceColumn).Value = setPriceHeader;
+                workSheet.Cell(1, strXlsxButtonThemeColumn).Value = setThemeHeader;
+                workSheet.Cell(1, strXlsxButtonForegroundColumn).Value = setThemeForeground;
+                workSheet.Cell(1, strXlsxButtonTypeColumn).Value = setButtonType;
+                workSheet.ColumnsUsed().AdjustToContents();
                 workBook.SaveAs("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\ProductDataBase.xlsx");
             }
         }

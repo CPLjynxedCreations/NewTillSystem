@@ -2,6 +2,9 @@
 
 
 //do not allow staff txts to be empty or not selected.
-	maybe do if not selected then defualt is staff
+	maybe do if not selected then default is staff
 	error if box is empty
 
+// change main screen grid to uniform grid
+
+// &#xa added to content of button does new line

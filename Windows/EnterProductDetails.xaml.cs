@@ -22,36 +22,81 @@ namespace NewTillSystem.Windows
     {
         public string strProductName;
         public string strProductPrice;
+        public string strButtonTheme;
+        public string strButtonForeground;
+        public string strEditProductName;
+        public string strEditProductPrice;
+        public string strEditButtonTheme;
+        public string strEditButtonForeground;
+        public bool boolIsEditing;
 
         public EnterProductDetails()
         {
             InitializeComponent();
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
-            //txtEnterProductName.Focus();
-            //OpenOnScreenKeyboard();
-        }
-        /* DISPLAYS WINDOWS ONSCREEN KEYBOARD
-        private void OpenOnScreenKeyboard()
-        {   
-            var onScreenKeyboardProcess = new ProcessStartInfo("osk.exe")
+            if (boolIsEditing)
             {
-                UseShellExecute = true
-            };
-            Process.Start(onScreenKeyboardProcess);
+                strButtonTheme = strEditButtonTheme;
+                strButtonForeground = strEditButtonForeground;
+                //btnDelete.IsEnabled = false;
+                //btnDelete.BorderBrush = Brushes.Orange;
+            }
+            //strProductName = txtEnterProductName.Text;
+            //strProductPrice = txtEnterProductPrice.Text;
         }
-        */
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            strProductName = string.Empty;
+            strProductPrice = string.Empty;
+            //strButtonTheme = ;
+            //strButtonForeground = "btnDefaultEmptyTheme";
+            //btnCancel.Foreground = "Transparent";
+        }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            strProductName = txtEnterProductName.Text;
+            if (boolIsEditing)
+            {
+                if (strButtonTheme == null)
+                {
+                    strButtonTheme = strEditButtonTheme;
+                }
+                if (strButtonForeground == null)
+                {
+                    strButtonForeground = strEditButtonForeground;
+                }
+            }
+            else
+            {
+                if (strButtonTheme == null)
+                {
+                    strButtonTheme = "btnDefaultItemTheme";
+                }
+                if (strButtonForeground == null)
+                {
+                    strButtonForeground = "Black";
+                }
+            }
+            strProductName = txtEnterProductName.Text.ToUpper();
             strProductPrice = txtEnterProductPrice.Text;
+
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            strProductName = string.Empty;
-            strProductPrice = string.Empty;
+            if (!boolIsEditing)
+            {
+                strProductName = string.Empty;
+                strProductPrice = string.Empty;
+            }
+            else
+            {
+                strProductName = strEditProductName.ToUpper();
+                strProductPrice = strEditProductPrice;
+                strButtonTheme = strEditButtonTheme;
+                strButtonForeground = strEditButtonForeground;
+            }
         }
 
         private void btnKeyboardClick_Click(object sender, RoutedEventArgs e)
@@ -74,7 +119,7 @@ namespace NewTillSystem.Windows
                         {
                             if (strLetterPressed != btnKeyboard_DELETE.Content)
                             {
-                                txtBox.Text = txtBox.Text + strLetterPressed;
+                                txtBox.Text = txtBox.Text.ToUpper() + strLetterPressed.ToUpper();
                                 txtBox.CaretIndex = txtBox.Text.Length;
                                 return;
                             }
@@ -101,10 +146,10 @@ namespace NewTillSystem.Windows
                     if (item.GetType() == typeof(TextBox))
                     {
                         TextBox txtBox = (TextBox)item;
-                        Debug.WriteLine(txtBox.Name);
                         if (txtBox.IsFocused)
                         {
-                            //txtBox.BorderBrush = Brushes.Firebrick;
+
+                            // STILL DOESNT CHANGE COLOR OF BORDER AFTER CLICKING AWAY FROM TEXT BOX
                             if (txtEnterProductPrice.IsFocused)
                             {
                                 txtBox.BorderBrush = Brushes.Firebrick;
@@ -123,7 +168,6 @@ namespace NewTillSystem.Windows
                                 Keyboard.ClearFocus();
                                 return;
                             }
-                            //Keyboard.ClearFocus();
                         }
                         else
                         {
@@ -135,9 +179,37 @@ namespace NewTillSystem.Windows
                         panelNumpad.IsEnabled = false;
                         panelKeybooardButtons.IsEnabled = false;
                     }
+                    if (item.GetType() == typeof(Button))
+                    {
+                        Button button = (Button)item;
+                    }
                 }
             }
+        }
 
+        private void btnItemTheme_Click(object sender, RoutedEventArgs e)
+        {
+            Button btnTest = (Button)sender;
+            if (btnTest.Name.Contains("Theme"))
+            {
+                btnColorView.Style = (Style)Application.Current.Resources[btnTest.Name];
+                strButtonTheme = btnTest.Name;
+                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
+                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
+                //save string theme
+            }
+            if (btnTest.Name.Contains("Foreground"))
+            {
+                string colorTag = Convert.ToString(btnTest.Tag);
+                SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(colorTag);
+                btnColorView.Foreground = colorBrush;
+                strButtonForeground = Convert.ToString(btnTest.Tag);
+                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
+                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
+
+            }
+            panelKeybooardButtons.IsEnabled = false;
+            panelNumpad.IsEnabled = false;
         }
     }
 }
