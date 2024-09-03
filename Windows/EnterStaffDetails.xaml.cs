@@ -1,4 +1,5 @@
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Vml;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,9 +12,11 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace NewTillSystem.Windows
 {
@@ -58,8 +61,8 @@ namespace NewTillSystem.Windows
             btnKeyboard_SPACE.IsEnabled = false;
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
-            //txtEnterStaffLastName.Focus();
         }
+
 
         private void GetCurrentStaffList()
         {
@@ -107,7 +110,6 @@ namespace NewTillSystem.Windows
                             if (strFilterActive == readXlsxDataStaffRole)
                             {
                                 panelExistingStaff.Children.Add(tglStaff);
-
                             }
                         }
                         if (strFilterActive == "OFF")
@@ -133,77 +135,6 @@ namespace NewTillSystem.Windows
                     if (i == intStaffAmount)
                     {
                         boolGenerateStaff = false;
-                    }
-                }
-                if (boolAddStaff)
-                {
-                    if (strSetNewStaffFirstName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName || strSetNewStaffID == readXlsxDataStaffID)
-                    {
-                        if (strSetNewStaffFirstName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
-                        {
-                            txtEnterStaffFirstName.Background = Brushes.Red;
-                            txtEnterStaffLastName.Background = Brushes.Red;
-                            boolStaffNameMatch = true;
-                        }
-                        else
-                        {
-                            txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
-                            txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
-                            boolStaffNameMatch = false;
-                        }
-                        if (strSetNewStaffID == readXlsxDataStaffID)
-                        {
-                            txtEnterStaffPin.Background = Brushes.Red;
-                            boolStaffIdMatch = true;
-                        }
-                        else
-                        {
-                            txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
-                            boolStaffIdMatch = false;
-                        }
-                        break;
-                    }
-                    if (strSetNewStaffFirstName == strEmpty)
-                    {
-                        txtEnterStaffFirstName.Background = Brushes.Red;
-                        boolStaffNameMatch = true;
-                    }
-                    else
-                    {
-                        txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
-                        //boolStaffNameMatch = false;
-                    }
-                    if (strSetNewStaffLastName == strEmpty)
-                    {
-                        txtEnterStaffLastName.Background = Brushes.Red;
-                        boolStaffNameMatch = true;
-                    }
-                    else
-                    {
-                        txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
-                    }
-                    if (strSetNewStaffID == strEmpty)
-                    {
-                        txtEnterStaffPin.Background = Brushes.Red;
-                        boolStaffIdMatch = true;
-                    }
-                    else
-                    {
-                        txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
-                    }
-                    if (strSetNewStaffFirstName == strEmpty || strSetNewStaffLastName == strEmpty || strSetNewStaffID == strEmpty)
-                    {
-                        break;
-                    }
-
-                    if (i == intStaffAmount)
-                    {
-                        txtEnterStaffPin.Background = Brushes.DarkSeaGreen;
-                        txtEnterStaffFirstName.Background = Brushes.DarkSeaGreen;
-                        txtEnterStaffLastName.Background = Brushes.DarkSeaGreen;
-                        boolStaffIdMatch = false;
-                        boolStaffNameMatch = false;
-                        boolSaveStaff = true;
                     }
                 }
                 if (boolIsToEditStaff)
@@ -242,7 +173,35 @@ namespace NewTillSystem.Windows
                     }
                 }
             }
-
+            if (boolAddStaff)
+            {
+                NameCheck();
+                IDCheck();
+                if (strSetNewStaffFirstName == strEmpty)
+                {
+                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    boolStaffNameMatch = true;
+                }
+                if (strSetNewStaffLastName == strEmpty)
+                {
+                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    boolStaffNameMatch = true;
+                }
+                if (strSetNewStaffID == strEmpty)
+                {
+                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    boolStaffIdMatch = true;
+                }
+                if (strSetNewStaffFirstName == strEmpty || strSetNewStaffLastName == strEmpty || strSetNewStaffID == strEmpty)
+                {
+                    boolSaveStaff = false;
+                    this.Close();
+                }
+                if (boolStaffNameMatch == false && boolStaffIdMatch == false)
+                {
+                    boolSaveStaff = true;
+                }
+            }
             if (boolSaveStaff)
             {
                 int intGetNewStaffRow = workSheet.LastRowUsed().RowNumber() + 1;
@@ -259,6 +218,58 @@ namespace NewTillSystem.Windows
 
             workSheet.ColumnsUsed().AdjustToContents();
             workBook.Save();
+        }
+
+        private void NameCheck()
+        {
+            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\StaffID.xlsx");
+            var workSheet = workBook.Worksheet("Staff");
+            int intStaffAmount = workSheet.LastRowUsed().RowNumber();
+
+
+            var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
+
+            for (int i = 2; i <= intStaffAmount; i++)
+            {
+                var readXlsxDataStaffName = workSheet.Cell(i, strXlsxStaffNameColumn).GetValue<string>();
+                var readXlsxDataStaffLastName = workSheet.Cell(i, strXlsxStaffLastNameColumn).GetValue<string>();
+                if (strSetNewStaffFirstName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
+                {
+                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    boolStaffNameMatch = true;
+                    return;
+                }
+                else
+                {
+                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
+                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
+                    boolStaffNameMatch = false;
+                }
+            }
+        }
+        private void IDCheck()
+        {
+            var workBook = new XLWorkbook("C:\\Users\\Cpljy\\source\\repos\\Projects\\NewTillSystem\\Resources\\XLSX\\StaffID.xlsx");
+            var workSheet = workBook.Worksheet("Staff");
+            int intStaffAmount = workSheet.LastRowUsed().RowNumber();
+            var range = workSheet.Range(strXlsxStaffNameColumn + 1, strXlsxStaffRoleColumn + workSheet.RowsUsed().Count());
+
+            for (int i = 2; i <= intStaffAmount; i++)
+            {
+                var readXlsxDataStaffID = workSheet.Cell(i, strXlsxStaffIDColumn).GetValue<string>();
+                if (strSetNewStaffID == readXlsxDataStaffID)
+                {
+                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    boolStaffIdMatch = true;
+                    return;
+                }
+                else
+                {
+                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
+                    boolStaffNameMatch = false;
+                }
+            }
         }
 
         private void tglStaff_Checked(object sender, EventArgs e)
@@ -433,27 +444,27 @@ namespace NewTillSystem.Windows
                     if (item.GetType() == typeof(TextBox))
                     {
                         TextBox txtBox = (TextBox)item;
-                        Debug.WriteLine(txtBox.Name);
                         if (txtBox.IsFocused)
                         {
-                            Debug.WriteLine("FOCUSED " + txtBox.Name);
+
+                            // GET RESOURCE FROM DICTIONARY TO FIX
                             //txtBox.BorderBrush = Brushes.Firebrick;
                             if (txtBox.Name == txtEnterStaffPin.Name)
                             {
-                                txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterStaffFirstName.BorderBrush = Brushes.DarkOliveGreen;
-                                txtEnterStaffLastName.BorderBrush = Brushes.DarkOliveGreen;
+                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultThemeSelected"];
+                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
+                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();
                                 return;
-                                
+
                             }
                             else if (txtBox.Name == txtEnterStaffFirstName.Name)
                             {
-                                txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterStaffPin.BorderBrush = Brushes.DarkOliveGreen;
-                                txtEnterStaffLastName.BorderBrush = Brushes.DarkOliveGreen;
+                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultThemeSelected"];
+                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
+                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -461,9 +472,9 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterStaffLastName.Name)
                             {
-                                txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterStaffPin.BorderBrush = Brushes.DarkOliveGreen;
-                                txtEnterStaffFirstName.BorderBrush = Brushes.DarkOliveGreen;
+                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultThemeSelected"];
+                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
+                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -483,20 +494,14 @@ namespace NewTillSystem.Windows
                                     }
                                 }
                             }
-                            //return;
                         }
                         else
                         {
-                            txtBox.BorderBrush = Brushes.DarkOliveGreen;
+                            txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayDefaultTheme"];
                             panelNumpad.IsEnabled = false;
                             panelKeybooardButtons.IsEnabled = false;
                         }
                     }
-                    /*else
-                    {
-                        panelNumpad.IsEnabled = false;
-                        panelKeybooardButtons.IsEnabled = false;
-                    }*/
                 }
             }
 

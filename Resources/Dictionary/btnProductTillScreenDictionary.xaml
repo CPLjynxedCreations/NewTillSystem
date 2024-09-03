@@ -5,6 +5,7 @@
     <SolidColorBrush x:Key="Button.Default.Pressed.Border" Color="Black"/>
     <SolidColorBrush x:Key="Button.Default.Foreground" Color="Black"/>
     <!-- END DEFAULT COLOURS -->
+    
     <!-- NEW COLORS -->
     <SolidColorBrush x:Key="Button.Default.Empty.Background" Color="#36454F"/>
     <SolidColorBrush x:Key="Button.Default.Empty.Pressed.Background" Color="LightSteelBlue"/>

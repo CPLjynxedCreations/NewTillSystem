@@ -10,7 +10,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <SolidColorBrush x:Key="Button.Static.Background" Color="Firebrick"/>
+    <SolidColorBrush x:Key="Button.Static.Background" Color="#89CFF0"/>
     <SolidColorBrush x:Key="Button.Static.Border" Color="DarkRed"/>
     <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Firebrick"/>
     <SolidColorBrush x:Key="Button.MouseOver.Border" Color="DarkRed"/>
@@ -20,7 +20,7 @@
     <SolidColorBrush x:Key="Button.Disabled.Background" Color="Maroon"/>
     <SolidColorBrush x:Key="Button.Disabled.Border" Color="Firebrick"/>
     <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="Firebrick"/>
-    <Style x:Key="btnAdminStyle" TargetType="{x:Type Button}">
+    <Style x:Key="btnDefaultAdminTheme" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>

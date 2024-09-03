@@ -14,9 +14,7 @@
           Height="550" Width="970">
         <Rectangle x:Name="rctManageWindow"
                    Grid.RowSpan="6" Grid.ColumnSpan="4"
-                   Fill="DarkOliveGreen"
-                   Stroke="DarkRed" StrokeThickness="20"
-                   RadiusX="5" RadiusY="5"/>
+                   Style="{DynamicResource lblDisplayDefaultTheme}"/>
         <Grid x:Name="grManageButtons"
           VerticalAlignment="Center" HorizontalAlignment="Center"
           Height="540" Width="960"
@@ -35,99 +33,99 @@
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="90"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnManage1" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage1" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="0" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage2" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage2" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="0" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage3" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage3" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="0" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage4" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage4" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="0" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage5" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage5" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="1" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage6" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage6" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="1" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage7" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage7" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="1" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage8" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage8" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="1" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage9" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage9" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="2" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage10" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage10" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="2" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage11" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage11" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="2" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage12" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage12" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="2" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage13" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage13" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="3" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage14" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage14" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="3" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage15" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage15" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="3" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage16" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage16" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="3" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage17" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage17" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="4" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage18" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage18" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="4" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage19" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage19" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="4" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManageEditProducts" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManageEditProducts" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="4" Grid.Column="3"
                 Width="240" Height="90"
                 Content="EDIT PRODUCTS"/>
-            <Button x:Name="btnManageAdmin" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManageAdmin" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="6" Grid.Column="0"
                 Width="240" Height="90"
                 Content="ADMIN"/>
-            <Button x:Name="btnManage22" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManage22" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="5" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManageEditStaff" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManageEditStaff" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="5" Grid.Column="2"
                 Width="240" Height="90"
                 Content="EDIT STAFF" />
-            <Button x:Name="btnManageClose" Style="{DynamicResource btnAdminQuickStyle}"
+            <Button x:Name="btnManageClose" Style="{DynamicResource btnDefaultAdminTheme}"
                 Grid.Row="6" Grid.Column="3"
                 Width="240" Height="90"
                 Foreground="Firebrick"

@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="/Resources/Dictionaries/txtBoxEnter.xaml"/>
 
                 <ResourceDictionary Source="/Resources/Dictionary/btnProductTillScreenDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionary/TillThemeDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
