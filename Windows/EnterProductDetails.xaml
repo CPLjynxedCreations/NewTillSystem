@@ -108,43 +108,43 @@
                           Margin="0,115,30,0">
                 <Border  Style="{StaticResource brdDefaultTheme}">
                     <StackPanel x:Name="uniGrButtonForegroundColorSelect">
-                        <Button x:Name="btnForegroundBlack" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundBlack" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="Black"
                                 Height="50"
                                 Tag="Black"/>
-                        <Button x:Name="btnForegroundWhite" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundWhite" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="White"
                                 Height="50"
                                 Tag="White"/>
-                        <Button x:Name="btnForegroundGreen" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundGreen" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="Green"
                                 Height="50"
                                 Tag="Green"/>
-                        <Button x:Name="btnForegroundDarkGreen" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundDarkGreen" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="DarkGreen"
                                 Height="50"
                                 Tag="DarkGreen"/>
-                        <Button x:Name="btnForegroundOrange" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundOrange" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="Orange"
                                 Height="50"
                                 Tag="Orange"/>
-                        <Button x:Name="btnForegroundYellow" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundYellow" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="Yellow"
                                 Height="50"
                                 Tag="Yellow"/>
-                        <Button x:Name="btnForegroundRed" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundRed" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="Red"
                                 Height="50"
                                 Tag="Red"/>
-                        <Button x:Name="btnForegroundDarkRed" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundDarkRed" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="DarkRed"
                                 Height="50"
                                 Tag="DarkRed"/>
-                        <Button x:Name="btnForegroundBlue" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundBlue" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="Blue"
                                 Height="50"
                                 Tag="Blue"/>
-                        <Button x:Name="btnForegroundDarkBlue" Click="btnItemTheme_Click" Style="{StaticResource btnDefaulForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundDarkBlue" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
                                 Background="DarkBlue"
                                 Height="50"
                                 Tag="DarkBlue"/>

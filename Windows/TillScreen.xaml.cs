@@ -187,7 +187,7 @@ namespace NewTillSystem
                 else
                 {
                     btnPressedProduct.Content = string.Empty;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmptyTheme"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnLightBlueEmptyTheme"];
                 }
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
