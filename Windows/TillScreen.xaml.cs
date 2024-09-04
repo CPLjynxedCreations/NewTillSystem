@@ -58,27 +58,12 @@ namespace NewTillSystem
             ClearStartStrings();
             SetTillFiles();
             SetProductButtonDetails();
-
-            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
-
-
-
             TillLogOn();
-
-        }
-
-        private void GetDateTime()
-        {
-            string currentDate = DateTime.Now.ToString("dd/MM/yy");
-            string currentTime = DateTime.Now.ToString("h:mm tt");
-
-            lblSaleScreenDate.Text = currentDate;
-            lblSaleScreenTime.Text = currentTime;
-            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
         }
 
         private void TillLogOn()
         {
+            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
             LogInScreen logInScreen = new LogInScreen();
             logInScreen.ShowDialog();
             if (!logInScreen.boolStaffLogin)
@@ -93,6 +78,16 @@ namespace NewTillSystem
             boolIsStaff = logInScreen.boolLoggedInStaff;
             lblSaleScreenStaff.Text = strXlsxLoggedInStaffName;
         }
+
+        private void GetDateTime()
+        {
+            string currentDate = DateTime.Now.ToString("dd/MM/yy");
+            string currentTime = DateTime.Now.ToString("h:mm tt");
+
+            lblSaleScreenDate.Text = currentDate;
+            lblSaleScreenTime.Text = currentTime;
+        }
+
         #region NUMBER PAD
 
         private void btnAdminNumPad_Click(object sender, RoutedEventArgs e)
@@ -222,7 +217,7 @@ namespace NewTillSystem
                 openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 if (boolCanEditProduct)
                 {
-                    openManageWindow.btnManageEditProducts.Content = "Stop Product Edit";
+                    openManageWindow.btnManageEditProducts.Content = "STOP PRODUCT EDIT";
                 }
                 openManageWindow.btnManageClose.Click += (sender, e) => { openManageWindow.Close(); };
                 openManageWindow.btnManageEditProducts.Click += (sender, e) =>

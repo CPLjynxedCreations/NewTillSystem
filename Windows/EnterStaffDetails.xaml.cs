@@ -56,7 +56,6 @@ namespace NewTillSystem.Windows
         {
             InitializeComponent();
             boolGenerateStaff = true;
-            btnFilterStaff1.Foreground = Brushes.White;
             GetCurrentStaffList();
             btnKeyboard_SPACE.IsEnabled = false;
             panelKeybooardButtons.IsEnabled = false;
@@ -86,7 +85,7 @@ namespace NewTillSystem.Windows
                     ToggleButton tglStaff = new ToggleButton();
                     tglStaff.Name = readXlsxDataStaffName + readXlsxDataStaffLastName;
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                    tglStaff.Style = (Style)Application.Current.Resources["tglStyleStaff"];
+                    tglStaff.Style = (Style)Application.Current.Resources["tglDefaultTheme"];
                     tglStaff.Checked += tglStaff_Checked;
                     if (tglStaff.Content != strEmpty)
                     {
@@ -304,44 +303,44 @@ namespace NewTillSystem.Windows
                 boolGenerateStaff = true;
                 boolFilterActive = false;
                 GetCurrentStaffList();
-                btnFilterStaff1.Foreground = Brushes.White;
+                btnFilterStaff1.Style = (Style)Application.Current.Resources["btnDefaultSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff1.Foreground = Brushes.Black;
+                btnFilterStaff1.Style = (Style)Application.Current.Resources["btnDefaultAdminTheme"];
             }
             if (strFilterActive == btnFilterStaff2.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff2.Foreground = Brushes.White;
+                btnFilterStaff2.Style = (Style)Application.Current.Resources["btnDefaultSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff2.Foreground = Brushes.Black;
+                btnFilterStaff2.Style = (Style)Application.Current.Resources["btnDefaultAdminTheme"];
             }
             if (strFilterActive == btnFilterStaff3.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff3.Foreground = Brushes.White;
+                btnFilterStaff3.Style = (Style)Application.Current.Resources["btnDefaultSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff3.Foreground = Brushes.Black;
+                btnFilterStaff3.Style = (Style)Application.Current.Resources["btnDefaultAdminTheme"];
             }
             if (strFilterActive == btnFilterStaff4.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff4.Foreground = Brushes.White;
+                btnFilterStaff4.Style = (Style)Application.Current.Resources["btnDefaultSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff4.Foreground = Brushes.Black;
+                btnFilterStaff4.Style = (Style)Application.Current.Resources["btnDefaultAdminTheme"];
             }
         }
 

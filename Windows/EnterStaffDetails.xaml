@@ -14,13 +14,10 @@
         <Grid x:Name="grStaffWindow"
               Width="950" Height="530"
               VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Rectangle x:Name="rctNumPad"
-                       Fill="Gray"
-                       Stroke="DarkRed" StrokeThickness="5"
-                       RadiusX="15" RadiusY="15"/>
-            <Border x:Name="brdPageBreak1"
-                    Width="5"
-                    BorderBrush="DarkRed" BorderThickness="5"/>
+            <Rectangle x:Name="rctStaffScreen" Style="{StaticResource rectDefaultTheme}"
+/>
+            <Border x:Name="brdPageBreak1" Style="{StaticResource brdDefaultTheme}"
+                    Width="5"/>
             <Button x:Name="btnOk" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnOk_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
@@ -41,10 +38,9 @@
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Margin="0,0,260,30"
                     Content="EDIT"/>
-            <TextBlock x:Name="lblEnterStaffFirst"
+            <TextBlock x:Name="lblEnterStaffFirst" Style="{StaticResource txtBlockDefaultTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
-                       FontSize="24" FontWeight="UltraBlack"
                        Text="Enter Staff First Name"
                        Margin="40,42,0,0"/>
             <TextBox x:Name="txtEnterStaffFirstName" Style="{DynamicResource txtBoxDisplayDefaultTheme}" GotFocus="CheckTxtBoxFocus"
@@ -53,10 +49,9 @@
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
                      Margin="40,80,0,0"
                      BorderThickness="5"/>
-            <TextBlock x:Name="lblEnterStaffLast"
+            <TextBlock x:Name="lblEnterStaffLast" Style="{StaticResource txtBlockDefaultTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
-                       FontSize="24" FontWeight="UltraBlack"
                        Text="Enter Staff Last Name"
                        Margin="40,132,0,0"/>
             <TextBox x:Name="txtEnterStaffLastName" Style="{DynamicResource txtBoxDisplayDefaultTheme}" GotFocus="CheckTxtBoxFocus"
@@ -65,10 +60,9 @@
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
                      Margin="40,168,0,0"
                      BorderThickness="5"/>
-            <TextBlock x:Name="lblEnterStaffPin"
+            <TextBlock x:Name="lblEnterStaffPin" Style="{StaticResource txtBlockDefaultTheme}"
                        Width="260" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
-                       FontSize="24" FontWeight="UltraBlack"
                        Text="Enter Staff Pin"
                        Margin="40,222,0,0"/>
             <TextBox x:Name="txtEnterStaffPin" Style="{DynamicResource txtBoxDisplayDefaultTheme}" GotFocus="CheckTxtBoxFocus"
@@ -91,19 +85,18 @@
                 <ComboBoxItem x:Name="boxRoleSelectStaff" Content="Staff"/>
             </ComboBox>
 
-            <TextBlock x:Name="lblEditStaff"
+            <TextBlock x:Name="lblEditStaff" Style="{StaticResource txtBlockDefaultTheme}"
                        Width="260" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Right"
-                       FontSize="24" FontWeight="UltraBlack"
                        Text="Select Staff Name"
                        Margin="0,42,180,0"/>
-            <TextBlock x:Name="lblFilter"
+            <TextBlock x:Name="lblFilter" Style="{StaticResource txtBlockDefaultTheme}"
                        Width="70" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Right"
                        FontSize="24" FontWeight="UltraBlack"
                        Text="Filter"
                        Margin="0,80,40,0"/>
-            <Button x:Name="btnFilterStaff1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
+            <Button x:Name="btnFilterStaff1" Style="{DynamicResource btnDefaultSelectedtAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
                     Content="OFF" FontSize="13"
@@ -124,12 +117,11 @@
                     Content="STAFF" FontSize="13"
                     Margin="0,330,40,0"/>
 
-            <ScrollViewer x:Name="scrlSelectExistingStaff"
+            <ScrollViewer x:Name="scrlSelectExistingStaff" Style="{StaticResource scrlViewDefaultTheme}"
                           Width="300" Height="300"
                           VerticalAlignment="Top" HorizontalAlignment="Right"
-                          Margin="0,80,140,0"
-                          Background="Gray">
-                <Border BorderBrush="DarkRed" BorderThickness="3">
+                          Margin="0,80,140,0">
+                <Border Style="{StaticResource brdDefaultTheme}">
                     <StackPanel x:Name="panelExistingStaff"
                                 GotFocus="CheckTxtBoxFocus">
                         <!-- MAKE BUTTON THHEME FOR STACK-->

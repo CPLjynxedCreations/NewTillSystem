@@ -40,8 +40,8 @@ namespace NewTillSystem.Windows
             InitializeComponent();
             ClearLabelStrings();
             boolStaffLogin = false;
-            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
-            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
+            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
+            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
         }
 
         private void GetDateTime()
@@ -54,8 +54,6 @@ namespace NewTillSystem.Windows
             lblLoginDate.Text = currentDate;
             lblLoginTime.Text = currentTime;
             lblToBe18Date.Text = setToBe18;
-            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
-            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
         }
 
         private void btnAdminNumPad_Click(object sender, RoutedEventArgs e)
