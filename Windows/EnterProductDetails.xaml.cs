@@ -50,7 +50,7 @@ namespace NewTillSystem.Windows
             strProductName = string.Empty;
             strProductPrice = string.Empty;
             //strButtonTheme = ;
-            //strButtonForeground = "btnLightBlueEmptyTheme";
+            //strButtonForeground = "DefaultButtonEmptyTheme";
             //btnCancel.Foreground = "Transparent";
         }
 
@@ -150,8 +150,8 @@ namespace NewTillSystem.Windows
                         {
                             if (txtEnterProductPrice.IsFocused)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueThemeSelected"];
-                                txtEnterProductName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
+                                txtEnterProductName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -159,8 +159,8 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterProductName.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueThemeSelected"];
-                                txtEnterProductPrice.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
+                                txtEnterProductPrice.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -169,7 +169,7 @@ namespace NewTillSystem.Windows
                         }
                         else
                         {
-                            txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                            txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                         }
                     }
                     else
@@ -192,8 +192,8 @@ namespace NewTillSystem.Windows
             {
                 btnColorView.Style = (Style)Application.Current.Resources[btnTest.Name];
                 strButtonTheme = btnTest.Name;
-                txtEnterProductName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
-                txtEnterProductPrice.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                txtEnterProductName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                txtEnterProductPrice.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                 //save string theme
             }
             if (btnTest.Name.Contains("Foreground"))
@@ -202,8 +202,8 @@ namespace NewTillSystem.Windows
                 SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(colorTag);
                 btnColorView.Foreground = colorBrush;
                 strButtonForeground = Convert.ToString(btnTest.Tag);
-                txtEnterProductName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
-                txtEnterProductPrice.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                txtEnterProductName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                txtEnterProductPrice.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
             }
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;

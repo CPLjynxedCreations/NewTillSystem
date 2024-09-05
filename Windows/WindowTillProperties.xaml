@@ -23,5 +23,6 @@
                 BorderBrush="Black" BorderThickness="5"
                 FontSize="26" FontWeight="UltraBlack"
                 Content="X"/>
+        <Button x:Name="changeLog" Width="100" Height="100" Margin="105,90,1282,552"/>
     </Grid>
 </Window>

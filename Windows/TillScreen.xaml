@@ -35,69 +35,69 @@
                 <ColumnDefinition x:Name="grNumCol3" Width="162"/>
                 <ColumnDefinition x:Name="grNumCol4" Width="162"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnAdminNumClear" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumClear_Click"
+            <Button x:Name="btnAdminNumClear" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumClear_Click"
                     Grid.Row="5" Grid.Column="0"
-                    Content="CLEAR"/>
-            <Button x:Name="btnAdminNumCancel" Style="{DynamicResource btnDefaultQuickTheme}"
+                    Tag="AdminQuick"  Content="CLEAR"/>
+            <Button x:Name="btnAdminNumCancel" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="5" Grid.Column="1"
-                    Content="CANCEL"/>
-            <Button x:Name="btnAdminNumOk" Style="{DynamicResource btnDefaultQuickTheme}"
+                    Tag="AdminQuick" Content="CANCEL"/>
+            <Button x:Name="btnAdminNumOk" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="5" Grid.Column="2"
-                    Content="OK"/>
-            <Button x:Name="btnAdminNumMinus" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumMinus_Click"
+                    Tag="AdminQuick" Content="OK"/>
+            <Button x:Name="btnAdminNumMinus" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumMinus_Click"
                     Grid.Row="4" Grid.Column="0"
-                    Content="-"/>
-            <Button x:Name="btnAdminNum0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="-"/>
+            <Button x:Name="btnAdminNum0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="4" Grid.Column="1"
-                    Content="0"/>
-            <Button x:Name="btnAdminNumPoint" Style="{DynamicResource btnDefaultAdminTheme}"
+                    Tag="AdminNumPad" Content="0"/>
+            <Button x:Name="btnAdminNumPoint" Style="{DynamicResource DefaultButtonAdminTheme}"
                     Grid.Row="4" Grid.Column="2"
-                    Content="."/>
-            <Button x:Name="btnAdminNum1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="."/>
+            <Button x:Name="btnAdminNum1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="3" Grid.Column="0"
-                    Content="1"/>
-            <Button x:Name="btnAdminNum2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="1"/>
+            <Button x:Name="btnAdminNum2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="3" Grid.Column="1"
-                    Content="2"/>
-            <Button x:Name="btnAdminNum3" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="2"/>
+            <Button x:Name="btnAdminNum3" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="3" Grid.Column="2"
-                    Content="3"/>
-            <Button x:Name="btnAdminNum4"  Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="3"/>
+            <Button x:Name="btnAdminNum4"  Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="2" Grid.Column="0"
-                    Content="4"/>
-            <Button x:Name="btnAdminNum5" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="4"/>
+            <Button x:Name="btnAdminNum5" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="2" Grid.Column="1"
-                    Content="5"/>
-            <Button x:Name="btnAdminNum6"  Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="5"/>
+            <Button x:Name="btnAdminNum6"  Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="2" Grid.Column="2"
-                    Content="6"/>
-            <Button x:Name="btnAdminNum7" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="6"/>
+            <Button x:Name="btnAdminNum7" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="1" Grid.Column="0"
-                    Content="7"/>
-            <Button x:Name="btnAdminNum8" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="7"/>
+            <Button x:Name="btnAdminNum8" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="1" Grid.Column="1"
-                    Content="8"/>
-            <Button x:Name="btnAdminNum9" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminNumPad_Click"
+                    Tag="AdminNumPad" Content="8"/>
+            <Button x:Name="btnAdminNum9" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="1" Grid.Column="2"
-                    Content="9"/>
-            <Button x:Name="btnAdminNum50" Style="{DynamicResource btnDefaultQuickTheme}" 
+                    Tag="AdminNumPad" Content="9"/>
+            <Button x:Name="btnAdminNum50" Style="{DynamicResource DefaultButtonQuickTheme}" 
                     Grid.Row="1" Grid.Column="4"
-                    Content="$50"/>
-            <Button x:Name="btnAdminNum20" Style="{DynamicResource btnDefaultQuickTheme}" 
+                    Tag="AdminQuick" Content="$50"/>
+            <Button x:Name="btnAdminNum20" Style="{DynamicResource DefaultButtonQuickTheme}" 
                     Grid.Row="2" Grid.Column="4"
-                    Content="$20"/>
-            <Button x:Name="btnAdminNum10" Style="{DynamicResource btnDefaultQuickTheme}" 
+                    Tag="AdminQuick" Content="$20"/>
+            <Button x:Name="btnAdminNum10" Style="{DynamicResource DefaultButtonQuickTheme}" 
                     Grid.Row="3" Grid.Column="4"
-                    Content="$10"/>
-            <Button x:Name="btnAdminNumEft" Style="{DynamicResource btnDefaultQuickTheme}" 
+                    Tag="AdminQuick" Content="$10"/>
+            <Button x:Name="btnAdminNumEft" Style="{DynamicResource DefaultButtonQuickTheme}" 
                     Grid.Row="4" Grid.Column="4"
-                    Content="EFTPOS"/>
-            <Button x:Name="btnAdminNumCash" Style="{DynamicResource btnDefaultQuickTheme}" 
+                    Tag="AdminQuick" Content="EFTPOS"/>
+            <Button x:Name="btnAdminNumCash" Style="{DynamicResource DefaultButtonQuickTheme}" 
                     Grid.Row="5" Grid.Column="4"
-                    Content="CASH"/>
+                    Tag="AdminQuick" Content="CASH"/>
             <Rectangle x:Name="bgAdminHeader"
                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
-                       Style="{StaticResource lblDisplayDefaultTheme}"/>
+                       Style="{StaticResource DefaultLabelDisplayTheme}"/>
             <TextBlock x:Name="lblAdminNumAmount"
                        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -350,120 +350,120 @@
                 <RowDefinition x:Name="grBtnScreenRow9" Height="106"/>
                 <RowDefinition x:Name="grBtnScreenRow10" Height="109"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnProduct1" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct1" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="0"/>
-            <Button x:Name="btnProduct2" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct2" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="0"/>
-            <Button x:Name="btnProduct3" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct3" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="0"/>
-            <Button x:Name="btnProduct4" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct4" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="6" Grid.Row="0"/>
-            <Button x:Name="btnProduct5" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct5" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="7" Grid.Row="0"/>
-            <Button x:Name="btnProduct6" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct6" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="8" Grid.Row="0"/>
-            <Button x:Name="btnProduct7" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct7" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="1"/>
-            <Button x:Name="btnProduct8" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct8" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="1"/>
-            <Button x:Name="btnProduct9" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct9" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="1"/>
-            <Button x:Name="btnProduct10" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct10" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="6" Grid.Row="1"/>
-            <Button x:Name="btnProduct11" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct11" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="7" Grid.Row="1"/>
-            <Button x:Name="btnProduct12" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct12" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="8" Grid.Row="1"/>
-            <Button x:Name="btnProduct13" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct13" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="2"/>
-            <Button x:Name="btnProduct14" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct14" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="2"/>
-            <Button x:Name="btnProduct15" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct15" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="2"/>
-            <Button x:Name="btnProduct16" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct16" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="6" Grid.Row="2"/>
-            <Button x:Name="btnProduct17" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct17" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="7" Grid.Row="2"/>
-            <Button x:Name="btnProduct18" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct18" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="8" Grid.Row="2"/>
-            <Button x:Name="btnProduct19" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct19" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="3"/>
-            <Button x:Name="btnProduct20" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct20" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="3"/>
-            <Button x:Name="btnProduct21" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct21" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="3"/>
-            <Button x:Name="btnProduct22" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct22" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="6" Grid.Row="3"/>
-            <Button x:Name="btnProduct23" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct23" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="7" Grid.Row="3"/>
-            <Button x:Name="btnProduct24" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct24" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="8" Grid.Row="3"/>
-            <Button x:Name="btnProduct25" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct25" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="4"/>
-            <Button x:Name="btnProduct26" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct26" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="4"/>
-            <Button x:Name="btnProduct27" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct27" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="4"/>
-            <Button x:Name="btnProduct28" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct28" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="6" Grid.Row="4"/>
-            <Button x:Name="btnProduct29" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct29" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="7" Grid.Row="4"/>
-            <Button x:Name="btnProduct30" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct30" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="8" Grid.Row="4"/>
-            <Button x:Name="btnProduct31" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct31" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="5"/>
-            <Button x:Name="btnProduct32" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct32" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="5"/>
-            <Button x:Name="btnProduct33" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct33" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="5"/>
-            <Button x:Name="btnProduct34" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct34" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="6" Grid.Row="5"/>
-            <Button x:Name="btnProduct35" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct35" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="7" Grid.Row="5"/>
-            <Button x:Name="btnProduct36" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct36" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="8" Grid.Row="5"/>
-            <Button x:Name="btnProduct37" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct37" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="6"/>
-            <Button x:Name="btnProduct38" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct38" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="6"/>
-            <Button x:Name="btnProduct39" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct39" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="6"/>
-            <Button x:Name="btnProduct40" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct40" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="7"/>
-            <Button x:Name="btnProduct41" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct41" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="7"/>
-            <Button x:Name="btnProduct42" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct42" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="7"/>
-            <Button x:Name="btnProduct43" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct43" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="3" Grid.Row="8"/>
-            <Button x:Name="btnProduct44" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct44" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="4" Grid.Row="8"/>
-            <Button x:Name="btnProduct45" Style="{DynamicResource btnDefaultEmptyTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnProduct45" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="8"/>
-            <Button x:Name="btnAdmin1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
                     Grid.Column="0" Grid.Row="7"/>
-            <Button x:Name="btnAdmin2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
                     Grid.Column="1" Grid.Row="7"/>
-            <Button x:Name="btnAdmin3" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin3" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
                     Grid.Column="2" Grid.Row="7"/>
-            <Button x:Name="btnAdmin4" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin4" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
                     Grid.Column="0" Grid.Row="8"/>
-            <Button x:Name="btnAdmin5" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin5" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
                     Grid.Column="1" Grid.Row="8"/>
-            <Button x:Name="btnAdmin6" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin6" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
                     Grid.Column="2" Grid.Row="8"/>
-            <Button x:Name="btnAdminManage" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminManage_Click"
+            <Button x:Name="btnAdminManage" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminManage_Click"
                     Grid.Column="5" Grid.Row="9"
                     Content="MANAGE"/>
-            <Button x:Name="btnAdmin8" Style="{DynamicResource btnDefaultAdminTheme}" 
+            <Button x:Name="btnAdmin8" Style="{DynamicResource DefaultButtonAdminTheme}" 
                     Grid.Column="1" Grid.Row="9"/>
-            <Button x:Name="btnAdmin9" Style="{DynamicResource btnDefaultAdminTheme}" 
+            <Button x:Name="btnAdmin9" Style="{DynamicResource DefaultButtonAdminTheme}" 
                     Grid.Column="2" Grid.Row="9"/>
-            <Button x:Name="btnAdmin10" Style="{DynamicResource btnDefaultAdminTheme}" 
+            <Button x:Name="btnAdmin10" Style="{DynamicResource DefaultButtonAdminTheme}" 
                     Grid.Column="3" Grid.Row="9"/>
-            <Button x:Name="btnAdmin11" Style="{DynamicResource btnDefaultAdminTheme}"
+            <Button x:Name="btnAdmin11" Style="{DynamicResource DefaultButtonAdminTheme}"
                     Grid.Column="4" Grid.Row="9"/>
-            <Button x:Name="btnAdminLogOut" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnAdminLogOut_Click"
+            <Button x:Name="btnAdminLogOut" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminLogOut_Click"
                     Grid.Column="0" Grid.Row="9"
                     Content="LOG OUT"/>
         </Grid>

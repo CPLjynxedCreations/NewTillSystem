@@ -64,52 +64,52 @@
                 <ColumnDefinition x:Name="grNumCol3"
                                   Width="162"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnAdminNumClear" Style="{DynamicResource btnDefaultQuickTheme}"
+            <Button x:Name="btnAdminNumClear" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="5" Grid.Column="0"
                     Content="CLEAR"/>
-            <Button x:Name="btnAdminNumCancel" Style="{DynamicResource btnDefaultQuickTheme}"
+            <Button x:Name="btnAdminNumCancel" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="5" Grid.Column="1"
                     Content="CANCEL"/>
-            <Button x:Name="btnAdminNumOk" Style="{DynamicResource btnDefaultQuickTheme}"
+            <Button x:Name="btnAdminNumOk" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="5" Grid.Column="2"
                     Content="OK"/>
-            <Button x:Name="btnAdminNumMinus" Style="{DynamicResource btnDefaultQuickTheme}"
+            <Button x:Name="btnAdminNumMinus" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="4" Grid.Column="0"
                     Content="-"/>
-            <Button x:Name="btnAdminNum0" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum0" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="4" Grid.Column="1"
                     Content="0"/>
-            <Button x:Name="btnAdminNumPoint" Style="{DynamicResource btnDefaultQuickTheme}"
+            <Button x:Name="btnAdminNumPoint" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="4" Grid.Column="2"
                     Content="."/>
-            <Button x:Name="btnAdminNum1" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum1" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="3" Grid.Column="0"
                     Content="1"/>
-            <Button x:Name="btnAdminNum2" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum2" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="3" Grid.Column="1"
                     Content="2"/>
-            <Button x:Name="btnAdminNum3" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum3" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="3" Grid.Column="2"
                     Content="3"/>
-            <Button x:Name="btnAdminNum4" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum4" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="2" Grid.Column="0"
                     Content="4"/>
-            <Button x:Name="btnAdminNum5" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum5" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="2" Grid.Column="1"
                     Content="5"/>
-            <Button x:Name="btnAdminNum6" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum6" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="2" Grid.Column="2"
                     Content="6"/>
-            <Button x:Name="btnAdminNum7" Style="{DynamicResource btnDefaultQuickTheme}" Click="btnAdminNumPad_Click"
+            <Button x:Name="btnAdminNum7" Style="{DynamicResource DefaultButtonQuickTheme}" Click="btnAdminNumPad_Click"
                     Grid.Row="1" Grid.Column="0"
                     Content="7"/>
-            <Button x:Name="btnAdminNum8" Style="{DynamicResource btnDefaultQuickTheme}"
+            <Button x:Name="btnAdminNum8" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="1" Grid.Column="1"
                     Content="8"/>
-            <Button x:Name="btnAdminNum9" Style="{DynamicResource btnDefaultQuickTheme}"
+            <Button x:Name="btnAdminNum9" Style="{DynamicResource DefaultButtonQuickTheme}"
                     Grid.Row="1" Grid.Column="2"
                     Content="9"/>
-            <Rectangle x:Name="bgAdminHeader" Style="{DynamicResource lblDisplayDefaultTheme}"
+            <Rectangle x:Name="bgAdminHeader" Style="{DynamicResource DefaultLabelDisplayTheme}"
                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
             <TextBlock x:Name="lblAdminNumAmount"
                        VerticalAlignment="Center" HorizontalAlignment="Center"

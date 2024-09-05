@@ -1,5 +1,6 @@
 using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Vml;
+using NewTillSystem.Resources.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,11 +18,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TextBox = System.Windows.Controls.TextBox;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
     public partial class EnterStaffDetails : Window
     {
+        ThemeController themeController;
+
         private string strXlsxStaffNameColumn = "A";
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
@@ -55,6 +59,8 @@ namespace NewTillSystem.Windows
         public EnterStaffDetails()
         {
             InitializeComponent();
+            themeController = new ThemeController();
+
             boolGenerateStaff = true;
             GetCurrentStaffList();
             btnKeyboard_SPACE.IsEnabled = false;
@@ -85,7 +91,8 @@ namespace NewTillSystem.Windows
                     ToggleButton tglStaff = new ToggleButton();
                     tglStaff.Name = readXlsxDataStaffName + readXlsxDataStaffLastName;
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                    tglStaff.Style = (Style)Application.Current.Resources["tglLightBlueTheme"];
+                    //tglStaff.Style = (Style)Application.Current.Resources["DefaultToggleTheme"];
+                    tglStaff.Style = (Style)Application.Current.Resources["LightBlueToggleTheme"];
                     tglStaff.Checked += tglStaff_Checked;
                     if (tglStaff.Content != strEmpty)
                     {
@@ -241,8 +248,8 @@ namespace NewTillSystem.Windows
                 }
                 else
                 {
-                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
-                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                     boolStaffNameMatch = false;
                 }
             }
@@ -265,7 +272,7 @@ namespace NewTillSystem.Windows
                 }
                 else
                 {
-                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                     boolStaffNameMatch = false;
                 }
             }
@@ -303,44 +310,44 @@ namespace NewTillSystem.Windows
                 boolGenerateStaff = true;
                 boolFilterActive = false;
                 GetCurrentStaffList();
-                btnFilterStaff1.Style = (Style)Application.Current.Resources["btnLightBlueSelectedtAdminTheme"];
+                btnFilterStaff1.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff1.Style = (Style)Application.Current.Resources["btnLightBlueAdminTheme"];
+                btnFilterStaff1.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
             }
             if (strFilterActive == btnFilterStaff2.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff2.Style = (Style)Application.Current.Resources["btnLightBlueSelectedtAdminTheme"];
+                btnFilterStaff2.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff2.Style = (Style)Application.Current.Resources["btnLightBlueAdminTheme"];
+                btnFilterStaff2.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
             }
             if (strFilterActive == btnFilterStaff3.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff3.Style = (Style)Application.Current.Resources["btnLightBlueSelectedtAdminTheme"];
+                btnFilterStaff3.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff3.Style = (Style)Application.Current.Resources["btnLightBlueAdminTheme"];
+                btnFilterStaff3.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
             }
             if (strFilterActive == btnFilterStaff4.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff4.Style = (Style)Application.Current.Resources["btnLightBlueSelectedtAdminTheme"];
+                btnFilterStaff4.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
             }
             else
             {
-                btnFilterStaff4.Style = (Style)Application.Current.Resources["btnLightBlueAdminTheme"];
+                btnFilterStaff4.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
             }
         }
 
@@ -450,9 +457,9 @@ namespace NewTillSystem.Windows
                             //txtBox.BorderBrush = Brushes.Firebrick;
                             if (txtBox.Name == txtEnterStaffPin.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueThemeSelected"];
-                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
-                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
+                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -461,9 +468,9 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterStaffFirstName.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueThemeSelected"];
-                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
-                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
+                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -471,9 +478,9 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterStaffLastName.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueThemeSelected"];
-                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
-                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
+                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -496,7 +503,7 @@ namespace NewTillSystem.Windows
                         }
                         else
                         {
-                            txtBox.Style = (Style)Application.Current.Resources["txtBoxDisplayLightBlueTheme"];
+                            txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
                             panelNumpad.IsEnabled = false;
                             panelKeybooardButtons.IsEnabled = false;
                         }

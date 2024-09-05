@@ -16,12 +16,13 @@ using System.Windows.Shapes;
 using ClosedXML;
 using ClosedXML.Excel;
 using System.IO;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem
 {
     public partial class TillScreen : Window
     {
-
+        ThemeController themeController;
         private string strEmpty = "";
         private string strUserNumberInput;
         private string strUserNumberConvert;
@@ -53,11 +54,17 @@ namespace NewTillSystem
 
         public TillScreen()
         {
+            themeController = new ThemeController();
             InitializeComponent();
             this.DataContext = this;
             ClearStartStrings();
             SetTillFiles();
             SetProductButtonDetails();
+
+            themeController.CreateThemeFile();
+            themeController.SetThemeWindow();
+            themeController.ReadTheme();
+            themeController.SetTheme();
             TillLogOn();
         }
 
@@ -187,7 +194,7 @@ namespace NewTillSystem
                 else
                 {
                     btnPressedProduct.Content = string.Empty;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnLightBlueEmptyTheme"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources["DefaultButtonEmptyTheme"];
                 }
                 workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
                 workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;

@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="ProjectImages\" />
-    <Folder Include="Resources\Scripts\" />
   </ItemGroup>
 
   <ItemGroup>

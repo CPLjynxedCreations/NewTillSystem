@@ -7,7 +7,8 @@
     <SolidColorBrush x:Key="Default.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="TextBox.Default.Border.Error" Color="Red"/>
 
-    <!-- DEFAULT COLOR -->
+    <!--#region COLORS -->
+    <!--#region DEFAULT COLOR -->
     <SolidColorBrush x:Key="Default.Background" Color="#808080	"/>
     <SolidColorBrush x:Key="Button.Default.Pressed.Background" Color="Gray"/>
     <SolidColorBrush x:Key="Button.Default.Selected.Foreground" Color="White"/>
@@ -20,10 +21,9 @@
     <SolidColorBrush x:Key="Toggle.Button.Default.IsChecked.Border" Color="#848884"/>
     <SolidColorBrush x:Key="TextBlock.Default.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="TextBox.Default.Focus.Border" Color="#36454F"/>
-    <SolidColorBrush x:Key="Rectangle.Default.Background" Color="#36454F"/>
-    <!-- END DEFAULT COLOR -->
-    
-    <!-- BLUE COLOR -->
+    <SolidColorBrush x:Key="Rectangle.Default.Background" Color="DarkGray"/>
+    <!--#endregion-->
+    <!--#region BLUE COLOR -->
     <SolidColorBrush x:Key="LightBlue.Background" Color="#6495ED"/>
     <SolidColorBrush x:Key="Button.LightBlue.Background" Color="#6082B6"/>
     <SolidColorBrush x:Key="Button.LightBlue.Selected.Foreground" Color="White"/>
@@ -37,8 +37,13 @@
     <SolidColorBrush x:Key="TextBlock.LightBlue.Foreground" Color="LightGray"/>
     <SolidColorBrush x:Key="TextBox.LightBlue.Focus.Border" Color="Purple"/>
     <SolidColorBrush x:Key="Rectangle.LightBlue.Background" Color="#36454F"/>
-
-    <Style x:Key="ComboBoxDefaultToggleButton" TargetType="{x:Type ToggleButton}">
+    <!--#endregion-->
+    <!--#endregion-->
+    
+    <!--#region THEMES -->
+    <!--#region DEFAULT THEME -->
+    <!--#region COMBO BOX -->
+    <Style x:Key="DefaultComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Focusable" Value="false"/>
@@ -68,7 +73,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <ControlTemplate x:Key="ComboBoxDefaultTemplate" TargetType="{x:Type ComboBox}">
+    <ControlTemplate x:Key="DefaultComboBoxTemplate" TargetType="{x:Type ComboBox}">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -88,7 +93,7 @@
                     </Border>
                 </theme:SystemDropShadowChrome>
             </Popup>
-            <ToggleButton x:Name="toggleButton" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" Style="{StaticResource ComboBoxDefaultToggleButton}"/>
+            <ToggleButton x:Name="toggleButton" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" Style="{StaticResource DefaultComboBoxToggleButton}"/>
             <ContentPresenter x:Name="contentPresenter" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
         <ControlTemplate.Triggers>
@@ -112,7 +117,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    <Style x:Key="cmbBoxToggleDefaultTheme" TargetType="{x:Type ComboBox}">
+    <Style x:Key="DefaultComboBoxToggleTheme" TargetType="{x:Type ComboBox}">
         <Setter Property="Background" Value="{StaticResource Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
@@ -124,25 +129,25 @@
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Template" Value="{StaticResource ComboBoxDefaultTemplate}"/>
+        <Setter Property="Template" Value="{StaticResource DefaultComboBoxTemplate}"/>
         <Style.Triggers>
             <Trigger Property="IsEditable" Value="true">
                 <Setter Property="IsTabStop" Value="false"/>
                 <Setter Property="Padding" Value="2"/>
-                <Setter Property="Template" Value="{StaticResource ComboBoxDefaultTemplate}"/>
+                <Setter Property="Template" Value="{StaticResource DefaultComboBoxTemplate}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
     <!--#endregion-->
     <!--#region LABEL AND TEXT BOX -->
-    <Style x:Key="lblDisplayDefaultTheme" TargetType="{x:Type Rectangle}">
+    <Style x:Key="DefaultLabelDisplayTheme" TargetType="{x:Type Rectangle}">
         <Setter Property="Fill" Value="{StaticResource Default.Background}"/>
         <Setter Property="Stroke" Value="{StaticResource Default.Border}"/>
         <Setter Property="StrokeThickness" Value="3"/>
         <Setter Property="RadiusX" Value="6"/>
         <Setter Property="RadiusY" Value="6"/>
     </Style>
-    <Style x:Key="txtBoxDisplayDefaultTheme" TargetType="{x:Type TextBox}">
+    <Style x:Key="DefaultTextBoxDisplayTheme" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
@@ -175,9 +180,9 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="txtBoxDisplayDefaultThemeSelected" TargetType="{x:Type TextBox}">
+    <Style x:Key="DefaultTextBoxDisplayThemeSelected" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource Default.Background}"/>
-        <Setter Property="BorderBrush" Value="Purple"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Default.Focus.Border}"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
         <Setter Property="BorderThickness" Value="3"/>
         <Setter Property="Padding" Value="4,4,0,0"/>
@@ -208,7 +213,7 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="txtBoxDisplayDefaultThemeError" TargetType="{x:Type TextBox}">
+    <Style x:Key="DefaultTextBoxDisplayThemeError" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource Default.Background}"/>
         <Setter Property="BorderBrush" Value="Red"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
@@ -241,17 +246,17 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="txtBlockDefaultTheme" TargetType="{x:Type TextBlock}">
+    <Style x:Key="DefaultTextBlockTheme" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="{StaticResource TextBlock.Default.Foreground}"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
     </Style>
-    <Style x:Key="scrlViewDefaultTheme" TargetType="{x:Type ScrollViewer}">
+    <Style x:Key="DefaultScrollViewTheme" TargetType="{x:Type ScrollViewer}">
         <Setter Property="Background" Value="{StaticResource Rectangle.Default.Background}"/>
     </Style>
     <!--#endregion-->
     <!--#region BUTTONS -->
-    <Style x:Key="btnDefaultQuickTheme" TargetType="{x:Type Button}">
+    <Style x:Key="DefaultButtonQuickTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
@@ -284,7 +289,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnDefaultForegroundSelectTheme" TargetType="{x:Type Button}">
+    <Style x:Key="DefaultButtonForegroundSelectTheme" TargetType="{x:Type Button}">
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
@@ -303,7 +308,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnDefaultAdminTheme" TargetType="{x:Type Button}">
+    <Style x:Key="DefaultButtonAdminTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Admin.Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
@@ -336,7 +341,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnDefaultSelectedtAdminTheme" TargetType="{x:Type Button}">
+    <Style x:Key="DefaultButtonSelectedtAdminTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Admin.Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
@@ -364,7 +369,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnDefaultEmptyTheme" TargetType="{x:Type Button}">
+    <Style x:Key="DefaultButtonEmptyTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Default.Empty.Background}"/>
         <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -389,7 +394,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="tglDefaultTheme" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="DefaultToggleTheme" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{StaticResource Toggle.Button.Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
@@ -428,20 +433,19 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="rectDefaultTheme" TargetType="{x:Type Rectangle}">
+    <Style x:Key="DefaultRectangleTheme" TargetType="{x:Type Rectangle}">
         <Setter Property="Fill" Value="{StaticResource Rectangle.Default.Background}"/>
         <Setter Property="Stroke" Value="{StaticResource Default.Border}"/>
         <Setter Property="StrokeThickness" Value="5"/>
         <Setter Property="RadiusX" Value="15"/>
         <Setter Property="RadiusY" Value="15"/>
     </Style>
-    <Style x:Key="brdDefaultTheme" TargetType="{x:Type Border}">
+    <Style x:Key="DefaultBorderTheme" TargetType="{x:Type Border}">
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
     </Style>
     <!--#endregion-->
-    <!-- END DEFAULT STYLE -->
-
+    <!--#endregion-->
     <!--#region LIGHTBLUE STYLE -->
     <!--#region  COMBO BOX -->
     <Style x:Key="ComboBoxLightBlueToggleButton" TargetType="{x:Type ToggleButton}">
@@ -474,7 +478,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <ControlTemplate x:Key="ComboBoxLightBlueTemplate" TargetType="{x:Type ComboBox}">
+    <ControlTemplate x:Key="LightBlueComboBoxTemplate" TargetType="{x:Type ComboBox}">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -518,7 +522,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    <Style x:Key="cmbBoxToggleLightBlueTheme" TargetType="{x:Type ComboBox}">
+    <Style x:Key="LightBlueComboBoxToggleTheme" TargetType="{x:Type ComboBox}">
         <Setter Property="Background" Value="{StaticResource LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
@@ -530,25 +534,25 @@
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Template" Value="{StaticResource ComboBoxLightBlueTemplate}"/>
+        <Setter Property="Template" Value="{StaticResource LightBlueComboBoxTemplate}"/>
         <Style.Triggers>
             <Trigger Property="IsEditable" Value="true">
                 <Setter Property="IsTabStop" Value="false"/>
                 <Setter Property="Padding" Value="2"/>
-                <Setter Property="Template" Value="{StaticResource ComboBoxLightBlueTemplate}"/>
+                <Setter Property="Template" Value="{StaticResource LightBlueComboBoxTemplate}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
     <!--#endregion-->
     <!--#region LABEL AND TEXT BOX -->
-    <Style x:Key="lblDisplayLightBlueTheme" TargetType="{x:Type Rectangle}">
+    <Style x:Key="LightBlueLabelDisplayTheme" TargetType="{x:Type Rectangle}">
         <Setter Property="Fill" Value="{StaticResource LightBlue.Background}"/>
         <Setter Property="Stroke" Value="{StaticResource Default.Border}"/>
         <Setter Property="StrokeThickness" Value="3"/>
         <Setter Property="RadiusX" Value="6"/>
         <Setter Property="RadiusY" Value="6"/>
     </Style>
-    <Style x:Key="txtBoxDisplayLightBlueTheme" TargetType="{x:Type TextBox}">
+    <Style x:Key="LightBlueTextBoxDisplayTheme" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
@@ -581,7 +585,7 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="txtBoxDisplayLightBlueThemeSelected" TargetType="{x:Type TextBox}">
+    <Style x:Key="LightBlueTextBoxDisplayThemeSelected" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="Purple"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
@@ -614,7 +618,7 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="txtBoxDisplayLightBlueThemeError" TargetType="{x:Type TextBox}">
+    <Style x:Key="LightBlueTextBoxDisplayThemeError" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="Red"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
@@ -647,17 +651,17 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="txtBlockLightBlueTheme" TargetType="{x:Type TextBlock}">
+    <Style x:Key="LightBlueTextBlockTheme" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="{StaticResource TextBlock.LightBlue.Foreground}"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
     </Style>
-    <Style x:Key="scrlViewLightBlueTheme" TargetType="{x:Type ScrollViewer}">
+    <Style x:Key="LightBlueScrollViewTheme" TargetType="{x:Type ScrollViewer}">
         <Setter Property="Background" Value="{StaticResource Rectangle.LightBlue.Background}"/>
     </Style>
     <!--#endregion-->
     <!--#region BUTTONS -->
-    <Style x:Key="btnLightBlueQuickTheme" TargetType="{x:Type Button}">
+    <Style x:Key="LightBlueButtonQuickTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
@@ -690,7 +694,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnLightBlueForegroundSelectTheme" TargetType="{x:Type Button}">
+    <Style x:Key="LightBlueButtonForegroundSelectTheme" TargetType="{x:Type Button}">
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
@@ -709,7 +713,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnLightBlueAdminTheme" TargetType="{x:Type Button}">
+    <Style x:Key="LightBlueButtonAdminTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Admin.LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
@@ -742,7 +746,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnLightBlueSelectedtAdminTheme" TargetType="{x:Type Button}">
+    <Style x:Key="LightBlueButtonSelectedtAdminTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Admin.LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
@@ -770,7 +774,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="btnLightBlueEmptyTheme" TargetType="{x:Type Button}">
+    <Style x:Key="LightBlueButtonEmptyTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.LightBlue.Empty.Background}"/>
         <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -795,7 +799,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="tglLightBlueTheme" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="LightBlueToggleTheme" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{StaticResource Toggle.Button.LightBlue.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="Foreground" Value="{StaticResource Default.Foreground}"/>
@@ -834,18 +838,18 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="rectLightBlueTheme" TargetType="{x:Type Rectangle}">
+    <Style x:Key="LightBlueRectangleTheme" TargetType="{x:Type Rectangle}">
         <Setter Property="Fill" Value="{StaticResource Rectangle.LightBlue.Background}"/>
         <Setter Property="Stroke" Value="{StaticResource Default.Border}"/>
         <Setter Property="StrokeThickness" Value="5"/>
         <Setter Property="RadiusX" Value="15"/>
         <Setter Property="RadiusY" Value="15"/>
     </Style>
-    <Style x:Key="brdLightBlueTheme" TargetType="{x:Type Border}">
+    <Style x:Key="LightBlueBorderTheme" TargetType="{x:Type Border}">
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
     </Style>
     <!--#endregion-->
     <!--#endregion-->
-
+    <!--#endregion-->
 </ResourceDictionary>

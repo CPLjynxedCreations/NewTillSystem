@@ -14,45 +14,45 @@
         <Grid x:Name="grProductPanel"
               Width="950" Height="530"
               VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Rectangle x:Name="rctProductBorder" Style="{StaticResource rectDefaultTheme}"/>
-            <Border x:Name="brdPageBreak1" Style="{StaticResource brdDefaultTheme}"
+            <Rectangle x:Name="rctProductBorder" Style="{StaticResource DefaultRectangleTheme}"/>
+            <Border x:Name="brdPageBreak1" Style="{StaticResource DefaultBorderTheme}"
                     Width="5"/>
-            <Button x:Name="btnDelete" Style="{DynamicResource btnDefaultAdminTheme}" Content="DELETE" Click="btnDelete_Click"
+            <Button x:Name="btnDelete" Style="{DynamicResource DefaultButtonAdminTheme}" Content="DELETE" Click="btnDelete_Click"
                     Width="220" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Margin="130,0,100,135"/>
-            <Button x:Name="btnOk" Style="{DynamicResource btnDefaultAdminTheme}" Content="OK" Click="btnOk_Click"
+            <Button x:Name="btnOk" Style="{DynamicResource DefaultButtonAdminTheme}" Content="OK" Click="btnOk_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Margin="40,0,0,35"/>
-            <Button x:Name="btnCancel" Style="{DynamicResource btnDefaultAdminTheme}" Content="CANCEL" Click="btnCancel_Click"
+            <Button x:Name="btnCancel" Style="{DynamicResource DefaultButtonAdminTheme}" Content="CANCEL" Click="btnCancel_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Margin="260,0,100,35"/>
-            <TextBlock x:Name="lblProductEnter" Style="{StaticResource txtBlockDefaultTheme}"
+            <TextBlock x:Name="lblProductEnter" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="260" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
                        Text="Enter Product Name"
                        Margin="40,75,0,0"/>
-            <TextBox x:Name="txtEnterProductName" Style="{DynamicResource txtBoxDisplayDefaultTheme}" GotFocus="CheckTxtBoxFocus"
+            <TextBox x:Name="txtEnterProductName" Style="{DynamicResource DefaultTextBoxDisplayTheme}" GotFocus="CheckTxtBoxFocus"
                      Width="400" Height="50"
                      VerticalAlignment="Top" HorizontalAlignment="Left"
                      Margin="40,115,0,0"
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
                      BorderThickness="5"/>
-            <TextBlock x:Name="lblProductPrice" Style="{StaticResource txtBlockDefaultTheme}"
+            <TextBlock x:Name="lblProductPrice" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="260" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
                        Text="Enter Product Price"
                        Margin="40,190,0,0"/>
-            <TextBox x:Name="txtEnterProductPrice" Style="{DynamicResource txtBoxDisplayDefaultTheme}" GotFocus="CheckTxtBoxFocus"
+            <TextBox x:Name="txtEnterProductPrice" Style="{DynamicResource DefaultTextBoxDisplayTheme}" GotFocus="CheckTxtBoxFocus"
                      Width="400" Height="50"
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
                      VerticalAlignment="Top" HorizontalAlignment="Left"
                      Margin="40,230,0,0"
                      BorderThickness="5"/>
 
-            <TextBlock x:Name="lblButtonColor" Style="{StaticResource txtBlockDefaultTheme}"
+            <TextBlock x:Name="lblButtonColor" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="180" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Right"
                        Text="Button Colour"
@@ -63,11 +63,11 @@
                     Margin="0,0,150,35"
                     FontSize="22" FontWeight="UltraBlack"
                     Content="SAMPLE"/>
-            <ScrollViewer x:Name="scrlButtonColorSelect" Style="{StaticResource scrlViewDefaultTheme}"
+            <ScrollViewer x:Name="scrlButtonColorSelect" Style="{StaticResource DefaultScrollViewTheme}"
                           Width="200" Height="280"
                           HorizontalAlignment="Right" VerticalAlignment="Top"
                           Margin="0,115,250,0">
-                <Border Style="{StaticResource brdDefaultTheme}">
+                <Border Style="{StaticResource DefaultBorderTheme}">
                     <StackPanel x:Name="uniGrButtonColorSelect">
                         <Button x:Name="btnDefaultItemTheme" Style="{DynamicResource btnDefaultItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
@@ -92,66 +92,66 @@
                     </StackPanel>
                 </Border>
             </ScrollViewer>
-            <Rectangle x:Name="brdButtonColorSelectBase" Style="{StaticResource rectDefaultTheme}"
+            <Rectangle x:Name="brdButtonColorSelectBase" Style="{StaticResource DefaultRectangleTheme}"
                     HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Height="3" Width="180"
                     Margin="0,0,270,135"/>
 
-            <TextBlock x:Name="lblButtonForegroundColor" Style="{StaticResource txtBlockDefaultTheme}"
+            <TextBlock x:Name="lblButtonForegroundColor" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="230" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Right"
                        Text="Foreground Colour"
                        Margin="40,75,10,0"/>
-            <ScrollViewer x:Name="scrlButtonForegroundColorSelect" Style="{StaticResource scrlViewDefaultTheme}"
+            <ScrollViewer x:Name="scrlButtonForegroundColorSelect" Style="{StaticResource DefaultScrollViewTheme}"
                           Width="200" Height="280"
                           HorizontalAlignment="Right" VerticalAlignment="Top"
                           Margin="0,115,30,0">
-                <Border  Style="{StaticResource brdDefaultTheme}">
+                <Border  Style="{StaticResource DefaultBorderTheme}">
                     <StackPanel x:Name="uniGrButtonForegroundColorSelect">
-                        <Button x:Name="btnForegroundBlack" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundBlack" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="Black"
                                 Height="50"
                                 Tag="Black"/>
-                        <Button x:Name="btnForegroundWhite" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundWhite" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="White"
                                 Height="50"
                                 Tag="White"/>
-                        <Button x:Name="btnForegroundGreen" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundGreen" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="Green"
                                 Height="50"
                                 Tag="Green"/>
-                        <Button x:Name="btnForegroundDarkGreen" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundDarkGreen" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="DarkGreen"
                                 Height="50"
                                 Tag="DarkGreen"/>
-                        <Button x:Name="btnForegroundOrange" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundOrange" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="Orange"
                                 Height="50"
                                 Tag="Orange"/>
-                        <Button x:Name="btnForegroundYellow" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundYellow" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="Yellow"
                                 Height="50"
                                 Tag="Yellow"/>
-                        <Button x:Name="btnForegroundRed" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundRed" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="Red"
                                 Height="50"
                                 Tag="Red"/>
-                        <Button x:Name="btnForegroundDarkRed" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundDarkRed" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="DarkRed"
                                 Height="50"
                                 Tag="DarkRed"/>
-                        <Button x:Name="btnForegroundBlue" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundBlue" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="Blue"
                                 Height="50"
                                 Tag="Blue"/>
-                        <Button x:Name="btnForegroundDarkBlue" Click="btnItemTheme_Click" Style="{StaticResource btnDefaultForegroundSelectTheme}"
+                        <Button x:Name="btnForegroundDarkBlue" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="DarkBlue"
                                 Height="50"
                                 Tag="DarkBlue"/>
                     </StackPanel>
                 </Border>
             </ScrollViewer>
-            <Rectangle x:Name="brdButtonForegroundColorSelectBase" Style="{StaticResource rectDefaultTheme}"
+            <Rectangle x:Name="brdButtonForegroundColorSelectBase" Style="{StaticResource DefaultRectangleTheme}"
                     HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Height="3" Width="180"
                     Margin="0,0,50,135"/>
@@ -169,19 +169,19 @@
                     <ColumnDefinition Width="131"/>
                     <ColumnDefinition Width="131"/>
                 </Grid.ColumnDefinitions>
-                <Rectangle Style="{DynamicResource lblDisplayDefaultTheme}"
+                <Rectangle Style="{DynamicResource DefaultLabelDisplayTheme}"
                            Grid.RowSpan="4" Grid.ColumnSpan="3"/>
-                <Button x:Name="btnKeyboard_7" Content="7" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_8" Content="8" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_9" Content="9" Margin="0,5,5,0" Grid.Column="2" Grid.Row="0" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_4" Content="4" Margin="5,0,0,0" Grid.Column="0" Grid.Row="1" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_5" Content="5" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_6" Content="6" Margin="0,0,5,0" Grid.Column="2" Grid.Row="1" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_1" Content="1" Margin="5,0,0,0" Grid.Column="0" Grid.Row="2" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_2" Content="2" Margin="0,0,0,0" Grid.Column="1" Grid.Row="2" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_3" Content="3" Margin="0,0,5,0" Grid.Column="2" Grid.Row="2" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_0" Content="0" Margin="5,0,0,5" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_backspace" Content="Delete" Margin="0,0,5,5" Grid.Column="2" Grid.Row="3" Style="{DynamicResource btnDefaultQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_7" Content="7" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_8" Content="8" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_9" Content="9" Margin="0,5,5,0" Grid.Column="2" Grid.Row="0" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_4" Content="4" Margin="5,0,0,0" Grid.Column="0" Grid.Row="1" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_5" Content="5" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_6" Content="6" Margin="0,0,5,0" Grid.Column="2" Grid.Row="1" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_1" Content="1" Margin="5,0,0,0" Grid.Column="0" Grid.Row="2" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_2" Content="2" Margin="0,0,0,0" Grid.Column="1" Grid.Row="2" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_3" Content="3" Margin="0,0,5,0" Grid.Column="2" Grid.Row="2" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_0" Content="0" Margin="5,0,0,5" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_backspace" Content="Delete" Margin="0,0,5,5" Grid.Column="2" Grid.Row="3" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
             </Grid>
             <Grid x:Name="panelKeybooardButtons"
           Width="1525" Height="390"
@@ -203,36 +203,36 @@
                     <RowDefinition Height="130"/>
                     <RowDefinition Height="130"/>
                 </Grid.RowDefinitions>
-                <Rectangle x:Name="rctKeyboard" Style="{DynamicResource lblDisplayDefaultTheme}"
+                <Rectangle x:Name="rctKeyboard" Style="{DynamicResource DefaultLabelDisplayTheme}"
                    Grid.RowSpan="3" Grid.ColumnSpan="10"/>
-                <Button x:Name="btnKeyboard_Q" Content="Q" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_W" Content="W" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_E" Content="E" Margin="0,5,0,0" Grid.Column="2" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_R" Content="R" Margin="0,5,0,0" Grid.Column="3" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_T" Content="T" Margin="0,5,0,0" Grid.Column="4" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_Y" Content="Y" Margin="0,5,0,0" Grid.Column="5" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_U" Content="U" Margin="0,5,0,0" Grid.Column="6" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_I" Content="I" Margin="0,5,0,0" Grid.Column="7" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_O" Content="O" Margin="0,5,0,0" Grid.Column="8" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_P" Content="P" Margin="0,5,5,0" Grid.Column="9" Grid.Row="0" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_A" Content="A" Margin="5,0,0,0" Grid.Column="0" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_S" Content="S" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_D" Content="D" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_F" Content="F" Margin="0,0,0,0" Grid.Column="3" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_G" Content="G" Margin="0,0,0,0" Grid.Column="4" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_H" Content="H" Margin="0,0,0,0" Grid.Column="5" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_J" Content="J" Margin="0,0,0,0" Grid.Column="6" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_K" Content="K" Margin="0,0,0,0" Grid.Column="7" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_L" Content="L" Margin="0,0,0,0" Grid.Column="8" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_DELETE" Content="DELETE" Margin="0,0,5,0" Grid.Column="9" Grid.Row="1" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_Z" Content="Z" Margin="5,0,0,5" Grid.Column="0" Grid.Row="2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_X" Content="X" Margin="0,0,0,5" Grid.Column="1" Grid.Row="2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_C" Content="C" Margin="0,0,0,5" Grid.Column="2" Grid.Row="2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_V" Content="V" Margin="0,0,0,5" Grid.Column="3" Grid.Row="2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_B" Content="B" Margin="0,0,0,5" Grid.Column="4" Grid.Row="2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_N" Content="N" Margin="0,0,0,5" Grid.Column="5" Grid.Row="2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_M" Content="M" Margin="0,0,0,5" Grid.Column="6" Grid.Row="2" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
-                <Button x:Name="btnKeyboard_SPACE" Content="SPACE" Margin="0,0,5,5" Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="3" Style="{DynamicResource btnDefaultAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_Q" Content="Q" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_W" Content="W" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_E" Content="E" Margin="0,5,0,0" Grid.Column="2" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_R" Content="R" Margin="0,5,0,0" Grid.Column="3" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_T" Content="T" Margin="0,5,0,0" Grid.Column="4" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_Y" Content="Y" Margin="0,5,0,0" Grid.Column="5" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_U" Content="U" Margin="0,5,0,0" Grid.Column="6" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_I" Content="I" Margin="0,5,0,0" Grid.Column="7" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_O" Content="O" Margin="0,5,0,0" Grid.Column="8" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_P" Content="P" Margin="0,5,5,0" Grid.Column="9" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_A" Content="A" Margin="5,0,0,0" Grid.Column="0" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_S" Content="S" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_D" Content="D" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_F" Content="F" Margin="0,0,0,0" Grid.Column="3" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_G" Content="G" Margin="0,0,0,0" Grid.Column="4" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_H" Content="H" Margin="0,0,0,0" Grid.Column="5" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_J" Content="J" Margin="0,0,0,0" Grid.Column="6" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_K" Content="K" Margin="0,0,0,0" Grid.Column="7" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_L" Content="L" Margin="0,0,0,0" Grid.Column="8" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_DELETE" Content="DELETE" Margin="0,0,5,0" Grid.Column="9" Grid.Row="1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_Z" Content="Z" Margin="5,0,0,5" Grid.Column="0" Grid.Row="2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_X" Content="X" Margin="0,0,0,5" Grid.Column="1" Grid.Row="2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_C" Content="C" Margin="0,0,0,5" Grid.Column="2" Grid.Row="2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_V" Content="V" Margin="0,0,0,5" Grid.Column="3" Grid.Row="2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_B" Content="B" Margin="0,0,0,5" Grid.Column="4" Grid.Row="2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_N" Content="N" Margin="0,0,0,5" Grid.Column="5" Grid.Row="2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_M" Content="M" Margin="0,0,0,5" Grid.Column="6" Grid.Row="2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
+                <Button x:Name="btnKeyboard_SPACE" Content="SPACE" Margin="0,0,5,5" Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="3" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
             </Grid>
         </Grid>
     </Grid>
