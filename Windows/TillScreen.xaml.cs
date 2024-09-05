@@ -17,6 +17,7 @@ using ClosedXML;
 using ClosedXML.Excel;
 using System.IO;
 using NewTillSystem.Resources.Scripts;
+using Microsoft.VisualBasic;
 
 namespace NewTillSystem
 {
@@ -52,6 +53,16 @@ namespace NewTillSystem
         private bool boolCanEditProduct;
         private bool boolEditStaff;
 
+
+
+        public string adminButtonTheme;
+        public string quickButtonTheme;
+        public string labelBoxTheme;
+        public string txtBoxLabelTheme;
+        public string rectangleTheme;
+
+
+
         public TillScreen()
         {
             themeController = new ThemeController();
@@ -72,6 +83,15 @@ namespace NewTillSystem
         {
             lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
             LogInScreen logInScreen = new LogInScreen();
+            foreach(UIElement button in logInScreen.AdminNumbers.Children)
+            {
+                if(button.GetType() == typeof(Button))
+                {
+                    Button loginButton = (Button)button;
+                    loginButton.Style = (Style)Application.Current.Resources[quickButtonTheme];
+                }
+            }
+            logInScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[labelBoxTheme];
             logInScreen.ShowDialog();
             if (!logInScreen.boolStaffLogin)
             {
@@ -154,6 +174,24 @@ namespace NewTillSystem
                     }
                 }
                 EnterProductDetails openPrompt = new EnterProductDetails();
+                foreach (UIElement button in openPrompt.panelKeybooardButtons.Children)
+                {
+                    if (button.GetType() == typeof(Button))
+                    {
+                        Button keyboardButton = (Button)button;
+                        keyboardButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                    }
+                }
+                foreach (UIElement button in openPrompt.panelNumpad.Children)
+                {
+                    if (button.GetType() == typeof(Button))
+                    {
+                        Button keyboardButton = (Button)button;
+                        keyboardButton.Style = (Style)Application.Current.Resources[quickButtonTheme];
+                    }
+                }
+                openPrompt.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
+                openPrompt.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
                 openPrompt.Owner = Application.Current.MainWindow;
                 openPrompt.WindowStartupLocation = WindowStartupLocation.Manual;
                 openPrompt.Left = 0;
@@ -173,7 +211,7 @@ namespace NewTillSystem
                     openPrompt.txtEnterProductPrice.Text = readDataPrice;
                     openPrompt.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
                     openPrompt.btnDelete.IsEnabled = true;
-                    SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(readDataFoeground);
+                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(readDataFoeground);
                     openPrompt.btnColorView.Foreground = colorBrush;
                 }
                 else
@@ -220,6 +258,15 @@ namespace NewTillSystem
             if (boolIsManager || boolIsAdmin)
             {
                 ManageTillWindow openManageWindow = new ManageTillWindow();
+                foreach (UIElement button in openManageWindow.grManageButtons.Children)
+                {
+                    if (button.GetType() == typeof(Button))
+                    {
+                        Button manageButton = (Button)button;
+                        manageButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                    }
+                }
+                openManageWindow.rctManageWindow.Style = (Style)Application.Current.Resources[labelBoxTheme];
                 openManageWindow.Owner = Application.Current.MainWindow;
                 openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 if (boolCanEditProduct)
@@ -261,6 +308,36 @@ namespace NewTillSystem
         private void ManageEditStaff()
         {
             EnterStaffDetails openEditStaff = new EnterStaffDetails();
+
+
+            foreach (UIElement button in openEditStaff.panelKeybooardButtons.Children)
+            {
+                if(button.GetType() == typeof(Button))
+                {
+                    Button keyboardButton = (Button)button;
+                    keyboardButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                }
+            }
+            foreach (UIElement button in openEditStaff.panelNumpad.Children)
+            {
+                if (button.GetType() == typeof(Button))
+                {
+                    Button keyboardButton = (Button)button;
+                    keyboardButton.Style = (Style)Application.Current.Resources[quickButtonTheme];
+                }
+            }
+            foreach (UIElement txtBox in openEditStaff.grStaffWindow.Children)
+            {
+                if (txtBox.GetType() == typeof(TextBox))
+                {
+                    TextBox manageStaffTextBox = (TextBox)txtBox;
+                    manageStaffTextBox.Style = (Style)Application.Current.Resources[txtBoxLabelTheme];
+                }
+            }
+            openEditStaff.rctStaffScreen.Style = (Style)Application.Current.Resources[rectangleTheme];
+            openEditStaff.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
+            openEditStaff.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
+
             openEditStaff.Owner = Application.Current.MainWindow;
             openEditStaff.WindowStartupLocation = WindowStartupLocation.Manual;
             openEditStaff.Left = 0;

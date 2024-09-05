@@ -169,7 +169,7 @@
                     <ColumnDefinition Width="131"/>
                     <ColumnDefinition Width="131"/>
                 </Grid.ColumnDefinitions>
-                <Rectangle Style="{DynamicResource DefaultLabelDisplayTheme}"
+                <Rectangle x:Name="rctNumpad" Style="{DynamicResource DefaultLabelDisplayTheme}"
                            Grid.RowSpan="4" Grid.ColumnSpan="3"/>
                 <Button x:Name="btnKeyboard_7" Content="7" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
                 <Button x:Name="btnKeyboard_8" Content="8" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>

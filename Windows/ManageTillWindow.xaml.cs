@@ -11,15 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
     public partial class ManageTillWindow : Window
     {
         //public bool boolSetEditProduct;
+        ThemeController themeController;
 
         public ManageTillWindow()
         {
+            themeController = new ThemeController();
             InitializeComponent();
         }
     }

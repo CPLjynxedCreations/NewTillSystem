@@ -16,6 +16,7 @@ namespace NewTillSystem.Resources.Scripts
     {
         TillScreen tillScreen;
         ManageTillWindow manageTillWindow;
+
         const string themeFile = "ThemeProperties.dat";
 
         public string currentThemeName = "LightBlue";
@@ -24,10 +25,8 @@ namespace NewTillSystem.Resources.Scripts
         public string textButtonEmptyTheme = "ButtonEmptyTheme";
         public string textButtonQuickTheme = "ButtonQuickTheme";
         public string textLabelDisplayTheme = "LabelDisplayTheme";
-        //public string textComboBoxToggleButton = "ComboBoxToggleButton";
-        //public string textComboBoxTemplate = "ComboBoxTemplate";
-        //public string textComboBoxToggleTheme = "comboBoxToggleTheme";
-        //public string textTextBoxDisplayTheme = "TextBoxDisplayTheme";
+        public string textTextBoxDisplayTheme = "TextBoxDisplayTheme";
+        public string textRectangleTheme = "RectangleTheme";
         //public string textTextBoxDisplayThemeSelected = "TextBoxDisplayThemeSelected";
         //public string textTextBoxDisplayThemeError = "TextBoxDisplayThemeError";
         //public string textTextBlockTheme = "TextBlockTheme";
@@ -35,13 +34,14 @@ namespace NewTillSystem.Resources.Scripts
         //public string textButtonForegroundSelectTheme = "ButtonForegroundSelectTheme";
         //public string textButtonSelectedtAdminTheme = "ButtonSelectedtAdminTheme";
         //public string textToggleTheme = "ToggleTheme";
-        //public string textRectangleTheme = "RectangleTheme";
         //public string textBorderTheme = "BorderTheme";
 
         public string currentButtonAdminTheme;
         public string currentButtonEmptyTheme;
         public string currentButtonQuickTheme;
         public string currentLabelDisplayTheme;
+        public string currentTextBoxDisplayTheme;
+        public string currentRectangleTheme;
 
         public void CreateThemeFile()
         {
@@ -55,6 +55,8 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textButtonEmptyTheme);
                         writer.Write(currentThemeName + textButtonQuickTheme);
                         writer.Write(currentThemeName + textLabelDisplayTheme);
+                        writer.Write(currentThemeName + textTextBoxDisplayTheme);
+                        writer.Write(currentThemeName + textRectangleTheme);
                     }
                 }
             }
@@ -63,7 +65,6 @@ namespace NewTillSystem.Resources.Scripts
         public void SetThemeWindow()
         {
             tillScreen = (TillScreen)Application.Current.MainWindow;
-            //DECLARE MANAGETILLWINDOW
         }
 
         public void ReadTheme()
@@ -78,6 +79,8 @@ namespace NewTillSystem.Resources.Scripts
                         currentButtonEmptyTheme = reader.ReadString();
                         currentButtonQuickTheme = reader.ReadString();
                         currentLabelDisplayTheme = reader.ReadString();
+                        currentTextBoxDisplayTheme = reader.ReadString();
+                        currentRectangleTheme = reader.ReadString();
                     }
                 }
             }
@@ -119,8 +122,14 @@ namespace NewTillSystem.Resources.Scripts
                     }
                 }
             }
-
             tillScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[currentLabelDisplayTheme];
+            
+            
+            tillScreen.adminButtonTheme = currentButtonAdminTheme;
+            tillScreen.quickButtonTheme = currentButtonQuickTheme;
+            tillScreen.labelBoxTheme = currentLabelDisplayTheme;
+            tillScreen.txtBoxLabelTheme = currentTextBoxDisplayTheme;
+            tillScreen.rectangleTheme = currentRectangleTheme;
         }
     }
 }
