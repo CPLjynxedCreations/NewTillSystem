@@ -10,12 +10,12 @@
         AllowsTransparency="True" Background="Transparent"
         Height="742" Width="1487">
     <!-- Height="740" Width="620"> -->
-    <Grid>
+    <Grid x:Name="grdProperty">
         <Rectangle x:Name="rctButtonColorWindow"
                    Fill="LightGray"
                    Stroke="DimGray" StrokeThickness="5"
                    RadiusX="5" RadiusY="5"/>
-        <Button x:Name="btnWindowTillPropertiesClose"
+        <Button x:Name="btnWindowTillPropertiesClose" Click="btnWindowTillPropertiesClose_Click"
                 HorizontalAlignment="Right" VerticalAlignment="Top"
                 Width="80" Height="60"
                 Margin="0,30,30,0"
@@ -23,6 +23,15 @@
                 BorderBrush="Black" BorderThickness="5"
                 FontSize="26" FontWeight="UltraBlack"
                 Content="X"/>
-        <Button x:Name="changeLog" Width="100" Height="100" Margin="105,90,1282,552"/>
+        <Button x:Name="changeTheme" Tag="LightBlue" Width="100" Height="100" Margin="105,90,1282,552"/>
+        <ComboBox x:Name="boxSelectTheme" Style="{DynamicResource DefaultComboBoxToggleTheme}"
+                      Width="400" Height="50"
+                      FontSize="22" FontWeight="Bold" Padding="15,10,0,0"
+                      VerticalAlignment="Top" HorizontalAlignment="Left"
+                      Margin="40,330,0,0"
+                      BorderThickness="5">
+            <ComboBoxItem x:Name="boxThemeSelectDefualt" Tag="Default" Content="Default"/>
+            <ComboBoxItem x:Name="boxThemeSelectLightBlue" Tag="LightBlue" Content="LightBlue"/>
+        </ComboBox>
     </Grid>
 </Window>

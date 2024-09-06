@@ -25,6 +25,7 @@ namespace NewTillSystem.Windows
     public partial class EnterStaffDetails : Window
     {
         ThemeController themeController;
+        TillScreen tillScreen;
 
         private string strXlsxStaffNameColumn = "A";
         private string strXlsxStaffLastNameColumn = "B";
@@ -56,11 +57,26 @@ namespace NewTillSystem.Windows
         private bool boolStaffAdded;
         private bool boolGenerateStaff;
 
+        private string errorBoxThemeStaff;
+        private string txtBoxLabelThemeStaff;
+        private string txtBoxLabelSelectedThemeStaff;
+        private string adminButtonSelectedThemeStaff;
+        private string adminButtonThemeStaff;
+        private string toggleThemeStaff;
+
         public EnterStaffDetails()
         {
             InitializeComponent();
             themeController = new ThemeController();
+            tillScreen = (TillScreen)Application.Current.MainWindow;
 
+            toggleThemeStaff = tillScreen.toggleTheme;
+            errorBoxThemeStaff = tillScreen.errorBoxTheme;
+            txtBoxLabelThemeStaff = tillScreen.txtBoxLabelTheme;
+            txtBoxLabelSelectedThemeStaff = tillScreen.txtBoxSelectLabelTheme;
+            adminButtonSelectedThemeStaff = tillScreen.adminButtonSelected;
+            adminButtonThemeStaff = tillScreen.adminButtonTheme;
+            
             boolGenerateStaff = true;
             GetCurrentStaffList();
             btnKeyboard_SPACE.IsEnabled = false;
@@ -91,8 +107,9 @@ namespace NewTillSystem.Windows
                     ToggleButton tglStaff = new ToggleButton();
                     tglStaff.Name = readXlsxDataStaffName + readXlsxDataStaffLastName;
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                    //tglStaff.Style = (Style)Application.Current.Resources["DefaultToggleTheme"];
-                    tglStaff.Style = (Style)Application.Current.Resources["LightBlueToggleTheme"];
+                    
+                    //tglStaff.Style = (Style)Application.Current.Resources["LightBlueToggleTheme"];
+                    tglStaff.Style = (Style)Application.Current.Resources[toggleThemeStaff];
                     tglStaff.Checked += tglStaff_Checked;
                     if (tglStaff.Content != strEmpty)
                     {
@@ -185,17 +202,17 @@ namespace NewTillSystem.Windows
                 IDCheck();
                 if (strSetNewStaffFirstName == strEmpty)
                 {
-                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources[errorBoxThemeStaff];
                     boolStaffNameMatch = true;
                 }
                 if (strSetNewStaffLastName == strEmpty)
                 {
-                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources[errorBoxThemeStaff];
                     boolStaffNameMatch = true;
                 }
                 if (strSetNewStaffID == strEmpty)
                 {
-                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    txtEnterStaffPin.Style = (Style)Application.Current.Resources[errorBoxThemeStaff];
                     boolStaffIdMatch = true;
                 }
                 if (strSetNewStaffFirstName == strEmpty || strSetNewStaffLastName == strEmpty || strSetNewStaffID == strEmpty)
@@ -241,15 +258,15 @@ namespace NewTillSystem.Windows
                 var readXlsxDataStaffLastName = workSheet.Cell(i, strXlsxStaffLastNameColumn).GetValue<string>();
                 if (strSetNewStaffFirstName == readXlsxDataStaffName && strSetNewStaffLastName == readXlsxDataStaffLastName)
                 {
-                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
-                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources[errorBoxThemeStaff];
+                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources[errorBoxThemeStaff];
                     boolStaffNameMatch = true;
                     return;
                 }
                 else
                 {
-                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
-                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                    txtEnterStaffFirstName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
+                    txtEnterStaffLastName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
                     boolStaffNameMatch = false;
                 }
             }
@@ -266,13 +283,13 @@ namespace NewTillSystem.Windows
                 var readXlsxDataStaffID = workSheet.Cell(i, strXlsxStaffIDColumn).GetValue<string>();
                 if (strSetNewStaffID == readXlsxDataStaffID)
                 {
-                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["txtBoxDisplayThemeError"];
+                    txtEnterStaffPin.Style = (Style)Application.Current.Resources[errorBoxThemeStaff];
                     boolStaffIdMatch = true;
                     return;
                 }
                 else
                 {
-                    txtEnterStaffPin.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                    txtEnterStaffPin.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
                     boolStaffNameMatch = false;
                 }
             }
@@ -310,44 +327,44 @@ namespace NewTillSystem.Windows
                 boolGenerateStaff = true;
                 boolFilterActive = false;
                 GetCurrentStaffList();
-                btnFilterStaff1.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
+                btnFilterStaff1.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
             }
             else
             {
-                btnFilterStaff1.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
+                btnFilterStaff1.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
             }
             if (strFilterActive == btnFilterStaff2.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff2.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
+                btnFilterStaff2.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
             }
             else
             {
-                btnFilterStaff2.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
+                btnFilterStaff2.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
             }
             if (strFilterActive == btnFilterStaff3.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff3.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
+                btnFilterStaff3.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
             }
             else
             {
-                btnFilterStaff3.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
+                btnFilterStaff3.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
             }
             if (strFilterActive == btnFilterStaff4.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff4.Style = (Style)Application.Current.Resources["DefaultButtonSelectedtAdminTheme"];
+                btnFilterStaff4.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
             }
             else
             {
-                btnFilterStaff4.Style = (Style)Application.Current.Resources["DefaultButtonAdminTheme"];
+                btnFilterStaff4.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
             }
         }
 
@@ -457,9 +474,9 @@ namespace NewTillSystem.Windows
                             //txtBox.BorderBrush = Brushes.Firebrick;
                             if (txtBox.Name == txtEnterStaffPin.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
-                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
-                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelSelectedThemeStaff];
+                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
+                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -468,9 +485,9 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterStaffFirstName.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
-                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
-                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelSelectedThemeStaff];
+                                txtEnterStaffPin.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
+                                txtEnterStaffLastName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -478,9 +495,9 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterStaffLastName.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
-                                txtEnterStaffPin.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
-                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelSelectedThemeStaff];
+                                txtEnterStaffPin.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
+                                txtEnterStaffFirstName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -503,7 +520,7 @@ namespace NewTillSystem.Windows
                         }
                         else
                         {
-                            txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                            txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelThemeStaff];
                             panelNumpad.IsEnabled = false;
                             panelKeybooardButtons.IsEnabled = false;
                         }

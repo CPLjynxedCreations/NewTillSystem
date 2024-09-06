@@ -22,22 +22,22 @@
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Margin="40,0,0,30"
-                    Content="OK"/>
+                    Tag="AdminTheme" Content="OK"/>
             <Button x:Name="btnCancel" Style="{DynamicResource DefaultButtonAdminTheme}"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Margin="260,0,0,30"
-                    Content="CANCEL"/>
+                    Tag="AdminTheme" Content="CANCEL"/>
             <Button x:Name="btnDeleteStaff" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnDeleteStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Margin="0,0,40,30"
-                    Content="DELETE"/>
+                    Tag="AdminTheme" Content="DELETE"/>
             <Button x:Name="btnEditStaff" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnEditStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Margin="0,0,260,30"
-                    Content="EDIT"/>
+                    Tag="AdminTheme" Content="EDIT"/>
             <TextBlock x:Name="lblEnterStaffFirst" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
@@ -99,29 +99,32 @@
             <Button x:Name="btnFilterStaff1" Style="{DynamicResource DefaultButtonSelectedtAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Content="OFF" FontSize="13"
+                    Tag="AdminTheme" Content="OFF" FontSize="13"
                     Margin="0,120,40,0"/>
             <Button x:Name="btnFilterStaff2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Content="ADMIN" FontSize="13"
+                    Tag="AdminTheme" Content="ADMIN" FontSize="13"
                     Margin="0,190,40,0"/>
             <Button x:Name="btnFilterStaff3" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Content="MANAGER" FontSize="13"
+                    Tag="AdminTheme" Content="MANAGER" FontSize="13"
                     Margin="0,260,40,0"/>
             <Button x:Name="btnFilterStaff4" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Content="STAFF" FontSize="13"
+                    Tag="AdminTheme" Content="STAFF" FontSize="13"
                     Margin="0,330,40,0"/>
+            <Button x:Name="btnSetToggleTheme"
+                    Width="0" Height="0"
+                    VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
             <ScrollViewer x:Name="scrlSelectExistingStaff" Style="{StaticResource DefaultScrollViewTheme}"
                           Width="300" Height="300"
                           VerticalAlignment="Top" HorizontalAlignment="Right"
                           Margin="0,80,140,0">
-                <Border Style="{StaticResource DefaultBorderTheme}">
+                <Border x:Name="brdScrollWindow" Style="{StaticResource DefaultBorderTheme}">
                     <StackPanel x:Name="panelExistingStaff"
                                 GotFocus="CheckTxtBoxFocus">
                         <!-- MAKE BUTTON THHEME FOR STACK-->

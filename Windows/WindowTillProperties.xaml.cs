@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NewTillSystem.Resources.Scripts;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,34 @@ namespace NewTillSystem.Windows
     /// </summary>
     public partial class WindowTillProperties : Window
     {
+        ThemeController themeController;
+        public string theme;
+
         public WindowTillProperties()
         {
             InitializeComponent();
+            themeController = new ThemeController();
+            themeController.ReadTheme();
+            theme = themeController.currentThemeName;
+
+            if (theme == "Default")
+            {
+                boxSelectTheme.SelectedItem = boxThemeSelectDefualt;
+            }
+            if (theme == "LightBlue")
+            {
+                boxSelectTheme.SelectedItem = boxThemeSelectLightBlue;
+            }
+        }
+
+
+        private void btnWindowTillPropertiesClose_Click(object sender, RoutedEventArgs e)
+        {
+            if (boxSelectTheme.Text != string.Empty)
+            {
+                themeController.currentThemeName = boxSelectTheme.Text;
+                themeController.UpdateThemeFile();
+            }
         }
     }
 }

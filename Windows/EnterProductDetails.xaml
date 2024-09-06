@@ -67,7 +67,7 @@
                           Width="200" Height="280"
                           HorizontalAlignment="Right" VerticalAlignment="Top"
                           Margin="0,115,250,0">
-                <Border Style="{StaticResource DefaultBorderTheme}">
+                <Border x:Name="brdButtonColor" Style="{StaticResource DefaultBorderTheme}">
                     <StackPanel x:Name="uniGrButtonColorSelect">
                         <Button x:Name="btnDefaultItemTheme" Style="{DynamicResource btnDefaultItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
@@ -106,7 +106,7 @@
                           Width="200" Height="280"
                           HorizontalAlignment="Right" VerticalAlignment="Top"
                           Margin="0,115,30,0">
-                <Border  Style="{StaticResource DefaultBorderTheme}">
+                <Border x:Name="brdButtonForegroundColor" Style="{StaticResource DefaultBorderTheme}">
                     <StackPanel x:Name="uniGrButtonForegroundColorSelect">
                         <Button x:Name="btnForegroundBlack" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
                                 Background="Black"

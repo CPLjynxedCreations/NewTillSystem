@@ -15,11 +15,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DocumentFormat.OpenXml.VariantTypes;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
     public partial class EnterProductDetails : Window
     {
+        ThemeController themeController;
+        TillScreen tillScreen;
+
         public string strProductName;
         public string strProductPrice;
         public string strButtonTheme;
@@ -30,9 +34,27 @@ namespace NewTillSystem.Windows
         public string strEditButtonForeground;
         public bool boolIsEditing;
 
+        private string errorBoxThemeProduct;
+        private string txtBoxLabelThemeProduct;
+        private string txtBoxLabelSelectedThemeProduct;
+        private string adminButtonSelectedThemeProduct;
+        private string adminButtonThemeProduct;
+        private string toggleThemeProduct;
+
         public EnterProductDetails()
         {
             InitializeComponent();
+
+            themeController = new ThemeController();
+            tillScreen = (TillScreen)Application.Current.MainWindow;
+
+            toggleThemeProduct = tillScreen.toggleTheme;
+            errorBoxThemeProduct = tillScreen.errorBoxTheme;
+            txtBoxLabelThemeProduct = tillScreen.txtBoxLabelTheme;
+            txtBoxLabelSelectedThemeProduct = tillScreen.txtBoxSelectLabelTheme;
+            adminButtonSelectedThemeProduct = tillScreen.adminButtonSelected;
+            adminButtonThemeProduct = tillScreen.adminButtonTheme;
+
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
             if (boolIsEditing)
@@ -150,8 +172,8 @@ namespace NewTillSystem.Windows
                         {
                             if (txtEnterProductPrice.IsFocused)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
-                                txtEnterProductName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelSelectedThemeProduct];
+                                txtEnterProductName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -159,8 +181,8 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterProductName.Name)
                             {
-                                txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayThemeSelected"];
-                                txtEnterProductPrice.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                                txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelSelectedThemeProduct];
+                                txtEnterProductPrice.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -169,7 +191,7 @@ namespace NewTillSystem.Windows
                         }
                         else
                         {
-                            txtBox.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                            txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                         }
                     }
                     else
@@ -192,8 +214,8 @@ namespace NewTillSystem.Windows
             {
                 btnColorView.Style = (Style)Application.Current.Resources[btnTest.Name];
                 strButtonTheme = btnTest.Name;
-                txtEnterProductName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
-                txtEnterProductPrice.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                txtEnterProductName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
+                txtEnterProductPrice.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                 //save string theme
             }
             if (btnTest.Name.Contains("Foreground"))
@@ -202,8 +224,8 @@ namespace NewTillSystem.Windows
                 SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(colorTag);
                 btnColorView.Foreground = colorBrush;
                 strButtonForeground = Convert.ToString(btnTest.Tag);
-                txtEnterProductName.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
-                txtEnterProductPrice.Style = (Style)Application.Current.Resources["DefaultTextBoxDisplayTheme"];
+                txtEnterProductName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
+                txtEnterProductPrice.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
             }
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
