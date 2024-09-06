@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using DocumentFormat.OpenXml.Bibliography;
 using NewTillSystem.Windows;
 
 namespace NewTillSystem.Resources.Scripts
@@ -22,6 +23,8 @@ namespace NewTillSystem.Resources.Scripts
         public string currentThemeName;// = "Default";
 
         public string textButtonAdminTheme = "ButtonAdminTheme";
+        public string textButtonAdminImageTheme = "ButtonAdminImageTheme";
+
         public string textButtonEmptyTheme = "ButtonEmptyTheme";
         public string textButtonQuickTheme = "ButtonQuickTheme";
         public string textLabelDisplayTheme = "LabelDisplayTheme";
@@ -37,7 +40,15 @@ namespace NewTillSystem.Resources.Scripts
         public string textTextBlockTheme = "TextBlockTheme";
         public string textButtonForegroundSelectTheme = "ButtonForegroundSelectTheme";
 
+
+        public string imgLoginSourceLocation = "/Resources/Images/";
+        public string imgLoginSourceLocationFileType = ".jpg";
+        public string imgLoginFileName;
+        public string textLoginFileName;
+
+
         public string currentButtonAdminTheme;
+        public string currentButtonAdminImageTheme;
         public string currentButtonEmptyTheme;
         public string currentButtonQuickTheme;
         public string currentLabelDisplayTheme;
@@ -52,11 +63,14 @@ namespace NewTillSystem.Resources.Scripts
         public string currentButtonSelectedtAdminTheme;
         public string currentTextBlockTheme;
         public string currentButtonForegroundSelectTheme;
+        public string currentLoginFileName;
 
         public void CreateThemeFile()
         {
             if (!File.Exists(themeFile))
             {
+                imgLoginFileName = "BarBackground";
+                textLoginFileName = imgLoginSourceLocation + imgLoginFileName + imgLoginSourceLocationFileType;
                 currentThemeName = "Default";
                 using (var stream = File.Open(themeFile, FileMode.Create))
                 {
@@ -64,6 +78,7 @@ namespace NewTillSystem.Resources.Scripts
                     {
                         writer.Write(currentThemeName);
                         writer.Write(currentThemeName + textButtonAdminTheme);
+                        writer.Write(currentThemeName + textButtonAdminImageTheme);
                         writer.Write(currentThemeName + textButtonEmptyTheme);
                         writer.Write(currentThemeName + textButtonQuickTheme);
                         writer.Write(currentThemeName + textLabelDisplayTheme);
@@ -78,6 +93,8 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textTextBlockTheme);
                         writer.Write(currentThemeName + textButtonForegroundSelectTheme);
+                        writer.Write(textLoginFileName);
+                        writer.Write(imgLoginFileName);
                     }
                 }
             }
@@ -85,6 +102,7 @@ namespace NewTillSystem.Resources.Scripts
 
         public void UpdateThemeFile()
         {
+            currentLoginFileName = imgLoginSourceLocation + imgLoginFileName + imgLoginSourceLocationFileType;
             if (File.Exists(themeFile))
             {
                 using (var stream = File.Open(themeFile, FileMode.Create))
@@ -93,6 +111,7 @@ namespace NewTillSystem.Resources.Scripts
                     {
                         writer.Write(currentThemeName);
                         writer.Write(currentThemeName + textButtonAdminTheme);
+                        writer.Write(currentThemeName + currentButtonAdminImageTheme);
                         writer.Write(currentThemeName + textButtonEmptyTheme);
                         writer.Write(currentThemeName + textButtonQuickTheme);
                         writer.Write(currentThemeName + textLabelDisplayTheme);
@@ -107,6 +126,8 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textTextBlockTheme);
                         writer.Write(currentThemeName + textButtonForegroundSelectTheme);
+                        writer.Write(currentLoginFileName);
+                        writer.Write(imgLoginFileName);
                     }
                 }
             }
@@ -115,6 +136,7 @@ namespace NewTillSystem.Resources.Scripts
         public void SetThemeWindow()
         {
             tillScreen = (TillScreen)Application.Current.MainWindow;
+
         }
 
         public void ReadTheme()
@@ -127,6 +149,7 @@ namespace NewTillSystem.Resources.Scripts
                     {
                         currentThemeName = reader.ReadString();
                         currentButtonAdminTheme = reader.ReadString();
+                        currentButtonAdminImageTheme = reader.ReadString();
                         currentButtonEmptyTheme = reader.ReadString();
                         currentButtonQuickTheme = reader.ReadString();
                         currentLabelDisplayTheme = reader.ReadString();
@@ -141,6 +164,8 @@ namespace NewTillSystem.Resources.Scripts
                         currentToggleTheme = reader.ReadString();
                         currentTextBlockTheme = reader.ReadString();
                         currentButtonForegroundSelectTheme = reader.ReadString();
+                        currentLoginFileName = reader.ReadString();
+                        imgLoginFileName = reader.ReadString();
                     }
                 }
             }
@@ -148,7 +173,7 @@ namespace NewTillSystem.Resources.Scripts
 
         public void SetTheme()
         {
-            //SET ADMIN BUTTONS AND EMPTY BUTTONS
+            tillScreen = (TillScreen)Application.Current.MainWindow;
             foreach (UIElement button in tillScreen.grBtnScreen.Children)
             {
                 if (button.GetType() == typeof(Button))
@@ -164,8 +189,6 @@ namespace NewTillSystem.Resources.Scripts
                     }
                 }
             }
-
-            //SET NUMPAD BUTTONS
             foreach (UIElement button in tillScreen.AdminNumbers.Children)
             {
                 if (button.GetType() == typeof(Button))

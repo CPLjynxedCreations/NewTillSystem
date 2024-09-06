@@ -16,13 +16,12 @@ using System.Windows.Shapes;
 
 namespace NewTillSystem.Windows
 {
-    /// <summary>
-    /// Interaction logic for WindowCustomizeTillButton.xaml
-    /// </summary>
+
     public partial class WindowTillProperties : Window
     {
         ThemeController themeController;
         public string theme;
+        public string selectedLoginBackground;
 
         public WindowTillProperties()
         {
@@ -30,6 +29,8 @@ namespace NewTillSystem.Windows
             themeController = new ThemeController();
             themeController.ReadTheme();
             theme = themeController.currentThemeName;
+            selectedLoginBackground = themeController.imgLoginFileName;
+            
 
             if (theme == "Default")
             {
@@ -41,14 +42,25 @@ namespace NewTillSystem.Windows
             }
         }
 
-
-        private void btnWindowTillPropertiesClose_Click(object sender, RoutedEventArgs e)
+        private void btnApply_Click(object sender, RoutedEventArgs e)
         {
             if (boxSelectTheme.Text != string.Empty)
             {
                 themeController.currentThemeName = boxSelectTheme.Text;
                 themeController.UpdateThemeFile();
             }
+            themeController.imgLoginFileName = selectedLoginBackground;
+            Debug.WriteLine("theme " + themeController.imgLoginFileName);
+            themeController.ReadTheme();
+            themeController.SetTheme();
+        }
+
+        private void LoginBackground_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            selectedLoginBackground = Convert.ToString(button.Name);
+            themeController.imgLoginFileName = selectedLoginBackground;
+            themeController.UpdateThemeFile();
         }
     }
 }

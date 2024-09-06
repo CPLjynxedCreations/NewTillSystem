@@ -11,27 +11,79 @@
         Height="742" Width="1487">
     <!-- Height="740" Width="620"> -->
     <Grid x:Name="grdProperty">
-        <Rectangle x:Name="rctButtonColorWindow"
-                   Fill="LightGray"
-                   Stroke="DimGray" StrokeThickness="5"
-                   RadiusX="5" RadiusY="5"/>
-        <Button x:Name="btnWindowTillPropertiesClose" Click="btnWindowTillPropertiesClose_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="80" Height="60"
-                Margin="0,30,30,0"
-                Background="Gray"
-                BorderBrush="Black" BorderThickness="5"
-                FontSize="26" FontWeight="UltraBlack"
-                Content="X"/>
-        <Button x:Name="changeTheme" Tag="LightBlue" Width="100" Height="100" Margin="105,90,1282,552"/>
+        <Rectangle x:Name="rctPropertyWindow1" Style="{StaticResource DefaultRectangleTheme}"/>
+        <Border x:Name="brdPageBreak1" Style="{StaticResource DefaultBorderTheme}"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Margin="495,0,0,0"
+                Width="5" Height="742"/>
+        <Border x:Name="brdPageBreak2" Style="{StaticResource DefaultBorderTheme}"
+                Margin="990,0,0,0"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Width="5" Height="742"/>
+        <TextBlock x:Name="lblThemeName" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="270" Height="40"
+                       VerticalAlignment="Top" HorizontalAlignment="Left"
+                       Text="Till Theme"
+                       Margin="40,30,0,0"/>
         <ComboBox x:Name="boxSelectTheme" Style="{DynamicResource DefaultComboBoxToggleTheme}"
-                      Width="400" Height="50"
+                      Width="350" Height="50"
                       FontSize="22" FontWeight="Bold" Padding="15,10,0,0"
                       VerticalAlignment="Top" HorizontalAlignment="Left"
-                      Margin="40,330,0,0"
+                      Margin="40,70,0,0"
                       BorderThickness="5">
             <ComboBoxItem x:Name="boxThemeSelectDefualt" Tag="Default" Content="Default"/>
             <ComboBoxItem x:Name="boxThemeSelectLightBlue" Tag="LightBlue" Content="LightBlue"/>
         </ComboBox>
+
+        <TextBlock x:Name="lblLoginBackground" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="270" Height="40"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                       Text="Log In Background"
+                       Margin="40,0,0,330"/>
+        <ScrollViewer x:Name="scrlThemeSelect" Style="{StaticResource DefaultScrollViewTheme}"
+                          Width="420" Height="300"
+                          HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                          Margin="40,0,0,30">
+            <Border x:Name="brdBackgroundScroll" Style="{StaticResource DefaultBorderTheme}" CornerRadius="10,10,0,0">
+                <StackPanel x:Name="panelBackgroundSelect">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="197"/>
+                            <ColumnDefinition Width="197"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="BarBackground" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="0" 
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BarBackground.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="CoffeeBackGround" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="1"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\CoffeeBackground.jpg"/>
+                            </Button.Background>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+
+        <Button x:Name="btnApply" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnApply_Click"
+                    Width="180" Height="80"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Margin="0,0,260,30"
+                    Tag="AdminTheme" Content="APPLY"/>
+        <Button x:Name="btnCancel" Style="{DynamicResource DefaultButtonAdminTheme}"
+                    Width="180" Height="80"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Margin="0,0,40,30"
+                    Tag="AdminTheme" Content="CANCEL"/>
+        <Button x:Name="btnWindowTillPropertiesClose" Style="{StaticResource DefaultButtonQuickTheme}"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Width="80" Height="60"
+                Margin="0,30,30,0"
+                Content="X"/>
     </Grid>
 </Window>

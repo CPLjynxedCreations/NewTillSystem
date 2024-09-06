@@ -18,7 +18,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TextBox = System.Windows.Controls.TextBox;
-using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {

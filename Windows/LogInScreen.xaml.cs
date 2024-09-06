@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using NewTillSystem.Resources.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +20,7 @@ namespace NewTillSystem.Windows
 {
     public partial class LogInScreen : Window
     {
+        ThemeController themeController;
         public string strStaffLoginName;
         public string strStaffLastName;
         public bool boolStaffLogin;
@@ -35,13 +37,19 @@ namespace NewTillSystem.Windows
         private string strXlsxStaffRole = "D";
         private int intStaffAmount;
 
+        private string background;
+
         public LogInScreen()
         {
+            themeController = new ThemeController();
             InitializeComponent();
             ClearLabelStrings();
+            //themeController.ReadTheme();
+            //background = themeController.currentLoginFileName;
             boolStaffLogin = false;
             lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
             lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
+            //imgTillBackground.Source = new BitmapImage(new Uri(@background, UriKind.Relative));
         }
 
         private void GetDateTime()

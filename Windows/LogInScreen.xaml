@@ -12,11 +12,9 @@
         Width="1920"
         Background="Black">
     <Grid x:Name="grWindow">
-        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="1920" Height="1080">
-            <Image.Source>
-                <BitmapImage x:Name="imgTillBackground" DecodePixelWidth="1920" DecodePixelHeight="1080" UriSource="/Resources/Images/CoffeeBackground.jpg" />
-            </Image.Source>
-        </Image>
+        <Image x:Name="imgTillBackground"
+               HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Resources/Images/CoffeeBackground.jpg"
+               Stretch="Fill" Width="1920" Height="1080"/>
         <Image HorizontalAlignment="Left" Height="200" Margin="50,30,0,0" VerticalAlignment="Top" Width="200">
                 <Image.Source>
                     <BitmapImage x:Name="imgToBe18" DecodePixelWidth="200" DecodePixelHeight="200" UriSource="/Resources/Images/NoUnder18.png" />

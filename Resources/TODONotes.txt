@@ -9,4 +9,9 @@
 
 // &#xa added to content of button does new line
 
-// once theme excel made save current theme name string to set and change themes
+//go through old dictionaries and remove old ones
+//remove old onscreen keybaord
+//add more images for the backgrounds
+//add themes for the till
+//create more properties
+//start working on sale screen lists

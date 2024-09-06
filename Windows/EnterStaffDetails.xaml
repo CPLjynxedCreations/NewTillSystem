@@ -14,8 +14,7 @@
         <Grid x:Name="grStaffWindow"
               Width="950" Height="530"
               VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Rectangle x:Name="rctStaffScreen" Style="{StaticResource DefaultRectangleTheme}"
-/>
+            <Rectangle x:Name="rctStaffScreen" Style="{StaticResource DefaultRectangleTheme}"/>
             <Border x:Name="brdPageBreak1" Style="{StaticResource DefaultBorderTheme}"
                     Width="5"/>
             <Button x:Name="btnOk" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnOk_Click"
