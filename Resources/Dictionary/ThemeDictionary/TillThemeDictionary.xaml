@@ -7,6 +7,7 @@
     <SolidColorBrush x:Key="Default.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="TextBox.Default.Border.Error" Color="Red"/>
 
+
     <!--#region COLORS -->
     <!--#region DEFAULT COLOR -->
     <SolidColorBrush x:Key="Default.Background" Color="#808080	"/>
@@ -22,6 +23,7 @@
     <SolidColorBrush x:Key="TextBlock.Default.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="TextBox.Default.Focus.Border" Color="#36454F"/>
     <SolidColorBrush x:Key="Rectangle.Default.Background" Color="DarkGray"/>
+    <!--#endregion-->
     <!--#endregion-->
     <!--#region BLUE COLOR -->
     <SolidColorBrush x:Key="LightBlue.Background" Color="#6495ED"/>
@@ -479,8 +481,8 @@
     </Style>
     <!--#endregion-->
     <!--#endregion-->
-    
-    <!--#region LIGHTBLUE STYLE -->
+
+    <!--#region LIGHTBLUE THEME -->
     <!--#region  COMBO BOX -->
     <Style x:Key="ComboBoxLightBlueToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>

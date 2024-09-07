@@ -1,135 +1,160 @@
-﻿<Window x:Class="NewTillSystem.Windows.EnterStaffDetails"
+﻿<Window x:Class="NewTillSystem.Windows.ProductDetails"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewTillSystem.Windows"
         mc:Ignorable="d"
-        Title="EnterStaffDetails"
-        Width="1920" Height="1000"
+        Title="ProductDetails"
         WindowStyle="None" ResizeMode="NoResize"
         AllowsTransparency="True" Background="Transparent"
+        Width="1920" Height="1000"
         MouseLeftButtonDown="CheckTxtBoxFocus">
-    <Grid>
-        <Grid x:Name="grStaffWindow"
+    <Grid x:Name="grProductWindow">
+        <Grid x:Name="grProductPanel"
               Width="950" Height="530"
               VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Rectangle x:Name="rctStaffScreen" Style="{StaticResource DefaultRectangleTheme}"/>
+            <Rectangle x:Name="rctProductBorder" Style="{StaticResource DefaultRectangleTheme}"/>
             <Border x:Name="brdPageBreak1" Style="{StaticResource DefaultBorderTheme}"
                     Width="5"/>
-            <Button x:Name="btnOk" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnOk_Click"
+            <Button x:Name="btnDelete" Style="{DynamicResource DefaultButtonAdminTheme}" Content="DELETE" Click="btnDelete_Click"
+                    Width="220" Height="80"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Margin="130,0,100,135"/>
+            <Button x:Name="btnOk" Style="{DynamicResource DefaultButtonAdminTheme}" Content="OK" Click="btnOk_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                    Margin="40,0,0,30"
-                    Tag="AdminTheme" Content="OK"/>
-            <Button x:Name="btnCancel" Style="{DynamicResource DefaultButtonAdminTheme}"
+                    Margin="40,0,0,35"/>
+            <Button x:Name="btnCancel" Style="{DynamicResource DefaultButtonAdminTheme}" Content="CANCEL" Click="btnCancel_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                    Margin="260,0,0,30"
-                    Tag="AdminTheme" Content="CANCEL"/>
-            <Button x:Name="btnDeleteStaff" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnDeleteStaff_Click" GotFocus="CheckTxtBoxFocus"
-                    Width="180" Height="80"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    Margin="0,0,40,30"
-                    Tag="AdminTheme" Content="DELETE"/>
-            <Button x:Name="btnEditStaff" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnEditStaff_Click" GotFocus="CheckTxtBoxFocus"
-                    Width="180" Height="80"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    Margin="0,0,260,30"
-                    Tag="AdminTheme" Content="EDIT"/>
-            <TextBlock x:Name="lblEnterStaffFirst" Style="{StaticResource DefaultTextBlockTheme}"
-                       Width="270" Height="40"
-                       VerticalAlignment="Top" HorizontalAlignment="Left"
-                       Text="Enter Staff First Name"
-                       Margin="40,42,0,0"/>
-            <TextBox x:Name="txtEnterStaffFirstName" Style="{DynamicResource DefaultTextBoxDisplayTheme}" GotFocus="CheckTxtBoxFocus"
-                     Width="400" Height="50"
-                     VerticalAlignment="Top" HorizontalAlignment="Left"
-                     FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
-                     Margin="40,80,0,0"
-                     BorderThickness="5"/>
-            <TextBlock x:Name="lblEnterStaffLast" Style="{StaticResource DefaultTextBlockTheme}"
-                       Width="270" Height="40"
-                       VerticalAlignment="Top" HorizontalAlignment="Left"
-                       Text="Enter Staff Last Name"
-                       Margin="40,132,0,0"/>
-            <TextBox x:Name="txtEnterStaffLastName" Style="{DynamicResource DefaultTextBoxDisplayTheme}" GotFocus="CheckTxtBoxFocus"
-                     Width="400" Height="50"
-                     VerticalAlignment="Top" HorizontalAlignment="Left"
-                     FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
-                     Margin="40,168,0,0"
-                     BorderThickness="5"/>
-            <TextBlock x:Name="lblEnterStaffPin" Style="{StaticResource DefaultTextBlockTheme}"
+                    Margin="260,0,100,35"/>
+            <TextBlock x:Name="lblProductEnter" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="260" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
-                       Text="Enter Staff Pin"
-                       Margin="40,222,0,0"/>
-            <TextBox x:Name="txtEnterStaffPin" Style="{DynamicResource DefaultTextBoxDisplayTheme}" GotFocus="CheckTxtBoxFocus"
+                       Text="Enter Product Name"
+                       Margin="40,75,0,0"/>
+            <TextBox x:Name="txtEnterProductName" Style="{DynamicResource DefaultTextBoxDisplayTheme}" GotFocus="CheckTxtBoxFocus"
+                     Width="400" Height="50"
+                     VerticalAlignment="Top" HorizontalAlignment="Left"
+                     Margin="40,115,0,0"
+                     FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
+                     BorderThickness="5"/>
+            <TextBlock x:Name="lblProductPrice" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="260" Height="40"
+                       VerticalAlignment="Top" HorizontalAlignment="Left"
+                       Text="Enter Product Price"
+                       Margin="40,190,0,0"/>
+            <TextBox x:Name="txtEnterProductPrice" Style="{DynamicResource DefaultTextBoxDisplayTheme}" GotFocus="CheckTxtBoxFocus"
                      Width="400" Height="50"
                      FontSize="22" FontWeight="Bold" Padding="4,4,0,0"
                      VerticalAlignment="Top" HorizontalAlignment="Left"
-                     Margin="40,258,0,0"
+                     Margin="40,230,0,0"
                      BorderThickness="5"/>
-            <ComboBox x:Name="boxSelectRole" Style="{DynamicResource DefaultComboBoxToggleTheme}" GotFocus="CheckTxtBoxFocus"
-                      Width="400" Height="50"
-                      FontSize="22" FontWeight="Bold" Padding="15,10,0,0"
-                      VerticalAlignment="Top" HorizontalAlignment="Left"
-                      Margin="40,330,0,0"
-                      BorderThickness="5">
-                <ComboBoxItem x:Name="boxRoleSelectNameText"
-                          Content="Select Role"
-                          IsSelected="True" IsEnabled="False"/>
-                <ComboBoxItem x:Name="boxRoleSelectAdmin" Content="Admin"/>
-                <ComboBoxItem x:Name="boxRoleSelectManager" Content="Manager"/>
-                <ComboBoxItem x:Name="boxRoleSelectStaff" Content="Staff"/>
-            </ComboBox>
 
-            <TextBlock x:Name="lblEditStaff" Style="{StaticResource DefaultTextBlockTheme}"
-                       Width="260" Height="40"
+            <TextBlock x:Name="lblButtonColor" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="180" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Right"
-                       Text="Select Staff Name"
-                       Margin="0,42,180,0"/>
-            <TextBlock x:Name="lblFilter" Style="{StaticResource DefaultTextBlockTheme}"
-                       Width="70" Height="40"
-                       VerticalAlignment="Top" HorizontalAlignment="Right"
-                       FontSize="24" FontWeight="UltraBlack"
-                       Text="Filter"
-                       Margin="0,80,40,0"/>
-            <Button x:Name="btnFilterStaff1" Style="{DynamicResource DefaultButtonSelectedtAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
-                    Width="80" Height="50"
-                    VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Tag="AdminTheme" Content="OFF" FontSize="13"
-                    Margin="0,120,40,0"/>
-            <Button x:Name="btnFilterStaff2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
-                    Width="80" Height="50"
-                    VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Tag="AdminTheme" Content="ADMIN" FontSize="13"
-                    Margin="0,190,40,0"/>
-            <Button x:Name="btnFilterStaff3" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
-                    Width="80" Height="50"
-                    VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Tag="AdminTheme" Content="MANAGER" FontSize="13"
-                    Margin="0,260,40,0"/>
-            <Button x:Name="btnFilterStaff4" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
-                    Width="80" Height="50"
-                    VerticalAlignment="Top" HorizontalAlignment="Right"
-                    Tag="AdminTheme" Content="STAFF" FontSize="13"
-                    Margin="0,330,40,0"/>
-            <Button x:Name="btnSetToggleTheme"
-                    Width="0" Height="0"
-                    VerticalAlignment="Top" HorizontalAlignment="Left"/>
-
-            <ScrollViewer x:Name="scrlSelectExistingStaff" Style="{StaticResource DefaultScrollViewTheme}"
-                          Width="300" Height="300"
-                          VerticalAlignment="Top" HorizontalAlignment="Right"
-                          Margin="0,80,140,0">
-                <Border x:Name="brdScrollWindow" Style="{StaticResource DefaultBorderTheme}">
-                    <StackPanel x:Name="panelExistingStaff"
-                                GotFocus="CheckTxtBoxFocus">
-                        <!-- MAKE BUTTON THHEME FOR STACK-->
+                       Text="Button Colour"
+                       Margin="40,75,265,0"/>
+            <Button x:Name="btnColorView" Style="{DynamicResource btnDefaultItemTheme}"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Width="180" Height="80"
+                    Margin="0,0,150,35"
+                    FontSize="22" FontWeight="UltraBlack"
+                    Content="SAMPLE"/>
+            <ScrollViewer x:Name="scrlButtonColorSelect" Style="{StaticResource DefaultScrollViewTheme}"
+                          Width="200" Height="280"
+                          HorizontalAlignment="Right" VerticalAlignment="Top"
+                          Margin="0,115,250,0">
+                <Border x:Name="brdButtonColor" Style="{StaticResource DefaultBorderTheme}">
+                    <StackPanel x:Name="panelButtonColorSelect">
+                        <Button x:Name="btnDefaultItemTheme" Style="{DynamicResource btnDefaultItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnOrchidItemTheme" Style="{DynamicResource btnOrchidItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnBurntOrangeItemTheme" Style="{DynamicResource btnBurntOrangeItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnLimeGreenItemTheme" Style="{DynamicResource btnLimeGreenItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnSeaGreenItemTheme" Style="{DynamicResource btnSeaGreenItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnRedItemTheme" Style="{DynamicResource btnRedItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnDarkPurpleItemTheme" Style="{DynamicResource btnDarkPurpleItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnEggplantItemTheme" Style="{DynamicResource btnEggplantItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnBlueItemTheme" Style="{DynamicResource btnBlueItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnBrightBlueItemTheme" Style="{DynamicResource btnBrightBlueItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
                     </StackPanel>
                 </Border>
             </ScrollViewer>
+            <Rectangle x:Name="brdButtonColorSelectBase" Style="{StaticResource DefaultRectangleTheme}"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Height="3" Width="180"
+                    Margin="0,0,270,135"/>
+
+            <TextBlock x:Name="lblButtonForegroundColor" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="230" Height="40"
+                       VerticalAlignment="Top" HorizontalAlignment="Right"
+                       Text="Foreground Colour"
+                       Margin="40,75,10,0"/>
+            <ScrollViewer x:Name="scrlButtonForegroundColorSelect" Style="{StaticResource DefaultScrollViewTheme}"
+                          Width="200" Height="280"
+                          HorizontalAlignment="Right" VerticalAlignment="Top"
+                          Margin="0,115,30,0">
+                <Border x:Name="brdButtonForegroundColor" Style="{StaticResource DefaultBorderTheme}">
+                    <StackPanel x:Name="panelButtonForegroundColorSelect">
+                        <Button x:Name="btnForegroundBlack" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="Black"
+                                Height="50"
+                                Tag="Black"/>
+                        <Button x:Name="btnForegroundWhite" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="White"
+                                Height="50"
+                                Tag="White"/>
+                        <Button x:Name="btnForegroundGreen" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="Green"
+                                Height="50"
+                                Tag="Green"/>
+                        <Button x:Name="btnForegroundDarkGreen" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="DarkGreen"
+                                Height="50"
+                                Tag="DarkGreen"/>
+                        <Button x:Name="btnForegroundOrange" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="Orange"
+                                Height="50"
+                                Tag="Orange"/>
+                        <Button x:Name="btnForegroundYellow" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="Yellow"
+                                Height="50"
+                                Tag="Yellow"/>
+                        <Button x:Name="btnForegroundRed" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="Red"
+                                Height="50"
+                                Tag="Red"/>
+                        <Button x:Name="btnForegroundDarkRed" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="DarkRed"
+                                Height="50"
+                                Tag="DarkRed"/>
+                        <Button x:Name="btnForegroundBlue" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="Blue"
+                                Height="50"
+                                Tag="Blue"/>
+                        <Button x:Name="btnForegroundDarkBlue" Click="btnItemTheme_Click" Style="{StaticResource DefaultButtonForegroundSelectTheme}"
+                                Background="DarkBlue"
+                                Height="50"
+                                Tag="DarkBlue"/>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+            <Rectangle x:Name="brdButtonForegroundColorSelectBase" Style="{StaticResource DefaultRectangleTheme}"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Height="3" Width="180"
+                    Margin="0,0,50,135"/>
         </Grid>
         <Grid x:Name="grKeyboard" VerticalAlignment="Bottom">
             <Grid x:Name="panelNumpad" Width="395" Height="390" HorizontalAlignment="Right">
@@ -159,8 +184,8 @@
                 <Button x:Name="btnKeyboard_backspace" Content="Delete" Margin="0,0,5,5" Grid.Column="2" Grid.Row="3" Style="{DynamicResource DefaultButtonQuickTheme}" Focusable="False" Click="btnKeyboardClick_Click"/>
             </Grid>
             <Grid x:Name="panelKeybooardButtons"
-                  Width="1525" Height="390"
-                  HorizontalAlignment="Left">
+          Width="1525" Height="390"
+          HorizontalAlignment="Left">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="152.50"/>
                     <ColumnDefinition Width="152.50"/>
@@ -179,7 +204,7 @@
                     <RowDefinition Height="130"/>
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="rctKeyboard" Style="{DynamicResource DefaultLabelDisplayTheme}"
-                           Grid.RowSpan="3" Grid.ColumnSpan="10"/>
+                   Grid.RowSpan="3" Grid.ColumnSpan="10"/>
                 <Button x:Name="btnKeyboard_Q" Content="Q" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
                 <Button x:Name="btnKeyboard_W" Content="W" Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>
                 <Button x:Name="btnKeyboard_E" Content="E" Margin="0,5,0,0" Grid.Column="2" Grid.Row="0" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnKeyboardClick_Click"/>

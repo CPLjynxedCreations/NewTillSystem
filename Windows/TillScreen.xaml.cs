@@ -218,7 +218,7 @@ namespace NewTillSystem
                         intXlsxProductRow = i + 1;
                     }
                 }
-                EnterProductDetails openPrompt = new EnterProductDetails();
+                ProductDetails openPrompt = new ProductDetails();
                 foreach (UIElement button in openPrompt.panelKeybooardButtons.Children)
                 {
                     if (button.GetType() == typeof(Button))
@@ -337,7 +337,7 @@ namespace NewTillSystem
         {
             if (boolIsManager || boolIsAdmin)
             {
-                ManageTillWindow openManageWindow = new ManageTillWindow();
+                ManagerWindow openManageWindow = new ManagerWindow();
                 foreach (UIElement button in openManageWindow.grManageButtons.Children)
                 {
                     if (button.GetType() == typeof(Button))
@@ -375,16 +375,16 @@ namespace NewTillSystem
         }
         private void EditTillProperties()
         {
-            WindowTillProperties windowTillProperties = new WindowTillProperties();
-            windowTillProperties.Owner = Application.Current.MainWindow;
-            windowTillProperties.WindowStartupLocation = WindowStartupLocation.Manual;
-            windowTillProperties.Left = 212;
-            windowTillProperties.Top = 127;
-            windowTillProperties.btnWindowTillPropertiesClose.Click += (sender, e) => { windowTillProperties.Close(); };
-            windowTillProperties.btnApply.Click += (sender, e) => { windowTillProperties.Close(); ChangeTheme(); };
-            windowTillProperties.btnCancel.Click += (sender, e) => { windowTillProperties.Close(); };
+            TillPropertiesWindow TillPropertiesWindow = new TillPropertiesWindow();
+            TillPropertiesWindow.Owner = Application.Current.MainWindow;
+            TillPropertiesWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            TillPropertiesWindow.Left = 212;
+            TillPropertiesWindow.Top = 127;
+            TillPropertiesWindow.btnTillPropertiesWindowClose.Click += (sender, e) => { TillPropertiesWindow.Close(); };
+            TillPropertiesWindow.btnApply.Click += (sender, e) => { TillPropertiesWindow.Close(); ChangeTheme(); };
+            TillPropertiesWindow.btnCancel.Click += (sender, e) => { TillPropertiesWindow.Close(); };
 
-            foreach (UIElement txtBlock in windowTillProperties.grdProperty.Children)
+            foreach (UIElement txtBlock in TillPropertiesWindow.grdProperty.Children)
             {
                 if (txtBlock.GetType() == typeof(TextBlock))
                 {
@@ -392,7 +392,7 @@ namespace NewTillSystem
                     propertyTextBlock.Style = (Style)Application.Current.Resources[labelTheme];
                 }
             }
-            foreach (UIElement button in windowTillProperties.grdProperty.Children)
+            foreach (UIElement button in TillPropertiesWindow.grdProperty.Children)
             {
                 if (button.GetType() == typeof(Button))
                 {
@@ -400,7 +400,7 @@ namespace NewTillSystem
                     propertyButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
                 }
             }
-            foreach (UIElement imgButton in windowTillProperties.panelBackgroundSelect.Children)
+            foreach (UIElement imgButton in TillPropertiesWindow.panelBackgroundSelect.Children)
             {
                 if (imgButton.GetType() == typeof(Button))
                 {
@@ -409,17 +409,17 @@ namespace NewTillSystem
                 }
             }
             //change to foreach when more are made
-            windowTillProperties.rctPropertyWindow1.Style = (Style)Application.Current.Resources[rectangleTheme];
-            windowTillProperties.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
-            windowTillProperties.brdPageBreak2.Style = (Style)Application.Current.Resources[borderTheme];
-            windowTillProperties.brdBackgroundScroll.Style = (Style)Application.Current.Resources[borderTheme];
-            windowTillProperties.scrlThemeSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
-            windowTillProperties.ShowDialog();
+            TillPropertiesWindow.rctPropertyWindow1.Style = (Style)Application.Current.Resources[rectangleTheme];
+            TillPropertiesWindow.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
+            TillPropertiesWindow.brdPageBreak2.Style = (Style)Application.Current.Resources[borderTheme];
+            TillPropertiesWindow.brdBackgroundScroll.Style = (Style)Application.Current.Resources[borderTheme];
+            TillPropertiesWindow.scrlThemeSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+            TillPropertiesWindow.ShowDialog();
         }
 
         private void ManageEditStaff()
         {
-            EnterStaffDetails openEditStaff = new EnterStaffDetails();
+            StaffDetails openEditStaff = new StaffDetails();
             foreach (UIElement button in openEditStaff.panelKeybooardButtons.Children)
             {
                 if (button.GetType() == typeof(Button))

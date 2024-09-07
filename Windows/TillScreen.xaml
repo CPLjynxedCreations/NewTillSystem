@@ -98,7 +98,7 @@
             <Rectangle x:Name="bgAdminHeader"
                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
                        Style="{StaticResource DefaultLabelDisplayTheme}"/>
-            <TextBlock x:Name="lblAdminNumAmount"
+            <TextBlock x:Name="lblAdminNumAmount" Style="{StaticResource DefaultTextBlockTheme}"
                        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        FontSize="20" FontWeight="UltraBlack"
@@ -106,6 +106,8 @@
                        Margin="5,3,0,0"/>
         </Grid>
 
+
+        <!--#region SALE SCREEN -->
         <Grid x:Name="grSaleScreen"
               VerticalAlignment="Top" HorizontalAlignment="Left"
               Width="618" Height="740">
@@ -322,6 +324,7 @@
                        Text="00.00"
                        Margin="20,0,0,5"/>
         </Grid>
+        <!--#endregion-->
 
         <Grid x:Name="grBtnScreen"
               HorizontalAlignment="Left" VerticalAlignment="Top"

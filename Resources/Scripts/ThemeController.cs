@@ -16,7 +16,7 @@ namespace NewTillSystem.Resources.Scripts
     class ThemeController
     {
         TillScreen tillScreen;
-        ManageTillWindow manageTillWindow;
+        ManagerWindow ManagerWindow;
 
         const string themeFile = "ThemeProperties.dat";
 

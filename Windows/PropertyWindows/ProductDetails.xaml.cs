@@ -19,7 +19,7 @@ using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
-    public partial class EnterProductDetails : Window
+    public partial class ProductDetails : Window
     {
         ThemeController themeController;
         TillScreen tillScreen;
@@ -41,7 +41,7 @@ namespace NewTillSystem.Windows
         private string adminButtonThemeProduct;
         private string toggleThemeProduct;
 
-        public EnterProductDetails()
+        public ProductDetails()
         {
             InitializeComponent();
 

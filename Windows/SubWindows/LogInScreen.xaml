@@ -109,7 +109,7 @@
                     Content="9"/>
             <Rectangle x:Name="bgAdminHeader" Style="{DynamicResource DefaultLabelDisplayTheme}"
                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
-            <TextBlock x:Name="lblAdminNumAmount"
+            <TextBlock x:Name="lblAdminNumAmount" Style="{StaticResource DefaultTextBlockTheme}"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                        FontSize="20" FontWeight="UltraBlack"

@@ -17,13 +17,13 @@ using System.Windows.Shapes;
 namespace NewTillSystem.Windows
 {
 
-    public partial class WindowTillProperties : Window
+    public partial class TillPropertiesWindow : Window
     {
         ThemeController themeController;
         public string theme;
         public string selectedLoginBackground;
 
-        public WindowTillProperties()
+        public TillPropertiesWindow()
         {
             InitializeComponent();
             themeController = new ThemeController();

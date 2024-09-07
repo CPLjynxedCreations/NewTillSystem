@@ -1,7 +1,5 @@
-﻿using DocumentFormat.OpenXml.Drawing;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,25 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
-
-    public partial class OnScreenKeyboard : Window
+    public partial class ManagerWindow : Window
     {
-        public string letter;
+        //public bool boolSetEditProduct;
+        ThemeController themeController;
 
-        public OnScreenKeyboard()
+        public ManagerWindow()
         {
+            themeController = new ThemeController();
             InitializeComponent();
-        }
-
-        public void btnClick_Click(object sender, RoutedEventArgs e)
-        {
-            Button btnPressed = (Button)sender;
-            letter = Convert.ToString(btnPressed.Content);
-
-            Debug.WriteLine(letter);
         }
     }
 }

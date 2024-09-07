@@ -21,7 +21,7 @@ using TextBox = System.Windows.Controls.TextBox;
 
 namespace NewTillSystem.Windows
 {
-    public partial class EnterStaffDetails : Window
+    public partial class StaffDetails : Window
     {
         ThemeController themeController;
         TillScreen tillScreen;
@@ -63,7 +63,7 @@ namespace NewTillSystem.Windows
         private string adminButtonThemeStaff;
         private string toggleThemeStaff;
 
-        public EnterStaffDetails()
+        public StaffDetails()
         {
             InitializeComponent();
             themeController = new ThemeController();
