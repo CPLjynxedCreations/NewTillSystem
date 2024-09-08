@@ -61,6 +61,7 @@ namespace NewTillSystem
         public string propertyButtonSelectedTheme;
         public string tillNavigationButtonTheme;
         public string tillNavigationManageCloseButtonTheme;
+        public string tillNumpadTheme;
         public string keyboardKeyTheme;
         public string keyboardNumpadTheme;
 
@@ -116,6 +117,8 @@ namespace NewTillSystem
             propertyButtonSelectedTheme = themeController.currentButtonPropertySelected;
             tillNavigationButtonTheme = themeController.currentButtonTillNavigation;
             tillNavigationManageCloseButtonTheme = themeController.currentButtonTillNavigationManageClose;
+            tillNumpadTheme = themeController.currentButtonTillNumpad;
+            tillQuickTheme = themeController.currentButtonTillQuick;
             keyboardKeyTheme = themeController.currentKeyboardKeys;
             keyboardNumpadTheme = themeController.currentKeyboardNumpad;
 
@@ -147,7 +150,7 @@ namespace NewTillSystem
                 if (button.GetType() == typeof(Button))
                 {
                     Button loginButton = (Button)button;
-                    loginButton.Style = (Style)Application.Current.Resources[quickButtonTheme];
+                    loginButton.Style = (Style)Application.Current.Resources[tillNumpadTheme];
                 }
             }
             logInScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[labelBoxTheme];

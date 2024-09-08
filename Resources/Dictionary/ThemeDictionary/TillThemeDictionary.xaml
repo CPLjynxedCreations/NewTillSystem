@@ -16,12 +16,16 @@
     <SolidColorBrush x:Key="Default.Button.TillNavigate.Buttons.Background" Color="#808080"/>
     <SolidColorBrush x:Key="Default.Button.TillNavigate.Buttons.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="Default.Button.ManageWindow.Close.Foreground" Color="Firebrick"/>
+    <SolidColorBrush x:Key="Default.Button.Till.Numpad.Background" Color="#B2BEB5"/>
+    <SolidColorBrush x:Key="Default.Button.Till.Quick.Background" Color="#808080"/>
     <SolidColorBrush x:Key="Default.Button.Keyboard.Keys.Background" Color="#B2BEB5"/>
     <SolidColorBrush x:Key="Default.Button.Keyboard.Keys.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="Default.Button.Keyboard.Keys.Disabled" Color="#36454F"/>
     <SolidColorBrush x:Key="Default.Button.Keyboard.Numpad.Background" Color="#808080"/>
     <SolidColorBrush x:Key="Default.Button.Keyboard.Numpad.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="Default.Button.Keyboard.Numpad.Disabled" Color="#36454F"/>
+    <SolidColorBrush x:Key="Default.Button.Empty.Product.Background" Color="#708090"/>
+    <SolidColorBrush x:Key="Default.Button.Empty.Product.Pressed.Background" Color="Black"/>
     
     
     
@@ -32,6 +36,7 @@
     <SolidColorBrush x:Key="Button.Default.Empty.Pressed.Background" Color="Black"/>
     <SolidColorBrush x:Key="Button.Admin.Default.Background" Color="#B2BEB5"/>
     <SolidColorBrush x:Key="Button.Admin.Default.Background.Disabled" Color="#36454F"/>
+    
     <SolidColorBrush x:Key="Toggle.Button.Default.Background" Color="#848884"/>
     <SolidColorBrush x:Key="Toggle.Button.Default.IsChecked.Background" Color="#71797E"/>
     <SolidColorBrush x:Key="Toggle.Button.Default.IsChecked.Border" Color="#848884"/>
@@ -400,6 +405,62 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="DefaultTillNumpad" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Default.Button.Till.Numpad.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Default.Button.Till.Numpad.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DefaultTillQuick" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Default.Button.Till.Quick.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Default.Button.Till.Quick.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="DefaultKeyboardKeys" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Default.Button.Keyboard.Keys.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -466,7 +527,34 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    <Style x:Key="DefaultEmptyProductButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Default.Button.Empty.Product.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="Foreground" Value="{StaticResource Default.Button.Keyboard.Numpad.Foreground}"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Default.Button.Empty.Product.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
     <Style x:Key="DefaultButtonQuickTheme" TargetType="{x:Type Button}">

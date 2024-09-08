@@ -15,8 +15,6 @@
 //start working on sale screen lists
 
 //manage close needs code changed for theme of red close button
-    // maybe one button has seperate theme button code
-    //asses the theming and rename some options and add a few more theme settings for seperate buttons.
     //change label, textbox, scroll, quick button names and themeing
 
 

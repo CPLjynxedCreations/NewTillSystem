@@ -27,6 +27,9 @@ namespace NewTillSystem.Resources.Scripts
         public string textButtonPropertySelected = "PropertytButtonSelected";
         public string textButtonTillNavigation = "TillNagivationButton";
         public string textButtonTillNavigationManageClose = "ManageWindowCloseButton";
+        public string textButtonTillNumpad = "TillNumpad";
+        public string textButtonTillQuick = "TillQuick";
+        public string textButtonEmptyProduct = "EmptyProductButton";
         public string textKeyboardKeys = "KeyboardKeys";
         public string textKeyboardNumpad = "KeyboardNumpad";
 
@@ -61,6 +64,9 @@ namespace NewTillSystem.Resources.Scripts
         public string currentButtonPropertySelected;
         public string currentButtonTillNavigation;
         public string currentButtonTillNavigationManageClose;
+        public string currentButtonTillNumpad;
+        public string currentButtonTillQuick;
+        public string currentButtonEmptyProduct;
         public string currentKeyboardNumpad;
         public string currentKeyboardKeys;
 
@@ -100,6 +106,9 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textButtonPropertySelected);
                         writer.Write(currentThemeName + textButtonTillNavigation);
                         writer.Write(currentThemeName + textButtonTillNavigationManageClose);
+                        writer.Write(currentThemeName + textButtonTillNumpad);
+                        writer.Write(currentThemeName + textButtonTillQuick);
+                        writer.Write(currentThemeName + textButtonEmptyProduct);
                         writer.Write(currentThemeName + textKeyboardKeys);
                         writer.Write(currentThemeName + textKeyboardNumpad);
 
@@ -143,6 +152,9 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textButtonPropertySelected);
                         writer.Write(currentThemeName + textButtonTillNavigation);
                         writer.Write(currentThemeName + textButtonTillNavigationManageClose);
+                        writer.Write(currentThemeName + textButtonTillNumpad);
+                        writer.Write(currentThemeName + textButtonTillQuick);
+                        writer.Write(currentThemeName + textButtonEmptyProduct);
                         writer.Write(currentThemeName + textKeyboardKeys);
                         writer.Write(currentThemeName + textKeyboardNumpad);
 
@@ -190,6 +202,9 @@ namespace NewTillSystem.Resources.Scripts
                         currentButtonPropertySelected = reader.ReadString();
                         currentButtonTillNavigation = reader.ReadString();
                         currentButtonTillNavigationManageClose = reader.ReadString();
+                        currentButtonTillNumpad = reader.ReadString();
+                        currentButtonTillQuick = reader.ReadString();
+                        currentButtonEmptyProduct = reader.ReadString();
                         currentKeyboardKeys = reader.ReadString();
                         currentKeyboardNumpad = reader.ReadString();
 
@@ -225,7 +240,6 @@ namespace NewTillSystem.Resources.Scripts
                 if (button.GetType() == typeof(Button))
                 {
                     Button tillButton = (Button)button;
-                    //if (tillButton.Name.Contains("btnAdmin"))
                     var navTag = Convert.ToString(tillButton.Tag);
                     if (navTag == "TillNavigation")
                     {
@@ -233,10 +247,8 @@ namespace NewTillSystem.Resources.Scripts
                     }
                     else if (tillButton.Content == string.Empty)
                     {
-                        tillButton.Style = (Style)Application.Current.Resources[currentButtonEmptyTheme];
+                        tillButton.Style = (Style)Application.Current.Resources[currentButtonEmptyProduct];
                     }
-                    //numpad
-                    //quick buttons
                 }
             }
             foreach (UIElement button in tillScreen.AdminNumbers.Children)
@@ -245,13 +257,13 @@ namespace NewTillSystem.Resources.Scripts
                 {
                     Button tillButton = (Button)button;
                     var tag = Convert.ToString(tillButton.Tag);
-                    if (tag == "AdminQuick")
+                    if (tag == "QuickPick")
                     {
-                        tillButton.Style = (Style)Application.Current.Resources[currentButtonQuickTheme];
+                        tillButton.Style = (Style)Application.Current.Resources[currentButtonTillQuick];
                     }
-                    else if (tag == "AdminNumPad")
+                    else if (tag == "TillNumpad")
                     {
-                        tillButton.Style = (Style)Application.Current.Resources[currentButtonAdminTheme];
+                        tillButton.Style = (Style)Application.Current.Resources[currentButtonTillNumpad];
                     }
                 }
             }
