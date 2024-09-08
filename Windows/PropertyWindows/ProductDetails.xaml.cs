@@ -37,9 +37,6 @@ namespace NewTillSystem.Windows
         private string errorBoxThemeProduct;
         private string txtBoxLabelThemeProduct;
         private string txtBoxLabelSelectedThemeProduct;
-        private string adminButtonSelectedThemeProduct;
-        private string adminButtonThemeProduct;
-        private string toggleThemeProduct;
 
         public ProductDetails()
         {
@@ -48,12 +45,9 @@ namespace NewTillSystem.Windows
             themeController = new ThemeController();
             tillScreen = (TillScreen)Application.Current.MainWindow;
 
-            toggleThemeProduct = tillScreen.toggleTheme;
             errorBoxThemeProduct = tillScreen.errorBoxTheme;
             txtBoxLabelThemeProduct = tillScreen.txtBoxLabelTheme;
             txtBoxLabelSelectedThemeProduct = tillScreen.txtBoxSelectLabelTheme;
-            adminButtonSelectedThemeProduct = tillScreen.adminButtonSelected;
-            adminButtonThemeProduct = tillScreen.adminButtonTheme;
 
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
@@ -61,19 +55,12 @@ namespace NewTillSystem.Windows
             {
                 strButtonTheme = strEditButtonTheme;
                 strButtonForeground = strEditButtonForeground;
-                //btnDelete.IsEnabled = false;
-                //btnDelete.BorderBrush = Brushes.Orange;
             }
-            //strProductName = txtEnterProductName.Text;
-            //strProductPrice = txtEnterProductPrice.Text;
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             strProductName = string.Empty;
             strProductPrice = string.Empty;
-            //strButtonTheme = ;
-            //strButtonForeground = "DefaultButtonEmptyTheme";
-            //btnCancel.Foreground = "Transparent";
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)

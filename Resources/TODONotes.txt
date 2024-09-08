@@ -14,18 +14,11 @@
 //create more properties
 //start working on sale screen lists
 
-//maybe them keyboard buttons seperate to admin buttons
 //manage close needs code changed for theme of red close button
     // maybe one button has seperate theme button code
     //asses the theming and rename some options and add a few more theme settings for seperate buttons.
-        //manage close
-        //property close
-        //onscreeen keyboard
-            //numpad
-            //keyboard
-        //admin buttons (bottom screen)
-        //button quick (till numpad)
-        //seperate window nav include manage close, property close
+    //change label, textbox, scroll, quick button names and themeing
+
 
 
     <!--#region DEFAULT COLOR -->

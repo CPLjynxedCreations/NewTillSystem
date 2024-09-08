@@ -57,6 +57,13 @@ namespace NewTillSystem
         private bool boolEditStaff;
 
 
+        public string propertyButtonTheme;
+        public string propertyButtonSelectedTheme;
+        public string tillNavigationButtonTheme;
+        public string tillNavigationManageCloseButtonTheme;
+        public string keyboardKeyTheme;
+        public string keyboardNumpadTheme;
+
 
         public string adminButtonTheme;
         public string adminButtonImageTheme;
@@ -104,8 +111,17 @@ namespace NewTillSystem
 
         public void GetTheme()
         {
+
+            propertyButtonTheme = themeController.currentButtonProperty;
+            propertyButtonSelectedTheme = themeController.currentButtonPropertySelected;
+            tillNavigationButtonTheme = themeController.currentButtonTillNavigation;
+            tillNavigationManageCloseButtonTheme = themeController.currentButtonTillNavigationManageClose;
+            keyboardKeyTheme = themeController.currentKeyboardKeys;
+            keyboardNumpadTheme = themeController.currentKeyboardNumpad;
+
             adminButtonTheme = themeController.currentButtonAdminTheme;
             adminButtonImageTheme = themeController.currentButtonAdminImageTheme;
+            adminButtonSelected = themeController.currentButtonSelectedtAdminTheme;
             quickButtonTheme = themeController.currentButtonQuickTheme;
             emptyButtonTheme = themeController.currentButtonEmptyTheme;
             labelBoxTheme = themeController.currentLabelDisplayTheme;
@@ -116,7 +132,6 @@ namespace NewTillSystem
             comboBoxTheme = themeController.currentComboBoxToggleTheme;
             errorBoxTheme = themeController.currentTextBoxDisplayThemeError;
             txtBoxSelectLabelTheme = themeController.currentTextBoxDisplayThemeSelected;
-            adminButtonSelected = themeController.currentButtonSelectedtAdminTheme;
             toggleTheme = themeController.currentToggleTheme;
             labelTheme = themeController.currentTextBlockTheme;
             loginThemeBackground = themeController.currentLoginFileName;
@@ -218,45 +233,45 @@ namespace NewTillSystem
                         intXlsxProductRow = i + 1;
                     }
                 }
-                ProductDetails openPrompt = new ProductDetails();
-                foreach (UIElement button in openPrompt.panelKeybooardButtons.Children)
+                ProductDetails productEdit = new ProductDetails();
+                foreach (UIElement button in productEdit.panelKeybooardButtons.Children)
                 {
                     if (button.GetType() == typeof(Button))
                     {
                         Button keyboardButton = (Button)button;
-                        keyboardButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                        keyboardButton.Style = (Style)Application.Current.Resources[keyboardKeyTheme];
                     }
                 }
-                foreach (UIElement button in openPrompt.panelNumpad.Children)
+                foreach (UIElement button in productEdit.panelNumpad.Children)
                 {
                     if (button.GetType() == typeof(Button))
                     {
                         Button keyboardButton = (Button)button;
-                        keyboardButton.Style = (Style)Application.Current.Resources[quickButtonTheme];
+                        keyboardButton.Style = (Style)Application.Current.Resources[keyboardNumpadTheme];
                     }
                 }
-                openPrompt.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
-                openPrompt.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
-                openPrompt.rctProductBorder.Style = (Style)Application.Current.Resources[rectangleTheme];
-                openPrompt.scrlButtonColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
-                openPrompt.scrlButtonForegroundColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
-                openPrompt.brdButtonColor.Style = (Style)Application.Current.Resources[borderTheme];
-                openPrompt.brdButtonForegroundColor.Style = (Style)Application.Current.Resources[borderTheme];
-                openPrompt.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
-                openPrompt.brdButtonForegroundColorSelectBase.Style = (Style)Application.Current.Resources[rectangleTheme];
-                openPrompt.brdButtonColorSelectBase.Style = (Style)Application.Current.Resources[rectangleTheme];
-                foreach (UIElement button in openPrompt.grProductPanel.Children)
+                productEdit.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
+                productEdit.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
+                productEdit.rctProductBorder.Style = (Style)Application.Current.Resources[rectangleTheme];
+                productEdit.scrlButtonColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+                productEdit.scrlButtonForegroundColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+                productEdit.brdButtonColor.Style = (Style)Application.Current.Resources[borderTheme];
+                productEdit.brdButtonForegroundColor.Style = (Style)Application.Current.Resources[borderTheme];
+                productEdit.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
+                productEdit.brdButtonForegroundColorSelectBase.Style = (Style)Application.Current.Resources[rectangleTheme];
+                productEdit.brdButtonColorSelectBase.Style = (Style)Application.Current.Resources[rectangleTheme];
+                foreach (UIElement button in productEdit.grProductPanel.Children)
                 {
                     if (button.GetType() == typeof(Button))
                     {
                         Button UIbutton = (Button)button;
-                        if (UIbutton.Name != openPrompt.btnColorView.Name)
+                        if (UIbutton.Name != productEdit.btnColorView.Name)
                         {
-                            UIbutton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                            UIbutton.Style = (Style)Application.Current.Resources[propertyButtonTheme];
                         }
                     }
                 }
-                foreach (UIElement textBox in openPrompt.grProductPanel.Children)
+                foreach (UIElement textBox in productEdit.grProductPanel.Children)
                 {
                     if (textBox.GetType() == typeof(TextBox))
                     {
@@ -264,7 +279,7 @@ namespace NewTillSystem
                         txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelTheme];
                     }
                 }
-                foreach (UIElement txtBlock in openPrompt.grProductPanel.Children)
+                foreach (UIElement txtBlock in productEdit.grProductPanel.Children)
                 {
                     if (txtBlock.GetType() == typeof(TextBlock))
                     {
@@ -272,41 +287,41 @@ namespace NewTillSystem
                         manageStaffTextBlock.Style = (Style)Application.Current.Resources[labelTheme];
                     }
                 }
-                openPrompt.Owner = Application.Current.MainWindow;
-                openPrompt.WindowStartupLocation = WindowStartupLocation.Manual;
-                openPrompt.Left = 0;
-                openPrompt.Top = 80;
+                productEdit.Owner = Application.Current.MainWindow;
+                productEdit.WindowStartupLocation = WindowStartupLocation.Manual;
+                productEdit.Left = 0;
+                productEdit.Top = 80;
                 if (btnPressedProduct.Content != string.Empty)
                 {
-                    openPrompt.boolIsEditing = true;
+                    productEdit.boolIsEditing = true;
                     var readDataName = workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).GetValue<string>();
                     var readDataPrice = workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).GetValue<string>();
                     var readDataTheme = workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).GetValue<string>();
                     var readDataFoeground = workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).GetValue<string>();
-                    openPrompt.strEditProductName = readDataName;
-                    openPrompt.strEditProductPrice = readDataPrice;
-                    openPrompt.strEditButtonTheme = readDataTheme;
-                    openPrompt.strEditButtonForeground = readDataFoeground;
-                    openPrompt.txtEnterProductName.Text = Convert.ToString(btnPressedProduct.Content);
-                    openPrompt.txtEnterProductPrice.Text = readDataPrice;
-                    openPrompt.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
-                    openPrompt.btnDelete.IsEnabled = true;
+                    productEdit.strEditProductName = readDataName;
+                    productEdit.strEditProductPrice = readDataPrice;
+                    productEdit.strEditButtonTheme = readDataTheme;
+                    productEdit.strEditButtonForeground = readDataFoeground;
+                    productEdit.txtEnterProductName.Text = Convert.ToString(btnPressedProduct.Content);
+                    productEdit.txtEnterProductPrice.Text = readDataPrice;
+                    productEdit.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
+                    productEdit.btnDelete.IsEnabled = true;
                     SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(readDataFoeground);
-                    openPrompt.btnColorView.Foreground = colorBrush;
+                    productEdit.btnColorView.Foreground = colorBrush;
                 }
                 else
                 {
-                    openPrompt.btnDelete.IsEnabled = false;
+                    productEdit.btnDelete.IsEnabled = false;
                 }
-                openPrompt.btnDelete.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
-                openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
-                openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
-                openPrompt.ShowDialog();
-                if (openPrompt.strProductName != string.Empty)
+                productEdit.btnDelete.Click += (sender, e) => { productEdit.Close(); productEdit.boolIsEditing = false; };
+                productEdit.btnOk.Click += (sender, e) => { productEdit.Close(); productEdit.boolIsEditing = false; };
+                productEdit.btnCancel.Click += (sender, e) => { productEdit.Close(); productEdit.boolIsEditing = false; };
+                productEdit.ShowDialog();
+                if (productEdit.strProductName != string.Empty)
                 {
-                    btnPressedProduct.Content = openPrompt.strProductName;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources[openPrompt.strButtonTheme];
-                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(openPrompt.strButtonForeground);
+                    btnPressedProduct.Content = productEdit.strProductName;
+                    btnPressedProduct.Style = (Style)Application.Current.Resources[productEdit.strButtonTheme];
+                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(productEdit.strButtonForeground);
                     btnPressedProduct.Foreground = colorBrush;
                 }
                 else
@@ -314,11 +329,11 @@ namespace NewTillSystem
                     btnPressedProduct.Content = string.Empty;
                     btnPressedProduct.Style = (Style)Application.Current.Resources[emptyButtonTheme];
                 }
-                workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
-                workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
-                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = openPrompt.strButtonTheme;
-                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = openPrompt.strButtonForeground;
-                //workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //openPrompt.strButtonType;
+                workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = productEdit.strProductName;
+                workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = productEdit.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = productEdit.strButtonTheme;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = productEdit.strButtonForeground;
+                //workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //productEdit.strButtonType;
                 workSheet.ColumnsUsed().AdjustToContents();
                 workBook.Save();
             }
@@ -343,7 +358,14 @@ namespace NewTillSystem
                     if (button.GetType() == typeof(Button))
                     {
                         Button manageButton = (Button)button;
-                        manageButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                        if (manageButton.Name != "btnManageClose")
+                        {
+                            manageButton.Style = (Style)Application.Current.Resources[tillNavigationButtonTheme];
+                        }
+                        else
+                        {
+                            manageButton.Style = (Style)Application.Current.Resources[tillNavigationManageCloseButtonTheme];
+                        }
                     }
                 }
                 openManageWindow.rctManageWindow.Style = (Style)Application.Current.Resources[labelBoxTheme];
@@ -397,7 +419,7 @@ namespace NewTillSystem
                 if (button.GetType() == typeof(Button))
                 {
                     Button propertyButton = (Button)button;
-                    propertyButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                    propertyButton.Style = (Style)Application.Current.Resources[propertyButtonTheme];
                 }
             }
             foreach (UIElement imgButton in TillPropertiesWindow.panelBackgroundSelect.Children)
@@ -425,7 +447,7 @@ namespace NewTillSystem
                 if (button.GetType() == typeof(Button))
                 {
                     Button keyboardButton = (Button)button;
-                    keyboardButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                    keyboardButton.Style = (Style)Application.Current.Resources[keyboardKeyTheme];
                 }
             }
             foreach (UIElement button in openEditStaff.panelNumpad.Children)
@@ -433,7 +455,7 @@ namespace NewTillSystem
                 if (button.GetType() == typeof(Button))
                 {
                     Button keyboardButton = (Button)button;
-                    keyboardButton.Style = (Style)Application.Current.Resources[quickButtonTheme];
+                    keyboardButton.Style = (Style)Application.Current.Resources[keyboardNumpadTheme];
                 }
             }
             foreach (UIElement txtBox in openEditStaff.grStaffWindow.Children)
@@ -457,10 +479,10 @@ namespace NewTillSystem
                 if (button.GetType() == typeof(Button))
                 {
                     Button staffButton = (Button)button;
-                    staffButton.Style = (Style)Application.Current.Resources[adminButtonTheme];
+                    staffButton.Style = (Style)Application.Current.Resources[propertyButtonTheme];
                 }
             }
-            openEditStaff.btnFilterStaff1.Style = (Style)Application.Current.Resources[adminButtonSelected];
+            openEditStaff.btnFilterStaff1.Style = (Style)Application.Current.Resources[propertyButtonSelectedTheme];
             openEditStaff.rctStaffScreen.Style = (Style)Application.Current.Resources[rectangleTheme];
             openEditStaff.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
             openEditStaff.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];

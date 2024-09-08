@@ -443,30 +443,30 @@
                     Grid.Column="4" Grid.Row="8"/>
             <Button x:Name="btnProduct45" Style="{DynamicResource DefaultButtonEmptyTheme}" Click="btnProduct_Click"
                     Grid.Column="5" Grid.Row="8"/>
-            <Button x:Name="btnAdmin1" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin1" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnProduct_Click" Tag="TillNavigation"
                     Grid.Column="0" Grid.Row="7"/>
-            <Button x:Name="btnAdmin2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin2" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnProduct_Click" Tag="TillNavigation"
                     Grid.Column="1" Grid.Row="7"/>
-            <Button x:Name="btnAdmin3" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin3" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnProduct_Click" Tag="TillNavigation"
                     Grid.Column="2" Grid.Row="7"/>
-            <Button x:Name="btnAdmin4" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin4" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnProduct_Click" Tag="TillNavigation"
                     Grid.Column="0" Grid.Row="8"/>
-            <Button x:Name="btnAdmin5" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin5" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnProduct_Click" Tag="TillNavigation"
                     Grid.Column="1" Grid.Row="8"/>
-            <Button x:Name="btnAdmin6" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnProduct_Click"
+            <Button x:Name="btnAdmin6" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnProduct_Click" Tag="TillNavigation"
                     Grid.Column="2" Grid.Row="8"/>
-            <Button x:Name="btnAdminManage" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminManage_Click"
+            <Button x:Name="btnAdminManage" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnAdminManage_Click" Tag="TillNavigation"
                     Grid.Column="5" Grid.Row="9"
                     Content="MANAGE"/>
-            <Button x:Name="btnAdmin8" Style="{DynamicResource DefaultButtonAdminTheme}" 
+            <Button x:Name="btnAdmin8" Style="{DynamicResource DefaultTillNagivationButton}" Tag="TillNavigation"
                     Grid.Column="1" Grid.Row="9"/>
-            <Button x:Name="btnAdmin9" Style="{DynamicResource DefaultButtonAdminTheme}" 
+            <Button x:Name="btnAdmin9" Style="{DynamicResource DefaultTillNagivationButton}" Tag="TillNavigation"
                     Grid.Column="2" Grid.Row="9"/>
-            <Button x:Name="btnAdmin10" Style="{DynamicResource DefaultButtonAdminTheme}" 
+            <Button x:Name="btnAdmin10" Style="{DynamicResource DefaultTillNagivationButton}" Tag="TillNavigation"
                     Grid.Column="3" Grid.Row="9"/>
-            <Button x:Name="btnAdmin11" Style="{DynamicResource DefaultButtonAdminTheme}"
+            <Button x:Name="btnAdmin11" Style="{DynamicResource DefaultTillNagivationButton}" Tag="TillNavigation"
                     Grid.Column="4" Grid.Row="9"/>
-            <Button x:Name="btnAdminLogOut" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnAdminLogOut_Click"
+            <Button x:Name="btnAdminLogOut" Style="{DynamicResource DefaultTillNagivationButton}" Click="btnAdminLogOut_Click" Tag="TillNavigation"
                     Grid.Column="0" Grid.Row="9"
                     Content="LOG OUT"/>
         </Grid>

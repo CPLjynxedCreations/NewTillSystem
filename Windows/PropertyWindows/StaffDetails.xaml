@@ -17,22 +17,22 @@
             <Rectangle x:Name="rctStaffScreen" Style="{StaticResource DefaultRectangleTheme}"/>
             <Border x:Name="brdPageBreak1" Style="{StaticResource DefaultBorderTheme}"
                     Width="5"/>
-            <Button x:Name="btnOk" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnOk_Click"
+            <Button x:Name="btnOk" Style="{DynamicResource DefaultPropertytButton}" Click="btnOk_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Margin="40,0,0,30"
                     Tag="AdminTheme" Content="OK"/>
-            <Button x:Name="btnCancel" Style="{DynamicResource DefaultButtonAdminTheme}"
+            <Button x:Name="btnCancel" Style="{DynamicResource DefaultPropertytButton}"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Left"
                     Margin="260,0,0,30"
                     Tag="AdminTheme" Content="CANCEL"/>
-            <Button x:Name="btnDeleteStaff" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnDeleteStaff_Click" GotFocus="CheckTxtBoxFocus"
+            <Button x:Name="btnDeleteStaff" Style="{DynamicResource DefaultPropertytButton}" Click="btnDeleteStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Margin="0,0,40,30"
                     Tag="AdminTheme" Content="DELETE"/>
-            <Button x:Name="btnEditStaff" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnEditStaff_Click" GotFocus="CheckTxtBoxFocus"
+            <Button x:Name="btnEditStaff" Style="{DynamicResource DefaultPropertytButton}" Click="btnEditStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Margin="0,0,260,30"
@@ -95,22 +95,22 @@
                        FontSize="24" FontWeight="UltraBlack"
                        Text="Filter"
                        Margin="0,80,40,0"/>
-            <Button x:Name="btnFilterStaff1" Style="{DynamicResource DefaultButtonSelectedtAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
+            <Button x:Name="btnFilterStaff1" Style="{DynamicResource DefaultPropertytButtonSelected}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
                     Tag="AdminTheme" Content="OFF" FontSize="13"
                     Margin="0,120,40,0"/>
-            <Button x:Name="btnFilterStaff2" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
+            <Button x:Name="btnFilterStaff2" Style="{DynamicResource DefaultPropertytButton}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
                     Tag="AdminTheme" Content="ADMIN" FontSize="13"
                     Margin="0,190,40,0"/>
-            <Button x:Name="btnFilterStaff3" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
+            <Button x:Name="btnFilterStaff3" Style="{DynamicResource DefaultPropertytButton}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
                     Tag="AdminTheme" Content="MANAGER" FontSize="13"
                     Margin="0,260,40,0"/>
-            <Button x:Name="btnFilterStaff4" Style="{DynamicResource DefaultButtonAdminTheme}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
+            <Button x:Name="btnFilterStaff4" Style="{DynamicResource DefaultPropertytButton}" Click="btnFilterStaff_Click" GotFocus="CheckTxtBoxFocus"
                     Width="80" Height="50"
                     VerticalAlignment="Top" HorizontalAlignment="Right"
                     Tag="AdminTheme" Content="STAFF" FontSize="13"

@@ -22,6 +22,16 @@ namespace NewTillSystem.Resources.Scripts
 
         public string currentThemeName;// = "Default";
 
+
+        public string textButtonProperty = "PropertytButton";
+        public string textButtonPropertySelected = "PropertytButtonSelected";
+        public string textButtonTillNavigation = "TillNagivationButton";
+        public string textButtonTillNavigationManageClose = "ManageWindowCloseButton";
+        public string textKeyboardKeys = "KeyboardKeys";
+        public string textKeyboardNumpad = "KeyboardNumpad";
+
+
+
         public string textButtonAdminTheme = "ButtonAdminTheme";
         public string textButtonAdminImageTheme = "ButtonAdminImageTheme";
 
@@ -46,6 +56,13 @@ namespace NewTillSystem.Resources.Scripts
         public string imgLoginFileName;
         public string textLoginFileName;
 
+
+        public string currentButtonProperty;
+        public string currentButtonPropertySelected;
+        public string currentButtonTillNavigation;
+        public string currentButtonTillNavigationManageClose;
+        public string currentKeyboardNumpad;
+        public string currentKeyboardKeys;
 
         public string currentButtonAdminTheme;
         public string currentButtonAdminImageTheme;
@@ -77,6 +94,16 @@ namespace NewTillSystem.Resources.Scripts
                     using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
                     {
                         writer.Write(currentThemeName);
+
+
+                        writer.Write(currentThemeName + textButtonProperty);
+                        writer.Write(currentThemeName + textButtonPropertySelected);
+                        writer.Write(currentThemeName + textButtonTillNavigation);
+                        writer.Write(currentThemeName + textButtonTillNavigationManageClose);
+                        writer.Write(currentThemeName + textKeyboardKeys);
+                        writer.Write(currentThemeName + textKeyboardNumpad);
+
+
                         writer.Write(currentThemeName + textButtonAdminTheme);
                         writer.Write(currentThemeName + textButtonAdminImageTheme);
                         writer.Write(currentThemeName + textButtonEmptyTheme);
@@ -110,6 +137,16 @@ namespace NewTillSystem.Resources.Scripts
                     using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
                     {
                         writer.Write(currentThemeName);
+
+
+                        writer.Write(currentThemeName + textButtonProperty);
+                        writer.Write(currentThemeName + textButtonPropertySelected);
+                        writer.Write(currentThemeName + textButtonTillNavigation);
+                        writer.Write(currentThemeName + textButtonTillNavigationManageClose);
+                        writer.Write(currentThemeName + textKeyboardKeys);
+                        writer.Write(currentThemeName + textKeyboardNumpad);
+
+
                         writer.Write(currentThemeName + textButtonAdminTheme);
                         writer.Write(currentThemeName + currentButtonAdminImageTheme);
                         writer.Write(currentThemeName + textButtonEmptyTheme);
@@ -148,6 +185,15 @@ namespace NewTillSystem.Resources.Scripts
                     using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
                     {
                         currentThemeName = reader.ReadString();
+
+                        currentButtonProperty = reader.ReadString();
+                        currentButtonPropertySelected = reader.ReadString();
+                        currentButtonTillNavigation = reader.ReadString();
+                        currentButtonTillNavigationManageClose = reader.ReadString();
+                        currentKeyboardKeys = reader.ReadString();
+                        currentKeyboardNumpad = reader.ReadString();
+
+
                         currentButtonAdminTheme = reader.ReadString();
                         currentButtonAdminImageTheme = reader.ReadString();
                         currentButtonEmptyTheme = reader.ReadString();
@@ -179,14 +225,18 @@ namespace NewTillSystem.Resources.Scripts
                 if (button.GetType() == typeof(Button))
                 {
                     Button tillButton = (Button)button;
-                    if (tillButton.Name.Contains("btnAdmin"))
+                    //if (tillButton.Name.Contains("btnAdmin"))
+                    var navTag = Convert.ToString(tillButton.Tag);
+                    if (navTag == "TillNavigation")
                     {
-                        tillButton.Style = (Style)Application.Current.Resources[currentButtonAdminTheme];
+                        tillButton.Style = (Style)Application.Current.Resources[currentButtonTillNavigation];
                     }
                     else if (tillButton.Content == string.Empty)
                     {
                         tillButton.Style = (Style)Application.Current.Resources[currentButtonEmptyTheme];
                     }
+                    //numpad
+                    //quick buttons
                 }
             }
             foreach (UIElement button in tillScreen.AdminNumbers.Children)

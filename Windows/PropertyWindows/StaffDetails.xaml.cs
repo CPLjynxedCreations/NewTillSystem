@@ -56,11 +56,16 @@ namespace NewTillSystem.Windows
         private bool boolStaffAdded;
         private bool boolGenerateStaff;
 
+
+        private string propertyButtonStaff;
+        private string propertyButtonSelectdStaff;
+
+
         private string errorBoxThemeStaff;
         private string txtBoxLabelThemeStaff;
         private string txtBoxLabelSelectedThemeStaff;
-        private string adminButtonSelectedThemeStaff;
         private string adminButtonThemeStaff;
+        private string adminButtonSelectedThemeStaff;
         private string toggleThemeStaff;
 
         public StaffDetails()
@@ -69,12 +74,20 @@ namespace NewTillSystem.Windows
             themeController = new ThemeController();
             tillScreen = (TillScreen)Application.Current.MainWindow;
 
+
+            propertyButtonStaff = tillScreen.adminButtonSelected;
+            propertyButtonSelectdStaff = tillScreen.adminButtonTheme;
+
+
             toggleThemeStaff = tillScreen.toggleTheme;
             errorBoxThemeStaff = tillScreen.errorBoxTheme;
             txtBoxLabelThemeStaff = tillScreen.txtBoxLabelTheme;
             txtBoxLabelSelectedThemeStaff = tillScreen.txtBoxSelectLabelTheme;
             adminButtonSelectedThemeStaff = tillScreen.adminButtonSelected;
             adminButtonThemeStaff = tillScreen.adminButtonTheme;
+
+            propertyButtonStaff = tillScreen.propertyButtonTheme;
+            propertyButtonSelectdStaff = tillScreen.propertyButtonSelectedTheme;
             
             boolGenerateStaff = true;
             GetCurrentStaffList();
@@ -326,44 +339,44 @@ namespace NewTillSystem.Windows
                 boolGenerateStaff = true;
                 boolFilterActive = false;
                 GetCurrentStaffList();
-                btnFilterStaff1.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
+                btnFilterStaff1.Style = (Style)Application.Current.Resources[propertyButtonSelectdStaff];
             }
             else
             {
-                btnFilterStaff1.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
+                btnFilterStaff1.Style = (Style)Application.Current.Resources[propertyButtonStaff];
             }
             if (strFilterActive == btnFilterStaff2.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff2.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
+                btnFilterStaff2.Style = (Style)Application.Current.Resources[propertyButtonSelectdStaff];
             }
             else
             {
-                btnFilterStaff2.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
+                btnFilterStaff2.Style = (Style)Application.Current.Resources[propertyButtonStaff];
             }
             if (strFilterActive == btnFilterStaff3.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff3.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
+                btnFilterStaff3.Style = (Style)Application.Current.Resources[propertyButtonSelectdStaff];
             }
             else
             {
-                btnFilterStaff3.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
+                btnFilterStaff3.Style = (Style)Application.Current.Resources[propertyButtonStaff];
             }
             if (strFilterActive == btnFilterStaff4.Content)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
                 GetCurrentStaffList();
-                btnFilterStaff4.Style = (Style)Application.Current.Resources[adminButtonSelectedThemeStaff];
+                btnFilterStaff4.Style = (Style)Application.Current.Resources[propertyButtonSelectdStaff];
             }
             else
             {
-                btnFilterStaff4.Style = (Style)Application.Current.Resources[adminButtonThemeStaff];
+                btnFilterStaff4.Style = (Style)Application.Current.Resources[propertyButtonStaff];
             }
         }
 
