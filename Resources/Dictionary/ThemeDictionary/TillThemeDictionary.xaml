@@ -31,7 +31,7 @@
     <SolidColorBrush x:Key="Default.Rectangle.Background" Color="DarkGray"/>
     
     
-    <SolidColorBrush x:Key="Default.Background" Color="#808080	"/>
+    <SolidColorBrush x:Key="Default.Background" Color="green"/>
     <SolidColorBrush x:Key="Button.Default.Pressed.Background" Color="Gray"/>
     <SolidColorBrush x:Key="Button.Default.Selected.Foreground" Color="White"/>
     <SolidColorBrush x:Key="Button.Default.Empty.Background" Color="#708090"/>

@@ -1,5 +1,7 @@
 ﻿
 //edit colour properties of theme for seperate colors
+//go through theme and change colors to have their own color 
+        // ie numpad label to manage backscreen
 
 
 //do not allow staff txts to be empty or not selected.
