@@ -1,4 +1,5 @@
 ﻿
+//edit colour properties of theme for seperate colors
 
 
 //do not allow staff txts to be empty or not selected.
@@ -17,6 +18,23 @@
 //manage close needs code changed for theme of red close button
     //change label, textbox, scroll, quick button names and themeing
 
+    //NEW COLOURS
+        <SolidColorBrush x:Key="Default.Button.Property.Background" Color="#B2BEB5"/>
+    <SolidColorBrush x:Key="Default.Button.Property.Selected.Foreground" Color="White"/>
+    <SolidColorBrush x:Key="Default.Button.Property.Background.Disabled" Color="#36454F"/>
+    <SolidColorBrush x:Key="Default.Button.TillNavigate.Buttons.Background" Color="#808080"/>
+    <SolidColorBrush x:Key="Default.Button.TillNavigate.Buttons.Foreground" Color="Black"/>
+    <SolidColorBrush x:Key="Default.Button.ManageWindow.Close.Foreground" Color="Firebrick"/>
+    <SolidColorBrush x:Key="Default.Button.Till.Numpad.Background" Color="#B2BEB5"/>
+    <SolidColorBrush x:Key="Default.Button.Till.Quick.Background" Color="#808080"/>
+    <SolidColorBrush x:Key="Default.Button.Keyboard.Keys.Background" Color="#B2BEB5"/>
+    <SolidColorBrush x:Key="Default.Button.Keyboard.Keys.Foreground" Color="Black"/>
+    <SolidColorBrush x:Key="Default.Button.Keyboard.Keys.Disabled" Color="#36454F"/>
+    <SolidColorBrush x:Key="Default.Button.Keyboard.Numpad.Background" Color="#808080"/>
+    <SolidColorBrush x:Key="Default.Button.Keyboard.Numpad.Foreground" Color="Black"/>
+    <SolidColorBrush x:Key="Default.Button.Keyboard.Numpad.Disabled" Color="#36454F"/>
+    <SolidColorBrush x:Key="Default.Button.Empty.Product.Background" Color="#708090"/>
+    <SolidColorBrush x:Key="Default.Button.Empty.Product.Pressed.Background" Color="Black"/>
 
 
     <!--#region DEFAULT COLOR -->

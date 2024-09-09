@@ -26,7 +26,9 @@
     <SolidColorBrush x:Key="Default.Button.Keyboard.Numpad.Disabled" Color="#36454F"/>
     <SolidColorBrush x:Key="Default.Button.Empty.Product.Background" Color="#708090"/>
     <SolidColorBrush x:Key="Default.Button.Empty.Product.Pressed.Background" Color="Black"/>
-    
+
+
+    <SolidColorBrush x:Key="Default.Rectangle.Background" Color="DarkGray"/>
     
     
     <SolidColorBrush x:Key="Default.Background" Color="#808080	"/>
@@ -42,6 +44,8 @@
     <SolidColorBrush x:Key="Toggle.Button.Default.IsChecked.Border" Color="#848884"/>
     <SolidColorBrush x:Key="TextBlock.Default.Foreground" Color="Black"/>
     <SolidColorBrush x:Key="TextBox.Default.Focus.Border" Color="#36454F"/>
+    
+    
     <SolidColorBrush x:Key="Rectangle.Default.Background" Color="DarkGray"/>
     <!--#endregion-->
     <!--#endregion-->
@@ -62,6 +66,31 @@
     <!--#endregion-->
     <!--#endregion-->
     
+    <!--#region NON CHANGE THEMES -->
+    <Style x:Key="ButtonForegroundSelectTheme" TargetType="{x:Type Button}">
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BorderTheme" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+    </Style>
+    <!--#endregion-->
     <!--#region THEMES -->
     <!--#region DEFAULT THEME -->
     <!--#region COMBO BOX -->
@@ -162,13 +191,27 @@
     </Style>
     <!--#endregion-->
     <!--#region LABEL AND TEXT BOX -->
-    <Style x:Key="DefaultLabelDisplayTheme" TargetType="{x:Type Rectangle}">
+    <Style x:Key="DefaultRectangleBackgroundTheme" TargetType="{x:Type Rectangle}">
+        <Setter Property="Fill" Value="{StaticResource Default.Rectangle.Background}"/>
+        <Setter Property="Stroke" Value="{StaticResource Default.Border}"/>
+        <Setter Property="StrokeThickness" Value="5"/>
+        <Setter Property="RadiusX" Value="15"/>
+        <Setter Property="RadiusY" Value="15"/>
+    </Style>
+    
+    <Style x:Key="DefaultLabelumpadTopBackground" TargetType="{x:Type Rectangle}">
         <Setter Property="Fill" Value="{StaticResource Default.Background}"/>
         <Setter Property="Stroke" Value="{StaticResource Default.Border}"/>
         <Setter Property="StrokeThickness" Value="3"/>
         <Setter Property="RadiusX" Value="6"/>
         <Setter Property="RadiusY" Value="6"/>
     </Style>
+    <Style x:Key="DefaultTextBlockTheme" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource TextBlock.Default.Foreground}"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+    </Style>
+
     <Style x:Key="DefaultTextBoxDisplayTheme" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
@@ -268,15 +311,12 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="DefaultTextBlockTheme" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="{StaticResource TextBlock.Default.Foreground}"/>
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="FontWeight" Value="UltraBlack"/>
-    </Style>
+
     <Style x:Key="DefaultScrollViewTheme" TargetType="{x:Type ScrollViewer}">
-        <Setter Property="Background" Value="{StaticResource Rectangle.Default.Background}"/>
+        <Setter Property="Background" Value="{StaticResource Default.Rectangle.Background}"/>
     </Style>
     <!--#endregion-->
+
     <!--#region BUTTONS -->
     <Style x:Key="DefaultPropertytButton" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Default.Button.Property.Background}"/>
@@ -557,91 +597,8 @@
     </Style>
 
 
-    <Style x:Key="DefaultButtonQuickTheme" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{StaticResource Default.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
-        <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
-        <Setter Property="FontWeight" Value="UltraBlack"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="FontFamily" Value="Cooper Black"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Default.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
-                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Admin.Default.Background.Disabled}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Default.Border}"/>
-                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="DefaultButtonForegroundSelectTheme" TargetType="{x:Type Button}">
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
-        <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="FontWeight" Value="UltraBlack"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="FontFamily" Value="Cooper Black"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="DefaultButtonAdminTheme" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{StaticResource Button.Admin.Default.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
-        <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
-        <Setter Property="FontWeight" Value="UltraBlack"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="FontFamily" Value="Cooper Black"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Default.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Default.Border}"/>
-                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Admin.Default.Background.Disabled}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Default.Border}"/>
-                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+
+
     <Style x:Key="DefaultButtonAdminImageTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Admin.Default.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -668,59 +625,6 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Admin.Default.Background.Disabled}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Default.Border}"/>
-                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="DefaultButtonSelectedtAdminTheme" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{StaticResource Button.Admin.Default.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
-        <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Selected.Foreground}"/>
-        <Setter Property="FontWeight" Value="UltraBlack"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="FontFamily" Value="Cooper Black"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Default.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Default.Border}"/>
-                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="DefaultButtonEmptyTheme" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{StaticResource Button.Default.Empty.Background}"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
-        <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Default.Empty.Pressed.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
                             <Setter Property="BorderThickness" TargetName="border" Value="10"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -766,17 +670,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-    <Style x:Key="DefaultRectangleTheme" TargetType="{x:Type Rectangle}">
-        <Setter Property="Fill" Value="{StaticResource Rectangle.Default.Background}"/>
-        <Setter Property="Stroke" Value="{StaticResource Default.Border}"/>
-        <Setter Property="StrokeThickness" Value="5"/>
-        <Setter Property="RadiusX" Value="15"/>
-        <Setter Property="RadiusY" Value="15"/>
-    </Style>
-    <Style x:Key="DefaultBorderTheme" TargetType="{x:Type Border}">
-        <Setter Property="BorderBrush" Value="{StaticResource Default.Border}"/>
-        <Setter Property="BorderThickness" Value="5"/>
     </Style>
     <!--#endregion-->
     <!--#endregion-->

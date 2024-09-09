@@ -21,8 +21,6 @@ namespace NewTillSystem.Resources.Scripts
         const string themeFile = "ThemeProperties.dat";
 
         public string currentThemeName;// = "Default";
-
-
         public string textButtonProperty = "PropertytButton";
         public string textButtonPropertySelected = "PropertytButtonSelected";
         public string textButtonTillNavigation = "TillNagivationButton";
@@ -32,32 +30,28 @@ namespace NewTillSystem.Resources.Scripts
         public string textButtonEmptyProduct = "EmptyProductButton";
         public string textKeyboardKeys = "KeyboardKeys";
         public string textKeyboardNumpad = "KeyboardNumpad";
-
-
-
-        public string textButtonAdminTheme = "ButtonAdminTheme";
-        public string textButtonAdminImageTheme = "ButtonAdminImageTheme";
-
-        public string textButtonEmptyTheme = "ButtonEmptyTheme";
-        public string textButtonQuickTheme = "ButtonQuickTheme";
-        public string textLabelDisplayTheme = "LabelDisplayTheme";
-        public string textTextBoxDisplayTheme = "TextBoxDisplayTheme";
-        public string textRectangleTheme = "RectangleTheme";
-        public string textBorderTheme = "BorderTheme";
         public string textScrollViewTheme = "ScrollViewTheme";
-        public string textComboBoxToggleTheme = "ComboBoxToggleTheme";
         public string textToggleTheme = "ToggleTheme";
+        public string textComboBoxToggleTheme = "ComboBoxToggleTheme";
+        public string textRectangleBackgroundTheme = "RectangleBackgroundTheme";
+        public string textBorderTheme = "BorderTheme";
+        public string textLabelDisplayBackgroundTheme = "LabelumpadTopBackground";
+        public string textTextBlockTheme = "TextBlockTheme";
+        public string textTextBoxDisplayTheme = "TextBoxDisplayTheme";
         public string textTextBoxDisplayThemeError = "TextBoxDisplayThemeError";
         public string textTextBoxDisplayThemeSelected = "TextBoxDisplayThemeSelected";
-        public string textButtonSelectedtAdminTheme = "ButtonSelectedtAdminTheme";
-        public string textTextBlockTheme = "TextBlockTheme";
-        public string textButtonForegroundSelectTheme = "ButtonForegroundSelectTheme";
-
-
         public string imgLoginSourceLocation = "/Resources/Images/";
         public string imgLoginSourceLocationFileType = ".jpg";
-        public string imgLoginFileName;
+        public string imgLoginBackgroundFileName;
         public string textLoginFileName;
+
+        public string textButtonAdminImageTheme = "ButtonAdminImageTheme";//??
+
+        
+
+
+
+
 
 
         public string currentButtonProperty;
@@ -69,39 +63,32 @@ namespace NewTillSystem.Resources.Scripts
         public string currentButtonEmptyProduct;
         public string currentKeyboardNumpad;
         public string currentKeyboardKeys;
-
-        public string currentButtonAdminTheme;
-        public string currentButtonAdminImageTheme;
-        public string currentButtonEmptyTheme;
-        public string currentButtonQuickTheme;
-        public string currentLabelDisplayTheme;
-        public string currentTextBoxDisplayTheme;
-        public string currentRectangleTheme;
-        public string currentBorderTheme;
         public string currentScrollViewTheme;
+        public string currentRectangleBackgroundTheme;
         public string currentComboBoxToggleTheme;
         public string currentToggleTheme;
+        public string currentLabelDisplayBackgroundTheme;
+        public string currentTextBlockTheme;
+        public string currentButtonAdminImageTheme;//??
+        public string currentTextBoxDisplayTheme;
         public string currentTextBoxDisplayThemeError;
         public string currentTextBoxDisplayThemeSelected;
-        public string currentButtonSelectedtAdminTheme;
-        public string currentTextBlockTheme;
-        public string currentButtonForegroundSelectTheme;
-        public string currentLoginFileName;
+        public string currentLoginBackgroundFileName;
+        public string currentBorderTheme;
+ 
 
         public void CreateThemeFile()
         {
             if (!File.Exists(themeFile))
             {
-                imgLoginFileName = "BarBackground";
-                textLoginFileName = imgLoginSourceLocation + imgLoginFileName + imgLoginSourceLocationFileType;
+                imgLoginBackgroundFileName = "BarBackground";
+                textLoginFileName = imgLoginSourceLocation + imgLoginBackgroundFileName + imgLoginSourceLocationFileType;
                 currentThemeName = "Default";
                 using (var stream = File.Open(themeFile, FileMode.Create))
                 {
                     using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
                     {
                         writer.Write(currentThemeName);
-
-
                         writer.Write(currentThemeName + textButtonProperty);
                         writer.Write(currentThemeName + textButtonPropertySelected);
                         writer.Write(currentThemeName + textButtonTillNavigation);
@@ -111,26 +98,23 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textButtonEmptyProduct);
                         writer.Write(currentThemeName + textKeyboardKeys);
                         writer.Write(currentThemeName + textKeyboardNumpad);
-
-
-                        writer.Write(currentThemeName + textButtonAdminTheme);
-                        writer.Write(currentThemeName + textButtonAdminImageTheme);
-                        writer.Write(currentThemeName + textButtonEmptyTheme);
-                        writer.Write(currentThemeName + textButtonQuickTheme);
-                        writer.Write(currentThemeName + textLabelDisplayTheme);
-                        writer.Write(currentThemeName + textTextBoxDisplayTheme);
-                        writer.Write(currentThemeName + textRectangleTheme);
-                        writer.Write(currentThemeName + textBorderTheme);
                         writer.Write(currentThemeName + textScrollViewTheme);
+                        writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textComboBoxToggleTheme);
+                        writer.Write(currentThemeName + textRectangleBackgroundTheme);
+                        writer.Write(currentThemeName + textLabelDisplayBackgroundTheme);
+                        writer.Write(currentThemeName + textTextBlockTheme);
+                        writer.Write(currentThemeName + textTextBoxDisplayTheme);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeError);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeSelected);
-                        writer.Write(currentThemeName + textButtonSelectedtAdminTheme);
-                        writer.Write(currentThemeName + textToggleTheme);
-                        writer.Write(currentThemeName + textTextBlockTheme);
-                        writer.Write(currentThemeName + textButtonForegroundSelectTheme);
+                        writer.Write(currentThemeName + textButtonAdminImageTheme);//??
                         writer.Write(textLoginFileName);
-                        writer.Write(imgLoginFileName);
+                        writer.Write(imgLoginBackgroundFileName);
+                        writer.Write(textBorderTheme);
+
+                        //STILL TO DO
+                        
+                        //done
                     }
                 }
             }
@@ -138,7 +122,7 @@ namespace NewTillSystem.Resources.Scripts
 
         public void UpdateThemeFile()
         {
-            currentLoginFileName = imgLoginSourceLocation + imgLoginFileName + imgLoginSourceLocationFileType;
+            currentLoginBackgroundFileName = imgLoginSourceLocation + imgLoginBackgroundFileName + imgLoginSourceLocationFileType;
             if (File.Exists(themeFile))
             {
                 using (var stream = File.Open(themeFile, FileMode.Create))
@@ -157,26 +141,23 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textButtonEmptyProduct);
                         writer.Write(currentThemeName + textKeyboardKeys);
                         writer.Write(currentThemeName + textKeyboardNumpad);
-
-
-                        writer.Write(currentThemeName + textButtonAdminTheme);
-                        writer.Write(currentThemeName + currentButtonAdminImageTheme);
-                        writer.Write(currentThemeName + textButtonEmptyTheme);
-                        writer.Write(currentThemeName + textButtonQuickTheme);
-                        writer.Write(currentThemeName + textLabelDisplayTheme);
-                        writer.Write(currentThemeName + textTextBoxDisplayTheme);
-                        writer.Write(currentThemeName + textRectangleTheme);
-                        writer.Write(currentThemeName + textBorderTheme);
                         writer.Write(currentThemeName + textScrollViewTheme);
+                        writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textComboBoxToggleTheme);
+                        writer.Write(currentThemeName + textRectangleBackgroundTheme);
+                        writer.Write(currentThemeName + textLabelDisplayBackgroundTheme);
+                        writer.Write(currentThemeName + textTextBlockTheme);
+                        writer.Write(currentThemeName + textTextBoxDisplayTheme);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeError);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeSelected);
-                        writer.Write(currentThemeName + textButtonSelectedtAdminTheme);
-                        writer.Write(currentThemeName + textToggleTheme);
-                        writer.Write(currentThemeName + textTextBlockTheme);
-                        writer.Write(currentThemeName + textButtonForegroundSelectTheme);
-                        writer.Write(currentLoginFileName);
-                        writer.Write(imgLoginFileName);
+                        writer.Write(currentThemeName + currentButtonAdminImageTheme);//??
+                        writer.Write(currentLoginBackgroundFileName);
+                        writer.Write(imgLoginBackgroundFileName);
+                        writer.Write(textBorderTheme);
+
+
+                        //STILL TO DO
+                        //DONE
                     }
                 }
             }
@@ -207,26 +188,24 @@ namespace NewTillSystem.Resources.Scripts
                         currentButtonEmptyProduct = reader.ReadString();
                         currentKeyboardKeys = reader.ReadString();
                         currentKeyboardNumpad = reader.ReadString();
-
-
-                        currentButtonAdminTheme = reader.ReadString();
-                        currentButtonAdminImageTheme = reader.ReadString();
-                        currentButtonEmptyTheme = reader.ReadString();
-                        currentButtonQuickTheme = reader.ReadString();
-                        currentLabelDisplayTheme = reader.ReadString();
-                        currentTextBoxDisplayTheme = reader.ReadString();
-                        currentRectangleTheme = reader.ReadString();
-                        currentBorderTheme = reader.ReadString();
                         currentScrollViewTheme = reader.ReadString();
+                        currentToggleTheme = reader.ReadString();
                         currentComboBoxToggleTheme = reader.ReadString();
+                        currentRectangleBackgroundTheme = reader.ReadString();
+                        currentLabelDisplayBackgroundTheme = reader.ReadString();
+                        currentTextBlockTheme = reader.ReadString();
+                        currentTextBoxDisplayTheme = reader.ReadString();
                         currentTextBoxDisplayThemeError = reader.ReadString();
                         currentTextBoxDisplayThemeSelected = reader.ReadString();
-                        currentButtonSelectedtAdminTheme = reader.ReadString();
-                        currentToggleTheme = reader.ReadString();
-                        currentTextBlockTheme = reader.ReadString();
-                        currentButtonForegroundSelectTheme = reader.ReadString();
-                        currentLoginFileName = reader.ReadString();
-                        imgLoginFileName = reader.ReadString();
+                        currentButtonAdminImageTheme = reader.ReadString();
+                        currentLoginBackgroundFileName = reader.ReadString();
+                        imgLoginBackgroundFileName = reader.ReadString();
+                        currentBorderTheme = reader.ReadString();
+
+
+                        //STILL TO DO
+
+                        //DONE
                     }
                 }
             }
@@ -267,7 +246,7 @@ namespace NewTillSystem.Resources.Scripts
                     }
                 }
             }
-            tillScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[currentLabelDisplayTheme];
+            tillScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[currentLabelDisplayBackgroundTheme];
         }
     }
 }

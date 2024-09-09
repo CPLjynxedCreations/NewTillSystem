@@ -97,7 +97,7 @@
                     Tag="QuickPick" Content="CASH"/>
             <Rectangle x:Name="bgAdminHeader"
                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
-                       Style="{StaticResource DefaultLabelDisplayTheme}"/>
+                       Style="{StaticResource DefaultLabelumpadTopBackground}"/>
             <TextBlock x:Name="lblAdminNumAmount" Style="{StaticResource DefaultTextBlockTheme}"
                        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                        VerticalAlignment="Center" HorizontalAlignment="Center"

@@ -62,26 +62,30 @@ namespace NewTillSystem
         public string tillNavigationButtonTheme;
         public string tillNavigationManageCloseButtonTheme;
         public string tillNumpadTheme;
+        public string tillQuickTheme;
         public string keyboardKeyTheme;
         public string keyboardNumpadTheme;
 
+        public string scrViewTheme;
+        public string rectangleBackgroundTheme;
 
+        public string loginThemeBackground;
+
+        
+        
         public string adminButtonTheme;
         public string adminButtonImageTheme;
-        public string quickButtonTheme;
         public string emptyButtonTheme;
         public string adminButtonSelected;
         public string labelBoxTheme;
         public string txtBoxLabelTheme;
         public string txtBoxSelectLabelTheme;
-        public string rectangleTheme;
+        
         public string borderTheme;
-        public string scrViewTheme;
         public string comboBoxTheme;
         public string toggleTheme;
         public string errorBoxTheme;
         public string labelTheme;
-        public string loginThemeBackground;
 
 
         public TillScreen()
@@ -122,22 +126,24 @@ namespace NewTillSystem
             keyboardKeyTheme = themeController.currentKeyboardKeys;
             keyboardNumpadTheme = themeController.currentKeyboardNumpad;
 
-            adminButtonTheme = themeController.currentButtonAdminTheme;
-            adminButtonImageTheme = themeController.currentButtonAdminImageTheme;
-            adminButtonSelected = themeController.currentButtonSelectedtAdminTheme;
-            quickButtonTheme = themeController.currentButtonQuickTheme;
-            emptyButtonTheme = themeController.currentButtonEmptyTheme;
-            labelBoxTheme = themeController.currentLabelDisplayTheme;
-            txtBoxLabelTheme = themeController.currentTextBoxDisplayTheme;
-            rectangleTheme = themeController.currentRectangleTheme;
-            borderTheme = themeController.currentBorderTheme;
+            rectangleBackgroundTheme = themeController.currentRectangleBackgroundTheme;
             scrViewTheme = themeController.currentScrollViewTheme;
+            labelBoxTheme = themeController.currentLabelDisplayBackgroundTheme;
+
+            loginThemeBackground = themeController.currentLoginBackgroundFileName;
+
+            adminButtonImageTheme = themeController.currentButtonAdminImageTheme;//??
+
+            emptyButtonTheme = themeController.currentButtonEmptyProduct;
+            txtBoxLabelTheme = themeController.currentTextBoxDisplayTheme;
+            
+            borderTheme = themeController.currentBorderTheme;
             comboBoxTheme = themeController.currentComboBoxToggleTheme;
             errorBoxTheme = themeController.currentTextBoxDisplayThemeError;
             txtBoxSelectLabelTheme = themeController.currentTextBoxDisplayThemeSelected;
             toggleTheme = themeController.currentToggleTheme;
             labelTheme = themeController.currentTextBlockTheme;
-            loginThemeBackground = themeController.currentLoginFileName;
+            
         }
 
 
@@ -255,14 +261,14 @@ namespace NewTillSystem
                 }
                 productEdit.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
                 productEdit.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
-                productEdit.rctProductBorder.Style = (Style)Application.Current.Resources[rectangleTheme];
+                productEdit.rctProductBorder.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
                 productEdit.scrlButtonColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
                 productEdit.scrlButtonForegroundColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
                 productEdit.brdButtonColor.Style = (Style)Application.Current.Resources[borderTheme];
                 productEdit.brdButtonForegroundColor.Style = (Style)Application.Current.Resources[borderTheme];
                 productEdit.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
-                productEdit.brdButtonForegroundColorSelectBase.Style = (Style)Application.Current.Resources[rectangleTheme];
-                productEdit.brdButtonColorSelectBase.Style = (Style)Application.Current.Resources[rectangleTheme];
+                productEdit.brdButtonForegroundColorSelectBase.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
+                productEdit.brdButtonColorSelectBase.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
                 foreach (UIElement button in productEdit.grProductPanel.Children)
                 {
                     if (button.GetType() == typeof(Button))
@@ -434,7 +440,7 @@ namespace NewTillSystem
                 }
             }
             //change to foreach when more are made
-            TillPropertiesWindow.rctPropertyWindow1.Style = (Style)Application.Current.Resources[rectangleTheme];
+            TillPropertiesWindow.rctPropertyWindow1.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
             TillPropertiesWindow.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.brdPageBreak2.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.brdBackgroundScroll.Style = (Style)Application.Current.Resources[borderTheme];
@@ -486,7 +492,7 @@ namespace NewTillSystem
                 }
             }
             openEditStaff.btnFilterStaff1.Style = (Style)Application.Current.Resources[propertyButtonSelectedTheme];
-            openEditStaff.rctStaffScreen.Style = (Style)Application.Current.Resources[rectangleTheme];
+            openEditStaff.rctStaffScreen.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
             openEditStaff.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
             openEditStaff.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
             openEditStaff.brdScrollWindow.Style = (Style)Application.Current.Resources[borderTheme];

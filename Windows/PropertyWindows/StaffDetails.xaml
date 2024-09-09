@@ -14,8 +14,8 @@
         <Grid x:Name="grStaffWindow"
               Width="950" Height="530"
               VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Rectangle x:Name="rctStaffScreen" Style="{StaticResource DefaultRectangleTheme}"/>
-            <Border x:Name="brdPageBreak1" Style="{StaticResource DefaultBorderTheme}"
+            <Rectangle x:Name="rctStaffScreen" Style="{StaticResource DefaultRectangleBackgroundTheme}"/>
+            <Border x:Name="brdPageBreak1" Style="{StaticResource BorderTheme}"
                     Width="5"/>
             <Button x:Name="btnOk" Style="{DynamicResource DefaultPropertytButton}" Click="btnOk_Click"
                     Width="180" Height="80"
@@ -123,7 +123,7 @@
                           Width="300" Height="300"
                           VerticalAlignment="Top" HorizontalAlignment="Right"
                           Margin="0,80,140,0">
-                <Border x:Name="brdScrollWindow" Style="{StaticResource DefaultBorderTheme}">
+                <Border x:Name="brdScrollWindow" Style="{StaticResource BorderTheme}">
                     <StackPanel x:Name="panelExistingStaff"
                                 GotFocus="CheckTxtBoxFocus">
                         <!-- MAKE BUTTON THHEME FOR STACK-->

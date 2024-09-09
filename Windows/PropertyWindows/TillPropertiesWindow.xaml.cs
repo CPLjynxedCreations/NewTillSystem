@@ -29,7 +29,7 @@ namespace NewTillSystem.Windows
             themeController = new ThemeController();
             themeController.ReadTheme();
             theme = themeController.currentThemeName;
-            selectedLoginBackground = themeController.imgLoginFileName;
+            selectedLoginBackground = themeController.imgLoginBackgroundFileName;
             
 
             if (theme == "Default")
@@ -49,8 +49,8 @@ namespace NewTillSystem.Windows
                 themeController.currentThemeName = boxSelectTheme.Text;
                 themeController.UpdateThemeFile();
             }
-            themeController.imgLoginFileName = selectedLoginBackground;
-            Debug.WriteLine("theme " + themeController.imgLoginFileName);
+            themeController.imgLoginBackgroundFileName = selectedLoginBackground;
+            Debug.WriteLine("theme " + themeController.imgLoginBackgroundFileName);
             themeController.ReadTheme();
             themeController.SetTheme();
         }
@@ -59,7 +59,7 @@ namespace NewTillSystem.Windows
         {
             Button button = sender as Button;
             selectedLoginBackground = Convert.ToString(button.Name);
-            themeController.imgLoginFileName = selectedLoginBackground;
+            themeController.imgLoginBackgroundFileName = selectedLoginBackground;
             themeController.UpdateThemeFile();
         }
     }

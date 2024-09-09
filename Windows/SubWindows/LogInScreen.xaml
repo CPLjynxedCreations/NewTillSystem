@@ -107,7 +107,7 @@
             <Button x:Name="btnAdminNum9" Style="{DynamicResource DefaultTillNumpad}"
                     Grid.Row="1" Grid.Column="2"
                     Content="9"/>
-            <Rectangle x:Name="bgAdminHeader" Style="{DynamicResource DefaultLabelDisplayTheme}"
+            <Rectangle x:Name="bgAdminHeader" Style="{DynamicResource DefaultLabelumpadTopBackground}"
                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
             <TextBlock x:Name="lblAdminNumAmount" Style="{StaticResource DefaultTextBlockTheme}"
                        VerticalAlignment="Center" HorizontalAlignment="Center"

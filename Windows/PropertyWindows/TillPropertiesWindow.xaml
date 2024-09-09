@@ -11,12 +11,12 @@
         Height="742" Width="1487">
     <!-- Height="740" Width="620"> -->
     <Grid x:Name="grdProperty">
-        <Rectangle x:Name="rctPropertyWindow1" Style="{StaticResource DefaultRectangleTheme}"/>
-        <Border x:Name="brdPageBreak1" Style="{StaticResource DefaultBorderTheme}"
+        <Rectangle x:Name="rctPropertyWindow1" Style="{StaticResource DefaultRectangleBackgroundTheme}"/>
+        <Border x:Name="brdPageBreak1" Style="{StaticResource BorderTheme}"
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Margin="495,0,0,0"
                 Width="5" Height="742"/>
-        <Border x:Name="brdPageBreak2" Style="{StaticResource DefaultBorderTheme}"
+        <Border x:Name="brdPageBreak2" Style="{StaticResource BorderTheme}"
                 Margin="990,0,0,0"
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Width="5" Height="742"/>
@@ -44,7 +44,7 @@
                           Width="420" Height="300"
                           HorizontalAlignment="Left" VerticalAlignment="Bottom"
                           Margin="40,0,0,30">
-            <Border x:Name="brdBackgroundScroll" Style="{StaticResource DefaultBorderTheme}" CornerRadius="10,10,0,0">
+            <Border x:Name="brdBackgroundScroll" Style="{StaticResource BorderTheme}" CornerRadius="10,10,0,0">
                 <StackPanel x:Name="panelBackgroundSelect">
                     <Grid>
                         <Grid.ColumnDefinitions>

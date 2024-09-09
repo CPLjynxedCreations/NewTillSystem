@@ -64,8 +64,6 @@ namespace NewTillSystem.Windows
         private string errorBoxThemeStaff;
         private string txtBoxLabelThemeStaff;
         private string txtBoxLabelSelectedThemeStaff;
-        private string adminButtonThemeStaff;
-        private string adminButtonSelectedThemeStaff;
         private string toggleThemeStaff;
 
         public StaffDetails()
@@ -75,16 +73,11 @@ namespace NewTillSystem.Windows
             tillScreen = (TillScreen)Application.Current.MainWindow;
 
 
-            propertyButtonStaff = tillScreen.adminButtonSelected;
-            propertyButtonSelectdStaff = tillScreen.adminButtonTheme;
-
 
             toggleThemeStaff = tillScreen.toggleTheme;
             errorBoxThemeStaff = tillScreen.errorBoxTheme;
             txtBoxLabelThemeStaff = tillScreen.txtBoxLabelTheme;
             txtBoxLabelSelectedThemeStaff = tillScreen.txtBoxSelectLabelTheme;
-            adminButtonSelectedThemeStaff = tillScreen.adminButtonSelected;
-            adminButtonThemeStaff = tillScreen.adminButtonTheme;
 
             propertyButtonStaff = tillScreen.propertyButtonTheme;
             propertyButtonSelectdStaff = tillScreen.propertyButtonSelectedTheme;
