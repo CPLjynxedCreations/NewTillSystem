@@ -11,7 +11,7 @@
         Height="742" Width="1487">
     <!-- Height="740" Width="620"> -->
     <Grid x:Name="grdProperty">
-        <Rectangle x:Name="rctPropertyWindow1" Style="{StaticResource LightBlueRectangleBackgroundTheme}"/>
+        <Rectangle x:Name="rctPropertyWindow1" Style="{StaticResource DefaultRectangleBackgroundTheme}"/>
         <Border x:Name="brdPageBreak1" Style="{StaticResource BorderTheme}"
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Margin="495,0,0,0"
@@ -20,12 +20,12 @@
                 Margin="990,0,0,0"
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Width="5" Height="742"/>
-        <TextBlock x:Name="lblThemeName" Style="{StaticResource LightBlueTextBlockTheme}"
+        <TextBlock x:Name="lblThemeName" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Top" HorizontalAlignment="Left"
                        Text="Till Theme"
                        Margin="40,30,0,0"/>
-        <ComboBox x:Name="boxSelectTheme" Style="{DynamicResource LightBlueComboBoxToggleTheme}"
+        <ComboBox x:Name="boxSelectTheme" Style="{DynamicResource DefaultComboBoxToggleTheme}"
                       Width="350" Height="50"
                       FontSize="22" FontWeight="Bold" Padding="15,10,0,0"
                       VerticalAlignment="Top" HorizontalAlignment="Left"
@@ -37,12 +37,12 @@
             <ComboBoxItem x:Name="boxThemeSelectLightBlue" Tag="LightBlue" Content="LightBlue"/>
         </ComboBox>
 
-        <TextBlock x:Name="lblLoginBackground" Style="{StaticResource LightBlueTextBlockTheme}"
+        <TextBlock x:Name="lblLoginBackground" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Bottom" HorizontalAlignment="Left"
                        Text="Log In Background"
                        Margin="40,0,0,330"/>
-        <ScrollViewer x:Name="scrlThemeSelect" Style="{StaticResource LightBlueScrollViewTheme}"
+        <ScrollViewer x:Name="scrlThemeSelect" Style="{StaticResource DefaultScrollViewTheme}"
                           Width="420" Height="300"
                           HorizontalAlignment="Left" VerticalAlignment="Bottom"
                           Margin="40,0,0,30">
@@ -53,18 +53,53 @@
                             <ColumnDefinition Width="197"/>
                             <ColumnDefinition Width="197"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="BarBackground" Style="{StaticResource LightBlueButtonAdminImageTheme}" Click="LoginBackground_Click"
-                                Grid.Column="0" 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="90"/>                            
+                            <RowDefinition Height="90"/>                            
+                            <RowDefinition Height="90"/>                            
+                        </Grid.RowDefinitions>
+                        <Button x:Name="BarBackground" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="0" Grid.Row="0"
                                 Height="90">
                             <Button.Background>
                                 <ImageBrush ImageSource="\Resources\Images\BarBackground.jpg"/>
                             </Button.Background>
                         </Button>
-                        <Button x:Name="CoffeeBackGround" Style="{StaticResource LightBlueButtonAdminImageTheme}" Click="LoginBackground_Click"
-                                Grid.Column="1"
+                        <Button x:Name="CoffeeBackGround" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="1" Grid.Row="0"
                                 Height="90">
                             <Button.Background>
                                 <ImageBrush ImageSource="\Resources\Images\CoffeeBackground.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="BeerBackGround1" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="0" Grid.Row="1"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BeerBackground1.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="BeerBackGround2" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="1" Grid.Row="1"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BeerBackground2.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="BeerBackGround3" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="0" Grid.Row="2"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BeerBackground3.jpg"/>
+                            </Button.Background>
+                        </Button>
+
+                        <Button x:Name="GreyCuttleryBackGround" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="1"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\GreyCuttleryBackground.jpg"/>
                             </Button.Background>
                         </Button>
                     </Grid>
@@ -72,17 +107,17 @@
             </Border>
         </ScrollViewer>
 
-        <Button x:Name="btnApply" Style="{DynamicResource LightBluePropertytButton}" Click="btnApply_Click"
+        <Button x:Name="btnApply" Style="{DynamicResource DefaultPropertytButton}" Click="btnApply_Click"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Margin="0,0,260,30"
                     Tag="AdminTheme" Content="APPLY"/>
-        <Button x:Name="btnCancel" Style="{DynamicResource LightBluePropertytButton}"
+        <Button x:Name="btnCancel" Style="{DynamicResource DefaultPropertytButton}"
                     Width="180" Height="80"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     Margin="0,0,40,30"
                     Tag="AdminTheme" Content="CANCEL"/>
-        <Button x:Name="btnTillPropertiesWindowClose" Style="{StaticResource LightBluePropertytButton}"
+        <Button x:Name="btnTillPropertiesWindowClose" Style="{StaticResource DefaultPropertytButton}"
                 HorizontalAlignment="Right" VerticalAlignment="Top"
                 Width="80" Height="60"
                 Margin="0,30,30,0"
