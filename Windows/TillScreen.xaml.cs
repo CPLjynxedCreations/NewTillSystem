@@ -65,22 +65,17 @@ namespace NewTillSystem
         public string tillQuickTheme;
         public string keyboardKeyTheme;
         public string keyboardNumpadTheme;
-
         public string scrViewTheme;
         public string rectangleBackgroundTheme;
-
         public string loginThemeBackground;
-
-        
-        
         public string adminButtonTheme;
         public string adminButtonImageTheme;
         public string emptyButtonTheme;
         public string adminButtonSelected;
+        public string keyboardBackground;
         public string labelBoxTheme;
         public string txtBoxLabelTheme;
         public string txtBoxSelectLabelTheme;
-        
         public string borderTheme;
         public string comboBoxTheme;
         public string toggleTheme;
@@ -91,7 +86,7 @@ namespace NewTillSystem
         public TillScreen()
         {
             themeController = new ThemeController();
-            //themeController.currentThemeName = "LightBlue";
+            themeController.currentThemeName = "Red";
             InitializeComponent();
             this.DataContext = this;
             SetTill();
@@ -125,18 +120,14 @@ namespace NewTillSystem
             tillQuickTheme = themeController.currentButtonTillQuick;
             keyboardKeyTheme = themeController.currentKeyboardKeys;
             keyboardNumpadTheme = themeController.currentKeyboardNumpad;
-
+            keyboardBackground = themeController.currentKeyboardBackground;
             rectangleBackgroundTheme = themeController.currentRectangleBackgroundTheme;
             scrViewTheme = themeController.currentScrollViewTheme;
             labelBoxTheme = themeController.currentLabelDisplayBackgroundTheme;
-
             loginThemeBackground = themeController.currentLoginBackgroundFileName;
-
-            adminButtonImageTheme = themeController.currentButtonAdminImageTheme;//??
-
+            adminButtonImageTheme = themeController.currentButtonAdminImageTheme;
             emptyButtonTheme = themeController.currentButtonEmptyProduct;
             txtBoxLabelTheme = themeController.currentTextBoxDisplayTheme;
-            
             borderTheme = themeController.currentBorderTheme;
             comboBoxTheme = themeController.currentComboBoxToggleTheme;
             errorBoxTheme = themeController.currentTextBoxDisplayThemeError;
@@ -259,8 +250,8 @@ namespace NewTillSystem
                         keyboardButton.Style = (Style)Application.Current.Resources[keyboardNumpadTheme];
                     }
                 }
-                productEdit.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
-                productEdit.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
+                productEdit.rctKeyboard.Style = (Style)Application.Current.Resources[keyboardBackground];
+                productEdit.rctNumpad.Style = (Style)Application.Current.Resources[keyboardBackground];
                 productEdit.rctProductBorder.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
                 productEdit.scrlButtonColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
                 productEdit.scrlButtonForegroundColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
@@ -377,7 +368,7 @@ namespace NewTillSystem
                         }
                     }
                 }
-                openManageWindow.rctManageWindow.Style = (Style)Application.Current.Resources[labelBoxTheme];
+                openManageWindow.rctManageWindow.Style = (Style)Application.Current.Resources[keyboardBackground];
                 openManageWindow.Owner = Application.Current.MainWindow;
                 openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 if (boolCanEditProduct)
@@ -445,6 +436,7 @@ namespace NewTillSystem
             TillPropertiesWindow.brdPageBreak2.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.brdBackgroundScroll.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.scrlThemeSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+            TillPropertiesWindow.boxSelectTheme.Style = (Style)Application.Current.Resources[comboBoxTheme];
             TillPropertiesWindow.ShowDialog();
         }
 
@@ -493,8 +485,8 @@ namespace NewTillSystem
             }
             openEditStaff.btnFilterStaff1.Style = (Style)Application.Current.Resources[propertyButtonSelectedTheme];
             openEditStaff.rctStaffScreen.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
-            openEditStaff.rctKeyboard.Style = (Style)Application.Current.Resources[labelBoxTheme];
-            openEditStaff.rctNumpad.Style = (Style)Application.Current.Resources[labelBoxTheme];
+            openEditStaff.rctKeyboard.Style = (Style)Application.Current.Resources[keyboardBackground];
+            openEditStaff.rctNumpad.Style = (Style)Application.Current.Resources[keyboardBackground];
             openEditStaff.brdScrollWindow.Style = (Style)Application.Current.Resources[borderTheme];
             openEditStaff.scrlSelectExistingStaff.Style = (Style)Application.Current.Resources[scrViewTheme];
             openEditStaff.boxSelectRole.Style = (Style)Application.Current.Resources[comboBoxTheme];

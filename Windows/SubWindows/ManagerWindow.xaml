@@ -14,7 +14,7 @@
           Height="550" Width="970">
         <Rectangle x:Name="rctManageWindow"
                    Grid.RowSpan="6" Grid.ColumnSpan="4"
-                   Style="{DynamicResource DefaultLabelDisplayTheme}"/>
+                   Style="{DynamicResource LightBlueRectangleKeyboardBackground}"/>
         <Grid x:Name="grManageButtons"
           VerticalAlignment="Center" HorizontalAlignment="Center"
           Height="540" Width="960"
@@ -33,99 +33,99 @@
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="90"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnManage1" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage1" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="0" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage2" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage2" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="0" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage3" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage3" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="0" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage4" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage4" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="0" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage5" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage5" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="1" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage6" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage6" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="1" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage7" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage7" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="1" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage8" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage8" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="1" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage9" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage9" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="2" Grid.Column="0"
                 Width="240" Height="90"
                 x:FieldModifier="public" Content=""/>
-            <Button x:Name="btnManage10" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage10" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="2" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage11" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage11" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="2" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage12" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage12" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="2" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage13" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage13" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="3" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage14" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage14" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="3" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage15" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage15" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="3" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage16" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage16" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="3" Grid.Column="3"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage17" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage17" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="4" Grid.Column="0"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage18" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage18" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="4" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManage19" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage19" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="4" Grid.Column="2"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManageEditProducts" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManageEditProducts" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="4" Grid.Column="3"
                 Width="240" Height="90"
                 Content="EDIT PRODUCTS"/>
-            <Button x:Name="btnManageAdmin" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManageAdmin" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="6" Grid.Column="0"
                 Width="240" Height="90"
                 Content="ADMIN"/>
-            <Button x:Name="btnManage22" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManage22" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="5" Grid.Column="1"
                 Width="240" Height="90"
                 Content=""/>
-            <Button x:Name="btnManageEditStaff" Style="{DynamicResource DefaultTillNagivationButton}"
+            <Button x:Name="btnManageEditStaff" Style="{DynamicResource LightBlueTillNagivationButton}"
                 Grid.Row="5" Grid.Column="2"
                 Width="240" Height="90"
                 Content="EDIT STAFF" />
-            <Button x:Name="btnManageClose" Style="{DynamicResource DefaultManageWindowCloseButton}"
+            <Button x:Name="btnManageClose" Style="{DynamicResource LightBlueManageWindowCloseButton}"
                 Grid.Row="6" Grid.Column="3"
                 Width="240" Height="90"
                 Content="CLOSE"/>

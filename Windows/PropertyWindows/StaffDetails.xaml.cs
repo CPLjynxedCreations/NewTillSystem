@@ -112,8 +112,6 @@ namespace NewTillSystem.Windows
                     ToggleButton tglStaff = new ToggleButton();
                     tglStaff.Name = readXlsxDataStaffName + readXlsxDataStaffLastName;
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
-                    
-                    //tglStaff.Style = (Style)Application.Current.Resources["LightBlueToggleTheme"];
                     tglStaff.Style = (Style)Application.Current.Resources[toggleThemeStaff];
                     tglStaff.Checked += tglStaff_Checked;
                     if (tglStaff.Content != strEmpty)

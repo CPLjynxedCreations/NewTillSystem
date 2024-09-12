@@ -20,7 +20,7 @@ namespace NewTillSystem.Resources.Scripts
 
         const string themeFile = "ThemeProperties.dat";
 
-        public string currentThemeName;// = "Default";
+        public string currentThemeName;
         public string textButtonProperty = "PropertytButton";
         public string textButtonPropertySelected = "PropertytButtonSelected";
         public string textButtonTillNavigation = "TillNagivationButton";
@@ -30,6 +30,7 @@ namespace NewTillSystem.Resources.Scripts
         public string textButtonEmptyProduct = "EmptyProductButton";
         public string textKeyboardKeys = "KeyboardKeys";
         public string textKeyboardNumpad = "KeyboardNumpad";
+        public string textKeyboardBackground= "RectangleKeyboardBackground";
         public string textScrollViewTheme = "ScrollViewTheme";
         public string textToggleTheme = "ToggleTheme";
         public string textComboBoxToggleTheme = "ComboBoxToggleTheme";
@@ -44,15 +45,7 @@ namespace NewTillSystem.Resources.Scripts
         public string imgLoginSourceLocationFileType = ".jpg";
         public string imgLoginBackgroundFileName;
         public string textLoginFileName;
-
         public string textButtonAdminImageTheme = "ButtonAdminImageTheme";//??
-
-        
-
-
-
-
-
 
         public string currentButtonProperty;
         public string currentButtonPropertySelected;
@@ -63,6 +56,7 @@ namespace NewTillSystem.Resources.Scripts
         public string currentButtonEmptyProduct;
         public string currentKeyboardNumpad;
         public string currentKeyboardKeys;
+        public string currentKeyboardBackground;
         public string currentScrollViewTheme;
         public string currentRectangleBackgroundTheme;
         public string currentComboBoxToggleTheme;
@@ -98,6 +92,7 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textButtonEmptyProduct);
                         writer.Write(currentThemeName + textKeyboardKeys);
                         writer.Write(currentThemeName + textKeyboardNumpad);
+                        writer.Write(currentThemeName + textKeyboardBackground);
                         writer.Write(currentThemeName + textScrollViewTheme);
                         writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textComboBoxToggleTheme);
@@ -111,10 +106,6 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(textLoginFileName);
                         writer.Write(imgLoginBackgroundFileName);
                         writer.Write(textBorderTheme);
-
-                        //STILL TO DO
-                        
-                        //done
                     }
                 }
             }
@@ -130,8 +121,6 @@ namespace NewTillSystem.Resources.Scripts
                     using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
                     {
                         writer.Write(currentThemeName);
-
-
                         writer.Write(currentThemeName + textButtonProperty);
                         writer.Write(currentThemeName + textButtonPropertySelected);
                         writer.Write(currentThemeName + textButtonTillNavigation);
@@ -141,6 +130,7 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textButtonEmptyProduct);
                         writer.Write(currentThemeName + textKeyboardKeys);
                         writer.Write(currentThemeName + textKeyboardNumpad);
+                        writer.Write(currentThemeName + textKeyboardBackground);
                         writer.Write(currentThemeName + textScrollViewTheme);
                         writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textComboBoxToggleTheme);
@@ -154,10 +144,6 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentLoginBackgroundFileName);
                         writer.Write(imgLoginBackgroundFileName);
                         writer.Write(textBorderTheme);
-
-
-                        //STILL TO DO
-                        //DONE
                     }
                 }
             }
@@ -178,7 +164,6 @@ namespace NewTillSystem.Resources.Scripts
                     using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
                     {
                         currentThemeName = reader.ReadString();
-
                         currentButtonProperty = reader.ReadString();
                         currentButtonPropertySelected = reader.ReadString();
                         currentButtonTillNavigation = reader.ReadString();
@@ -188,6 +173,7 @@ namespace NewTillSystem.Resources.Scripts
                         currentButtonEmptyProduct = reader.ReadString();
                         currentKeyboardKeys = reader.ReadString();
                         currentKeyboardNumpad = reader.ReadString();
+                        currentKeyboardBackground = reader.ReadString();
                         currentScrollViewTheme = reader.ReadString();
                         currentToggleTheme = reader.ReadString();
                         currentComboBoxToggleTheme = reader.ReadString();
@@ -201,11 +187,6 @@ namespace NewTillSystem.Resources.Scripts
                         currentLoginBackgroundFileName = reader.ReadString();
                         imgLoginBackgroundFileName = reader.ReadString();
                         currentBorderTheme = reader.ReadString();
-
-
-                        //STILL TO DO
-
-                        //DONE
                     }
                 }
             }

@@ -30,15 +30,23 @@ namespace NewTillSystem.Windows
             themeController.ReadTheme();
             theme = themeController.currentThemeName;
             selectedLoginBackground = themeController.imgLoginBackgroundFileName;
-            
+
 
             if (theme == "Default")
             {
                 boxSelectTheme.SelectedItem = boxThemeSelectDefualt;
             }
+            if (theme == "LightGreen")
+            {
+                boxSelectTheme.SelectedItem = boxThemeSelectLightGreen;
+            }
             if (theme == "LightBlue")
             {
                 boxSelectTheme.SelectedItem = boxThemeSelectLightBlue;
+            }
+            if (theme == "DarkRed")
+            {
+                boxSelectTheme.SelectedItem = boxThemeSelectDarkRed;
             }
         }
 
