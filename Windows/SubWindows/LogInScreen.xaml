@@ -28,7 +28,7 @@
                    Margin="33,240,0,0"/>
         <TextBlock x:Name="lblLoginTime"
                    VerticalAlignment="Top" HorizontalAlignment="Right"
-                   FontSize="60" FontWeight="UltraBlack" FontFamily="Comic Sans MS" Foreground="White"
+                   FontSize="60" FontWeight="UltraBlack" FontFamily="Comic Sans MS" Foreground="#702963"
                    Text="TIME"
                    Margin="0,30,33,0"/>
         <TextBlock x:Name="lblLoginDate"

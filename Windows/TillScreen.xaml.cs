@@ -22,6 +22,7 @@ using TextBox = System.Windows.Controls.TextBox;
 using DocumentFormat.OpenXml.Vml;
 using DocumentFormat.OpenXml.Bibliography;
 using Microsoft.Windows.Themes;
+using System.Drawing;
 
 namespace NewTillSystem
 {
@@ -155,7 +156,8 @@ namespace NewTillSystem
                 }
             }
             logInScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[labelBoxTheme];
-            SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(loginTimeColor);
+            var brushConverter = new BrushConverter();
+            var colorBrush = (Brush)brushConverter.ConvertFrom(loginTimeColor);
             logInScreen.lblLoginDate.Foreground = colorBrush;
             logInScreen.lblLoginTime.Foreground = colorBrush;
             logInScreen.lblToBe18Date.Foreground = colorBrush;

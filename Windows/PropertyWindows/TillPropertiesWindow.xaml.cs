@@ -34,7 +34,7 @@ namespace NewTillSystem.Windows
             selectedLoginTimeForeground = themeController.currentLabelLoginScreenTimeColor;
             selectedLoginBackground = themeController.imgLoginBackgroundFileName;
 
-
+            #region THEME SELECTED
             if (theme == "Default")
             {
                 boxSelectTheme.SelectedItem = boxThemeSelectDefualt;
@@ -51,31 +51,46 @@ namespace NewTillSystem.Windows
             {
                 boxSelectTheme.SelectedItem = boxThemeSelectDarkRed;
             }
+            #endregion
 
+            #region LOGIN LABEL COLOR SELECTED
             if (selectedLoginTimeForeground == "White")
             {
                 boxSelectLoginTimeColor.SelectedItem = boxTimeWhite;
             }
-            if (selectedLoginTimeForeground == "Red")
+            if (selectedLoginTimeForeground == "#EE4B2B")
             {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeRed;
+                boxSelectLoginTimeColor.SelectedItem = boxTimeLightRed;
             }
-            if (selectedLoginTimeForeground == "Green")
+            if (selectedLoginTimeForeground == "#4CBB17")
             {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeGreen;
+                boxSelectLoginTimeColor.SelectedItem = boxTimeLightGreen;
             }
-            if (selectedLoginTimeForeground == "Orange")
+            if (selectedLoginTimeForeground == "#E0B0FF")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeLightPurple;
+            }
+            if (selectedLoginTimeForeground == "#880808")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkRed;
+            }
+            if (selectedLoginTimeForeground == "#355E3B")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkGreen;
+            }
+            if (selectedLoginTimeForeground == "#702963")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkPurple;
+            }
+            if (selectedLoginTimeForeground == "#FF7518")
             {
                 boxSelectLoginTimeColor.SelectedItem = boxTimeOrange;
             }
-            if (selectedLoginTimeForeground == "Purple")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimePurple;
-            }
-            if (selectedLoginTimeForeground == "Aqua")
+            if (selectedLoginTimeForeground == "#00FFFF")
             {
                 boxSelectLoginTimeColor.SelectedItem = boxTimeAqua;
             }
+            #endregion
         }
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
@@ -86,8 +101,21 @@ namespace NewTillSystem.Windows
             }
             if (boxSelectTheme.Text != string.Empty)
             {
-                themeController.currentLabelLoginScreenTimeColor = boxSelectLoginTimeColor.Text;
+                var color = boxSelectLoginTimeColor.SelectionBoxItem.ToString();
+                foreach (UIElement list in boxSelectLoginTimeColor.Items)
+                {
+                    if (list.GetType() == typeof(ComboBoxItem))
+                    {
+                        ComboBoxItem listItem = (ComboBoxItem)list;
+                        var hexCode = Convert.ToString(listItem.Tag);
+                        if (color == listItem.Content)
+                        {
+                            selectedLoginTimeForeground = hexCode;
+                        }
+                    }
+                }
             }
+            themeController.currentLabelLoginScreenTimeColor = selectedLoginTimeForeground;
             themeController.imgLoginBackgroundFileName = selectedLoginBackground;
             themeController.UpdateThemeFile();
             themeController.ReadTheme();
