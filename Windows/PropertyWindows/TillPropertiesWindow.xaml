@@ -37,6 +37,24 @@
             <ComboBoxItem x:Name="boxThemeSelectLightBlue" Tag="LightBlue" Content="LightBlue"/>
         </ComboBox>
 
+        <TextBlock x:Name="lblLoginTime" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="270" Height="40"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                       Text="Log In Time Colour"
+                       Margin="40,0,0,420"/>
+        <ComboBox x:Name="boxSelectLoginTimeColor" Style="{DynamicResource DefaultComboBoxToggleTheme}"
+                      Width="350" Height="50"
+                      FontSize="22" FontWeight="Bold" Padding="15,10,0,0"
+                      VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                      Margin="40,0,0,370"
+                      BorderThickness="5">
+            <ComboBoxItem x:Name="boxTimeWhite" Content="White" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeRed" Content="Red" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeGreen" Content="Green" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeOrange" Content="Orange" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimePurple" Content="Purple" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeAqua" Content="Aqua" Height="40" BorderBrush="Black" BorderThickness="3"/>
+        </ComboBox>
         <TextBlock x:Name="lblLoginBackground" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Bottom" HorizontalAlignment="Left"
@@ -46,7 +64,7 @@
                           Width="420" Height="300"
                           HorizontalAlignment="Left" VerticalAlignment="Bottom"
                           Margin="40,0,0,30">
-            <Border x:Name="brdBackgroundScroll" Style="{StaticResource BorderTheme}" CornerRadius="10,10,0,0">
+            <Border x:Name="brdBackgroundScroll" Style="{StaticResource BorderTheme}" CornerRadius="10,0,0,10" Height="300">
                 <StackPanel x:Name="panelBackgroundSelect">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -96,7 +114,7 @@
                         </Button>
 
                         <Button x:Name="GreyCuttleryBackGround" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
-                                Grid.Column="1"
+                                Grid.Column="1" Grid.Row="2"
                                 Height="90">
                             <Button.Background>
                                 <ImageBrush ImageSource="\Resources\Images\GreyCuttleryBackground.jpg"/>

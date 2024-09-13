@@ -41,6 +41,7 @@ namespace NewTillSystem.Resources.Scripts
         public string textTextBoxDisplayTheme = "TextBoxDisplayTheme";
         public string textTextBoxDisplayThemeError = "TextBoxDisplayThemeError";
         public string textTextBoxDisplayThemeSelected = "TextBoxDisplayThemeSelected";
+        public string textLabelLoginScreenTimeColor = "=LoginScreenTimeColor";
         public string imgLoginSourceLocation = "/Resources/Images/";
         public string imgLoginSourceLocationFileType = ".jpg";
         public string imgLoginBackgroundFileName;
@@ -63,6 +64,7 @@ namespace NewTillSystem.Resources.Scripts
         public string currentToggleTheme;
         public string currentLabelDisplayBackgroundTheme;
         public string currentTextBlockTheme;
+        public string currentLabelLoginScreenTimeColor;
         public string currentButtonAdminImageTheme;//??
         public string currentTextBoxDisplayTheme;
         public string currentTextBoxDisplayThemeError;
@@ -78,6 +80,7 @@ namespace NewTillSystem.Resources.Scripts
                 imgLoginBackgroundFileName = "BarBackground";
                 textLoginFileName = imgLoginSourceLocation + imgLoginBackgroundFileName + imgLoginSourceLocationFileType;
                 currentThemeName = "Default";
+                currentLabelLoginScreenTimeColor = "White";
                 using (var stream = File.Open(themeFile, FileMode.Create))
                 {
                     using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
@@ -99,6 +102,7 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textRectangleBackgroundTheme);
                         writer.Write(currentThemeName + textLabelDisplayBackgroundTheme);
                         writer.Write(currentThemeName + textTextBlockTheme);
+                        writer.Write(currentLabelLoginScreenTimeColor + textLabelLoginScreenTimeColor);
                         writer.Write(currentThemeName + textTextBoxDisplayTheme);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeError);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeSelected);
@@ -137,6 +141,7 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textRectangleBackgroundTheme);
                         writer.Write(currentThemeName + textLabelDisplayBackgroundTheme);
                         writer.Write(currentThemeName + textTextBlockTheme);
+                        writer.Write(currentLabelLoginScreenTimeColor + textLabelLoginScreenTimeColor);
                         writer.Write(currentThemeName + textTextBoxDisplayTheme);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeError);
                         writer.Write(currentThemeName + textTextBoxDisplayThemeSelected);
@@ -180,6 +185,7 @@ namespace NewTillSystem.Resources.Scripts
                         currentRectangleBackgroundTheme = reader.ReadString();
                         currentLabelDisplayBackgroundTheme = reader.ReadString();
                         currentTextBlockTheme = reader.ReadString();
+                        currentLabelLoginScreenTimeColor = reader.ReadString();
                         currentTextBoxDisplayTheme = reader.ReadString();
                         currentTextBoxDisplayThemeError = reader.ReadString();
                         currentTextBoxDisplayThemeSelected = reader.ReadString();
@@ -188,6 +194,8 @@ namespace NewTillSystem.Resources.Scripts
                         imgLoginBackgroundFileName = reader.ReadString();
                         currentBorderTheme = reader.ReadString();
                     }
+                    string[] getLoginColor = currentLabelLoginScreenTimeColor.Split('=');
+                    currentLabelLoginScreenTimeColor = getLoginColor[0];
                 }
             }
         }

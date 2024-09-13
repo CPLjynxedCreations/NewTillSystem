@@ -1,4 +1,5 @@
-﻿using NewTillSystem.Resources.Scripts;
+﻿using DocumentFormat.OpenXml.Drawing;
+using NewTillSystem.Resources.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,6 +23,7 @@ namespace NewTillSystem.Windows
         ThemeController themeController;
         public string theme;
         public string selectedLoginBackground;
+        public string selectedLoginTimeForeground;
 
         public TillPropertiesWindow()
         {
@@ -29,6 +31,7 @@ namespace NewTillSystem.Windows
             themeController = new ThemeController();
             themeController.ReadTheme();
             theme = themeController.currentThemeName;
+            selectedLoginTimeForeground = themeController.currentLabelLoginScreenTimeColor;
             selectedLoginBackground = themeController.imgLoginBackgroundFileName;
 
 
@@ -48,6 +51,31 @@ namespace NewTillSystem.Windows
             {
                 boxSelectTheme.SelectedItem = boxThemeSelectDarkRed;
             }
+
+            if (selectedLoginTimeForeground == "White")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeWhite;
+            }
+            if (selectedLoginTimeForeground == "Red")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeRed;
+            }
+            if (selectedLoginTimeForeground == "Green")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeGreen;
+            }
+            if (selectedLoginTimeForeground == "Orange")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeOrange;
+            }
+            if (selectedLoginTimeForeground == "Purple")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimePurple;
+            }
+            if (selectedLoginTimeForeground == "Aqua")
+            {
+                boxSelectLoginTimeColor.SelectedItem = boxTimeAqua;
+            }
         }
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
@@ -55,10 +83,13 @@ namespace NewTillSystem.Windows
             if (boxSelectTheme.Text != string.Empty)
             {
                 themeController.currentThemeName = boxSelectTheme.Text;
-                themeController.UpdateThemeFile();
+            }
+            if (boxSelectTheme.Text != string.Empty)
+            {
+                themeController.currentLabelLoginScreenTimeColor = boxSelectLoginTimeColor.Text;
             }
             themeController.imgLoginBackgroundFileName = selectedLoginBackground;
-            Debug.WriteLine("theme " + themeController.imgLoginBackgroundFileName);
+            themeController.UpdateThemeFile();
             themeController.ReadTheme();
             themeController.SetTheme();
         }

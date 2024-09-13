@@ -21,6 +21,7 @@ using Microsoft.VisualBasic;
 using TextBox = System.Windows.Controls.TextBox;
 using DocumentFormat.OpenXml.Vml;
 using DocumentFormat.OpenXml.Bibliography;
+using Microsoft.Windows.Themes;
 
 namespace NewTillSystem
 {
@@ -74,8 +75,10 @@ namespace NewTillSystem
         public string adminButtonSelected;
         public string keyboardBackground;
         public string labelBoxTheme;
+        public string labelBoxTimeColor;
         public string txtBoxLabelTheme;
         public string txtBoxSelectLabelTheme;
+        public string loginTimeColor;
         public string borderTheme;
         public string comboBoxTheme;
         public string toggleTheme;
@@ -128,6 +131,7 @@ namespace NewTillSystem
             adminButtonImageTheme = themeController.currentButtonAdminImageTheme;
             emptyButtonTheme = themeController.currentButtonEmptyProduct;
             txtBoxLabelTheme = themeController.currentTextBoxDisplayTheme;
+            loginTimeColor = themeController.currentLabelLoginScreenTimeColor;
             borderTheme = themeController.currentBorderTheme;
             comboBoxTheme = themeController.currentComboBoxToggleTheme;
             errorBoxTheme = themeController.currentTextBoxDisplayThemeError;
@@ -151,6 +155,12 @@ namespace NewTillSystem
                 }
             }
             logInScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[labelBoxTheme];
+            SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(loginTimeColor);
+            logInScreen.lblLoginDate.Foreground = colorBrush;
+            logInScreen.lblLoginTime.Foreground = colorBrush;
+            logInScreen.lblToBe18Date.Foreground = colorBrush;
+            
+            
             logInScreen.imgTillBackground.Source = new BitmapImage(new Uri(@loginThemeBackground, UriKind.Relative));
             logInScreen.ShowDialog();
             if (!logInScreen.boolStaffLogin)
@@ -436,7 +446,9 @@ namespace NewTillSystem
             TillPropertiesWindow.brdPageBreak2.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.brdBackgroundScroll.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.scrlThemeSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+            //for each
             TillPropertiesWindow.boxSelectTheme.Style = (Style)Application.Current.Resources[comboBoxTheme];
+            TillPropertiesWindow.boxSelectLoginTimeColor.Style = (Style)Application.Current.Resources[comboBoxTheme];
             TillPropertiesWindow.ShowDialog();
         }
 
