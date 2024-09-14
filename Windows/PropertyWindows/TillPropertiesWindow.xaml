@@ -48,15 +48,26 @@
                       VerticalAlignment="Bottom" HorizontalAlignment="Left"
                       Margin="40,0,0,370"
                       BorderThickness="5">
-            <ComboBoxItem x:Name="boxTimeWhite" Tag="White"  Content="White" Height="40" BorderBrush="Black" BorderThickness="3"/>
-            <ComboBoxItem x:Name="boxTimeLightRed" Tag="#EE4B2B" Content="Light Red" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeBlack" Tag="Black" Content="Black" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeLightBlue" Tag="#00BFFF" Content="Light Blue" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeLightBrown" Tag="#DEB887" Content="Light Brown" Height="40" BorderBrush="Black" BorderThickness="3"/>
             <ComboBoxItem x:Name="boxTimeLightGreen" Tag="#4CBB17" Content="Light Green" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeLightGray" Tag="#DCDCDC" Content="Light Gray" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeLightPink" Tag="#FFC0CB" Content="Light Pink" Height="40" BorderBrush="Black" BorderThickness="3"/>
             <ComboBoxItem x:Name="boxTimeLightPurple" Tag="#E0B0FF" Content="Light Purple" Height="40" BorderBrush="Black" BorderThickness="3"/>
-            <ComboBoxItem x:Name="boxTimeDarkRed" Tag="#880808" Content="Dark Red" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeLightRed" Tag="#EE4B2B" Content="Light Red" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeLightYellow" Tag="#FFFACD" Content="Light Yellow" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeDarkBlue" Tag="#4682B4" Content="Dark Blue" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeDarkBrown" Tag="#8B4513" Content="Dark Brown" Height="40" BorderBrush="Black" BorderThickness="3"/>
             <ComboBoxItem x:Name="boxTimeDarkGreen" Tag="#355E3B" Content="Dark Green" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeDarkGray" Tag="#696969" Content="Dark Gray" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeDarkPink" Tag="#FF1493" Content="Dark Pink" Height="40" BorderBrush="Black" BorderThickness="3"/>
             <ComboBoxItem x:Name="boxTimeDarkPurple" Tag="#702963" Content="Dark Purple" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeDarkRed" Tag="#880808" Content="Dark Red" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeDarkYellow" Tag="#FFD700" Content="Dark Yellow" Height="40" BorderBrush="Black" BorderThickness="3"/>
             <ComboBoxItem x:Name="boxTimeOrange" Tag="#FF7518" Content="Orange" Height="40" BorderBrush="Black" BorderThickness="3"/>
             <ComboBoxItem x:Name="boxTimeAqua" Tag="#00FFFF" Content="Aqua" Height="40" BorderBrush="Black" BorderThickness="3"/>
+            <ComboBoxItem x:Name="boxTimeWhite" Tag="White" Content="White" Height="40" BorderBrush="Black" BorderThickness="3"/>
         </ComboBox>
         <TextBlock x:Name="lblLoginBackground" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="270" Height="40"
