@@ -16,11 +16,10 @@ namespace NewTillSystem.Resources.Scripts
     class ThemeController
     {
         TillScreen tillScreen;
-        ManagerWindow ManagerWindow;
 
         const string themeFile = "ThemeProperties.dat";
 
-        public string currentThemeName;
+        public string currentThemeName = string.Empty;
         public string textButtonProperty = "PropertytButton";
         public string textButtonPropertySelected = "PropertytButtonSelected";
         public string textButtonTillNavigation = "TillNagivationButton";
@@ -44,33 +43,33 @@ namespace NewTillSystem.Resources.Scripts
         public string textLabelLoginScreenTimeColor = "=LoginScreenTimeColor";
         public string imgLoginSourceLocation = "/Resources/Images/";
         public string imgLoginSourceLocationFileType = ".jpg";
-        public string imgLoginBackgroundFileName;
-        public string textLoginFileName;
+        public string imgLoginBackgroundFileName = string.Empty;
+        public string textLoginFileName = string.Empty;
         public string textButtonAdminImageTheme = "ButtonAdminImageTheme";//??
 
-        public string currentButtonProperty;
-        public string currentButtonPropertySelected;
-        public string currentButtonTillNavigation;
-        public string currentButtonTillNavigationManageClose;
-        public string currentButtonTillNumpad;
-        public string currentButtonTillQuick;
-        public string currentButtonEmptyProduct;
-        public string currentKeyboardNumpad;
-        public string currentKeyboardKeys;
-        public string currentKeyboardBackground;
-        public string currentScrollViewTheme;
-        public string currentRectangleBackgroundTheme;
-        public string currentComboBoxToggleTheme;
-        public string currentToggleTheme;
-        public string currentLabelDisplayBackgroundTheme;
-        public string currentTextBlockTheme;
-        public string currentLabelLoginScreenTimeColor;
-        public string currentButtonAdminImageTheme;//??
-        public string currentTextBoxDisplayTheme;
-        public string currentTextBoxDisplayThemeError;
-        public string currentTextBoxDisplayThemeSelected;
-        public string currentLoginBackgroundFileName;
-        public string currentBorderTheme;
+        public string currentButtonProperty = string.Empty;
+        public string currentButtonPropertySelected = string.Empty;
+        public string currentButtonTillNavigation = string.Empty;
+        public string currentButtonTillNavigationManageClose = string.Empty;
+        public string currentButtonTillNumpad = string.Empty;
+        public string currentButtonTillQuick = string.Empty;
+        public string currentButtonEmptyProduct = string.Empty;
+        public string currentKeyboardNumpad = string.Empty;
+        public string currentKeyboardKeys = string.Empty;
+        public string currentKeyboardBackground = string.Empty;
+        public string currentScrollViewTheme = string.Empty;
+        public string currentRectangleBackgroundTheme = string.Empty;
+        public string currentComboBoxToggleTheme = string.Empty;
+        public string currentToggleTheme = string.Empty;
+        public string currentLabelDisplayBackgroundTheme = string.Empty;
+        public string currentTextBlockTheme = string.Empty;
+        public string currentLabelLoginScreenTimeColor = string.Empty;
+        public string currentButtonAdminImageTheme = string.Empty;//??
+        public string currentTextBoxDisplayTheme = string.Empty;
+        public string currentTextBoxDisplayThemeError = string.Empty;
+        public string currentTextBoxDisplayThemeSelected = string.Empty;
+        public string currentLoginBackgroundFileName = string.Empty;
+        public string currentBorderTheme = string.Empty;
  
 
         public void CreateThemeFile()
@@ -213,7 +212,7 @@ namespace NewTillSystem.Resources.Scripts
                     {
                         tillButton.Style = (Style)Application.Current.Resources[currentButtonTillNavigation];
                     }
-                    else if (tillButton.Content == string.Empty)
+                    else if (tillButton.Content.ToString() == string.Empty)
                     {
                         tillButton.Style = (Style)Application.Current.Resources[currentButtonEmptyProduct];
                     }

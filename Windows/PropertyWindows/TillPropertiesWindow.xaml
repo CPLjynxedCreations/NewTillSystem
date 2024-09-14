@@ -80,7 +80,7 @@
                           Margin="40,0,0,30">
             <Border x:Name="brdBackgroundScroll" Style="{StaticResource BorderTheme}" CornerRadius="10,0,0,10" Height="300">
                 <StackPanel x:Name="panelBackgroundSelect">
-                    <Grid>
+                    <Grid x:Name="grdLoginBackgroundPanel">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="197"/>
                             <ColumnDefinition Width="197"/>
@@ -126,7 +126,6 @@
                                 <ImageBrush ImageSource="\Resources\Images\BeerBackground3.jpg"/>
                             </Button.Background>
                         </Button>
-
                         <Button x:Name="GreyCuttleryBackGround" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
                                 Grid.Column="1" Grid.Row="2"
                                 Height="90">

@@ -21,14 +21,14 @@ namespace NewTillSystem.Windows
     public partial class LogInScreen : Window
     {
         ThemeController themeController;
-        public string strStaffLoginName;
-        public string strStaffLastName;
+        public string strStaffLoginName = string.Empty;
+        public string strStaffLastName = string.Empty;
         public bool boolStaffLogin;
         public bool boolLoggedInManager;
         public bool boolLoggedInAdmin;
         public bool boolLoggedInStaff;
-        public string strStaffRole;
-        private string strUserNumberInput;
+        public string strStaffRole = string.Empty;
+        private string strUserNumberInput = string.Empty;
         private string strEmpty = "";
 
         private string strXlsxStaffName = "A";
@@ -36,8 +36,6 @@ namespace NewTillSystem.Windows
         private string strXlsxStaffID = "C";
         private string strXlsxStaffRole = "D";
         private int intStaffAmount;
-
-        private string background;
 
         public LogInScreen()
         {

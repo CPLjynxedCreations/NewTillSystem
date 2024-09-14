@@ -21,11 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.102.3" />
+    <Folder Include="ProjectImages\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ProjectImages\" />
+    <PackageReference Include="ClosedXML" Version="0.102.3" />
   </ItemGroup>
 
   <ItemGroup>

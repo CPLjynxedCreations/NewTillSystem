@@ -24,19 +24,19 @@ namespace NewTillSystem.Windows
         ThemeController themeController;
         TillScreen tillScreen;
 
-        public string strProductName;
-        public string strProductPrice;
-        public string strButtonTheme;
-        public string strButtonForeground;
-        public string strEditProductName;
-        public string strEditProductPrice;
-        public string strEditButtonTheme;
-        public string strEditButtonForeground;
+        public string strProductName = string.Empty;
+        public string strProductPrice = string.Empty;
+        public string strButtonTheme = string.Empty;
+        public string strButtonForeground = string.Empty;
+        public string strEditProductName = string.Empty;
+        public string strEditProductPrice = string.Empty;
+        public string strEditButtonTheme = string.Empty;
+        public string strEditButtonForeground = string.Empty;
         public bool boolIsEditing;
 
-        private string errorBoxThemeProduct;
-        private string txtBoxLabelThemeProduct;
-        private string txtBoxLabelSelectedThemeProduct;
+        private string errorBoxThemeProduct = string.Empty;
+        private string txtBoxLabelThemeProduct = string.Empty;
+        private string txtBoxLabelSelectedThemeProduct = string.Empty;
 
         public ProductDetails()
         {
@@ -112,7 +112,7 @@ namespace NewTillSystem.Windows
         {
             Button btnClicked = (Button)sender;
             string strLetterPressed = Convert.ToString(btnClicked.Content);
-            if (strLetterPressed == btnKeyboard_SPACE.Content)
+            if (btnKeyboard_SPACE.Content.ToString() == strLetterPressed)
             {
                 strLetterPressed = " ";
             }
@@ -126,7 +126,7 @@ namespace NewTillSystem.Windows
                         TextBox txtBox = (TextBox)item;
                         if (txtBox.IsFocused)
                         {
-                            if (strLetterPressed != btnKeyboard_DELETE.Content)
+                            if (btnKeyboard_DELETE.Content.ToString() != strLetterPressed)
                             {
                                 txtBox.Text = txtBox.Text.ToUpper() + strLetterPressed.ToUpper();
                                 txtBox.CaretIndex = txtBox.Text.Length;

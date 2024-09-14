@@ -30,8 +30,8 @@ namespace NewTillSystem
     {
         ThemeController themeController;
         private string strEmpty = "";
-        private string strUserNumberInput;
-        private string strUserNumberConvert;
+        private string strUserNumberInput = string.Empty;
+        private string strUserNumberConvert = string.Empty;
         private int intUserNumberInput;
         private int intProductButtonCount = 51;
         private bool boolIsMinus;
@@ -48,43 +48,43 @@ namespace NewTillSystem
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
         private string strXlsxStaffRoleColumn = "D";
-        private string strXlsxStaffInitColumn = "E";
-        private string strXlsxLoggedInStaffRole;
-        private string strXlsxLoggedInStaffName;
+        //private string strXlsxStaffInitColumn = "E";
+        private string strXlsxLoggedInStaffRole = string.Empty;
+        private string strXlsxLoggedInStaffName = string.Empty;
 
         private bool boolIsAdmin;
         private bool boolIsManager;
         private bool boolIsStaff;
         private bool boolCanEditProduct;
-        private bool boolEditStaff;
+        //private bool boolEditStaff;
 
 
-        public string propertyButtonTheme;
-        public string propertyButtonSelectedTheme;
-        public string tillNavigationButtonTheme;
-        public string tillNavigationManageCloseButtonTheme;
-        public string tillNumpadTheme;
-        public string tillQuickTheme;
-        public string keyboardKeyTheme;
-        public string keyboardNumpadTheme;
-        public string scrViewTheme;
-        public string rectangleBackgroundTheme;
-        public string loginThemeBackground;
-        public string adminButtonTheme;
-        public string adminButtonImageTheme;
-        public string emptyButtonTheme;
-        public string adminButtonSelected;
-        public string keyboardBackground;
-        public string labelBoxTheme;
-        public string labelBoxTimeColor;
-        public string txtBoxLabelTheme;
-        public string txtBoxSelectLabelTheme;
-        public string loginTimeColor;
-        public string borderTheme;
-        public string comboBoxTheme;
-        public string toggleTheme;
-        public string errorBoxTheme;
-        public string labelTheme;
+        public string propertyButtonTheme = string.Empty;
+        public string propertyButtonSelectedTheme = string.Empty;
+        public string tillNavigationButtonTheme = string.Empty;
+        public string tillNavigationManageCloseButtonTheme = string.Empty;
+        public string tillNumpadTheme = string.Empty;
+        public string tillQuickTheme = string.Empty;
+        public string keyboardKeyTheme = string.Empty;
+        public string keyboardNumpadTheme = string.Empty;
+        public string scrViewTheme = string.Empty;
+        public string rectangleBackgroundTheme = string.Empty;
+        public string loginThemeBackground = string.Empty;
+        public string adminButtonTheme = string.Empty;
+        public string adminButtonImageTheme = string.Empty;
+        public string emptyButtonTheme = string.Empty;
+        public string adminButtonSelected = string.Empty;
+        public string keyboardBackground = string.Empty;
+        public string labelBoxTheme = string.Empty;
+        public string labelBoxTimeColor = string.Empty;
+        public string txtBoxLabelTheme = string.Empty;
+        public string txtBoxSelectLabelTheme = string.Empty;
+        public string loginTimeColor = string.Empty;
+        public string borderTheme = string.Empty;
+        public string comboBoxTheme = string.Empty;
+        public string toggleTheme = string.Empty;
+        public string errorBoxTheme = string.Empty;
+        public string labelTheme = string.Empty;
 
 
         public TillScreen()
@@ -303,7 +303,7 @@ namespace NewTillSystem
                 productEdit.WindowStartupLocation = WindowStartupLocation.Manual;
                 productEdit.Left = 0;
                 productEdit.Top = 80;
-                if (btnPressedProduct.Content != string.Empty)
+                if (btnPressedProduct.Content.ToString() != string.Empty)
                 {
                     productEdit.boolIsEditing = true;
                     var readDataName = workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).GetValue<string>();
@@ -541,7 +541,7 @@ namespace NewTillSystem
                         if (btnName.Name == strBtnName)
                         {
                             btnName.Content = readDataName;
-                            if (btnName.Content != string.Empty)
+                            if (btnName.Content.ToString() != string.Empty)
                             {
                                 //btnName.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
                                 btnName.Style = (Style)Application.Current.Resources[readDataTheme];

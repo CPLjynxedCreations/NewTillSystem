@@ -15,3 +15,6 @@
 //create more properties
 //use better colors for the time labels. more so colors used again for the theme
 //start working on sale screen lists
+
+
+//now check for selected background and make border 10 instead of 5

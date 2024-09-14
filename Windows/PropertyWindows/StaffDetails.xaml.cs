@@ -34,15 +34,15 @@ namespace NewTillSystem.Windows
         private string strManager = "MANAGER";
         private string strStaff = "STAFF";
         private string strEmpty = "";
-        private string strSetStaffFirstName;
-        private string strSetStaffLastName;
-        private string strSetStaffID;
-        private string strSetStaffRole;
-        private string strSetNewStaffFirstName;
-        private string strSetNewStaffLastName;
-        private string strSetNewStaffID;
-        private string strSetNewStaffRole;
-        private string strTglStaffName;
+        private string strSetStaffFirstName = string.Empty;
+        private string strSetStaffLastName = string.Empty;
+        private string strSetStaffID = string.Empty;
+        private string strSetStaffRole = string.Empty;
+        private string strSetNewStaffFirstName = string.Empty;
+        private string strSetNewStaffLastName = string.Empty;
+        private string strSetNewStaffID = string.Empty;
+        private string strSetNewStaffRole = string.Empty;
+        private string strTglStaffName = string.Empty;
 
         private string strFilterActive = "OFF";
         private bool boolFilterActive = false;
@@ -57,14 +57,14 @@ namespace NewTillSystem.Windows
         private bool boolGenerateStaff;
 
 
-        private string propertyButtonStaff;
-        private string propertyButtonSelectdStaff;
+        private string propertyButtonStaff = string.Empty;
+        private string propertyButtonSelectdStaff = string.Empty;
 
 
-        private string errorBoxThemeStaff;
-        private string txtBoxLabelThemeStaff;
-        private string txtBoxLabelSelectedThemeStaff;
-        private string toggleThemeStaff;
+        private string errorBoxThemeStaff = string.Empty;
+        private string txtBoxLabelThemeStaff = string.Empty;
+        private string txtBoxLabelSelectedThemeStaff = string.Empty;
+        private string toggleThemeStaff = string.Empty;
 
         public StaffDetails()
         {
@@ -114,7 +114,7 @@ namespace NewTillSystem.Windows
                     tglStaff.Content = readXlsxDataStaffName + " " + readXlsxDataStaffLastName;
                     tglStaff.Style = (Style)Application.Current.Resources[toggleThemeStaff];
                     tglStaff.Checked += tglStaff_Checked;
-                    if (tglStaff.Content != strEmpty)
+                    if (tglStaff.Content.ToString() != strEmpty)
                     {
                         if (boolFilterActive)
                         {
@@ -325,7 +325,7 @@ namespace NewTillSystem.Windows
         {
             Button btnFilter = (Button)sender;
             strFilterActive = Convert.ToString(btnFilter.Content);
-            if (strFilterActive == btnFilterStaff1.Content)
+            if (btnFilterStaff1.Content.ToString() == strFilterActive)
             {
                 boolGenerateStaff = true;
                 boolFilterActive = false;
@@ -336,7 +336,7 @@ namespace NewTillSystem.Windows
             {
                 btnFilterStaff1.Style = (Style)Application.Current.Resources[propertyButtonStaff];
             }
-            if (strFilterActive == btnFilterStaff2.Content)
+            if (btnFilterStaff2.Content.ToString() == strFilterActive)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
@@ -347,7 +347,7 @@ namespace NewTillSystem.Windows
             {
                 btnFilterStaff2.Style = (Style)Application.Current.Resources[propertyButtonStaff];
             }
-            if (strFilterActive == btnFilterStaff3.Content)
+            if (btnFilterStaff3.Content.ToString() == strFilterActive)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
@@ -358,7 +358,7 @@ namespace NewTillSystem.Windows
             {
                 btnFilterStaff3.Style = (Style)Application.Current.Resources[propertyButtonStaff];
             }
-            if (strFilterActive == btnFilterStaff4.Content)
+            if (btnFilterStaff4.Content.ToString() == strFilterActive)
             {
                 boolFilterActive = true;
                 boolGenerateStaff = true;
@@ -441,7 +441,7 @@ namespace NewTillSystem.Windows
                         TextBox txtBox = (TextBox)item;
                         if (txtBox.IsFocused)
                         {
-                            if (strLetterPressed != btnKeyboard_DELETE.Content)
+                            if (btnKeyboard_DELETE.Content.ToString() != strLetterPressed)
                             {
                                 txtBox.Text = txtBox.Text + strLetterPressed;
                                 txtBox.CaretIndex = txtBox.Text.Length;

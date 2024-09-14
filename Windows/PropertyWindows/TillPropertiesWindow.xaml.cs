@@ -3,6 +3,7 @@ using NewTillSystem.Resources.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,10 @@ namespace NewTillSystem.Windows
     public partial class TillPropertiesWindow : Window
     {
         ThemeController themeController;
-        public string theme;
-        public string selectedLoginBackground;
-        public string selectedLoginTimeForeground;
+        public string theme = string.Empty;
+        public string selectedLoginBackground = string.Empty;
+        public string selectedLoginTimeForeground = string.Empty;
+        public string unslectedBackgroundImageButton = string.Empty;
 
         public TillPropertiesWindow()
         {
@@ -33,6 +35,7 @@ namespace NewTillSystem.Windows
             theme = themeController.currentThemeName;
             selectedLoginTimeForeground = themeController.currentLabelLoginScreenTimeColor;
             selectedLoginBackground = themeController.imgLoginBackgroundFileName;
+            unslectedBackgroundImageButton = themeController.imgLoginBackgroundFileName;
 
             #region THEME SELECTED
             if (theme == "Default")
@@ -118,11 +121,11 @@ namespace NewTillSystem.Windows
             {
                 boxSelectLoginTimeColor.SelectedItem = boxTimeDarkRed;
             }
-            if (selectedLoginTimeForeground == "#EE4B2B")
+            if (selectedLoginTimeForeground == "#FFD700")
             {
                 boxSelectLoginTimeColor.SelectedItem = boxTimeDarkYellow;
             }
-            if (selectedLoginTimeForeground == "#FFD700")
+            if (selectedLoginTimeForeground == "#FF7518")
             {
                 boxSelectLoginTimeColor.SelectedItem = boxTimeOrange;
             }
@@ -135,6 +138,7 @@ namespace NewTillSystem.Windows
                 boxSelectLoginTimeColor.SelectedItem = boxTimeWhite;
             }
             #endregion
+
         }
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
@@ -152,7 +156,7 @@ namespace NewTillSystem.Windows
                     {
                         ComboBoxItem listItem = (ComboBoxItem)list;
                         var hexCode = Convert.ToString(listItem.Tag);
-                        if (color == listItem.Content)
+                        if (listItem.Content.ToString() == color)
                         {
                             selectedLoginTimeForeground = hexCode;
                         }
@@ -168,10 +172,23 @@ namespace NewTillSystem.Windows
 
         private void LoginBackground_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            selectedLoginBackground = Convert.ToString(button.Name);
-            themeController.imgLoginBackgroundFileName = selectedLoginBackground;
-            themeController.UpdateThemeFile();
+            Button clickedButton = sender as Button;
+            foreach (UIElement imgButton in grdLoginBackgroundPanel.Children)
+            {
+                if (imgButton.GetType() == typeof(Button))
+                {
+                    Button imageButton = (Button)imgButton;
+                    if (Convert.ToString(imageButton.Name) == Convert.ToString(clickedButton.Name))
+                    {
+                        clickedButton.BorderThickness = new Thickness(15);
+                    }
+                    else
+                    {
+                        imageButton.BorderThickness = new Thickness(5);
+                    }
+                }
+            }
+            selectedLoginBackground = Convert.ToString(clickedButton.Name);
         }
     }
 }
