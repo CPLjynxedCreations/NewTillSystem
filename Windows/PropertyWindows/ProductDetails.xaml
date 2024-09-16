@@ -68,10 +68,12 @@
                           HorizontalAlignment="Right" VerticalAlignment="Top"
                           Margin="0,115,250,0">
                 <Border x:Name="brdButtonColor" Style="{StaticResource BorderTheme}">
-                    <StackPanel x:Name="panelButtonColorSelect">
-                        <Button x:Name="btnDefaultItemTheme" Style="{DynamicResource btnDefaultItemTheme}" Click="btnItemTheme_Click"
+                    <UniformGrid x:Name="grdButtonColorSelect" Columns="2" Rows="8" Width="170">
+                        <Button x:Name="btnBlackItemTheme" Style="{DynamicResource btnBlackItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
-                        <Button x:Name="btnOrchidItemTheme" Style="{DynamicResource btnOrchidItemTheme}" Click="btnItemTheme_Click"
+                        <Button x:Name="btnWhiteItemTheme" Style="{DynamicResource btnWhiteItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnDefaultItemTheme" Style="{DynamicResource btnDefaultItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
                         <Button x:Name="btnBurntOrangeItemTheme" Style="{DynamicResource btnBurntOrangeItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
@@ -79,17 +81,27 @@
                                 Height="50"/>
                         <Button x:Name="btnSeaGreenItemTheme" Style="{DynamicResource btnSeaGreenItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
-                        <Button x:Name="btnRedItemTheme" Style="{DynamicResource btnRedItemTheme}" Click="btnItemTheme_Click"
-                                Height="50"/>
                         <Button x:Name="btnDarkPurpleItemTheme" Style="{DynamicResource btnDarkPurpleItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
                         <Button x:Name="btnEggplantItemTheme" Style="{DynamicResource btnEggplantItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
-                        <Button x:Name="btnBlueItemTheme" Style="{DynamicResource btnBlueItemTheme}" Click="btnItemTheme_Click"
+                        <Button x:Name="btnOrchidItemTheme" Style="{DynamicResource btnOrchidItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnPurpleItemTheme" Style="{DynamicResource btnPurpleItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnDarkBlueItemTheme" Style="{DynamicResource btnDarkBlueItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
                         <Button x:Name="btnBrightBlueItemTheme" Style="{DynamicResource btnBrightBlueItemTheme}" Click="btnItemTheme_Click"
                                 Height="50"/>
-                    </StackPanel>
+                        <Button x:Name="btnRedItemTheme" Style="{DynamicResource btnRedItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnDarkRedItemTheme" Style="{DynamicResource btnDarkRedItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnYellowItemTheme" Style="{DynamicResource btnYellowItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                        <Button x:Name="btnDarkYellowItemTheme" Style="{DynamicResource btnDarkYellowItemTheme}" Click="btnItemTheme_Click"
+                                Height="50"/>
+                    </UniformGrid>
                 </Border>
             </ScrollViewer>
             <Rectangle x:Name="brdButtonColorSelectBase" Style="{StaticResource DefaultRectangleBackgroundTheme}"
@@ -107,7 +119,7 @@
                           HorizontalAlignment="Right" VerticalAlignment="Top"
                           Margin="0,115,30,0">
                 <Border x:Name="brdButtonForegroundColor" Style="{StaticResource BorderTheme}">
-                    <StackPanel x:Name="panelButtonForegroundColorSelect">
+                    <UniformGrid x:Name="grdButtonForegroundColorSelect" Columns="2" Rows="6" Width="170">
                         <Button x:Name="btnForegroundBlack" Click="btnItemTheme_Click" Style="{StaticResource ButtonForegroundSelectTheme}"
                                 Background="Black"
                                 Height="50"
@@ -124,6 +136,10 @@
                                 Background="DarkGreen"
                                 Height="50"
                                 Tag="DarkGreen"/>
+                        <Button x:Name="btnForegroundBlueViolet" Click="btnItemTheme_Click" Style="{StaticResource ButtonForegroundSelectTheme}"
+                                Background="BlueViolet"
+                                Height="50"
+                                Tag="BlueViolet"/>
                         <Button x:Name="btnForegroundOrange" Click="btnItemTheme_Click" Style="{StaticResource ButtonForegroundSelectTheme}"
                                 Background="Orange"
                                 Height="50"
@@ -140,6 +156,10 @@
                                 Background="DarkRed"
                                 Height="50"
                                 Tag="DarkRed"/>
+                        <Button x:Name="btnForegroundSaddleBrown" Click="btnItemTheme_Click" Style="{StaticResource ButtonForegroundSelectTheme}"
+                                Background="SaddleBrown"
+                                Height="50"
+                                Tag="SaddleBrown"/>
                         <Button x:Name="btnForegroundBlue" Click="btnItemTheme_Click" Style="{StaticResource ButtonForegroundSelectTheme}"
                                 Background="Blue"
                                 Height="50"
@@ -148,7 +168,7 @@
                                 Background="DarkBlue"
                                 Height="50"
                                 Tag="DarkBlue"/>
-                    </StackPanel>
+                    </UniformGrid>
                 </Border>
             </ScrollViewer>
             <Rectangle x:Name="brdButtonForegroundColorSelectBase" Style="{StaticResource DefaultRectangleBackgroundTheme}"
