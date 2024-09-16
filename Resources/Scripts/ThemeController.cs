@@ -33,6 +33,7 @@ namespace NewTillSystem.Resources.Scripts
         public string textScrollViewTheme = "ScrollViewTheme";
         public string textToggleTheme = "ToggleTheme";
         public string textComboBoxToggleTheme = "ComboBoxToggleTheme";
+        public string textDropBoxTheme = "CanvasTheme";
         public string textRectangleBackgroundTheme = "RectangleBackgroundTheme";
         public string textBorderTheme = "BorderTheme";
         public string textLabelDisplayBackgroundTheme = "LabelumpadTopBackground";
@@ -60,6 +61,7 @@ namespace NewTillSystem.Resources.Scripts
         public string currentScrollViewTheme = string.Empty;
         public string currentRectangleBackgroundTheme = string.Empty;
         public string currentComboBoxToggleTheme = string.Empty;
+        public string currentDropBoxTheme = string.Empty;
         public string currentToggleTheme = string.Empty;
         public string currentLabelDisplayBackgroundTheme = string.Empty;
         public string currentTextBlockTheme = string.Empty;
@@ -98,6 +100,7 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textScrollViewTheme);
                         writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textComboBoxToggleTheme);
+                        writer.Write(currentThemeName + textDropBoxTheme);
                         writer.Write(currentThemeName + textRectangleBackgroundTheme);
                         writer.Write(currentThemeName + textLabelDisplayBackgroundTheme);
                         writer.Write(currentThemeName + textTextBlockTheme);
@@ -137,6 +140,7 @@ namespace NewTillSystem.Resources.Scripts
                         writer.Write(currentThemeName + textScrollViewTheme);
                         writer.Write(currentThemeName + textToggleTheme);
                         writer.Write(currentThemeName + textComboBoxToggleTheme);
+                        writer.Write(currentThemeName + textDropBoxTheme);
                         writer.Write(currentThemeName + textRectangleBackgroundTheme);
                         writer.Write(currentThemeName + textLabelDisplayBackgroundTheme);
                         writer.Write(currentThemeName + textTextBlockTheme);
@@ -181,6 +185,7 @@ namespace NewTillSystem.Resources.Scripts
                         currentScrollViewTheme = reader.ReadString();
                         currentToggleTheme = reader.ReadString();
                         currentComboBoxToggleTheme = reader.ReadString();
+                        currentDropBoxTheme = reader.ReadString();
                         currentRectangleBackgroundTheme = reader.ReadString();
                         currentLabelDisplayBackgroundTheme = reader.ReadString();
                         currentTextBlockTheme = reader.ReadString();

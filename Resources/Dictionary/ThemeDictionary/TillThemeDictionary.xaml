@@ -151,6 +151,46 @@
         <Setter Property="BorderBrush" Value="{StaticResource Standard.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
     </Style>
+    <Style x:Key="ColorPalletButton" TargetType="{x:Type Button}">
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="6"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ColorPalletToggleButtonTheme" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{StaticResource Default.Button.Toggle.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Standard.Border}"/>
+        <Setter Property="Foreground" Value="{StaticResource Standard.Foreground}"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--#endregion-->
     <!--#region THEMES -->
     <!--#region DEFAULT THEME -->
@@ -380,7 +420,10 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="DefaultScrollViewTheme" TargetType="{x:Type ScrollViewer}">
-        <Setter Property="Background" Value="{StaticResource Default.Rectangle.Background}"/>
+        <Setter Property="Background" Value="{StaticResource Default.ComboBox.Background}"/>
+    </Style>
+    <Style x:Key="DefaultCanvasTheme" TargetType="{x:Type Canvas}">
+        <Setter Property="Background" Value="{StaticResource Default.ComboBox.Background}"/>
     </Style>
     <!--#endregion-->
 
@@ -961,6 +1004,9 @@
     </Style>
     <Style x:Key="DarkRedScrollViewTheme" TargetType="{x:Type ScrollViewer}">
         <Setter Property="Background" Value="{StaticResource DarkRed.Rectangle.Background}"/>
+    </Style>
+    <Style x:Key="DarkRedCanvasTheme" TargetType="{x:Type Canvas}">
+        <Setter Property="Background" Value="{StaticResource DarkRed.ComboBox.Background}"/>
     </Style>
     <!--#endregion-->
 
@@ -1543,6 +1589,9 @@
     <Style x:Key="LightGreenScrollViewTheme" TargetType="{x:Type ScrollViewer}">
         <Setter Property="Background" Value="{StaticResource LightGreen.Rectangle.Background}"/>
     </Style>
+    <Style x:Key="LightGreenCanvasTheme" TargetType="{x:Type Canvas}">
+        <Setter Property="Background" Value="{StaticResource LightGreen.ComboBox.Background}"/>
+    </Style>
     <!--#endregion-->
 
     <!--#region BUTTONS -->
@@ -2123,6 +2172,9 @@
     </Style>
     <Style x:Key="LightBlueScrollViewTheme" TargetType="{x:Type ScrollViewer}">
         <Setter Property="Background" Value="{StaticResource LightBlue.Rectangle.Background}"/>
+    </Style>
+    <Style x:Key="LightBlueCanvasTheme" TargetType="{x:Type Canvas}">
+        <Setter Property="Background" Value="{StaticResource LightBlue.ComboBox.Background}"/>
     </Style>
     <!--#endregion-->
 

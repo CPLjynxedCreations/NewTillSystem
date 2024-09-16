@@ -82,6 +82,7 @@ namespace NewTillSystem
         public string loginTimeColor = string.Empty;
         public string borderTheme = string.Empty;
         public string comboBoxTheme = string.Empty;
+        public string dropBoxTheme = string.Empty;
         public string toggleTheme = string.Empty;
         public string errorBoxTheme = string.Empty;
         public string labelTheme = string.Empty;
@@ -135,6 +136,7 @@ namespace NewTillSystem
             loginTimeColor = themeController.currentLabelLoginScreenTimeColor;
             borderTheme = themeController.currentBorderTheme;
             comboBoxTheme = themeController.currentComboBoxToggleTheme;
+            dropBoxTheme = themeController.currentDropBoxTheme;
             errorBoxTheme = themeController.currentTextBoxDisplayThemeError;
             txtBoxSelectLabelTheme = themeController.currentTextBoxDisplayThemeSelected;
             toggleTheme = themeController.currentToggleTheme;
@@ -450,7 +452,8 @@ namespace NewTillSystem
             TillPropertiesWindow.scrlThemeSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
             //for each
             TillPropertiesWindow.boxSelectTheme.Style = (Style)Application.Current.Resources[comboBoxTheme];
-            TillPropertiesWindow.boxSelectLoginTimeColor.Style = (Style)Application.Current.Resources[comboBoxTheme];
+            TillPropertiesWindow.canvasBoxSelectLoginTimeColorDrop.Style = (Style)Application.Current.Resources[dropBoxTheme];
+            //TillPropertiesWindow.boxSelectLoginTimeColor.Style = (Style)Application.Current.Resources[comboBoxTheme];
             TillPropertiesWindow.ShowDialog();
         }
 

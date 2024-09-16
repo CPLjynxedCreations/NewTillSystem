@@ -37,6 +37,9 @@ namespace NewTillSystem.Windows
             selectedLoginBackground = themeController.imgLoginBackgroundFileName;
             unslectedBackgroundImageButton = themeController.imgLoginBackgroundFileName;
 
+            SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(selectedLoginTimeForeground);
+            toggleBoxSelectLoginTimeColor.Background = colorBrush;
+
             #region THEME SELECTED
             if (theme == "Default")
             {
@@ -56,89 +59,6 @@ namespace NewTillSystem.Windows
             }
             #endregion
 
-            #region LOGIN LABEL COLOR SELECTED
-            if (selectedLoginTimeForeground == "Black")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeBlack;
-            }
-            if (selectedLoginTimeForeground == "#00BFFF")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightBlue;
-            }
-            if (selectedLoginTimeForeground == "#DEB887")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightBrown;
-            }
-            if (selectedLoginTimeForeground == "#4CBB17")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightGreen;
-            }
-            if (selectedLoginTimeForeground == "#DCDCDC")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightGray;
-            }
-            if (selectedLoginTimeForeground == "#FFC0CB")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightPink;
-            }
-            if (selectedLoginTimeForeground == "#E0B0FF")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightPurple;
-            }
-            if (selectedLoginTimeForeground == "#EE4B2B")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightRed;
-            }
-            if (selectedLoginTimeForeground == "#FFFACD")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeLightYellow;
-            }
-            if (selectedLoginTimeForeground == "#4682B4")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkBlue;
-            }
-            if (selectedLoginTimeForeground == "#8B4513")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkBrown;
-            }
-            if (selectedLoginTimeForeground == "#355E3B")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkGreen;
-            }
-            if (selectedLoginTimeForeground == "#696969")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkGray;
-            }
-            if (selectedLoginTimeForeground == "#FF1493")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkPink;
-            }
-            if (selectedLoginTimeForeground == "#702963")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkPurple;
-            }
-            if (selectedLoginTimeForeground == "#880808")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkRed;
-            }
-            if (selectedLoginTimeForeground == "#FFD700")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeDarkYellow;
-            }
-            if (selectedLoginTimeForeground == "#FF7518")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeOrange;
-            }
-            if (selectedLoginTimeForeground == "#00FFFF")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeAqua;
-            }
-            if (selectedLoginTimeForeground == "White")
-            {
-                boxSelectLoginTimeColor.SelectedItem = boxTimeWhite;
-            }
-            #endregion
-
         }
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
@@ -146,22 +66,6 @@ namespace NewTillSystem.Windows
             if (boxSelectTheme.Text != string.Empty)
             {
                 themeController.currentThemeName = boxSelectTheme.Text;
-            }
-            if (boxSelectTheme.Text != string.Empty)
-            {
-                var color = boxSelectLoginTimeColor.SelectionBoxItem.ToString();
-                foreach (UIElement list in boxSelectLoginTimeColor.Items)
-                {
-                    if (list.GetType() == typeof(ComboBoxItem))
-                    {
-                        ComboBoxItem listItem = (ComboBoxItem)list;
-                        var hexCode = Convert.ToString(listItem.Tag);
-                        if (listItem.Content.ToString() == color)
-                        {
-                            selectedLoginTimeForeground = hexCode;
-                        }
-                    }
-                }
             }
             themeController.currentLabelLoginScreenTimeColor = selectedLoginTimeForeground;
             themeController.imgLoginBackgroundFileName = selectedLoginBackground;
@@ -189,6 +93,26 @@ namespace NewTillSystem.Windows
                 }
             }
             selectedLoginBackground = Convert.ToString(clickedButton.Name);
+        }
+
+        private void toggleBoxSelectLoginTimeColor_Checked(object sender, RoutedEventArgs e)
+        {
+            if (toggleBoxSelectLoginTimeColor.IsChecked == true)
+            {
+                popBoxSelectLoginTimeColorDrop.IsOpen = true;
+            }
+            if (toggleBoxSelectLoginTimeColor.IsChecked == false)
+            {
+                popBoxSelectLoginTimeColorDrop.IsOpen = false;
+            }
+        }
+
+        private void Color_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            toggleBoxSelectLoginTimeColor.Background = button.Background;
+            toggleBoxSelectLoginTimeColor.IsChecked = false;
+            selectedLoginTimeForeground = button.Tag.ToString();
         }
     }
 }
