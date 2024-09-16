@@ -22,10 +22,10 @@ namespace NewTillSystem.Windows
     public partial class TillPropertiesWindow : Window
     {
         ThemeController themeController;
-        public string theme = string.Empty;
-        public string selectedLoginBackground = string.Empty;
-        public string selectedLoginTimeForeground = string.Empty;
-        public string unslectedBackgroundImageButton = string.Empty;
+        public string theme;
+        public string selectedLoginBackground;
+        public string selectedLoginTimeForeground;
+        public string unslectedBackgroundImageButton;
 
         public TillPropertiesWindow()
         {
@@ -40,6 +40,7 @@ namespace NewTillSystem.Windows
             SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(selectedLoginTimeForeground);
             toggleBoxSelectLoginTimeColor.Background = colorBrush;
 
+            //surely theres a if for for loop for this
             #region THEME SELECTED
             if (theme == "Default")
             {
@@ -76,6 +77,7 @@ namespace NewTillSystem.Windows
 
         private void LoginBackground_Click(object sender, RoutedEventArgs e)
         {
+            popBoxSelectLoginTimeColorDrop.IsOpen = false;
             Button clickedButton = sender as Button;
             foreach (UIElement imgButton in grdLoginBackgroundPanel.Children)
             {
@@ -113,6 +115,14 @@ namespace NewTillSystem.Windows
             toggleBoxSelectLoginTimeColor.Background = button.Background;
             toggleBoxSelectLoginTimeColor.IsChecked = false;
             selectedLoginTimeForeground = button.Tag.ToString();
+        }
+
+        private void GotFocus_Click(object sender, RoutedEventArgs e)
+        {
+            //still need to click again for drop box to open again
+            //fix random click to close drop
+            popBoxSelectLoginTimeColorDrop.IsOpen = false;
+            boxSelectTheme.Focusable = false;
         }
     }
 }
