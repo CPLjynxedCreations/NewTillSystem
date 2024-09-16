@@ -36,7 +36,6 @@
             <ComboBoxItem x:Name="boxThemeSelectLightGreen" Tag="LightGreen" Content="LightGreen"/>
             <ComboBoxItem x:Name="boxThemeSelectLightBlue" Tag="LightBlue" Content="LightBlue"/>
         </ComboBox>
-
         <TextBlock x:Name="lblLoginBackground" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Bottom" HorizontalAlignment="Left"
@@ -105,8 +104,6 @@
                 </StackPanel>
             </Border>
         </ScrollViewer>
-
-
         <TextBlock x:Name="lblLoginTime" Style="{StaticResource DefaultTextBlockTheme}"
                        Width="270" Height="40"
                        VerticalAlignment="Bottom" HorizontalAlignment="Left"

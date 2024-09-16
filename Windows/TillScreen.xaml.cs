@@ -450,10 +450,8 @@ namespace NewTillSystem
             TillPropertiesWindow.brdPageBreak2.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.brdBackgroundScroll.Style = (Style)Application.Current.Resources[borderTheme];
             TillPropertiesWindow.scrlThemeSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
-            //for each
             TillPropertiesWindow.boxSelectTheme.Style = (Style)Application.Current.Resources[comboBoxTheme];
             TillPropertiesWindow.canvasBoxSelectLoginTimeColorDrop.Style = (Style)Application.Current.Resources[dropBoxTheme];
-            //TillPropertiesWindow.boxSelectLoginTimeColor.Style = (Style)Application.Current.Resources[comboBoxTheme];
             TillPropertiesWindow.ShowDialog();
         }
 
