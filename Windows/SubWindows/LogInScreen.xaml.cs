@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using NewTillSystem.Resources.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,14 +20,15 @@ namespace NewTillSystem.Windows
 {
     public partial class LogInScreen : Window
     {
-        public string strStaffLoginName;
-        public string strStaffLastName;
+        ThemeController themeController;
+        public string strStaffLoginName = string.Empty;
+        public string strStaffLastName = string.Empty;
         public bool boolStaffLogin;
         public bool boolLoggedInManager;
         public bool boolLoggedInAdmin;
         public bool boolLoggedInStaff;
-        public string strStaffRole;
-        private string strUserNumberInput;
+        public string strStaffRole = string.Empty;
+        private string strUserNumberInput = string.Empty;
         private string strEmpty = "";
 
         private string strXlsxStaffName = "A";
@@ -37,11 +39,15 @@ namespace NewTillSystem.Windows
 
         public LogInScreen()
         {
+            themeController = new ThemeController();
             InitializeComponent();
             ClearLabelStrings();
+            //themeController.ReadTheme();
+            //background = themeController.currentLoginFileName;
             boolStaffLogin = false;
-            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
-            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
+            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
+            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
+            //imgTillBackground.Source = new BitmapImage(new Uri(@background, UriKind.Relative));
         }
 
         private void GetDateTime()
@@ -54,8 +60,6 @@ namespace NewTillSystem.Windows
             lblLoginDate.Text = currentDate;
             lblLoginTime.Text = currentTime;
             lblToBe18Date.Text = setToBe18;
-            lblLoginDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
-            lblToBe18Date.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
         }
 
         private void btnAdminNumPad_Click(object sender, RoutedEventArgs e)

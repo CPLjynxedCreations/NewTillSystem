@@ -16,15 +16,22 @@ using System.Windows.Shapes;
 using ClosedXML;
 using ClosedXML.Excel;
 using System.IO;
+using NewTillSystem.Resources.Scripts;
+using Microsoft.VisualBasic;
+using TextBox = System.Windows.Controls.TextBox;
+using DocumentFormat.OpenXml.Vml;
+using DocumentFormat.OpenXml.Bibliography;
+using Microsoft.Windows.Themes;
+using System.Drawing;
 
 namespace NewTillSystem
 {
     public partial class TillScreen : Window
     {
-
+        ThemeController themeController;
         private string strEmpty = "";
-        private string strUserNumberInput;
-        private string strUserNumberConvert;
+        private string strUserNumberInput = string.Empty;
+        private string strUserNumberConvert = string.Empty;
         private int intUserNumberInput;
         private int intProductButtonCount = 51;
         private bool boolIsMinus;
@@ -41,45 +48,124 @@ namespace NewTillSystem
         private string strXlsxStaffLastNameColumn = "B";
         private string strXlsxStaffIDColumn = "C";
         private string strXlsxStaffRoleColumn = "D";
-        private string strXlsxStaffInitColumn = "E";
-        private string strXlsxLoggedInStaffRole;
-        private string strXlsxLoggedInStaffName;
+        //private string strXlsxStaffInitColumn = "E";
+        private string strXlsxLoggedInStaffRole = string.Empty;
+        private string strXlsxLoggedInStaffName = string.Empty;
 
         private bool boolIsAdmin;
         private bool boolIsManager;
         private bool boolIsStaff;
         private bool boolCanEditProduct;
-        private bool boolEditStaff;
+        //private bool boolEditStaff;
+
+
+        public string propertyButtonTheme = string.Empty;
+        public string propertyButtonSelectedTheme = string.Empty;
+        public string tillNavigationButtonTheme = string.Empty;
+        public string tillNavigationManageCloseButtonTheme = string.Empty;
+        public string tillNumpadTheme = string.Empty;
+        public string tillQuickTheme = string.Empty;
+        public string keyboardKeyTheme = string.Empty;
+        public string keyboardNumpadTheme = string.Empty;
+        public string scrViewTheme = string.Empty;
+        public string rectangleBackgroundTheme = string.Empty;
+        public string loginThemeBackground = string.Empty;
+        public string adminButtonTheme = string.Empty;
+        public string adminButtonImageTheme = string.Empty;
+        public string emptyButtonTheme = string.Empty;
+        public string adminButtonSelected = string.Empty;
+        public string keyboardBackground = string.Empty;
+        public string labelBoxTheme = string.Empty;
+        public string labelBoxTimeColor = string.Empty;
+        public string txtBoxLabelTheme = string.Empty;
+        public string txtBoxSelectLabelTheme = string.Empty;
+        public string loginTimeColor = string.Empty;
+        public string borderTheme = string.Empty;
+        public string comboBoxTheme = string.Empty;
+        public string dropBoxTheme = string.Empty;
+        public string toggleTheme = string.Empty;
+        public string errorBoxTheme = string.Empty;
+        public string labelTheme = string.Empty;
+
 
         public TillScreen()
         {
+            themeController = new ThemeController();
+            themeController.currentThemeName = "Red";
             InitializeComponent();
             this.DataContext = this;
+            SetTill();
+        }
+
+        public void SetTill()
+        {
             ClearStartStrings();
             SetTillFiles();
             SetProductButtonDetails();
-
-            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
-
-
-
-            TillLogOn();
-
+            ChangeTheme();
         }
-
-        private void GetDateTime()
+        public void ChangeTheme()
         {
-            string currentDate = DateTime.Now.ToString("dd/MM/yy");
-            string currentTime = DateTime.Now.ToString("h:mm tt");
-
-            lblSaleScreenDate.Text = currentDate;
-            lblSaleScreenTime.Text = currentTime;
-            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.SystemIdle);
+            themeController.CreateThemeFile();
+            themeController.SetThemeWindow();
+            themeController.ReadTheme();
+            themeController.SetTheme();
+            GetTheme();
+            TillLogOn();
         }
+
+        public void GetTheme()
+        {
+
+            propertyButtonTheme = themeController.currentButtonProperty;
+            propertyButtonSelectedTheme = themeController.currentButtonPropertySelected;
+            tillNavigationButtonTheme = themeController.currentButtonTillNavigation;
+            tillNavigationManageCloseButtonTheme = themeController.currentButtonTillNavigationManageClose;
+            tillNumpadTheme = themeController.currentButtonTillNumpad;
+            tillQuickTheme = themeController.currentButtonTillQuick;
+            keyboardKeyTheme = themeController.currentKeyboardKeys;
+            keyboardNumpadTheme = themeController.currentKeyboardNumpad;
+            keyboardBackground = themeController.currentKeyboardBackground;
+            rectangleBackgroundTheme = themeController.currentRectangleBackgroundTheme;
+            scrViewTheme = themeController.currentScrollViewTheme;
+            labelBoxTheme = themeController.currentLabelDisplayBackgroundTheme;
+            loginThemeBackground = themeController.currentLoginBackgroundFileName;
+            adminButtonImageTheme = themeController.currentButtonAdminImageTheme;
+            emptyButtonTheme = themeController.currentButtonEmptyProduct;
+            txtBoxLabelTheme = themeController.currentTextBoxDisplayTheme;
+            loginTimeColor = themeController.currentLabelLoginScreenTimeColor;
+            borderTheme = themeController.currentBorderTheme;
+            comboBoxTheme = themeController.currentComboBoxToggleTheme;
+            dropBoxTheme = themeController.currentDropBoxTheme;
+            errorBoxTheme = themeController.currentTextBoxDisplayThemeError;
+            txtBoxSelectLabelTheme = themeController.currentTextBoxDisplayThemeSelected;
+            toggleTheme = themeController.currentToggleTheme;
+            labelTheme = themeController.currentTextBlockTheme;
+            
+        }
+
 
         private void TillLogOn()
         {
+            lblSaleScreenDate.Dispatcher.InvokeAsync(GetDateTime, DispatcherPriority.Normal);
             LogInScreen logInScreen = new LogInScreen();
+            foreach (UIElement button in logInScreen.AdminNumbers.Children)
+            {
+                if (button.GetType() == typeof(Button))
+                {
+                    Button loginButton = (Button)button;
+                    loginButton.Style = (Style)Application.Current.Resources[tillNumpadTheme];
+                }
+            }
+            logInScreen.bgAdminHeader.Style = (Style)Application.Current.Resources[labelBoxTheme];
+            var brushConverter = new BrushConverter();
+            var colorBrush = (Brush)brushConverter.ConvertFrom(loginTimeColor);
+            logInScreen.lblLoginDate.Foreground = colorBrush;
+            logInScreen.lblLoginTime.Foreground = colorBrush;
+            logInScreen.lblToBe18Date.Foreground = colorBrush;
+            
+            
+            logInScreen.imgTillBackground.Source = new BitmapImage(new Uri(@loginThemeBackground, UriKind.Relative));
             logInScreen.ShowDialog();
             if (!logInScreen.boolStaffLogin)
             {
@@ -93,6 +179,16 @@ namespace NewTillSystem
             boolIsStaff = logInScreen.boolLoggedInStaff;
             lblSaleScreenStaff.Text = strXlsxLoggedInStaffName;
         }
+
+        private void GetDateTime()
+        {
+            string currentDate = DateTime.Now.ToString("dd/MM/yy");
+            string currentTime = DateTime.Now.ToString("h:mm tt");
+
+            lblSaleScreenDate.Text = currentDate;
+            lblSaleScreenTime.Text = currentTime;
+        }
+
         #region NUMBER PAD
 
         private void btnAdminNumPad_Click(object sender, RoutedEventArgs e)
@@ -151,54 +247,107 @@ namespace NewTillSystem
                         intXlsxProductRow = i + 1;
                     }
                 }
-                EnterProductDetails openPrompt = new EnterProductDetails();
-                openPrompt.Owner = Application.Current.MainWindow;
-                openPrompt.WindowStartupLocation = WindowStartupLocation.Manual;
-                openPrompt.Left = 0;
-                openPrompt.Top = 80;
-                if (btnPressedProduct.Content != string.Empty)
+                ProductDetails productEdit = new ProductDetails();
+                foreach (UIElement button in productEdit.panelKeybooardButtons.Children)
                 {
-                    openPrompt.boolIsEditing = true;
+                    if (button.GetType() == typeof(Button))
+                    {
+                        Button keyboardButton = (Button)button;
+                        keyboardButton.Style = (Style)Application.Current.Resources[keyboardKeyTheme];
+                    }
+                }
+                foreach (UIElement button in productEdit.panelNumpad.Children)
+                {
+                    if (button.GetType() == typeof(Button))
+                    {
+                        Button keyboardButton = (Button)button;
+                        keyboardButton.Style = (Style)Application.Current.Resources[keyboardNumpadTheme];
+                    }
+                }
+                productEdit.rctKeyboard.Style = (Style)Application.Current.Resources[keyboardBackground];
+                productEdit.rctNumpad.Style = (Style)Application.Current.Resources[keyboardBackground];
+                productEdit.rctProductBorder.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
+                productEdit.scrlButtonColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+                productEdit.scrlButtonForegroundColorSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+                productEdit.brdButtonColor.Style = (Style)Application.Current.Resources[borderTheme];
+                productEdit.brdButtonForegroundColor.Style = (Style)Application.Current.Resources[borderTheme];
+                productEdit.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
+                productEdit.brdButtonForegroundColorSelectBase.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
+                productEdit.brdButtonColorSelectBase.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
+                foreach (UIElement button in productEdit.grProductPanel.Children)
+                {
+                    if (button.GetType() == typeof(Button))
+                    {
+                        Button UIbutton = (Button)button;
+                        if (UIbutton.Name != productEdit.btnColorView.Name)
+                        {
+                            UIbutton.Style = (Style)Application.Current.Resources[propertyButtonTheme];
+                        }
+                    }
+                }
+                foreach (UIElement textBox in productEdit.grProductPanel.Children)
+                {
+                    if (textBox.GetType() == typeof(TextBox))
+                    {
+                        TextBox txtBox = (TextBox)textBox;
+                        txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelTheme];
+                    }
+                }
+                foreach (UIElement txtBlock in productEdit.grProductPanel.Children)
+                {
+                    if (txtBlock.GetType() == typeof(TextBlock))
+                    {
+                        TextBlock manageStaffTextBlock = (TextBlock)txtBlock;
+                        manageStaffTextBlock.Style = (Style)Application.Current.Resources[labelTheme];
+                    }
+                }
+                productEdit.Owner = Application.Current.MainWindow;
+                productEdit.WindowStartupLocation = WindowStartupLocation.Manual;
+                productEdit.Left = 0;
+                productEdit.Top = 80;
+                if (btnPressedProduct.Content.ToString() != string.Empty)
+                {
+                    productEdit.boolIsEditing = true;
                     var readDataName = workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).GetValue<string>();
                     var readDataPrice = workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).GetValue<string>();
                     var readDataTheme = workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).GetValue<string>();
                     var readDataFoeground = workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).GetValue<string>();
-                    openPrompt.strEditProductName = readDataName;
-                    openPrompt.strEditProductPrice = readDataPrice;
-                    openPrompt.strEditButtonTheme = readDataTheme;
-                    openPrompt.strEditButtonForeground = readDataFoeground;
-                    openPrompt.txtEnterProductName.Text = Convert.ToString(btnPressedProduct.Content);
-                    openPrompt.txtEnterProductPrice.Text = readDataPrice;
-                    openPrompt.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
-                    openPrompt.btnDelete.IsEnabled = true;
-                    SolidColorBrush colorBrush = (SolidColorBrush) new BrushConverter().ConvertFromString(readDataFoeground);
-                    openPrompt.btnColorView.Foreground = colorBrush;
+                    productEdit.strEditProductName = readDataName;
+                    productEdit.strEditProductPrice = readDataPrice;
+                    productEdit.strEditButtonTheme = readDataTheme;
+                    productEdit.strEditButtonForeground = readDataFoeground;
+                    productEdit.txtEnterProductName.Text = Convert.ToString(btnPressedProduct.Content);
+                    productEdit.txtEnterProductPrice.Text = readDataPrice;
+                    productEdit.btnColorView.Style = (Style)Application.Current.Resources[readDataTheme];
+                    productEdit.btnDelete.IsEnabled = true;
+                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(readDataFoeground);
+                    productEdit.btnColorView.Foreground = colorBrush;
                 }
                 else
                 {
-                    openPrompt.btnDelete.IsEnabled = false;
+                    productEdit.btnDelete.IsEnabled = false;
                 }
-                openPrompt.btnDelete.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
-                openPrompt.btnOk.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
-                openPrompt.btnCancel.Click += (sender, e) => { openPrompt.Close(); openPrompt.boolIsEditing = false; };
-                openPrompt.ShowDialog();
-                if (openPrompt.strProductName != string.Empty)
+                productEdit.btnDelete.Click += (sender, e) => { productEdit.Close(); productEdit.boolIsEditing = false; };
+                productEdit.btnOk.Click += (sender, e) => { productEdit.Close(); productEdit.boolIsEditing = false; };
+                productEdit.btnCancel.Click += (sender, e) => { productEdit.Close(); productEdit.boolIsEditing = false; };
+                productEdit.ShowDialog();
+                if (productEdit.strProductName != string.Empty)
                 {
-                    btnPressedProduct.Content = openPrompt.strProductName;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources[openPrompt.strButtonTheme];
-                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(openPrompt.strButtonForeground);
+                    btnPressedProduct.Content = productEdit.strProductName;
+                    btnPressedProduct.Style = (Style)Application.Current.Resources[productEdit.strButtonTheme];
+                    SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(productEdit.strButtonForeground);
                     btnPressedProduct.Foreground = colorBrush;
                 }
                 else
                 {
                     btnPressedProduct.Content = string.Empty;
-                    btnPressedProduct.Style = (Style)Application.Current.Resources["btnDefaultEmptyTheme"];
+                    btnPressedProduct.Style = (Style)Application.Current.Resources[emptyButtonTheme];
                 }
-                workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = openPrompt.strProductName;
-                workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = openPrompt.strProductPrice;
-                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = openPrompt.strButtonTheme;
-                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = openPrompt.strButtonForeground;
-                //workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //openPrompt.strButtonType;
+                workSheet.Cell(intXlsxProductRow, strXlsxProductColumn).Value = productEdit.strProductName;
+                workSheet.Cell(intXlsxProductRow, strXlsxPriceColumn).Value = productEdit.strProductPrice;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonThemeColumn).Value = productEdit.strButtonTheme;
+                workSheet.Cell(intXlsxProductRow, strXlsxButtonForegroundColumn).Value = productEdit.strButtonForeground;
+                //workSheet.Cell(intXlsxProductRow, strXlsxButtonTypeColumn).Value = "button type"; //productEdit.strButtonType;
                 workSheet.ColumnsUsed().AdjustToContents();
                 workBook.Save();
             }
@@ -217,12 +366,28 @@ namespace NewTillSystem
         {
             if (boolIsManager || boolIsAdmin)
             {
-                ManageTillWindow openManageWindow = new ManageTillWindow();
+                ManagerWindow openManageWindow = new ManagerWindow();
+                foreach (UIElement button in openManageWindow.grManageButtons.Children)
+                {
+                    if (button.GetType() == typeof(Button))
+                    {
+                        Button manageButton = (Button)button;
+                        if (manageButton.Name != "btnManageClose")
+                        {
+                            manageButton.Style = (Style)Application.Current.Resources[tillNavigationButtonTheme];
+                        }
+                        else
+                        {
+                            manageButton.Style = (Style)Application.Current.Resources[tillNavigationManageCloseButtonTheme];
+                        }
+                    }
+                }
+                openManageWindow.rctManageWindow.Style = (Style)Application.Current.Resources[keyboardBackground];
                 openManageWindow.Owner = Application.Current.MainWindow;
                 openManageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 if (boolCanEditProduct)
                 {
-                    openManageWindow.btnManageEditProducts.Content = "Stop Product Edit";
+                    openManageWindow.btnManageEditProducts.Content = "STOP PRODUCT EDIT";
                 }
                 openManageWindow.btnManageClose.Click += (sender, e) => { openManageWindow.Close(); };
                 openManageWindow.btnManageEditProducts.Click += (sender, e) =>
@@ -237,7 +402,6 @@ namespace NewTillSystem
                     }
                     openManageWindow.Close();
                 };
-                //MAKE BUTTON TO STOP EDIT POP UP
                 openManageWindow.btnManageEditStaff.Click += (sender, e) => { openManageWindow.Close(); ManageEditStaff(); };
                 openManageWindow.btnManageAdmin.Click += (sender, e) => { openManageWindow.Close(); EditTillProperties(); };
                 openManageWindow.ShowDialog();
@@ -247,18 +411,101 @@ namespace NewTillSystem
         }
         private void EditTillProperties()
         {
-            WindowTillProperties customButtonColor = new WindowTillProperties();
-            customButtonColor.Owner = Application.Current.MainWindow;
-            customButtonColor.WindowStartupLocation = WindowStartupLocation.Manual;
-            customButtonColor.Left = 212;
-            customButtonColor.Top = 127;
-            //customButtonColor.Topmost = true;
-            customButtonColor.btnWindowTillPropertiesClose.Click += (sender, e) => { customButtonColor.Close(); };
-            customButtonColor.ShowDialog();
+            TillPropertiesWindow TillPropertiesWindow = new TillPropertiesWindow();
+            TillPropertiesWindow.Owner = Application.Current.MainWindow;
+            TillPropertiesWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            TillPropertiesWindow.Left = 212;
+            TillPropertiesWindow.Top = 127;
+            TillPropertiesWindow.btnTillPropertiesWindowClose.Click += (sender, e) => { TillPropertiesWindow.Close(); };
+            TillPropertiesWindow.btnApply.Click += (sender, e) => { TillPropertiesWindow.Close(); ChangeTheme(); };
+            TillPropertiesWindow.btnCancel.Click += (sender, e) => { TillPropertiesWindow.Close(); };
+
+            foreach (UIElement txtBlock in TillPropertiesWindow.grdProperty.Children)
+            {
+                if (txtBlock.GetType() == typeof(TextBlock))
+                {
+                    TextBlock propertyTextBlock = (TextBlock)txtBlock;
+                    propertyTextBlock.Style = (Style)Application.Current.Resources[labelTheme];
+                }
+            }
+            foreach (UIElement button in TillPropertiesWindow.grdProperty.Children)
+            {
+                if (button.GetType() == typeof(Button))
+                {
+                    Button propertyButton = (Button)button;
+                    propertyButton.Style = (Style)Application.Current.Resources[propertyButtonTheme];
+                }
+            }
+            foreach (UIElement imgButton in TillPropertiesWindow.panelBackgroundSelect.Children)
+            {
+                if (imgButton.GetType() == typeof(Button))
+                {
+                    Button propertyImageButton = (Button)imgButton;
+                    propertyImageButton.Style = (Style)Application.Current.Resources[adminButtonImageTheme];
+                }
+            }
+            //change to foreach when more are made
+            TillPropertiesWindow.rctPropertyWindow1.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
+            TillPropertiesWindow.brdPageBreak1.Style = (Style)Application.Current.Resources[borderTheme];
+            TillPropertiesWindow.brdPageBreak2.Style = (Style)Application.Current.Resources[borderTheme];
+            TillPropertiesWindow.brdBackgroundScroll.Style = (Style)Application.Current.Resources[borderTheme];
+            TillPropertiesWindow.scrlThemeSelect.Style = (Style)Application.Current.Resources[scrViewTheme];
+            TillPropertiesWindow.boxSelectTheme.Style = (Style)Application.Current.Resources[comboBoxTheme];
+            TillPropertiesWindow.canvasBoxSelectLoginTimeColorDrop.Style = (Style)Application.Current.Resources[dropBoxTheme];
+            TillPropertiesWindow.ShowDialog();
         }
+
         private void ManageEditStaff()
         {
-            EnterStaffDetails openEditStaff = new EnterStaffDetails();
+            StaffDetails openEditStaff = new StaffDetails();
+            foreach (UIElement button in openEditStaff.panelKeybooardButtons.Children)
+            {
+                if (button.GetType() == typeof(Button))
+                {
+                    Button keyboardButton = (Button)button;
+                    keyboardButton.Style = (Style)Application.Current.Resources[keyboardKeyTheme];
+                }
+            }
+            foreach (UIElement button in openEditStaff.panelNumpad.Children)
+            {
+                if (button.GetType() == typeof(Button))
+                {
+                    Button keyboardButton = (Button)button;
+                    keyboardButton.Style = (Style)Application.Current.Resources[keyboardNumpadTheme];
+                }
+            }
+            foreach (UIElement txtBox in openEditStaff.grStaffWindow.Children)
+            {
+                if (txtBox.GetType() == typeof(TextBox))
+                {
+                    TextBox manageStaffTextBox = (TextBox)txtBox;
+                    manageStaffTextBox.Style = (Style)Application.Current.Resources[txtBoxLabelTheme];
+                }
+            }
+            foreach (UIElement txtBlock in openEditStaff.grStaffWindow.Children)
+            {
+                if (txtBlock.GetType() == typeof(TextBlock))
+                {
+                    TextBlock manageStaffTextBlock = (TextBlock)txtBlock;
+                    manageStaffTextBlock.Style = (Style)Application.Current.Resources[labelTheme];
+                }
+            }
+            foreach (UIElement button in openEditStaff.grStaffWindow.Children)
+            {
+                if (button.GetType() == typeof(Button))
+                {
+                    Button staffButton = (Button)button;
+                    staffButton.Style = (Style)Application.Current.Resources[propertyButtonTheme];
+                }
+            }
+            openEditStaff.btnFilterStaff1.Style = (Style)Application.Current.Resources[propertyButtonSelectedTheme];
+            openEditStaff.rctStaffScreen.Style = (Style)Application.Current.Resources[rectangleBackgroundTheme];
+            openEditStaff.rctKeyboard.Style = (Style)Application.Current.Resources[keyboardBackground];
+            openEditStaff.rctNumpad.Style = (Style)Application.Current.Resources[keyboardBackground];
+            openEditStaff.brdScrollWindow.Style = (Style)Application.Current.Resources[borderTheme];
+            openEditStaff.scrlSelectExistingStaff.Style = (Style)Application.Current.Resources[scrViewTheme];
+            openEditStaff.boxSelectRole.Style = (Style)Application.Current.Resources[comboBoxTheme];
+
             openEditStaff.Owner = Application.Current.MainWindow;
             openEditStaff.WindowStartupLocation = WindowStartupLocation.Manual;
             openEditStaff.Left = 0;
@@ -295,9 +542,9 @@ namespace NewTillSystem
                         if (btnName.Name == strBtnName)
                         {
                             btnName.Content = readDataName;
-                            if (btnName.Content != string.Empty)
+                            if (btnName.Content.ToString() != string.Empty)
                             {
-                                btnName.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
+                                //btnName.Style = (Style)Application.Current.Resources["btnDefaultItemTheme"];
                                 btnName.Style = (Style)Application.Current.Resources[readDataTheme];
                                 SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(readDataFoeground);
                                 btnName.Foreground = colorBrush;

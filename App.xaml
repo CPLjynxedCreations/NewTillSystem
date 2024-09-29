@@ -7,16 +7,10 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/Dictionaries/btnEmptyDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/Dictionaries/btnAdminDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/Dictionaries/btnAdminQuickDictionary.xaml"/>
                 <ResourceDictionary Source="/Resources/Dictionaries/btnSaleToggleDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/Dictionaries/btnItemDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/Dictionaries/comboBoxDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/Dictionaries/tglStaffDictionary.xaml"/>
-                <ResourceDictionary Source="/Resources/Dictionaries/txtBoxEnter.xaml"/>
 
-                <ResourceDictionary Source="/Resources/Dictionary/btnProductTillScreenDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionary/ButtonsDictionary/btnProductTillScreenDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Dictionary/ThemeDictionary/TillThemeDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

@@ -5,86 +5,72 @@
     <SolidColorBrush x:Key="Button.Default.Pressed.Border" Color="Black"/>
     <SolidColorBrush x:Key="Button.Default.Foreground" Color="Black"/>
     <!-- END DEFAULT COLOURS -->
-    <!-- NEW COLORS -->
-    <SolidColorBrush x:Key="Button.Default.Empty.Background" Color="#36454F"/>
-    <SolidColorBrush x:Key="Button.Default.Empty.Pressed.Background" Color="LightSteelBlue"/>
-
+    
+    <!-- DEFAULT COLORS -->
     <SolidColorBrush x:Key="Button.Default.Item.Background" Color="#8B4000"/>
     <SolidColorBrush x:Key="Button.Default.Item.Pressed.Background" Color="#7B3F00"/>
-    <!-- END NEW COLORS -->
-    
+
+    <!-- WHITE COLORS -->
+    <SolidColorBrush x:Key="Button.White.Item.Background" Color="White"/>
+    <SolidColorBrush x:Key="Button.White.Item.Pressed.Background" Color="WhiteSmoke"/>
+
+    <!-- BLACK COLORS -->
+    <SolidColorBrush x:Key="Button.Black.Item.Background" Color="Black"/>
+    <SolidColorBrush x:Key="Button.Black.Item.Pressed.Background" Color="Gray"/>
+
     <!-- ORCHID COLOR -->
     <SolidColorBrush x:Key="Button.Orchid.Item.Background" Color="#DA70D6"/>
     <SolidColorBrush x:Key="Button.Orchid.Item.Pressed.Background" Color="#915F6D"/>
-    <!-- END ORCHID COLOR -->
-    
+
     <!-- Burnt Orange -->
     <SolidColorBrush x:Key="Button.BurntOrange.Item.Background" Color="#CC5500"/>
     <SolidColorBrush x:Key="Button.BurntOrange.Item.Pressed.Background" Color="#E97451"/>
-    <!-- END BURNT ORANGE -->
-    
+
     <!-- LIME GREEN -->
     <SolidColorBrush x:Key="Button.LimeGreen.Item.Background" Color="#32CD32"/>
     <SolidColorBrush x:Key="Button.LimeGreen.Item.Pressed.Background" Color="#009E60"/>
-    <!-- END LINE GREEN-->
-    
+
     <!-- SEA GREEN -->
     <SolidColorBrush x:Key="Button.SeaGreen.Item.Background" Color="#2E8B57"/>
     <SolidColorBrush x:Key="Button.SeaGreen.Item.Pressed.Background" Color="#4F7942"/>
-    <!-- END GREEN -->
-    
+
     <!-- RED -->
     <SolidColorBrush x:Key="Button.Red.Item.Background" Color="Red"/>
     <SolidColorBrush x:Key="Button.Red.Item.Pressed.Background" Color="DarkRed"/>
-    <!-- END RED -->
-    
+
+    <!-- DARK RED -->
+    <SolidColorBrush x:Key="Button.DarkRed.Item.Background" Color="Crimson"/>
+    <SolidColorBrush x:Key="Button.DarkRed.Item.Pressed.Background" Color="DarkRed"/>
+
     <!-- DARK PURPLE COLOR -->
     <SolidColorBrush x:Key="Button.DarkPurple.Item.Background" Color="#673147"/>
     <SolidColorBrush x:Key="Button.DarkPurple.Item.Pressed.Background" Color="#301934"/>
-    <!-- END PURPLE COLOR -->
-    
+
     <!-- EGGPLANT PURPLE -->
     <SolidColorBrush x:Key="Button.Eggplant.Item.Background" Color="#483248"/>
     <SolidColorBrush x:Key="Button.Eggplant.Item.Pressed.Background" Color="#301934"/>
-    <!-- END EGGPLANT PURPLE-->
-    
-    <!-- BRIGHT BLUE COLOR -->
-    <SolidColorBrush x:Key="Button.BrightBlue.Item.Background" Color="#0096FF"/>
-    <SolidColorBrush x:Key="Button.BrightBlue.Item.Pressed.Background" Color="#0047AB"/>
-    <!-- END BRIGHT BLUE COLOR -->
-    
-    <!-- Blue -->
-    <SolidColorBrush x:Key="Button.Blue.Item.Background" Color="Blue"/>
-    <SolidColorBrush x:Key="Button.Blue.Item.Pressed.Background" Color="DarkBlue"/>
-    <!-- END BLUE -->
-    
-    <!-- DEFAULT COLOUR SETTER -->
-    <Style x:Key="btnDefaultEmptyTheme" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{StaticResource Button.Default.Empty.Background}"/>
-        <Setter Property="Foreground" Value="{StaticResource Button.Default.Foreground}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
-        <Setter Property="BorderThickness" Value="5"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Default.Empty.Pressed.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
-                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
 
+    <!-- BRIGHT BLUE COLOR -->
+    <SolidColorBrush x:Key="Button.BrightBlue.Item.Background" Color="MediumBlue"/>
+    <SolidColorBrush x:Key="Button.BrightBlue.Item.Pressed.Background" Color="MidnightBlue"/>
+
+    <!-- DARK BLUE COLOR -->
+    <SolidColorBrush x:Key="Button.DarkBlue.Item.Background" Color="#0096FF"/>
+    <SolidColorBrush x:Key="Button.DarkBlue.Item.Pressed.Background" Color="#0047AB"/>
+
+    <!-- PURPLE COLOR -->
+    <SolidColorBrush x:Key="Button.Purple.Item.Background" Color="MediumPurple"/>
+    <SolidColorBrush x:Key="Button.Purple.Item.Pressed.Background" Color="Purple"/>
+
+    <!-- YELLOW COLOR -->
+    <SolidColorBrush x:Key="Button.Yellow.Item.Background" Color="Gold"/>
+    <SolidColorBrush x:Key="Button.Yellow.Item.Pressed.Background" Color="Goldenrod"/>
+    
+    <!-- DARK YELLOW COLOR -->
+    <SolidColorBrush x:Key="Button.DarkYellow.Item.Background" Color="Goldenrod"/>
+    <SolidColorBrush x:Key="Button.DarkYellow.Item.Pressed.Background" Color="DarkGoldenrod"/>
+
+    <!--#region  DEFAULT COLOR SETTER -->
     <Style x:Key="btnDefaultItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Default.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -113,9 +99,66 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END DEFAULT COLOUR SETTER -->
-    
-    <!-- ORCHID COLOR SETTER -->
+    <!--#endregion-->
+    <!--#region WHITE -->
+    <Style x:Key="btnWhiteItemTheme" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Button.White.Item.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.White.Item.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region BLACK -->
+    <Style x:Key="btnBlackItemTheme" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Button.Black.Item.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Black.Item.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region ORCHID COLOR SETTER -->
     <Style x:Key="btnOrchidItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Orchid.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -143,9 +186,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END ORCHID COLOR SETTER -->
-    
-    <!-- BURNT ORANGE -->
+    <!--#endregion-->
+    <!--#region BURNT ORANGE -->
     <Style x:Key="btnBurntOrangeItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.BurntOrange.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -173,8 +215,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <!-- LIME GREEN -->
+    <!--#endregion-->
+    <!--#region LIME GREEN -->
     <Style x:Key="btnLimeGreenItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.LimeGreen.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -202,9 +244,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END LIME GREEN -->
-
-    <!-- SEA GREEN -->
+    <!--#endregion-->
+    <!--#region SEA GREEN -->
     <Style x:Key="btnSeaGreenItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.SeaGreen.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -232,9 +273,37 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END SEA GREEN -->
-
-    <!-- RED -->
+    <!--#endregion -->
+    <!--#region DARK RED -->
+    <Style x:Key="btnDarkRedItemTheme" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Button.DarkRed.Item.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.DarkRed.Item.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion -->
+    <!--#region RED -->
     <Style x:Key="btnRedItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Red.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -262,9 +331,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END RED -->
-
-    <!-- DARK PURPLE -->
+    <!--#endregion -->
+    <!--#region DARK PURPLE -->
     <Style x:Key="btnDarkPurpleItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.DarkPurple.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -292,8 +360,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END DARK PURPLE -->
-    <!-- EGG PLANT -->
+    <!--#endregion-->
+    <!--#region EGG PLANT -->
     <Style x:Key="btnBrightBlueItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.BrightBlue.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -321,8 +389,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END EGGPLANT -->
-    <!-- BRIGHT BLUE SETTER -->
+    <!--#endregion-->
+    <!--#region BRIGHT BLUE SETTER -->
     <Style x:Key="btnEggplantItemTheme" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource Button.Eggplant.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
@@ -350,11 +418,10 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END BRIGHT BLUE SETTER -->
-    
-    <!-- BLUE -->
+    <!--#endregion-->
+    <!--#region BLUE -->
     <Style x:Key="btnBlueItemTheme" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{StaticResource Button.Blue.Item.Background}"/>
+        <Setter Property="Background" Value="{StaticResource Button.BrightBlue.Item.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
         <Setter Property="BorderThickness" Value="5"/>
         <Setter Property="FontWeight" Value="UltraBlack"/>
@@ -371,7 +438,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Blue.Item.Pressed.Background}"/>
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.BrightBlue.Item.Pressed.Background}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
                             <Setter Property="BorderThickness" TargetName="border" Value="10"/>
                         </Trigger>
@@ -380,5 +447,122 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- END BLUE SETTER -->
+    <!--#endregion-->
+    <!--#region DARK BLUE -->
+    <Style x:Key="btnDarkBlueItemTheme" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Button.DarkBlue.Item.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.DarkBlue.Item.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region PURPLE COLOR SETTER -->
+    <Style x:Key="btnPurpleItemTheme" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Button.Purple.Item.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Purple.Item.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region YELLOW COLOR SETTER -->
+    <Style x:Key="btnYellowItemTheme" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Button.Yellow.Item.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Yellow.Item.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    <!--#region DARK YELLOW -->
+    <Style x:Key="btnDarkYellowItemTheme" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Button.DarkYellow.Item.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Default.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="FontWeight" Value="UltraBlack"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Cooper Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.DarkYellow.Item.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Default.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
 </ResourceDictionary>

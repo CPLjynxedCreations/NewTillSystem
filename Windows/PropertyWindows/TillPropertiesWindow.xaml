@@ -1,0 +1,206 @@
+﻿<Window x:Class="NewTillSystem.Windows.TillPropertiesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewTillSystem.Windows"
+        mc:Ignorable="d"
+        Title="TillPropertiesWindow"
+        WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" Background="Transparent"
+        Height="742" Width="1487">
+    <!-- Height="740" Width="620"> -->
+    <Grid x:Name="grdProperty">
+        <Rectangle x:Name="rctPropertyWindow1" Style="{StaticResource DefaultRectangleBackgroundTheme}"/>
+        <Border x:Name="brdPageBreak1" Style="{StaticResource BorderTheme}"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Margin="495,0,0,0"
+                Width="5" Height="742"/>
+        <Border x:Name="brdPageBreak2" Style="{StaticResource BorderTheme}"
+                Margin="990,0,0,0"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Width="5" Height="742"/>
+        <TextBlock x:Name="lblThemeName" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="270" Height="40"
+                       VerticalAlignment="Top" HorizontalAlignment="Left"
+                       Text="Till Theme"
+                       Margin="40,30,0,0"/>
+        <ComboBox x:Name="boxSelectTheme" Style="{DynamicResource DefaultComboBoxToggleTheme}" GotFocus="GotFocus_Click"
+                      Width="350" Height="50"
+                      FontSize="22" FontWeight="Bold" Padding="15,10,0,0"
+                      VerticalAlignment="Top" HorizontalAlignment="Left"
+                      Margin="40,70,0,0"
+                      BorderThickness="5">
+            <ComboBoxItem x:Name="boxThemeSelectDefualt" Tag="Default" Content="Default"/>
+            <ComboBoxItem x:Name="boxThemeSelectDarkRed" Tag="DarkRed" Content="DarkRed"/>
+            <ComboBoxItem x:Name="boxThemeSelectLightGreen" Tag="LightGreen" Content="LightGreen"/>
+            <ComboBoxItem x:Name="boxThemeSelectLightBlue" Tag="LightBlue" Content="LightBlue"/>
+        </ComboBox>
+        <TextBlock x:Name="lblLoginBackground" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="270" Height="40"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                       Text="Log In Background"
+                       Margin="40,0,0,330"/>
+        <ScrollViewer x:Name="scrlThemeSelect" Style="{StaticResource DefaultScrollViewTheme}"
+                          Width="420" Height="300"
+                          HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                          Margin="40,0,0,30">
+            <Border x:Name="brdBackgroundScroll" Style="{StaticResource BorderTheme}" CornerRadius="10,0,0,10" Height="300">
+                <StackPanel x:Name="panelBackgroundSelect">
+                    <Grid x:Name="grdLoginBackgroundPanel">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="197"/>
+                            <ColumnDefinition Width="197"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="90"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="BarBackground" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="0" Grid.Row="0"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BarBackground.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="CoffeeBackGround" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="1" Grid.Row="0"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\CoffeeBackground.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="BeerBackGround1" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="0" Grid.Row="1"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BeerBackground1.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="BeerBackGround2" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="1" Grid.Row="1"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BeerBackground2.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="BeerBackGround3" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="0" Grid.Row="2"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\BeerBackground3.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="GreyCuttleryBackGround" Style="{StaticResource DefaultButtonAdminImageTheme}" Click="LoginBackground_Click"
+                                Grid.Column="1" Grid.Row="2"
+                                Height="90">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\GreyCuttleryBackground.jpg"/>
+                            </Button.Background>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+        <TextBlock x:Name="lblLoginTime" Style="{StaticResource DefaultTextBlockTheme}"
+                       Width="270" Height="40"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                       Text="Log In Time Colour"
+                       Margin="40,0,0,420"/>
+        <!--#region COLOR PICKER -->
+        <Canvas x:Name="boxSelectLoginTimeColor"
+                      Width="350" Height="50"
+                      VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                      Margin="40,0,0,370">
+            <ToggleButton Style="{StaticResource ColorPalletToggleButtonTheme}" x:Name="toggleBoxSelectLoginTimeColor" Width="350" Height="50" Background="White" Checked="toggleBoxSelectLoginTimeColor_Checked" Unchecked="toggleBoxSelectLoginTimeColor_Checked" Focusable="False"/>
+            <Border x:Name="borderToggleBoxSelectLoginTimeColor" BorderBrush="Black" BorderThickness="5,5,5,5" Width="350" Height="50"/>
+            <Popup x:Name="popBoxSelectLoginTimeColorDrop" IsOpen="False">
+                <Canvas Style="{StaticResource DefaultCanvasTheme}" x:Name="canvasBoxSelectLoginTimeColorDrop" Width="350" Height="300">
+                    <UniformGrid x:Name="popBoxSelectLoginTimeColorGrid" Margin="5,0,5,5" Columns="10" Rows="6" Width="340" Height="300">
+                        <Button x:Name="boxTimeBlack" Tag="Black" Background="Black" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeTaupe" Tag="#483C32" Background="#483C32" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCharcoal" Tag="#36454F" Background="#36454F" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkGray" Tag="#696969" Background="#696969" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimePewter" Tag="#899499" Background="#899499" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeWhite" Tag="White" Background="White" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeMidnightBlue" Tag="#191970" Background="#191970" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeBlueGreen" Tag="#088F8F" Background="#088F8F" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkBlue" Tag="#4682B4" Background="#4682B4" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeNeonBlue" Tag="#1F51FF" Background="#1F51FF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeBrightBlue" Tag="#0096FF" Background="#0096FF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightBlue" Tag="#00BFFF" Background="#00BFFF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeSkyBlue" Tag="#00BFFF" Background="#87CEEB" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeTurquoise" Tag="#40E0D0" Background="#40E0D0" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeAqua" Tag="#00FFFF" Background="#00FFFF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeSeafoamGreen" Tag="#9FE2BF" Background="#9FE2BF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkGreen" Tag="#355E3B" Background="#355E3B" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeJadeGreen" Tag="#00A36C" Background="#00A36C" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeKellyGreen" Tag="#4CBB17" Background="#4CBB17" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeBrightGreen" Tag="#AAFF00" Background="#AAFF00" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightGreen" Tag="#90EE90" Background="#90EE90" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeOliveGreen" Tag="#808000" Background="#808000" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimePearGreen" Tag="#C9CC3F" Background="#C9CC3F" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeSageGreen" Tag="#8A9A5B" Background="#8A9A5B" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightGray" Tag="#DCDCDC" Background="#DCDCDC" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightYellow" Tag="#FFFACD" Background="#FFFACD" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightBrown" Tag="#DEB887" Background="#DEB887" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCanaryYellow" Tag="#FFFF8F" Background="#FFFF8F" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeFlax" Tag="#EEDC82" Background="#EEDC82" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkYellow" Tag="#FFD700" Background="#FFD700" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkAmber" Tag="#FFBF00" Background="#FFBF00" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCadmiumRed" Tag="#D22B2B" Background="#D22B2B" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCherry" Tag="#D2042D" Background="#D2042D" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCrimson" Tag="#DC143C" Background="#DC143C" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkPink" Tag="#FF1493" Background="#FF1493" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkPurple" Tag="#702963" Background="#702963" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimePurple" Tag="#800080" Background="#800080" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeMagenta" Tag="#FF00FF" Background="#FF00FF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeOrchid" Tag="#DA70D6" Background="#DA70D6" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkRed" Tag="#880808" Background="#880808" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeBurntRed" Tag="#6E260E" Background="#6E260E" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeDarkBrown" Tag="#8B4513" Background="#8B4513" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeChocolate" Tag="#7B3F00" Background="#7B3F00" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCoffee" Tag="#6F4E37" Background="#6F4E37" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeBronze" Tag="#CD7F32" Background="#CD7F32" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCamel" Tag="#C19A6B" Background="#C19A6B" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeSand" Tag="#C2B280" Background="#C2B280" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimePeach" Tag="#FFE5B4" Background="#FFE5B4" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeVanilla" Tag="#F3E5AB" Background="#F3E5AB" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeCoral" Tag="#EE4B2B" Background="#EE4B2B" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeNeonOrange" Tag="#FF5F1F" Background="#FF5F1F" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeOrange" Tag="#FF7518" Background="#FF7518" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeButterScotch" Tag="#E3963E" Background="#E3963E" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightRed" Tag="#FF7F50" Background="#FF7F50" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightViolot" Tag="#CF9FFF" Background="#CF9FFF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightPurple" Tag="#E0B0FF" Background="#E0B0FF" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimePastelPurple" Tag="#C3B1E1" Background="#C3B1E1" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeLightPink" Tag="#FFC0CB" Background="#FFC0CB" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimePastelPink" Tag="#F8C8DC" Background="#F8C8DC" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                        <Button x:Name="boxTimeSeaShell" Tag="#FFF5EE" Background="#FFF5EE" Style="{DynamicResource ColorPalletButton}" Click="Color_Click"/>
+                    </UniformGrid>
+                    <Border x:Name="canvasBorderBoxSelectLoginTimeColorDrop" Width="350" Height="300" BorderBrush="Black" BorderThickness="5,0,5,5"/>
+                </Canvas>
+            </Popup>
+        </Canvas>
+        <!--#endregion-->
+
+
+        <Button x:Name="btnApply" Style="{DynamicResource DefaultPropertytButton}" Click="btnApply_Click"
+                    Width="180" Height="80"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Margin="0,0,260,30"
+                    Tag="AdminTheme" Content="APPLY"/>
+        <Button x:Name="btnCancel" Style="{DynamicResource DefaultPropertytButton}"
+                    Width="180" Height="80"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Margin="0,0,40,30"
+                    Tag="AdminTheme" Content="CANCEL"/>
+        <Button x:Name="btnTillPropertiesWindowClose" Style="{StaticResource DefaultPropertytButton}"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Width="80" Height="60"
+                Margin="0,30,30,0"
+                Content="X"/>
+    </Grid>
+</Window>

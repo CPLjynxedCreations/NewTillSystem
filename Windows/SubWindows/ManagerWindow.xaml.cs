@@ -11,16 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
-    /// <summary>
-    /// Interaction logic for WindowCustomizeTillButton.xaml
-    /// </summary>
-    public partial class WindowTillProperties : Window
+    public partial class ManagerWindow : Window
     {
-        public WindowTillProperties()
+        //public bool boolSetEditProduct;
+        ThemeController themeController;
+
+        public ManagerWindow()
         {
+            themeController = new ThemeController();
             InitializeComponent();
         }
     }

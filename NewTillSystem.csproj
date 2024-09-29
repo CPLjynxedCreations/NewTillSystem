@@ -10,8 +10,18 @@
 
   <ItemGroup>
     <None Remove="Resources\Images\BarBackground.jpg" />
+    <None Remove="Resources\Images\BeerBackground1.jpg" />
+    <None Remove="Resources\Images\BeerBackground2.jpg" />
+    <None Remove="Resources\Images\BeerBackground3.jpg" />
+    <None Remove="Resources\Images\BrownCuttleryBackground2.jpg" />
+    <None Remove="Resources\Images\BrownCuttleryBackground3.jpg" />
     <None Remove="Resources\Images\CoffeeBackground.jpg" />
+    <None Remove="Resources\Images\GreyCuttleryBackground.jpg" />
     <None Remove="Resources\Images\NoUnder18.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ProjectImages\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,13 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ProjectImages\" />
-    <Folder Include="Resources\Scripts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Resources\Images\BarBackground.jpg" />
+    <Resource Include="Resources\Images\BeerBackground1.jpg" />
+    <Resource Include="Resources\Images\BeerBackground2.jpg" />
+    <Resource Include="Resources\Images\BeerBackground3.jpg" />
     <Resource Include="Resources\Images\CoffeeBackground.jpg" />
+    <Resource Include="Resources\Images\GreyCuttleryBackground.jpg" />
     <Resource Include="Resources\Images\NoUnder18.png" />
   </ItemGroup>
 

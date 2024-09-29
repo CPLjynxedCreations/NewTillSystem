@@ -15,43 +15,52 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DocumentFormat.OpenXml.VariantTypes;
+using NewTillSystem.Resources.Scripts;
 
 namespace NewTillSystem.Windows
 {
-    public partial class EnterProductDetails : Window
+    public partial class ProductDetails : Window
     {
-        public string strProductName;
-        public string strProductPrice;
-        public string strButtonTheme;
-        public string strButtonForeground;
-        public string strEditProductName;
-        public string strEditProductPrice;
-        public string strEditButtonTheme;
-        public string strEditButtonForeground;
+        ThemeController themeController;
+        TillScreen tillScreen;
+
+        public string strProductName = string.Empty;
+        public string strProductPrice = string.Empty;
+        public string strButtonTheme = string.Empty;
+        public string strButtonForeground = string.Empty;
+        public string strEditProductName = string.Empty;
+        public string strEditProductPrice = string.Empty;
+        public string strEditButtonTheme = string.Empty;
+        public string strEditButtonForeground = string.Empty;
         public bool boolIsEditing;
 
-        public EnterProductDetails()
+        private string errorBoxThemeProduct = string.Empty;
+        private string txtBoxLabelThemeProduct = string.Empty;
+        private string txtBoxLabelSelectedThemeProduct = string.Empty;
+
+        public ProductDetails()
         {
             InitializeComponent();
+
+            themeController = new ThemeController();
+            tillScreen = (TillScreen)Application.Current.MainWindow;
+
+            errorBoxThemeProduct = tillScreen.errorBoxTheme;
+            txtBoxLabelThemeProduct = tillScreen.txtBoxLabelTheme;
+            txtBoxLabelSelectedThemeProduct = tillScreen.txtBoxSelectLabelTheme;
+
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
             if (boolIsEditing)
             {
                 strButtonTheme = strEditButtonTheme;
                 strButtonForeground = strEditButtonForeground;
-                //btnDelete.IsEnabled = false;
-                //btnDelete.BorderBrush = Brushes.Orange;
             }
-            //strProductName = txtEnterProductName.Text;
-            //strProductPrice = txtEnterProductPrice.Text;
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             strProductName = string.Empty;
             strProductPrice = string.Empty;
-            //strButtonTheme = ;
-            //strButtonForeground = "btnDefaultEmptyTheme";
-            //btnCancel.Foreground = "Transparent";
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
@@ -103,7 +112,7 @@ namespace NewTillSystem.Windows
         {
             Button btnClicked = (Button)sender;
             string strLetterPressed = Convert.ToString(btnClicked.Content);
-            if (strLetterPressed == btnKeyboard_SPACE.Content)
+            if (btnKeyboard_SPACE.Content.ToString() == strLetterPressed)
             {
                 strLetterPressed = " ";
             }
@@ -117,7 +126,7 @@ namespace NewTillSystem.Windows
                         TextBox txtBox = (TextBox)item;
                         if (txtBox.IsFocused)
                         {
-                            if (strLetterPressed != btnKeyboard_DELETE.Content)
+                            if (btnKeyboard_DELETE.Content.ToString() != strLetterPressed)
                             {
                                 txtBox.Text = txtBox.Text.ToUpper() + strLetterPressed.ToUpper();
                                 txtBox.CaretIndex = txtBox.Text.Length;
@@ -148,12 +157,10 @@ namespace NewTillSystem.Windows
                         TextBox txtBox = (TextBox)item;
                         if (txtBox.IsFocused)
                         {
-
-                            // STILL DOESNT CHANGE COLOR OF BORDER AFTER CLICKING AWAY FROM TEXT BOX
                             if (txtEnterProductPrice.IsFocused)
                             {
-                                txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
+                                txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelSelectedThemeProduct];
+                                txtEnterProductName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                                 panelNumpad.IsEnabled = true;
                                 panelKeybooardButtons.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -161,8 +168,8 @@ namespace NewTillSystem.Windows
                             }
                             else if (txtBox.Name == txtEnterProductName.Name)
                             {
-                                txtBox.BorderBrush = Brushes.Firebrick;
-                                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
+                                txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelSelectedThemeProduct];
+                                txtEnterProductPrice.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                                 panelKeybooardButtons.IsEnabled = true;
                                 panelNumpad.IsEnabled = false;
                                 Keyboard.ClearFocus();
@@ -171,7 +178,7 @@ namespace NewTillSystem.Windows
                         }
                         else
                         {
-                            txtBox.BorderBrush = Brushes.DarkOliveGreen;
+                            txtBox.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                         }
                     }
                     else
@@ -194,8 +201,8 @@ namespace NewTillSystem.Windows
             {
                 btnColorView.Style = (Style)Application.Current.Resources[btnTest.Name];
                 strButtonTheme = btnTest.Name;
-                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
-                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
+                txtEnterProductName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
+                txtEnterProductPrice.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
                 //save string theme
             }
             if (btnTest.Name.Contains("Foreground"))
@@ -204,9 +211,8 @@ namespace NewTillSystem.Windows
                 SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(colorTag);
                 btnColorView.Foreground = colorBrush;
                 strButtonForeground = Convert.ToString(btnTest.Tag);
-                txtEnterProductName.BorderBrush = Brushes.DarkOliveGreen;
-                txtEnterProductPrice.BorderBrush = Brushes.DarkOliveGreen;
-
+                txtEnterProductName.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
+                txtEnterProductPrice.Style = (Style)Application.Current.Resources[txtBoxLabelThemeProduct];
             }
             panelKeybooardButtons.IsEnabled = false;
             panelNumpad.IsEnabled = false;
