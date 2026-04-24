@@ -1,4 +1,5 @@
 add table and tab saving
 change log on to require enter to be pressed to log in
-start a duplicate with out all the theming (just pure functions)
 accounts with owing balances and pay features
+duplicate file and move theming to own controller and disable theming for now. 
+	basic view with no theme. focus on core of features. 
